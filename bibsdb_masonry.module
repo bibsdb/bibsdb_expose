@@ -1,0 +1,98 @@
+<?php
+/**
+ * @file
+ * Code for the Bibsdb Masonry feature.
+ */
+
+include_once 'bibsdb_masonry.features.inc';
+
+/*
+ * Public: Implements hook_form_FORM_ID_alter.
+ *
+ * Move the 'field_bibsdb_brick_type' field to the 'options' fieldset.
+ * Move the 'field_ding_news_category' field to the 'options' fieldset.
+ */
+function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
+
+  $type = $form['#node']->type;
+
+  // Move Publishing Options to the top of the vertical tabs
+  $form['options']['#weight'] = 0;
+
+
+	// Move bibsdb_fact_box_title and bibsdb_fact_box_body into group_ding_news_content
+	if(isset($form['field_bibsdb_fact_box_title'])) {
+		$form['#group_children']['field_bibsdb_fact_box_title'] = 'group_ding_news_content';
+	}
+
+	if(isset($form['field_bibsdb_fact_box_body'])) {
+		$form['#group_children']['field_bibsdb_fact_box_body'] = 'group_ding_news_content';
+	}
+
+
+	// Move field_bibsdb_brick_type into options
+  if(isset($form['field_bibsdb_brick_type'])) {
+    // Define field in 'options' fieldset and unset original definition.
+    $form['options']['field_bibsdb_brick_type'] = $form['field_bibsdb_brick_type'];
+    $form['options']['field_bibsdb_brick_type']['#weight'] = -5;
+
+    // Display term description in options
+    $options = $form['options']['field_bibsdb_brick_type']['und']['#options'];
+    $form['options']['field_bibsdb_brick_type']['und']['#options'] = _bibsdb_masonry_display_taxonomy_description($options);
+    unset($form['field_bibsdb_brick_type']);
+  }
+
+	// Move field_ding_news_category into options
+	/* UNCOMMENT ON MASONRY LAUNCH
+  if(isset($form['field_ding_news_category'])) {
+    // Define field in 'options' fieldset and unset original definition.
+    $form['options']['field_ding_news_category'] = $form['field_ding_news_category'];
+    $form['options']['field_ding_news_category']['#weight'] = -10;
+    unset($form['field_ding_news_category']);
+  }
+  */
+
+	// On ding_news hide library list og news tags
+	if ($type == 'ding_news') {
+		$form['og_group_ref']['#access'] = FALSE;
+		$form['field_ding_news_tags']['#access'] = FALSE;
+		$form['options']['field_bibsdb_brick_type']['#access'] = FALSE; // REMOVE THIS ON MASONRY LAUNCH /AGMS
+	}  
+}
+
+/*
+ * Public: Implements hook_node_update.
+ *
+ * Before saving the node, move the 'field_bibsdb_brick_type' field back
+ * to its original location. Otherwise the field won't save.
+ */
+
+function bibsdb_masonry_node_update($node) {
+
+  // Check if field exists on node form.
+  if(isset($node->options['field_bibsdb_brick_type']['und'][0]['value'])) {
+    // Redefine field in original definition and unset in 'options' fieldset.
+    $node->field_bibsdb_brick_type['und'][0]['value'] = $node->options['field_bibsdb_brick_type']['und'][0]['value'];
+    unset($node->options['field_bibsdb_brick_type']);
+  }
+
+   // Check if field exists on node form.
+  if(isset($node->options['field_ding_news_category']['und'][0]['value'])) {
+    // Redefine field in original definition and unset in 'options' fieldset.
+    $node->field_ding_news_category['und'][0]['value'] = $node->options['field_ding_news_category']['und'][0]['value'];
+    unset($node->options['field_ding_news_category']);
+  }
+}
+
+/*
+ * Private: Loads taxonomy term and adds description to options array..
+ */
+function _bibsdb_masonry_display_taxonomy_description($options) {
+
+	foreach ($options as $tid => $title) {
+    $term = taxonomy_term_load($tid);
+    $options[$tid] = $title . $term->description;
+  }
+
+  return $options;
+}
