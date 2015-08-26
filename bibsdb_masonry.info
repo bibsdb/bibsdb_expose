@@ -21,5 +21,5 @@ features[field_instance][] = node-ding_news-field_bibsdb_fact_box_title
 features[field_instance][] = node-ding_news-field_bibsdb_tag
 features[image][] = bibsdb_masonry_large
 features[taxonomy][] = brick_types
-mtime = 1440406360
+mtime = 1440511953
 project path = sites/default/modules
