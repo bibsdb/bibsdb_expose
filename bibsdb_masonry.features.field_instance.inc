@@ -10,6 +10,86 @@
 function bibsdb_masonry_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-ding_news-field_bibsdb_background_image'
+  $field_instances['node-ding_news-field_bibsdb_background_image'] = array(
+    'bundle' => 'ding_news',
+    'deleted' => 0,
+    'description' => 'OPTIONAL. This image is merged into the background of title image and list image. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 18,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_background_image',
+    'label' => 'Background Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'ding_content' => 0,
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 'upload',
+          'youtube' => 0,
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'media_generic',
+      'weight' => 39,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_news-field_bibsdb_brick_type'
   $field_instances['node-ding_news-field_bibsdb_brick_type'] = array(
     'bundle' => 'ding_news',
@@ -221,10 +301,12 @@ function bibsdb_masonry_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Background Image');
   t('Bliver vist foran titlen. ');
   t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
+  t('OPTIONAL. This image is merged into the background of title image and list image. ');
   t('Tag');
 
   return $field_instances;

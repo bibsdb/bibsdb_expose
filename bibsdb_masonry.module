@@ -29,6 +29,11 @@ function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
 		$form['#group_children']['field_bibsdb_fact_box_body'] = 'group_ding_news_content';
 	}
 
+  // Move field_bibsdb_background_image into group_ding_news_images
+  if(isset($form['field_bibsdb_background_image'])) {
+    $form['#group_children']['field_bibsdb_background_image'] = 'group_ding_news_images';
+  }
+
 
 	// Move field_bibsdb_brick_type into options
   if(isset($form['field_bibsdb_brick_type'])) {
