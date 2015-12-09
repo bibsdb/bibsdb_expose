@@ -18,13 +18,9 @@ function bibsdb_masonry_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 18,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -52,8 +48,8 @@ function bibsdb_masonry_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
+      'file_directory' => 'bibsdb_news_underlays',
+      'file_extensions' => 'jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
@@ -78,7 +74,7 @@ function bibsdb_masonry_field_default_field_instances() {
         'browser_plugins' => array(
           'ding_content' => 0,
           'media_default--media_browser_1' => 'media_default--media_browser_1',
-          'media_default--media_browser_my_files' => 0,
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
           'media_internet' => 0,
           'upload' => 'upload',
           'youtube' => 0,
@@ -87,6 +83,118 @@ function bibsdb_masonry_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 39,
+    ),
+  );
+
+  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_xpos'
+  $field_instances['node-ding_news-field_bibsdb_bgimg_xpos'] = array(
+    'bundle' => 'ding_news',
+    'default_value' => array(
+      0 => array(
+        'value' => 300,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'List Image vil blive placeret oven på baggrundsbilledet i den vandrettet position du angiver her.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_bgimg_xpos',
+    'label' => 'Vandret position på baggrundsbilledet (px)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_ypos'
+  $field_instances['node-ding_news-field_bibsdb_bgimg_ypos'] = array(
+    'bundle' => 'ding_news',
+    'default_value' => array(
+      0 => array(
+        'value' => 50,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'List Image vil blive placeret oven på baggrundsbilledet i den lodrette position du angiver her.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_bgimg_ypos',
+    'label' => 'Lodret position på baggrundsbilledet (px)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 41,
     ),
   );
 
@@ -103,10 +211,9 @@ function bibsdb_masonry_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 16,
+        'type' => 'hidden',
+        'weight' => 20,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -155,7 +262,7 @@ function bibsdb_masonry_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 15,
+        'weight' => 12,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -207,7 +314,7 @@ function bibsdb_masonry_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 11,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -247,6 +354,114 @@ function bibsdb_masonry_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_height'
+  $field_instances['node-ding_news-field_bibsdb_listimg_height'] = array(
+    'bundle' => 'ding_news',
+    'default_value' => array(
+      0 => array(
+        'value' => 300,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'List Image vil blive skaleret ned til den valgte højde og placeret oven på baggrundsbilledet. Udfyld enten højde eller bredde. Er du i tvivl så udfyld ikke.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_listimg_height',
+    'label' => 'List Image - Højde (px)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 44,
+    ),
+  );
+
+  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_width'
+  $field_instances['node-ding_news-field_bibsdb_listimg_width'] = array(
+    'bundle' => 'ding_news',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'List Image vil blive skaleret ned til den valgte bredde og placeret oven på baggrundsbilledet. Udfyld enten højde eller bredde. Er du i tvivl så udfyld ikke.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_listimg_width',
+    'label' => 'List Image - Bredde (px)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 45,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_news-field_bibsdb_tag'
   $field_instances['node-ding_news-field_bibsdb_tag'] = array(
     'bundle' => 'ding_news',
@@ -259,7 +474,7 @@ function bibsdb_masonry_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 17,
+        'weight' => 13,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -299,6 +514,58 @@ function bibsdb_masonry_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ding_news-field_bibsdb_vanilla_list_image'
+  $field_instances['node-ding_news-field_bibsdb_vanilla_list_image'] = array(
+    'bundle' => 'ding_news',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_vanilla_list_image',
+    'label' => 'bibsdb_vanilla_list_image',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 43,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Background Image');
@@ -306,8 +573,17 @@ function bibsdb_masonry_field_default_field_instances() {
   t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
+  t('List Image - Bredde (px)');
+  t('List Image - Højde (px)');
+  t('List Image vil blive placeret oven på baggrundsbilledet i den lodrette position du angiver her.');
+  t('List Image vil blive placeret oven på baggrundsbilledet i den vandrettet position du angiver her.');
+  t('List Image vil blive skaleret ned til den valgte bredde og placeret oven på baggrundsbilledet. Udfyld enten højde eller bredde. Er du i tvivl så udfyld ikke.');
+  t('List Image vil blive skaleret ned til den valgte højde og placeret oven på baggrundsbilledet. Udfyld enten højde eller bredde. Er du i tvivl så udfyld ikke.');
+  t('Lodret position på baggrundsbilledet (px)');
   t('OPTIONAL. This image is merged into the background of title image and list image. ');
   t('Tag');
+  t('Vandret position på baggrundsbilledet (px)');
+  t('bibsdb_vanilla_list_image');
 
   return $field_instances;
 }

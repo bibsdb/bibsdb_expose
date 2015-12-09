@@ -43,5 +43,47 @@ function bibsdb_masonry_image_default_styles() {
     ),
   );
 
+  // Exported image style: bibsdb_masonry_large_bg.
+  $styles['bibsdb_masonry_large_bg'] = array(
+    'name' => 'bibsdb_masonry_large_bg',
+    'label' => 'bibsdb_masonry_large_bg',
+    'effects' => array(
+      7 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 300,
+          'upscale' => 0,
+        ),
+        'weight' => -10,
+      ),
+      1 => array(
+        'label' => 'Underlay (background)',
+        'help' => 'Choose the file image you wish to use as an background, and position the processed image on it.',
+        'effect callback' => 'canvasactions_canvas2file_effect',
+        'dimensions callback' => 'canvasactions_canvas2file_dimensions',
+        'form callback' => 'canvasactions_canvas2file_form',
+        'summary theme' => 'canvasactions_canvas2file_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_canvas2file',
+        'data' => array(
+          'xpos' => 300,
+          'ypos' => 50,
+          'alpha' => 100,
+          'path' => 'public://list_image/event/hvalens_sang_13_februar.jpg',
+          'dimensions' => 'background',
+        ),
+        'weight' => -9,
+      ),
+    ),
+  );
+
   return $styles;
 }
