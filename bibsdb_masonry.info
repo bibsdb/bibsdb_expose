@@ -39,5 +39,5 @@ features[field_instance][] = node-ding_news-field_bibsdb_vanilla_list_image
 features[image][] = bibsdb_masonry_large
 features[image][] = bibsdb_masonry_large_bg
 features[taxonomy][] = brick_types
-mtime = 1449657240
+mtime = 1450702512
 project path = sites/default/modules
