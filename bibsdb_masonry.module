@@ -22,28 +22,30 @@ function bibsdb_masonry_node_presave($node) {
       $background_image_ypos = $wrapper->field_bibsdb_bgimg_ypos->value();
       $list_image_height = $wrapper->field_bibsdb_listimg_height->value();
       $list_image_width = $wrapper->field_bibsdb_listimg_width->value();
-      $vanilla_list_image_fid = $wrapper->field_bibsdb_vanilla_list_image->value();
+      $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
 
       // Continue if we have files attached to list_image and background_image
       if (isset($background_image) && isset($list_image)) {
 
-        // If $vanilla_list_image_fid is set we have an original node (edit)
-        // If a new list image has been uploaded replace fid in field_bibsdb_vanilla_list_image
-        if (isset($vanilla_list_image_fid)) {
+        // If $vanilla_list_image is set we have an original node (edit)
+        // If a new list image has been uploaded replace image in field_bibsdb_vanilla_list_image
+        if (isset($vanilla_list_image)) {
           $list_image_original = $wrapper_original->field_ding_news_list_image->value();
           if (!($list_image_original[fid] == $list_image[fid])) {
-            $wrapper->field_bibsdb_vanilla_list_image = $list_image[fid];
+            $file = file_load($list_image[fid]);
+            $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
           }
         }
         // If field_bibsdb_vanilla_list_image isn't set (add) save the fid of the current list image
         else {
-          $wrapper->field_bibsdb_vanilla_list_image = $list_image[fid];
+          $file = file_load($list_image[fid]);
+          $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
         }
 
-        $vanilla_list_image_fid = $wrapper->field_bibsdb_vanilla_list_image->value();
+        $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
 
         // Load list image object 
-        $list_image_file = file_load($vanilla_list_image_fid);
+        $list_image_file = file_load($vanilla_list_image[fid]);
         $list_image_file_uri = $list_image_file->uri;
         $list_image_object = image_load($list_image_file_uri);
 
@@ -55,13 +57,17 @@ function bibsdb_masonry_node_presave($node) {
         if ($node->original) {
 
           // Load field values from the original node 
-          $list_image_original = $wrapper_original->field_ding_news_list_image->value();
+          $vanilla_list_image_original = $wrapper_original->field_bibsdb_vanilla_list_image->value();
           $background_image_original = $wrapper_original->field_bibsdb_background_image->value();
           $background_image_xpos_original = $wrapper_original->field_bibsdb_bgimg_xpos->value();
           $background_image_ypos_original = $wrapper_original->field_bibsdb_bgimg_ypos->value();
 
           // If none of the images or xpos or ypos have been tinked with exit here
-          if ($background_image_original[fid] == $background_image[fid] && $list_image_original[fid] == $vanilla_list_image_fid && $background_image_xpos_original == $background_image_xpos && $background_image_ypos_original == $background_image_ypos) {
+          if (($background_image_original[fid] == $background_image[fid]) 
+            && ($vanilla_list_image_original[fid] == $vanilla_list_image[fid]) 
+            && ($background_image_xpos_original == $background_image_xpos) 
+            && ($background_image_ypos_original == $background_image_ypos)) 
+          {
             return;
           }
         }
@@ -113,8 +119,7 @@ function bibsdb_masonry_node_presave($node) {
         $derivative_image_file = file_save_data(file_get_contents($underlay_image_file_path), $underlay_image_file_uri, FILE_EXISTS_REPLACE);
       
         // Then attach to node
-        $wrapper->field_ding_news_list_image->file->set($derivative_image_file);
-    
+        $wrapper->field_ding_news_list_image->file->set($derivative_image_file);    
       }
     }
 }

@@ -517,15 +517,18 @@ function bibsdb_masonry_field_default_field_instances() {
   // Exported field_instance: 'node-ding_news-field_bibsdb_vanilla_list_image'
   $field_instances['node-ding_news-field_bibsdb_vanilla_list_image'] = array(
     'bundle' => 'ding_news',
-    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 16,
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 22,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -548,21 +551,46 @@ function bibsdb_masonry_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_vanilla_list_image',
-    'label' => 'bibsdb_vanilla_list_image',
+    'label' => 'Hidden field to store original list image',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 43,
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'ding_content' => 0,
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+          'youtube' => 0,
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'media_generic',
+      'weight' => 46,
     ),
   );
 
@@ -573,6 +601,7 @@ function bibsdb_masonry_field_default_field_instances() {
   t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
+  t('Hidden field to store original list image');
   t('List Image - Bredde (px)');
   t('List Image - Højde (px)');
   t('List Image vil blive placeret oven på baggrundsbilledet i den lodrette position du angiver her.');
@@ -583,7 +612,6 @@ function bibsdb_masonry_field_default_field_instances() {
   t('OPTIONAL. This image is merged into the background of title image and list image. ');
   t('Tag');
   t('Vandret position på baggrundsbilledet (px)');
-  t('bibsdb_vanilla_list_image');
 
   return $field_instances;
 }

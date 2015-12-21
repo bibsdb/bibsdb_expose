@@ -244,15 +244,28 @@ function bibsdb_masonry_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bibsdb_vanilla_list_image',
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'number',
+    'module' => 'image',
     'settings' => array(
+      'default_image' => 0,
       'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
     ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'image',
   );
 
   return $field_bases;
