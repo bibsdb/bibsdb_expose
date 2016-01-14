@@ -10,6 +10,58 @@
 function bibsdb_masonry_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-ding_event-field_bibsdb_tag'
+  $field_instances['node-ding_event-field_bibsdb_tag'] = array(
+    'bundle' => 'ding_event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Bliver vist foran titlen når arrangementet vises i search context karrusellen.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_tag',
+    'label' => 'Tag',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -10,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_news-field_bibsdb_background_image'
   $field_instances['node-ding_news-field_bibsdb_background_image'] = array(
     'bundle' => 'ding_news',
@@ -195,58 +247,6 @@ function bibsdb_masonry_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 41,
-    ),
-  );
-
-  // Exported field_instance: 'node-ding_news-field_bibsdb_brick_type'
-  $field_instances['node-ding_news-field_bibsdb_brick_type'] = array(
-    'bundle' => 'ding_news',
-    'default_value' => array(
-      0 => array(
-        'tid' => 154,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 20,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser_highlight' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_bibsdb_brick_type',
-    'label' => 'Brick Type',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 38,
     ),
   );
 
@@ -590,11 +590,57 @@ function bibsdb_masonry_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-new_materials-field_bibsdb_tag'
+  $field_instances['node-new_materials-field_bibsdb_tag'] = array(
+    'bundle' => 'new_materials',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_tag',
+    'label' => 'Tag',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -10,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Background Image');
+  t('Bliver vist foran titlen når arrangementet vises i search context karrusellen.');
   t('Bliver vist foran titlen. ');
-  t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
   t('Hidden field to store original list image');

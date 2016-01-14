@@ -7,121 +7,160 @@
 include_once 'bibsdb_masonry.features.inc';
 
 
-function bibsdb_masonry_node_presave($node) {
 
-    if ('ding_news' == $node->type) {
+function bibsdb_masonry_node_presave($node) {
+  $wrapper = entity_metadata_wrapper('node', $node);
+
+  // TITLE TAG
+  // Append titletag to title. Applies to news and new_materails.
+  if($node->type == 'ding_news' || $node->type == 'new_materials') {
+    $tag = $wrapper->field_bibsdb_tag->value();
+    $title = $wrapper->label();
+
+    // Append tag 
+    $node->title = $tag . ": " . $title;
+  }
+
+
+    // BACKGROUND IMAGE
+  if ('ding_news' == $node->type) {
 
       // Make entity matadata wrappers for node being saved and the original node
-      $wrapper = entity_metadata_wrapper('node', $node);
-      $wrapper_original = entity_metadata_wrapper('node', $node->original);
+    $wrapper_original = entity_metadata_wrapper('node', $node->original);
 
       // Load field values of node being saved into variables
-      $list_image = $wrapper->field_ding_news_list_image->value();
-      $background_image = $wrapper->field_bibsdb_background_image->value();
-      $background_image_xpos = $wrapper->field_bibsdb_bgimg_xpos->value();
-      $background_image_ypos = $wrapper->field_bibsdb_bgimg_ypos->value();
-      $list_image_height = $wrapper->field_bibsdb_listimg_height->value();
-      $list_image_width = $wrapper->field_bibsdb_listimg_width->value();
-      $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
+    $list_image = $wrapper->field_ding_news_list_image->value();
+    $background_image = $wrapper->field_bibsdb_background_image->value();
+    $background_image_xpos = $wrapper->field_bibsdb_bgimg_xpos->value();
+    $background_image_ypos = $wrapper->field_bibsdb_bgimg_ypos->value();
+    $list_image_height = $wrapper->field_bibsdb_listimg_height->value();
+    $list_image_width = $wrapper->field_bibsdb_listimg_width->value();
+    $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
 
       // Continue if we have files attached to list_image and background_image
-      if (isset($background_image) && isset($list_image)) {
+    if (isset($background_image) && isset($list_image)) {
 
         // If $vanilla_list_image is set we have an original node (edit)
         // If a new list image has been uploaded replace image in field_bibsdb_vanilla_list_image
-        if (isset($vanilla_list_image)) {
-          $list_image_original = $wrapper_original->field_ding_news_list_image->value();
-          if (!($list_image_original[fid] == $list_image[fid])) {
-            $file = file_load($list_image[fid]);
-            $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
-          }
-        }
-        // If field_bibsdb_vanilla_list_image isn't set (add) save the fid of the current list image
-        else {
+      if (isset($vanilla_list_image)) {
+        $list_image_original = $wrapper_original->field_ding_news_list_image->value();
+        if (!($list_image_original[fid] == $list_image[fid])) {
           $file = file_load($list_image[fid]);
           $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
         }
+      }
+        // If field_bibsdb_vanilla_list_image isn't set (add) save the fid of the current list image
+      else {
+        $file = file_load($list_image[fid]);
+        $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
+      }
 
-        $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
+      $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
 
         // Load list image object 
-        $list_image_file = file_load($vanilla_list_image[fid]);
-        $list_image_file_uri = $list_image_file->uri;
-        $list_image_object = image_load($list_image_file_uri);
+      $list_image_file = file_load($vanilla_list_image[fid]);
+      $list_image_file_uri = $list_image_file->uri;
+      $list_image_object = image_load($list_image_file_uri);
 
         //Load background image file of node being saved
-        $background_image_file = file_load($background_image[fid]);
-        $background_image_file_uri = $background_image_file->uri;
+      $background_image_file = file_load($background_image[fid]);
+      $background_image_file_uri = $background_image_file->uri;
 
         // $node->original exists on node/edit - not on node/add
-        if ($node->original) {
+      if ($node->original) {
 
           // Load field values from the original node 
-          $vanilla_list_image_original = $wrapper_original->field_bibsdb_vanilla_list_image->value();
-          $background_image_original = $wrapper_original->field_bibsdb_background_image->value();
-          $background_image_xpos_original = $wrapper_original->field_bibsdb_bgimg_xpos->value();
-          $background_image_ypos_original = $wrapper_original->field_bibsdb_bgimg_ypos->value();
+        $vanilla_list_image_original = $wrapper_original->field_bibsdb_vanilla_list_image->value();
+        $background_image_original = $wrapper_original->field_bibsdb_background_image->value();
+        $background_image_xpos_original = $wrapper_original->field_bibsdb_bgimg_xpos->value();
+        $background_image_ypos_original = $wrapper_original->field_bibsdb_bgimg_ypos->value();
 
           // If none of the images or xpos or ypos have been tinked with exit here
-          if (($background_image_original[fid] == $background_image[fid]) 
-            && ($vanilla_list_image_original[fid] == $vanilla_list_image[fid]) 
-            && ($background_image_xpos_original == $background_image_xpos) 
-            && ($background_image_ypos_original == $background_image_ypos)) 
-          {
-            return;
-          }
+        if (($background_image_original[fid] == $background_image[fid]) 
+          && ($vanilla_list_image_original[fid] == $vanilla_list_image[fid]) 
+          && ($background_image_xpos_original == $background_image_xpos) 
+          && ($background_image_ypos_original == $background_image_ypos)) 
+        {
+          return;
         }
+      }
 
         // LET THE IMAGE BUILDING BEGIN
 
         //Load background image file and do a scale and crop
-        $background_image_file = file_load($background_image[fid]);
-        $background_image_file_uri = $background_image_file->uri;
-        $background_image_object = image_load($background_image_file_uri);
-        image_scale_and_crop($background_image_object, 540, 405);
-        image_save($background_image_object, $background_image_file_uri);
+      $background_image_file = file_load($background_image[fid]);
+      $background_image_file_uri = $background_image_file->uri;
+      $background_image_object = image_load($background_image_file_uri);
+      image_scale_and_crop($background_image_object, 540, 405);
+      image_save($background_image_object, $background_image_file_uri);
       
         // Load and modify image style
-        $image_style = image_style_load('bibsdb_masonry_large_bg', NULL, NULL);        
+      $image_style = image_style_load('bibsdb_masonry_large_bg', NULL, NULL);        
 
         // TODO This will break if additional effects are added that have identical keys in their data options
-        $settings = array($background_image_file_uri, $background_image_xpos, $background_image_ypos, $list_image_height, $list_image_width);
-     
-        array_walk_recursive($image_style, function(&$item, $key, $settings){
-          switch ($key) {
-            case 'path':
-              $item = $settings[0];
-              break;
-            case 'xpos':
-              $item = $settings[1];
-              break;
-            case 'ypos':
-              $item = $settings[2];
-              break;
-            case 'height':
-              $item = $settings[3];
-              break;
-            case 'width':
-              $item = $settings[4];
-              break;
-            }
-        }, $settings);
+      $settings = array($background_image_file_uri, $background_image_xpos, $background_image_ypos, $list_image_height, $list_image_width);
+
+      array_walk_recursive($image_style, function(&$item, $key, $settings){
+        switch ($key) {
+          case 'path':
+          $item = $settings[0];
+          break;
+          case 'xpos':
+          $item = $settings[1];
+          break;
+          case 'ypos':
+          $item = $settings[2];
+          break;
+          case 'height':
+          $item = $settings[3];
+          break;
+          case 'width':
+          $item = $settings[4];
+          break;
+        }
+      }, $settings);
 
 
         // Create uri for derived image by adding a subfolder to list image path e.g. public://list_image/news/img_with_underlay/124587/define_logo2.jpg
-        $underlay_image_file_uri = "public://list_image/news/img_with_underlay/" . rand (10000, 30000) . $list_image_file->filename;
-    
+      $underlay_image_file_uri = "public://list_image/news/img_with_underlay/" . rand (10000, 30000) . $list_image_file->filename;
+
         // Create derived image and save on disk
-        image_style_create_derivative($image_style, $list_image_file_uri, $underlay_image_file_uri);
+      image_style_create_derivative($image_style, $list_image_file_uri, $underlay_image_file_uri);
 
         // Load derived image and save it as a drupal managed file
-        $underlay_image_file_path = drupal_realpath($underlay_image_file_uri);
-        $derivative_image_file = file_save_data(file_get_contents($underlay_image_file_path), $underlay_image_file_uri, FILE_EXISTS_REPLACE);
+      $underlay_image_file_path = drupal_realpath($underlay_image_file_uri);
+      $derivative_image_file = file_save_data(file_get_contents($underlay_image_file_path), $underlay_image_file_uri, FILE_EXISTS_REPLACE);
       
         // Then attach to node
-        $wrapper->field_ding_news_list_image->file->set($derivative_image_file);    
-      }
+      $wrapper->field_ding_news_list_image->file->set($derivative_image_file);    
     }
+  }
+}
+
+/*
+ * Public: Implements hook_node_prepare.
+ * Act on a node object about to be shown on the add/edit form.
+ * Strip titletag from title. Applies to news and new_materails.
+ */
+function bibsdb_masonry_node_prepare($node) {
+  if($node->type == 'ding_news' || $node->type == 'new_materials') {
+
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // TITLE TAG
+    $title = $wrapper->label();
+
+    //Strip text in front of colon so it doesn't exist in the edit form
+    $arr = explode(": ", $title);
+    $title_contains_colon = strpos($title, ":");
+
+    if ($title_contains_colon) {
+      array_shift($arr);
+      $title = implode($arr, ": ");
+    }
+
+    $node->title = $title;
+  }
 }
 
 /*
@@ -134,19 +173,19 @@ function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
 
   $type = $form['#node']->type;
 
-  // Move Publishing Options to the top of the vertical tabs
+  // MOVE PUBLISHING OPTIONS TO THE TOP OF THE VERTICAL TABS
   $form['options']['#weight'] = 0;
 
   // FACT BOX
 
 	// Move bibsdb_fact_box_title and bibsdb_fact_box_body into group_ding_news_content
-	if(isset($form['field_bibsdb_fact_box_title'])) {
-		$form['#group_children']['field_bibsdb_fact_box_title'] = 'group_bibsdb_fact_box';
-	}
+  if(isset($form['field_bibsdb_fact_box_title'])) {
+    $form['#group_children']['field_bibsdb_fact_box_title'] = 'group_bibsdb_fact_box';
+  }
 
-	if(isset($form['field_bibsdb_fact_box_body'])) {
-		$form['#group_children']['field_bibsdb_fact_box_body'] = 'group_bibsdb_fact_box';
-	}
+  if(isset($form['field_bibsdb_fact_box_body'])) {
+    $form['#group_children']['field_bibsdb_fact_box_body'] = 'group_bibsdb_fact_box';
+  }
 
   // Move group group_bibsdb_fact_box into group_ding_news_content
   if(isset($form['#groups']['group_bibsdb_fact_box'])) {
@@ -185,74 +224,35 @@ function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
     $form['#group_children']['group_bibsdb_background_image'] = 'group_ding_news_images';
   }
 
-
-	// Move field_bibsdb_brick_type into options
-  if(isset($form['field_bibsdb_brick_type'])) {
-    // Define field in 'options' fieldset and unset original definition.
-    $form['options']['field_bibsdb_brick_type'] = $form['field_bibsdb_brick_type'];
-    $form['options']['field_bibsdb_brick_type']['#weight'] = -5;
-
-    // Display term description in options
-    $options = $form['options']['field_bibsdb_brick_type']['und']['#options'];
-    $form['options']['field_bibsdb_brick_type']['und']['#options'] = _bibsdb_masonry_display_taxonomy_description($options);
-    unset($form['field_bibsdb_brick_type']);
-  }
-
-	// Move field_ding_news_category into options
-	/* UNCOMMENT ON MASONRY LAUNCH
-  if(isset($form['field_ding_news_category'])) {
-    // Define field in 'options' fieldset and unset original definition.
-    $form['options']['field_ding_news_category'] = $form['field_ding_news_category'];
-    $form['options']['field_ding_news_category']['#weight'] = -10;
-    unset($form['field_ding_news_category']);
-  }
-  */
-
 	// On ding_news hide some fields
-	if ($type == 'ding_news') {
-		$form['og_group_ref']['#access'] = FALSE;
-		$form['field_ding_news_tags']['#access'] = FALSE;
+  if ($type == 'ding_news') {
+    $form['og_group_ref']['#access'] = FALSE;
+    $form['field_ding_news_tags']['#access'] = FALSE;
     $form['field_bpi_workflow']['#access'] = FALSE;
     $form['field_bibsdb_vanilla_list_image']['#access'] = FALSE;
-    
-		$form['options']['field_bibsdb_brick_type']['#access'] = FALSE; // REMOVE THIS ON MASONRY LAUNCH /AGMS
-    $form['field_bibsdb_tag']['#access'] = FALSE; // REMOVE THIS ON MASONRY LAUNCH /AGMS
 	}  
 }
 
 /*
- * Public: Implements hook_node_update.
+ * Public: Implements hook_preprocess_ting_search_context_content.
  *
- * Before saving the node, move the 'field_bibsdb_brick_type' field back
- * to its original location. Otherwise the field won't save.
+ * Before displaying the nodes in the carousel prepend event-titles with title tag.
+ * Only needed for event-type because tag is already contained in titles of news and new materials.
  */
+function bibsdb_masonry_preprocess_ting_search_context_content(&$vars) {
 
-function bibsdb_masonry_node_update($node) {
+  // TITLE TAG
+  $node = $vars['node'];
 
-  // Check if field exists on node form.
-  if(isset($node->options['field_bibsdb_brick_type']['und'][0]['value'])) {
-    // Redefine field in original definition and unset in 'options' fieldset.
-    $node->field_bibsdb_brick_type['und'][0]['value'] = $node->options['field_bibsdb_brick_type']['und'][0]['value'];
-    unset($node->options['field_bibsdb_brick_type']);
-  }
+  if ($node->type == 'ding_event') {
+    $wrapper = entity_metadata_wrapper('node', $node);
+    $tag = $wrapper->field_bibsdb_tag->value();
 
-   // Check if field exists on node form.
-  if(isset($node->options['field_ding_news_category']['und'][0]['value'])) {
-    // Redefine field in original definition and unset in 'options' fieldset.
-    $node->field_ding_news_category['und'][0]['value'] = $node->options['field_ding_news_category']['und'][0]['value'];
-    unset($node->options['field_ding_news_category']);
+    // If tag is empty insert Arrangement
+    if (!(isset($tag))) {
+      $tag = "Arrangement";
+    }
+    $vars['title'] = $tag . ": " . $node->title;
   }
 }
 
-/*
- * Private: Loads taxonomy term and adds description to options array..
- */
-function _bibsdb_masonry_display_taxonomy_description($options) {
-
-	foreach ($options as $tid => $title) {
-    $term = taxonomy_term_load($tid);
-    $options[$tid] = $title . $term->description;
-  }
-
-  return $options;
-}
