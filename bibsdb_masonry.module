@@ -45,8 +45,14 @@ function bibsdb_masonry_node_presave($node) {
     $tag = $wrapper->field_bibsdb_tag->value();
     $title = $wrapper->label();
 
-    // Append tag 
-    $node->title = $tag . ": " . $title;
+    // Append tag if it has a value 
+    if (!(empty($tag))) {
+      $node->title = $tag . ": " . $title;
+    }
+    else {
+      $node->title = $title;
+    }
+    
   }
 
 
@@ -182,7 +188,8 @@ function bibsdb_masonry_node_prepare($node) {
     $arr = explode(": ", $title);
     $title_contains_colon = strpos($title, ":");
 
-    if ($title_contains_colon) {
+    // Returns position (0 to count-1) if found - returns FALSE if not found
+    if (!($title_contains_colon === FALSE)) {
       array_shift($arr);
       $title = implode($arr, ": ");
     }
