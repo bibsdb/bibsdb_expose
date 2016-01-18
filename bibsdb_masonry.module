@@ -6,7 +6,35 @@
 
 include_once 'bibsdb_masonry.features.inc';
 
+/**
+ * Implements hook_image_styles_alter().
+ * 
+ * @param $styles
+ */
+function bibsdb_masonry_image_styles_alter(&$styles) {
 
+  // Init the effect data.
+  $effects = image_image_effect_info();
+  $scale_effect = $effects['image_scale'];
+  $scale_effect['data'] = array();
+  $scale_effect['weight'] = 0;
+
+  // Store styles data.
+  $styles_data = array(
+    'media_thumbnail' => array(
+      'width' => 180,
+    ),
+  );
+
+  foreach ($styles_data as $style_name => $data) {
+    // Check that we only affect a default style.
+    if ($styles[$style_name]['storage'] == IMAGE_STORAGE_DEFAULT) {
+      $scale_effect['data'] = $data;
+      $styles[$style_name]['effects'] = array();
+      $styles[$style_name]['effects'][] = $scale_effect;
+    }
+  }
+}
 
 function bibsdb_masonry_node_presave($node) {
   $wrapper = entity_metadata_wrapper('node', $node);
