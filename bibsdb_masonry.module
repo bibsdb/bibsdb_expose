@@ -284,8 +284,9 @@ function bibsdb_masonry_preprocess_ting_search_context_content(&$vars) {
   if ($node->type == 'ding_event') {
     $wrapper = entity_metadata_wrapper('node', $node);
     $tag = $wrapper->field_bibsdb_tag->value();
-
-    $vars['title'] = $tag . ": " . $node->title;
+    if (isset($tag)) {
+      $vars['title'] = $tag . ": " . $node->title;
+    }
   }
 }
 
