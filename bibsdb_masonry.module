@@ -285,10 +285,6 @@ function bibsdb_masonry_preprocess_ting_search_context_content(&$vars) {
     $wrapper = entity_metadata_wrapper('node', $node);
     $tag = $wrapper->field_bibsdb_tag->value();
 
-    // If tag is empty insert Arrangement
-    if (!(isset($tag))) {
-      $tag = "Arrangement";
-    }
     $vars['title'] = $tag . ": " . $node->title;
   }
 }
