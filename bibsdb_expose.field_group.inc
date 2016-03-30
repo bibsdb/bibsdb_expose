@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bibsdb_masonry.field_group.inc
+ * bibsdb_expose.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function bibsdb_masonry_field_group_info() {
+function bibsdb_expose_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

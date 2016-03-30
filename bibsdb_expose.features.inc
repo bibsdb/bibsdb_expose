@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bibsdb_masonry.features.inc
+ * bibsdb_expose.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function bibsdb_masonry_ctools_plugin_api($module = NULL, $api = NULL) {
+function bibsdb_expose_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -16,13 +16,13 @@ function bibsdb_masonry_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_image_default_styles().
  */
-function bibsdb_masonry_image_default_styles() {
+function bibsdb_expose_image_default_styles() {
   $styles = array();
 
-  // Exported image style: bibsdb_masonry_large.
-  $styles['bibsdb_masonry_large'] = array(
-    'name' => 'bibsdb_masonry_large',
-    'label' => 'bibsdb_masonry_large',
+  // Exported image style: bibsdb_expose_large.
+  $styles['bibsdb_expose_large'] = array(
+    'name' => 'bibsdb_expose_large',
+    'label' => 'bibsdb_expose_large',
     'effects' => array(
       1 => array(
         'label' => 'Scale',
@@ -43,10 +43,10 @@ function bibsdb_masonry_image_default_styles() {
     ),
   );
 
-  // Exported image style: bibsdb_masonry_large_bg.
-  $styles['bibsdb_masonry_large_bg'] = array(
-    'name' => 'bibsdb_masonry_large_bg',
-    'label' => 'bibsdb_masonry_large_bg',
+  // Exported image style: bibsdb_expose_large_bg.
+  $styles['bibsdb_expose_large_bg'] = array(
+    'name' => 'bibsdb_expose_large_bg',
+    'label' => 'bibsdb_expose_large_bg',
     'effects' => array(
       7 => array(
         'label' => 'Scale',

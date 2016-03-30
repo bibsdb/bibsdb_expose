@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bibsdb_masonry.features.field_instance.inc
+ * bibsdb_expose.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function bibsdb_masonry_field_default_field_instances() {
+function bibsdb_expose_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-ding_event-field_bibsdb_tag'

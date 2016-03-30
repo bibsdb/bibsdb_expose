@@ -3,7 +3,7 @@
 /**
  * Implements hook_drush_command().
  */
-function bibsdb_masonry_drush_command() {
+function bibsdb_expose_drush_command() {
 
   $items['bibsdb_expire_events'] = array(
     'description' => 'Unpublish past events.',
@@ -16,7 +16,7 @@ function bibsdb_masonry_drush_command() {
 /**
  * Callback for the drush bibsdb_expire_events command
  */
-function drush_bibsdb_masonry_bibsdb_expire_events() {
+function drush_bibsdb_expose_bibsdb_expire_events() {
 	$now = format_date(time(), 'custom', 'Y-m-d H:i:s');
 
   $query = new EntityFieldQuery();

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bibsdb_masonry.features.field_base.inc
+ * bibsdb_expose.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function bibsdb_masonry_field_default_field_bases() {
+function bibsdb_expose_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_bibsdb_background_image'

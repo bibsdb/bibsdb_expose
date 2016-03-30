@@ -4,14 +4,14 @@
  * Code for the Bibsdb Masonry feature.
  */
 
-include_once 'bibsdb_masonry.features.inc';
+include_once 'bibsdb_expose.features.inc';
 
 /**
  * Implements hook_image_styles_alter().
  * 
  * @param $styles
  */
-function bibsdb_masonry_image_styles_alter(&$styles) {
+function bibsdb_expose_image_styles_alter(&$styles) {
 
 if (function_exists('image_image_effect_info')) {
 	  // Init the effect data.
@@ -38,7 +38,7 @@ if (function_exists('image_image_effect_info')) {
 	}
 }
 
-function bibsdb_masonry_node_presave($node) {
+function bibsdb_expose_node_presave($node) {
   $wrapper = entity_metadata_wrapper('node', $node);
 
   // TITLE TAG
@@ -131,7 +131,7 @@ function bibsdb_masonry_node_presave($node) {
       image_save($background_image_object, $background_image_file_uri);
       
         // Load and modify image style
-      $image_style = image_style_load('bibsdb_masonry_large_bg', NULL, NULL);        
+      $image_style = image_style_load('bibsdb_expose_large_bg', NULL, NULL);        
 
         // TODO This will break if additional effects are added that have identical keys in their data options
       $settings = array($background_image_file_uri, $background_image_xpos, $background_image_ypos, $list_image_height, $list_image_width);
@@ -178,7 +178,7 @@ function bibsdb_masonry_node_presave($node) {
  * Act on a node object about to be shown on the add/edit form.
  * Strip titletag from title. Applies to news and new_materails.
  */
-function bibsdb_masonry_node_prepare($node) {
+function bibsdb_expose_node_prepare($node) {
   if($node->type == 'ding_news' || $node->type == 'new_materials') {
 
     $wrapper = entity_metadata_wrapper('node', $node);
@@ -206,7 +206,7 @@ function bibsdb_masonry_node_prepare($node) {
  * Move the 'field_bibsdb_brick_type' field to the 'options' fieldset.
  * Move the 'field_ding_news_category' field to the 'options' fieldset.
  */
-function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
+function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
 
   $type = $form['#node']->type;
 
@@ -276,7 +276,7 @@ function bibsdb_masonry_form_node_form_alter(&$form, $form_state) {
  * Before displaying the nodes in the carousel prepend event-titles with title tag.
  * Only needed for event-type because tag is already contained in titles of news and new materials.
  */
-function bibsdb_masonry_preprocess_ting_search_context_content(&$vars) {
+function bibsdb_expose_preprocess_ting_search_context_content(&$vars) {
 
   // TITLE TAG
   $node = $vars['node'];
