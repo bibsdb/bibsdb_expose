@@ -77,6 +77,57 @@ function bibsdb_expose_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_bibsdb_brick_content'
+  $field_bases['field_bibsdb_brick_content'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_bibsdb_brick_content',
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'ding_eresource' => 'ding_eresource',
+          'ding_event' => 'ding_event',
+          'ding_group' => 'ding_group',
+          'ding_news' => 'ding_news',
+          'ding_page' => 'ding_page',
+          'ding_search_context_link' => 'ding_search_context_link',
+          'new_materials' => 'new_materials',
+          'webform' => 'webform',
+        ),
+      ),
+      'profile2_private' => FALSE,
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_bibsdb_brick_type'
   $field_bases['field_bibsdb_brick_type'] = array(
     'active' => 1,

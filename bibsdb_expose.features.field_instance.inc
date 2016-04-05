@@ -10,6 +10,43 @@
 function bibsdb_expose_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_content'
+  $field_instances['exposure-exposure-field_bibsdb_brick_content'] = array(
+    'bundle' => 'exposure',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'exposure',
+    'field_name' => 'field_bibsdb_brick_content',
+    'label' => 'Brick Content',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 33,
+    ),
+  );
+
   // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_type'
   $field_instances['exposure-exposure-field_bibsdb_brick_type'] = array(
     'bundle' => 'exposure',
@@ -703,6 +740,7 @@ function bibsdb_expose_field_default_field_instances() {
   t('Background Image');
   t('Bliver vist foran titlen når arrangementet vises i search context karrusellen.');
   t('Bliver vist foran titlen. ');
+  t('Brick Content');
   t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
