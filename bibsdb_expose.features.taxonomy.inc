@@ -9,9 +9,17 @@
  */
 function bibsdb_expose_taxonomy_default_vocabularies() {
   return array(
-    'brick_types' => array(
-      'name' => 'Brick Types',
-      'machine_name' => 'brick_types',
+    'bibsdb_brick_type' => array(
+      'name' => 'Brick Type',
+      'machine_name' => 'bibsdb_brick_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
+    'bibsdb_wall' => array(
+      'name' => 'Wall',
+      'machine_name' => 'bibsdb_wall',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',

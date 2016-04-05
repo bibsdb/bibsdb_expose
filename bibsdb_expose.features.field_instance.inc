@@ -10,6 +10,68 @@
 function bibsdb_expose_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_type'
+  $field_instances['exposure-exposure-field_bibsdb_brick_type'] = array(
+    'bundle' => 'exposure',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'exposure',
+    'field_name' => 'field_bibsdb_brick_type',
+    'label' => 'Brick Type',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_wall'
+  $field_instances['exposure-exposure-field_bibsdb_wall'] = array(
+    'bundle' => 'exposure',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'exposure',
+    'field_name' => 'field_bibsdb_wall',
+    'label' => 'Wall',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_event-field_bibsdb_tag'
   $field_instances['node-ding_event-field_bibsdb_tag'] = array(
     'bundle' => 'ding_event',
@@ -641,6 +703,7 @@ function bibsdb_expose_field_default_field_instances() {
   t('Background Image');
   t('Bliver vist foran titlen når arrangementet vises i search context karrusellen.');
   t('Bliver vist foran titlen. ');
+  t('Brick Type');
   t('Fact Box Body');
   t('Fact Box Title');
   t('Hidden field to store original list image');
@@ -654,6 +717,7 @@ function bibsdb_expose_field_default_field_instances() {
   t('OPTIONAL. This image is merged into the background of title image and list image. ');
   t('Tag');
   t('Vandret position på baggrundsbilledet (px)');
+  t('Wall');
 
   return $field_instances;
 }
