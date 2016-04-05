@@ -290,3 +290,177 @@ function bibsdb_expose_preprocess_ting_search_context_content(&$vars) {
   }
 }
 
+
+/**
+ * Implements hook_entity_info().
+ */
+function bibsdb_expose_entity_info() {
+  
+  $info = array();
+  
+  $info['exposure'] = array(
+    'label' => t('Exposure'),
+    'base table' => 'bibsdb_expose_exposures',
+    'entity keys' => array(
+      'id' => 'id',
+      'label' => 'id',
+    ),
+    'entity class' => 'ExposureEntity',
+    'controller class' => 'EntityAPIController',
+    'access callback' => 'bibsdb_expose_access_callback',
+    'uri callback' => 'entity_class_uri',
+    'admin ui' => array(
+      'path' => 'admin/exposures',
+      'controller class' => 'EntityDefaultUIController',
+    ),
+    'fieldable' => TRUE,
+    'bundles' => array(
+      'exposure' => array(
+        'label' => t('Exposure'),
+        'admin' => array(
+          'path' => 'admin/exposures',
+        ),
+      ),
+    ),
+    'views controller class' => 'EntityDefaultViewsController',
+    'module' => 'bibsdb_expose',
+  );
+  
+  return $info;
+}
+
+/**
+ * Implements hook_menu()
+ */
+function bibsdb_expose_menu() {
+  $items = array();
+  
+  $items['exposures'] = array(
+    'title' => 'Our exposures bibsdb_expose',
+    'page callback' => 'bibsdb_expose_exposures',
+    'access arguments' => array('access content'),
+  );
+  
+  $items['exposure/%'] = array(
+    'title' => 'Exposure',
+    'page callback' => 'bibsdb_expose_view_exposure',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+  );
+  
+  return $items;
+}
+
+/**
+ * Access callback for exposure entities.
+ */
+function bibsdb_expose_access_callback($op, $exposure = NULL, $account = NULL) {
+  if ($op == 'view' || $op == 'update' || $op == 'create' || $op == 'delete') {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Callback function for our exposure entities test path
+ */
+function bibsdb_expose_exposures() {
+  
+  
+  $exposures = entity_load('exposure', array(1, 2, 3));
+  
+  // Saving new entities 
+  if (!isset($exposures[3])) {
+    $entity = entity_create('exposure', array('id' => 3));
+    //$entity->name = t('Spring House');
+    //$entity->description = t('Some more lipsum.');
+    //$entity->deadline = '1397501132';
+    $entity->save();
+  }
+  
+  // Listing entities
+  $list = entity_view('exposure', $exposures);
+  
+  $output = array();
+  foreach ($list['exposure'] as $exposure) {
+    $output[] = drupal_render($exposure);
+  }
+  
+  return implode($output);
+
+}
+
+/**
+ * Callback function for displaying the individual exposure page
+ */
+function bibsdb_expose_view_exposure($id) {
+  
+  $exposures = entity_load('exposure', array($id));
+  $exposure = $exposures[$id];
+  
+  drupal_set_title($exposure->id);
+  $output = entity_view('exposure', array($exposure));
+  
+  return $output;
+  
+}
+
+/**
+ * Form definition for adding / editing a exposure.
+ */
+function exposure_form($form, &$form_state, $exposure = NULL) { 
+  
+  field_attach_form('exposure', $exposure, $form, $form_state);
+  
+  $form['submit'] = array(
+    '#type' => 'submit', 
+    '#value' => isset($exposure->id) ? t('Update exposure') : t('Save exposure'),
+    '#weight' => 50,
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler for the exposure add/edit form.
+ */
+function exposure_form_submit($form, &$form_state) {
+  $exposure = entity_ui_form_submit_build_entity($form, $form_state);
+  $exposure->save();
+  drupal_set_message(t('The exposure: @name has been saved.', array('@name' => $exposure->id)));
+  $form_state['redirect'] = 'admin/exposures';
+}
+
+/**
+ * Implements hook_entity_property_info().
+ */
+function bibsdb_expose_entity_property_info() {
+  
+  $info = array();
+  
+  $info['exposure']['properties']['id'] = array(
+    'label' => t('Exposure ID'),
+    'description' => t('The ID of the exposure.'),
+    'type' => 'integer',
+    'schema field' => 'id',
+  );
+  
+  return $info;
+}
+
+  
+/**
+ * Exposure entity class extending the Entity class
+ */
+class ExposureEntity extends Entity {
+  
+  /**
+   * Change the default URI from default/id to exposure/id
+   */
+  protected function defaultUri() {
+    return array('path' => 'exposure/' . $this->identifier());
+  }
+  
+}

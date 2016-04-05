@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function bibsdb_expose_schema() {
+  
+  $schema = array();
+   
+  $schema['bibsdb_expose_exposures'] = array(
+    'description' => 'The base table for the Exposure entity',
+    'fields' => array(
+      'id' => array(
+        'description' => 'Primary key of the Exposure entity',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  
+  return $schema;
+}
