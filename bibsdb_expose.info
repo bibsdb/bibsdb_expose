@@ -54,5 +54,5 @@ features[taxonomy][] = bibsdb_brick_type
 features[taxonomy][] = bibsdb_wall
 features[views_view][] = bibsdb_content_wall
 features[views_view][] = bibsdb_wall_sorting_view
-mtime = 1459937206
+mtime = 1459938714
 project path = sites/default/modules
