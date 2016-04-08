@@ -16,6 +16,13 @@ function bibsdb_expose_schema() {
         'unsigned' => TRUE,
         'not null' => TRUE,
       ),
+      'bundle' => array(
+        'description' => 'Entity has to have a field other that id to save.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
     ),
     'primary key' => array('id'),
   );

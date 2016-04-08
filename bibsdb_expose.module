@@ -319,7 +319,8 @@ function bibsdb_expose_entity_info() {
       'exposure' => array(
         'label' => t('Exposure'),
         'admin' => array(
-          'path' => 'admin/exposures',
+          'path' => 'admin/structure/exposure/manage',
+          'access arguments' => array('administer exposures'),
         ),
       ),
     ),
@@ -338,10 +339,11 @@ function bibsdb_expose_entity_info() {
 function bibsdb_expose_menu() {
   $items = array();
   
-  $items['exposures'] = array(
-    'title' => 'Our exposures bibsdb_expose',
+  $items['admin/structure/exposure/manage'] = array(
+    'title' => 'Exposure',
+    'description' => 'Manage Exposure structure.',
     'page callback' => 'bibsdb_expose_exposures',
-    'access arguments' => array('access content'),
+    'access arguments' => array('administer exposures'),
   );
   
   $items['exposure/%'] = array(
@@ -352,6 +354,15 @@ function bibsdb_expose_menu() {
   );
   
   return $items;
+}
+
+function bibsdb_expose_permission(){
+    return array(
+    'administer exposures' =>  array(
+      'title' => t('Administer exposures'),
+      'restrict access' => TRUE,
+    ),
+  );
 }
 
 /**
@@ -469,11 +480,18 @@ class ExposureEntity extends Entity {
 }
 
 /**
+ * Extending the EntityAPIController for the Exposure entity.
+ */
+class ExposureEntityController extends EntityAPIController {
+
+}
+
+/**
  * Implements hook_action_info().
  */
 function bibsdb_expose_action_info() {
   return array(
-    'bibsdb_expose_expose_content' => array(
+    'bibsdb_expose_vbo_expose_content' => array(
       'type' => 'node',
       'label' => t('Expose content'),
       'configurable' => TRUE,
@@ -483,15 +501,19 @@ function bibsdb_expose_action_info() {
   );
 }
 
-function bibsdb_expose_expose_content_form($settings, &$form_state) {
+function bibsdb_expose_vbo_expose_content_form($settings, &$form_state) {
+  //dpm($settings);
+  //dpm($form_state);
   // Load brick type vocabulary
   $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_type');
   $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
+
+  // Build select
   $brick_type_options = array();
   foreach ($tree as $term) {
     $brick_type_options[$term->tid] = $term->name;
   }
-
+  // Build form
   $form = array();
   $form['brick_type'] = array(
     '#type' => 'select', 
@@ -499,38 +521,43 @@ function bibsdb_expose_expose_content_form($settings, &$form_state) {
     '#options' => $brick_type_options,
     '#required' => TRUE,
   );
+
+  // Add redirect to return to 
+  $view = $settings['view'];
+  $wall = $view->args[0];
+  //dpm($wall);
+  //$form_state['redirect'] = 'admin/sorting/wall/' + $wall;
+
   return $form;
 }
 
-function bibsdb_expose_expose_content_submit($form, $form_state) {
+function bibsdb_expose_vbo_expose_content_submit($form, $form_state) {
+
   $return = array(); 
   $return['brick_type'] = $form_state['values']['brick_type'];
   return $return; //Note, return value here must be an array.
 }
 
-function bibsdb_expose_expose_content(&$node, $context) {
+function bibsdb_expose_vbo_expose_content(&$node, $context) {
 
   $wall = $context['view_info']['arguments']['0'];
   $brick_type = $context['brick_type'];
   $brick_content = $node->nid;
 
-  //$entity = entity_create('exposure', array('id' => 20));
-  //$entity->field_bibsdb_wall = $wall;
-  //$entity->field_bibsdb_brick_type = $brick_type;
-  //$entity->field_bibsdb_brick_content = $brick_content;
-  //$entity->save();
+  $entity_type = 'exposure';
+  $entity = entity_create($entity_type, array('bundle' => $entity_type));
+  $wrapper = entity_metadata_wrapper($entity_type, $entity);
+  
+  $wrapper->field_bibsdb_wall = $wall;
+  $wrapper->field_bibsdb_brick_type = $brick_type;
+  $wrapper->field_bibsdb_brick_content = $brick_content;
+  $wrapper->save();
 
-  $message = t('Node title is %title. Sincerely, %brick_type', array(
-    '%title' => $node->title,
-    '%brick_type' => arg(0),
-  ));
-  drupal_set_message($message);
-}
+ 
 
 
-/**
- * Extending the EntityAPIController for the Exposure entity.
- */
-class ExposureEntityController extends EntityAPIController {
 
 }
+
+
+
