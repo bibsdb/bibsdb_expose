@@ -300,6 +300,7 @@ function bibsdb_expose_entity_info() {
   
   $info['exposure'] = array(
     'label' => t('Exposure'),
+    'controller class' => 'ExposureEntityController',
     'base table' => 'bibsdb_expose_exposures',
     'entity keys' => array(
       'id' => 'id',
@@ -328,6 +329,8 @@ function bibsdb_expose_entity_info() {
   
   return $info;
 }
+
+
 
 /**
  * Implements hook_menu()
@@ -463,4 +466,71 @@ class ExposureEntity extends Entity {
     return array('path' => 'exposure/' . $this->identifier());
   }
   
+}
+
+/**
+ * Implements hook_action_info().
+ */
+function bibsdb_expose_action_info() {
+  return array(
+    'bibsdb_expose_expose_content' => array(
+      'type' => 'node',
+      'label' => t('Expose content'),
+      'configurable' => TRUE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+    ),
+  );
+}
+
+function bibsdb_expose_expose_content_form($settings, &$form_state) {
+  // Load brick type vocabulary
+  $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_type');
+  $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
+  $brick_type_options = array();
+  foreach ($tree as $term) {
+    $brick_type_options[$term->tid] = $term->name;
+  }
+
+  $form = array();
+  $form['brick_type'] = array(
+    '#type' => 'select', 
+    '#title' => t('Choose brick type'),
+    '#options' => $brick_type_options,
+    '#required' => TRUE,
+  );
+  return $form;
+}
+
+function bibsdb_expose_expose_content_submit($form, $form_state) {
+  $return = array(); 
+  $return['brick_type'] = $form_state['values']['brick_type'];
+  return $return; //Note, return value here must be an array.
+}
+
+function bibsdb_expose_expose_content(&$node, $context) {
+
+  $wall = $context['view_info']['arguments']['0'];
+  $brick_type = $context['brick_type'];
+  $brick_content = $node->nid;
+
+  //$entity = entity_create('exposure', array('id' => 20));
+  //$entity->field_bibsdb_wall = $wall;
+  //$entity->field_bibsdb_brick_type = $brick_type;
+  //$entity->field_bibsdb_brick_content = $brick_content;
+  //$entity->save();
+
+  $message = t('Node title is %title. Sincerely, %brick_type', array(
+    '%title' => $node->title,
+    '%brick_type' => arg(0),
+  ));
+  drupal_set_message($message);
+}
+
+
+/**
+ * Extending the EntityAPIController for the Exposure entity.
+ */
+class ExposureEntityController extends EntityAPIController {
+
 }
