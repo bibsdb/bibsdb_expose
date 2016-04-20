@@ -11,11 +11,11 @@ function bibsdb_expose_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'bibsdb_content_wall';
+  $view->name = 'bibsdb_wall';
   $view->description = '';
   $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Bibsdb Content Wall';
+  $view->base_table = 'bibsdb_expose_exposures';
+  $view->human_name = 'Bibsdb Wall';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -23,39 +23,34 @@ function bibsdb_expose_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
-  $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Relationship: Exposure referencing Content from field_bibsdb_brick_content */
-  $handler->display->display_options['relationships']['reverse_field_bibsdb_brick_content_exposure']['id'] = 'reverse_field_bibsdb_brick_content_exposure';
-  $handler->display->display_options['relationships']['reverse_field_bibsdb_brick_content_exposure']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_bibsdb_brick_content_exposure']['field'] = 'reverse_field_bibsdb_brick_content_exposure';
-  $handler->display->display_options['relationships']['reverse_field_bibsdb_brick_content_exposure']['ui_name'] = 'Exposure referencing Content from field_bibsdb_brick_content';
-  $handler->display->display_options['relationships']['reverse_field_bibsdb_brick_content_exposure']['required'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['id'] = 'field_bibsdb_brick_content_target_id';
+  $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['table'] = 'field_data_field_bibsdb_brick_content';
+  $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['field'] = 'field_bibsdb_brick_content_target_id';
+  $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['required'] = TRUE;
+  /* Field: Exposure: Exposure ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'bibsdb_expose_exposures';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
   /* Sort criterion: Draggableviews: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
-  $handler->display->display_options['sorts']['weight']['relationship'] = 'reverse_field_bibsdb_brick_content_exposure';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'bibsdb_wall_sorting_view:page';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
   /* Contextual filter: Exposure: Wall (field_bibsdb_wall) */
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['id'] = 'field_bibsdb_wall_tid';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['table'] = 'field_data_field_bibsdb_wall';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['field'] = 'field_bibsdb_wall_tid';
-  $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['relationship'] = 'reverse_field_bibsdb_brick_content_exposure';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['format'] = 'default_summary';
@@ -64,13 +59,11 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  $handler->display->display_options['filters']['status']['relationship'] = 'field_bibsdb_brick_content_target_id';
+  $handler->display->display_options['filters']['status']['value'] = '1';
 
-  /* Display: Bibsdb Content Wall */
-  $handler = $view->new_display('panel_pane', 'Bibsdb Content Wall', 'panel_pane_1');
-  $handler->display->display_options['pane_title'] = 'Bibsdb Content Wall';
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['pane_category']['name'] = 'Bibsdb';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(
@@ -83,7 +76,7 @@ function bibsdb_expose_views_default_views() {
       'label' => 'Exposure: Wall (field_bibsdb_wall)',
     ),
   );
-  $translatables['bibsdb_content_wall'] = array(
+  $translatables['bibsdb_wall'] = array(
     t('Master'),
     t('more'),
     t('Apply'),
@@ -98,12 +91,15 @@ function bibsdb_expose_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Exposure referencing Content from field_bibsdb_brick_content'),
+    t('Content entity referenced from field_bibsdb_brick_content'),
+    t('Exposure ID'),
+    t('.'),
+    t(','),
     t('All'),
-    t('Bibsdb Content Wall'),
+    t('Content pane'),
     t('Bibsdb'),
   );
-  $export['bibsdb_content_wall'] = $view;
+  $export['bibsdb_wall'] = $view;
 
   $view = new view();
   $view->name = 'bibsdb_wall_selection_view';
@@ -117,7 +113,7 @@ function bibsdb_expose_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Bibsdb Wall Selection View';
+  $handler->display->display_options['title'] = 'Bibsdb Wall Selection Vieww';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -667,10 +663,10 @@ function bibsdb_expose_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/selection/wall';
+  $handler->display->display_options['path'] = 'admin/selection/wall/%';
   $translatables['bibsdb_wall_selection_view'] = array(
     t('Master'),
-    t('Bibsdb Wall Selection View'),
+    t('Bibsdb Wall Selection Vieww'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -729,6 +725,7 @@ function bibsdb_expose_views_default_views() {
     'publish_on' => 'publish_on',
     'unpublish_on' => 'unpublish_on',
     'status_1' => 'status_1',
+    'edit_node' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -787,6 +784,11 @@ function bibsdb_expose_views_default_views() {
     'status_1' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -858,10 +860,24 @@ function bibsdb_expose_views_default_views() {
         'url' => '',
       ),
     ),
+    'action::bibsdb_expose_vbo_publish' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 0,
+      'label' => '',
+    ),
     'action::system_send_email_action' => array(
       'selected' => 0,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::bibsdb_expose_vbo_set_publish_on' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 1,
       'override_label' => 0,
       'label' => '',
     ),
@@ -873,6 +889,13 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['field_bibsdb_brick_content']['settings'] = array(
     'link' => 0,
   );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_bibsdb_brick_content_target_id';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Field: Exposure: Brick Type */
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['id'] = 'field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['table'] = 'field_data_field_bibsdb_brick_type';
@@ -937,7 +960,7 @@ function bibsdb_expose_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/sorting/wall';
+  $handler->display->display_options['path'] = 'admin/selection/wall';
   $translatables['bibsdb_wall_sorting_view'] = array(
     t('Master'),
     t('Bibsdb Wall Sorting View'),

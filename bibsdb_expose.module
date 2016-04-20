@@ -6,290 +6,15 @@
 
 include_once 'bibsdb_expose.features.inc';
 
-/**
- * Implements hook_image_styles_alter().
- * 
- * @param $styles
- */
-function bibsdb_expose_image_styles_alter(&$styles) {
+// Alterations to node add/edit form
+include_once 'bibsdb_expose.admin.inc';
 
-  if (function_exists('image_image_effect_info')) {
-	  // Init the effect data.
-   $effects = image_image_effect_info();
-   $scale_effect = $effects['image_scale'];
-   $scale_effect['data'] = array();
-   $scale_effect['weight'] = 0;
+// Load tag logic
+include_once 'bibsdb_expose.tag.inc';
 
-	  // Store styles data.
-   $styles_data = array(
-     'media_thumbnail' => array(
-       'width' => 180,
-       ),
-     );
-
-   foreach ($styles_data as $style_name => $data) {
-	    // Check that we only affect a default style.
-     if ($styles[$style_name]['storage'] == IMAGE_STORAGE_DEFAULT) {
-       $scale_effect['data'] = $data;
-       $styles[$style_name]['effects'] = array();
-       $styles[$style_name]['effects'][] = $scale_effect;
-     }
-   }
- }
-}
-
-function bibsdb_expose_node_presave($node) {
-  $wrapper = entity_metadata_wrapper('node', $node);
-
-  // TITLE TAG
-  // Append titletag to title. Applies to news and new_materails.
-  if($node->type == 'ding_news' || $node->type == 'new_materials') {
-    $tag = $wrapper->field_bibsdb_tag->value();
-    $title = $wrapper->label();
-
-    // Append tag if it has a value 
-    if (!(empty($tag))) {
-      $node->title = $tag . ": " . $title;
-    }
-    else {
-      $node->title = $title;
-    }
-    
-  }
-
-
-    // BACKGROUND IMAGE
-  if ('ding_news' == $node->type) {
-
-      // Make entity matadata wrappers for node being saved and the original node
-    $wrapper_original = entity_metadata_wrapper('node', $node->original);
-
-      // Load field values of node being saved into variables
-    $list_image = $wrapper->field_ding_news_list_image->value();
-    $background_image = $wrapper->field_bibsdb_background_image->value();
-    $background_image_xpos = $wrapper->field_bibsdb_bgimg_xpos->value();
-    $background_image_ypos = $wrapper->field_bibsdb_bgimg_ypos->value();
-    $list_image_height = $wrapper->field_bibsdb_listimg_height->value();
-    $list_image_width = $wrapper->field_bibsdb_listimg_width->value();
-    $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
-
-      // Continue if we have files attached to list_image and background_image
-    if (isset($background_image) && isset($list_image)) {
-
-        // If $vanilla_list_image is set we have an original node (edit)
-        // If a new list image has been uploaded replace image in field_bibsdb_vanilla_list_image
-      if (isset($vanilla_list_image)) {
-        $list_image_original = $wrapper_original->field_ding_news_list_image->value();
-        if (!($list_image_original[fid] == $list_image[fid])) {
-          $file = file_load($list_image[fid]);
-          $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
-        }
-      }
-        // If field_bibsdb_vanilla_list_image isn't set (add) save the fid of the current list image
-      else {
-        $file = file_load($list_image[fid]);
-        $wrapper->field_bibsdb_vanilla_list_image->file->set($file);
-      }
-
-      $vanilla_list_image = $wrapper->field_bibsdb_vanilla_list_image->value();
-
-        // Load list image object 
-      $list_image_file = file_load($vanilla_list_image[fid]);
-      $list_image_file_uri = $list_image_file->uri;
-      $list_image_object = image_load($list_image_file_uri);
-
-        //Load background image file of node being saved
-      $background_image_file = file_load($background_image[fid]);
-      $background_image_file_uri = $background_image_file->uri;
-
-        // $node->original exists on node/edit - not on node/add
-      if ($node->original) {
-
-          // Load field values from the original node 
-        $vanilla_list_image_original = $wrapper_original->field_bibsdb_vanilla_list_image->value();
-        $background_image_original = $wrapper_original->field_bibsdb_background_image->value();
-        $background_image_xpos_original = $wrapper_original->field_bibsdb_bgimg_xpos->value();
-        $background_image_ypos_original = $wrapper_original->field_bibsdb_bgimg_ypos->value();
-
-          // If none of the images or xpos or ypos have been tinked with exit here
-        if (($background_image_original[fid] == $background_image[fid]) 
-          && ($vanilla_list_image_original[fid] == $vanilla_list_image[fid]) 
-          && ($background_image_xpos_original == $background_image_xpos) 
-          && ($background_image_ypos_original == $background_image_ypos)) 
-        {
-          return;
-        }
-      }
-
-        // LET THE IMAGE BUILDING BEGIN
-
-        //Load background image file and do a scale and crop
-      $background_image_file = file_load($background_image[fid]);
-      $background_image_file_uri = $background_image_file->uri;
-      $background_image_object = image_load($background_image_file_uri);
-      image_scale_and_crop($background_image_object, 540, 405);
-      image_save($background_image_object, $background_image_file_uri);
-      
-        // Load and modify image style
-      $image_style = image_style_load('bibsdb_expose_large_bg', NULL, NULL);        
-
-        // TODO This will break if additional effects are added that have identical keys in their data options
-      $settings = array($background_image_file_uri, $background_image_xpos, $background_image_ypos, $list_image_height, $list_image_width);
-
-      array_walk_recursive($image_style, function(&$item, $key, $settings){
-        switch ($key) {
-          case 'path':
-          $item = $settings[0];
-          break;
-          case 'xpos':
-          $item = $settings[1];
-          break;
-          case 'ypos':
-          $item = $settings[2];
-          break;
-          case 'height':
-          $item = $settings[3];
-          break;
-          case 'width':
-          $item = $settings[4];
-          break;
-        }
-      }, $settings);
-
-
-        // Create uri for derived image by adding a subfolder to list image path e.g. public://list_image/news/img_with_underlay/124587/define_logo2.jpg
-      $underlay_image_file_uri = "public://list_image/news/img_with_underlay/" . rand (10000, 30000) . $list_image_file->filename;
-
-        // Create derived image and save on disk
-      image_style_create_derivative($image_style, $list_image_file_uri, $underlay_image_file_uri);
-
-        // Load derived image and save it as a drupal managed file
-      $underlay_image_file_path = drupal_realpath($underlay_image_file_uri);
-      $derivative_image_file = file_save_data(file_get_contents($underlay_image_file_path), $underlay_image_file_uri, FILE_EXISTS_REPLACE);
-      
-        // Then attach to node
-      $wrapper->field_ding_news_list_image->file->set($derivative_image_file);    
-    }
-  }
-}
-
-/*
- * Public: Implements hook_node_prepare.
- * Act on a node object about to be shown on the add/edit form.
- * Strip titletag from title. Applies to news and new_materails.
- */
-function bibsdb_expose_node_prepare($node) {
-  if($node->type == 'ding_news' || $node->type == 'new_materials') {
-
-    $wrapper = entity_metadata_wrapper('node', $node);
-
-    // TITLE TAG
-    $title = $wrapper->label();
-
-    //Strip text in front of colon so it doesn't exist in the edit form
-    $arr = explode(": ", $title);
-    $title_contains_colon = strpos($title, ":");
-
-    // Returns position (0 to count-1) if found - returns FALSE if not found
-    if (!($title_contains_colon === FALSE)) {
-      array_shift($arr);
-      $title = implode($arr, ": ");
-    }
-
-    $node->title = $title;
-  }
-}
-
-/*
- * Public: Implements hook_form_FORM_ID_alter.
- *
- * Move the 'field_bibsdb_brick_type' field to the 'options' fieldset.
- * Move the 'field_ding_news_category' field to the 'options' fieldset.
- */
-function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
-
-  $type = $form['#node']->type;
-
-  // MOVE PUBLISHING OPTIONS TO THE TOP OF THE VERTICAL TABS
-  $form['options']['#weight'] = 0;
-
-  // FACT BOX
-
-	// Move bibsdb_fact_box_title and bibsdb_fact_box_body into group_ding_news_content
-  if(isset($form['field_bibsdb_fact_box_title'])) {
-    $form['#group_children']['field_bibsdb_fact_box_title'] = 'group_bibsdb_fact_box';
-  }
-
-  if(isset($form['field_bibsdb_fact_box_body'])) {
-    $form['#group_children']['field_bibsdb_fact_box_body'] = 'group_bibsdb_fact_box';
-  }
-
-  // Move group group_bibsdb_fact_box into group_ding_news_content
-  if(isset($form['#groups']['group_bibsdb_fact_box'])) {
-    $form['#group_children']['group_bibsdb_fact_box'] = 'group_ding_news_content';
-  }
-
-  //BG IMAGE
-
-  // Move field field_bibsdb_background_image into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_background_image'])) {
-    $form['#group_children']['field_bibsdb_background_image'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_bgimg_xpos into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_bgimg_xpos'])) {
-    $form['#group_children']['field_bibsdb_bgimg_xpos'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_bgimg_ypos into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_bgimg_ypos'])) {
-    $form['#group_children']['field_bibsdb_bgimg_ypos'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_listimg_height into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_listimg_height'])) {
-    $form['#group_children']['field_bibsdb_listimg_height'] = 'group_bibsdb_background_image';
-  }
-
-   // Move field field_bibsdb_listimg_width into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_listimg_width'])) {
-    $form['#group_children']['field_bibsdb_listimg_width'] = 'group_bibsdb_background_image';
-  }
-
-  // Move group group_bibsdb_background_image into group_ding_news_images
-  if(isset($form['#groups']['group_bibsdb_background_image'])) {
-    $form['#group_children']['group_bibsdb_background_image'] = 'group_ding_news_images';
-  }
-
-	// On ding_news hide some fields
-  if ($type == 'ding_news') {
-    $form['og_group_ref']['#access'] = FALSE;
-    $form['field_ding_news_tags']['#access'] = FALSE;
-    $form['field_bpi_workflow']['#access'] = FALSE;
-    $form['field_bibsdb_vanilla_list_image']['#access'] = FALSE;
-  }  
-}
-
-/*
- * Public: Implements hook_preprocess_ting_search_context_content.
- *
- * Before displaying the nodes in the carousel prepend event-titles with title tag.
- * Only needed for event-type because tag is already contained in titles of news and new materials.
- */
-function bibsdb_expose_preprocess_ting_search_context_content(&$vars) {
-
-  // TITLE TAG
-  $node = $vars['node'];
-
-  if ($node->type == 'ding_event') {
-    $wrapper = entity_metadata_wrapper('node', $node);
-    $tag = $wrapper->field_bibsdb_tag->value();
-    if (isset($tag)) {
-      $vars['title'] = $tag . ": " . $node->title;
-    }
-  }
-}
-
+// Load code that generates list images with background effect. 
+include_once 'bibsdb_expose.bgimg.inc';
+include_once 'bibsdb_expose.theme.inc';
 
 /**
  * Implements hook_entity_info().
@@ -300,7 +25,7 @@ function bibsdb_expose_entity_info() {
   
   $info['exposure'] = array(
     'label' => t('Exposure'),
-    'controller class' => 'ExposureEntityController',
+    'controller class' => 'EntityAPIController',
     'base table' => 'bibsdb_expose_exposures',
     'entity keys' => array(
       'id' => 'id',
@@ -335,8 +60,6 @@ function bibsdb_expose_entity_info() {
   
   return $info;
 }
-
-
 
 /**
  * Implements hook_menu()
@@ -383,18 +106,6 @@ function bibsdb_expose_access_callback($op, $exposure = NULL, $account = NULL) {
     return FALSE;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * Form definition for adding / editing a exposure.
@@ -448,8 +159,51 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'variables' => array('content' => null),
       'template' => 'templates/exposure',
       //'file' => 'bibsdb_expose.theme.inc',
+      ),
+    );
+}
+
+function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
+  //Load the linked node
+  $exposure_wrapper = entity_metadata_wrapper('exposure', $entity);
+  $node_wrapper = $exposure_wrapper->field_bibsdb_brick_content;
+  $node = $node_wrapper->value();
+  $nodeprops = $node_wrapper->getPropertyInfo();
+
+  //Load the brick type
+  $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
+  $term_name = $term_wrapper->name->value();
+  $term_name_elements = explode('-', $term_name);
+  $fieldlist = explode('x', $term_name_elements[2]);
+
+  $entity->content['classes'] = implode(' ', $term_name_elements);
+
+  $field_selection_settings = array(
+    'tag' => array(
+      'prefix' => 'field_bibsdb',
+      'suffix' => 'tag',
+      'view_mode' => 'full',
+    ),
+    'lead' => array(
+      'prefix' => 'field_ding',
+      'suffix' => 'lead',
+      'view_mode' => 'full',
+    ),
+    'img' => array(
+      'prefix' => 'field_ding',
+      'suffix' => 'list_image',
+      'view_mode' => 'teaser',
     ),
   );
+
+  foreach ($fieldlist as $fieldkey) {
+    if($fieldkey == 'title') {
+      $entity->content[$fieldkey] = $node_wrapper->label();
+    }
+    else {
+      $entity->content[$fieldkey] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
+    }
+  }
 }
 
 
@@ -467,54 +221,38 @@ class ExposureEntity extends Entity {
   
 }
 
+
 /**
- * Extending the EntityAPIController for the Exposure entity.
- */
-class ExposureEntityController extends EntityAPIController {
-
-  public function buildContent($entity, $view_mode = 'full', $langcode = NULL, $content = array()) {
-
-    $build = parent::buildContent($entity, $view_mode, $langcode, $content);
-
-    //Load the linked node
-    $exposure_wrapper = entity_metadata_wrapper('exposure', $entity);
-    $node_wrapper = $exposure_wrapper->field_bibsdb_brick_content;
-    $node = $node_wrapper->value();
-    $nodeprops = $node_wrapper->getPropertyInfo();
-
-    
-    $build['tag'] = build_field($node, $nodeprops, 'field_bibsdb', 'tag', 'full');
-    $build['title'] = $node_wrapper->label();
-
-    $build['lead'] = build_field($node, $nodeprops, 'field_ding', 'lead', 'full');
-    $build['img'] = build_field($node, $nodeprops, 'field_ding', 'list_image', 'teaser');
-
-    kpr($build);
-    return $build;
-
+* Helper function that finds a specifik field in an node based on what the maschine field name starts and ends with.
+* The field is then output as a rendarable array.
+* Todo: Only works for single value fields.
+*/
+function _build_field($node, $nodeprops, $field_settings) {
+  $delta = 0;
+  foreach ($nodeprops as $key => $value) {
+    if (_starts_with($key, $field_settings['prefix']) && _ends_with($key, $field_settings['suffix'])){
+      $field = field_get_items('node', $node, $key);
+      return field_view_value('node', $node, $key, $field[$delta]);
+    }
   }
-
-
+  return array();
 }
 
-  function build_field($node, $array, $prefix = '', $suffix = '', $display) {
-    foreach ($array as $key => $value) {
-      if (starts_with($key, $prefix) && ends_with($key, $suffix)){
-        return field_view_field('node', $node, $key, $display);
-      }
-    }
-    return array();
-  }
+/** 
+* Helper function to determine if a string starts with another string.
+*/
+function _starts_with($haystack, $needle) {
+  // search backwards starting from haystack length characters from the end
+  return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+}
 
-  function starts_with($haystack, $needle) {
-    // search backwards starting from haystack length characters from the end
-    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
-  }
-
-  function ends_with($haystack, $needle) {
-    // search forward starting from end minus needle length characters
-    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
-  }
+/** 
+* Helper function to determine if a string ends with another string.
+*/
+function _ends_with($haystack, $needle) {
+  // search forward starting from end minus needle length characters
+  return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+}
 
 
 
@@ -586,5 +324,5 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->save();
 }
 
-module_load_include('inc', 'bibsdb_expose', 'bibsdb_expose.theme');
+
 
