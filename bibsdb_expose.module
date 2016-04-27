@@ -160,10 +160,20 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'template' => 'templates/exposure',
       //'file' => 'bibsdb_expose.theme.inc',
       ),
+    'views_view_unformatted__bibsdb_wall' => array(
+      'arguments' => array('view' => NULL, 'field' => NULL, 'row' => NULL),
+      'template' => 'views-view-unformatted--bibsdb-wall',
+      'original hook' => 'views_view_unformatted',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+    ),
     );
 }
 
 function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
+  if (!($type == 'exposure')) {
+    return;
+  }
+
   //Load the linked node
   $exposure_wrapper = entity_metadata_wrapper('exposure', $entity);
   $node_wrapper = $exposure_wrapper->field_bibsdb_brick_content;
@@ -173,35 +183,69 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   //Load the brick type
   $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
   $term_name = $term_wrapper->name->value();
+  // The term name contains info 4 pieces of info separated by '-'
+  // 1. piece: The number of colums the wall contains
+  // 2. piece: The number of cols and rqos this element spans
+  // 3. piece: The fields to be output
+  // 4. piece: The name of a brick design
+
   $term_name_elements = explode('-', $term_name);
+
+  // Extract the field list to be output
   $fieldlist = explode('x', $term_name_elements[2]);
 
+  // Add all the info from term-name as classes
   $entity->content['classes'] = implode(' ', $term_name_elements);
 
+  // This is a config-array that helps us select the same fields in different content type
+  // This is nessecary because the fields are named differently in the content types
   $field_selection_settings = array(
     'tag' => array(
       'prefix' => 'field_bibsdb',
       'suffix' => 'tag',
       'view_mode' => 'full',
+      'options' => array(),
     ),
     'lead' => array(
       'prefix' => 'field_ding',
       'suffix' => 'lead',
       'view_mode' => 'full',
+      'options' => array(),
     ),
     'img' => array(
       'prefix' => 'field_ding',
       'suffix' => 'list_image',
       'view_mode' => 'teaser',
+      'options' => array(
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => implode('_', $term_name_elements),
+          'image_link' => 'content',
+        ),
+      ),
     ),
   );
 
+  // Build the render array
+  $entity->content['fields'] = array();
+
   foreach ($fieldlist as $fieldkey) {
+    $entity->content['fields'][$fieldkey] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array($fieldkey),
+      ),
+    );
+
     if($fieldkey == 'title') {
-      $entity->content[$fieldkey] = $node_wrapper->label();
+      $entity->content['fields'][$fieldkey]['content'] = array(
+        '#type'  => 'link',
+        '#title' => $node->title,
+        '#href'  => 'node/' . $node->nid,
+      );
     }
     else {
-      $entity->content[$fieldkey] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
+      $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
     }
   }
 }
@@ -232,7 +276,8 @@ function _build_field($node, $nodeprops, $field_settings) {
   foreach ($nodeprops as $key => $value) {
     if (_starts_with($key, $field_settings['prefix']) && _ends_with($key, $field_settings['suffix'])){
       $field = field_get_items('node', $node, $key);
-      return field_view_value('node', $node, $key, $field[$delta]);
+      // If we are about to shaow an image set the image style
+      return field_view_value('node', $node, $key, $field[$delta], $field_settings['options']);
     }
   }
   return array();

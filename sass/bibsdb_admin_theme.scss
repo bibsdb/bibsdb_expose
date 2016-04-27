@@ -1,0 +1,23 @@
+// Include compass
+@import "compass/css3";
+
+// Dim unpublished rows on Bibsdb Wall Selection View
+
+.page-admin-selection-wall .unpublished {
+	td {
+		opacity: 0.5;
+	}
+
+	td.views-field-views-bulk-operations {
+		opacity: 1.0;
+	}
+
+	td.views-field-edit-node {
+		opacity: 1.0;
+	} 
+
+
+}
+
+
+

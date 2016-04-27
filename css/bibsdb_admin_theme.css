@@ -1,0 +1,12 @@
+/* line 7, ../sass/bibsdb_admin_theme.scss */
+.page-admin-selection-wall .unpublished td {
+  opacity: 0.5;
+}
+/* line 11, ../sass/bibsdb_admin_theme.scss */
+.page-admin-selection-wall .unpublished td.views-field-views-bulk-operations {
+  opacity: 1.0;
+}
+/* line 15, ../sass/bibsdb_admin_theme.scss */
+.page-admin-selection-wall .unpublished td.views-field-edit-node {
+  opacity: 1.0;
+}

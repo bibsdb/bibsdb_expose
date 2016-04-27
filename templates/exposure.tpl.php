@@ -10,8 +10,11 @@
  */
 ?>
 <div class="<?php print render($content['classes']); ?>">
-<?php print render($content['tag']); ?>
-<?php print render($content['title']); ?>
-<?php print render($content['img']); ?>
-<?php print render($content['lead']); ?>
+
+<?php
+foreach ( $content['fields'] as $field ) {
+  print render($field);
+}
+?>
+
 </div>

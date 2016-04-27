@@ -4,6 +4,15 @@
  * Node add/edit form changes
  */
 
+function bibsdb_expose_preprocess_html(&$variables) {
+// Add conditional stylesheets for admin pages on admin theme.
+  if (arg(0)=="admin") {
+    // reference your own stylesheet    
+    drupal_add_css(drupal_get_path('module', 'bibsdb_expose') . '/css/bibsdb_admin_theme.css', array('weight' => CSS_THEME));
+    drupal_add_js(drupal_get_path('module', 'bibsdb_expose') . '/scripts/bibsdb_admin_theme.js');
+  }
+}
+
 /**
  * Implements hook_image_styles_alter().
  * Change thumbnail image style so it doesn't crop. 

@@ -1,7 +1,6 @@
 name = Bibsdb Expose
 core = 7.x
 package = Bibsdb
-dependencies[] = bibsdb_admin_theme
 dependencies[] = ctools
 dependencies[] = draggableviews
 dependencies[] = entity
@@ -57,5 +56,5 @@ features[taxonomy][] = bibsdb_wall
 features[views_view][] = bibsdb_wall
 features[views_view][] = bibsdb_wall_selection_view
 features[views_view][] = bibsdb_wall_sorting_view
-mtime = 1460547441
+mtime = 1461752432
 project path = sites/default/modules

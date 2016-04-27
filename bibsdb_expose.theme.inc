@@ -9,4 +9,30 @@ function bibsdb_expose_preprocess_node(&$vars, $hook) {
     $variables['theme_hook_suggestion'] = 'node__exposure';
   }
 }
+
+/**
+  * Generic preprosses that make specific preproccess below work
+  */
+function bibsdb_expose_preprocess_views_view(&$vars) {
+  if (isset($vars['view']->name)) {
+    $function = __FUNCTION__ . '__' . $vars['view']->name;
+   
+    if (function_exists($function)) {
+     $function($vars);
+    }
+  }
+}
+
+/**
+  * Add wall maxwidth as class to view
+  */
+function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
+  $wall_id = $vars['view']->args[0];
+  $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));
+  $term_name = $term_wrapper->name->value();
+  
+  $term_name_elements = explode(' ', $term_name);
+  $maxwidth = array_pop($term_name_elements);
+  array_push($vars['classes_array'], $maxwidth);
+}
 	
