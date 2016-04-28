@@ -31,8 +31,7 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));
   $term_name = $term_wrapper->name->value();
   
-  $term_name_elements = explode(' ', $term_name);
-  $maxwidth = array_pop($term_name_elements);
-  array_push($vars['classes_array'], $maxwidth);
+  $term_name_elements = explode('-', $term_name);
+  $vars['classes_array'] = array_merge($vars['classes_array'], $term_name_elements);
 }
 	

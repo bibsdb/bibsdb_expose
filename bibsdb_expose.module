@@ -16,6 +16,8 @@ include_once 'bibsdb_expose.tag.inc';
 include_once 'bibsdb_expose.bgimg.inc';
 include_once 'bibsdb_expose.theme.inc';
 
+
+
 /**
  * Implements hook_entity_info().
  */
@@ -184,9 +186,10 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
   $term_name = $term_wrapper->name->value();
   // The term name contains info 4 pieces of info separated by '-'
-  // 1. piece: The number of colums the wall contains
-  // 2. piece: The number of cols and rqos this element spans
-  // 3. piece: The fields to be output
+  // 0. piece: 'brick'
+  // 1. piece: The number of cols and rows this element spans
+  // 2. piece: The fields to be output
+  // 3. piece: The name of the imagestyle to use
   // 4. piece: The name of a brick design
 
   $term_name_elements = explode('-', $term_name);
@@ -219,7 +222,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       'options' => array(
         'type' => 'image',
         'settings' => array(
-          'image_style' => implode('_', $term_name_elements),
+          'image_style' => $term_name_elements[3],
           'image_link' => 'content',
         ),
       ),
