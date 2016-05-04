@@ -186,19 +186,32 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
   $term_name = $term_wrapper->name->value();
   // The term name contains info 4 pieces of info separated by '-'
-  // 0. piece: 'brick'
-  // 1. piece: The number of cols and rows this element spans
-  // 2. piece: The fields to be output
-  // 3. piece: The name of the imagestyle to use
-  // 4. piece: The name of a brick design
+  // 0. piece: col number
+  // 1. piece: The number of cols this element spans
+  // 2. piece: The number of rows this element spans
+  // 3. piece: The name of a brick design
+  // 4. piece: The fields to be output
+  // 5. piece: The name of the imagestyle to use
+  
 
   $term_name_elements = explode('-', $term_name);
 
   // Extract the field list to be output
-  $fieldlist = explode('x', $term_name_elements[2]);
+  $fieldlist = explode('x', $term_name_elements[4]);
+
+  // Modify the col number so it doesn't start with a number
+  $colnumber = explode('COL', array_shift($term_name_elements));
+  $colclass = "col" . $colnumber[0] . " ";
+
+  $lastchar = substr($term_name_elements[0], -1);
+
+
 
   // Add all the info from term-name as classes
-  $entity->content['classes'] = implode(' ', $term_name_elements);
+  $entity->content['classes'] .= 'brick ';
+  $entity->content['classes'] .= $colclass;
+  $entity->content['classes'] .= strtolower(implode(' ', $term_name_elements));
+
 
   // This is a config-array that helps us select the same fields in different content type
   // This is nessecary because the fields are named differently in the content types
@@ -222,7 +235,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       'options' => array(
         'type' => 'image',
         'settings' => array(
-          'image_style' => $term_name_elements[3],
+          'image_style' => $term_name_elements[5],
           'image_link' => 'content',
         ),
       ),
@@ -372,5 +385,42 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->save();
 }
 
+/**
+ * Wrapper function that adds the modules JavaScript.
+ */
+function _bibsdb_expose_add_javascript() {
+  // We will add nothing if our required library is not present. This will have
+  // the desired effect of not showing anything to the user. The check could be
+  // better integrated in the theme hook, but this will do for now.
+  if ($library_path = libraries_get_path('packery')) {
+    drupal_add_library('system', 'ui.widget');
+
+    // Use the minified versions.
+    $library_path .= '';
+    $options = array('group' => JS_LIBRARY);
+    drupal_add_js($library_path . '/packery.pkgd.min.js', $options);
+  }
+
+  if ($library_path = libraries_get_path('imagesloaded')) {
+    drupal_add_library('system', 'ui.widget');
+
+    // Use the minified versions.
+    $library_path .= '';
+    $options = array('group' => JS_LIBRARY);
+    drupal_add_js($library_path . '/imagesloaded.pkgd.min.js', $options);
+  }
+
+  // Ad our own JS to control and setup packery.
+  $module_path = drupal_get_path('module', 'bibsdb_expose');
+  drupal_add_js($module_path . '/scripts/packery.options.js');
+}
 
 
+
+/**
+ * Wrapper function that adds the modules css.
+ */
+function _bibsdb_expose_add_css() {
+  $path = drupal_get_path('module', 'bibsdb_expose');
+  drupal_add_css($path . '/css/bibsdb_expose.css');
+}

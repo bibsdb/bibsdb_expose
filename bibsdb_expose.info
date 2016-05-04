@@ -58,3 +58,11 @@ features[views_view][] = bibsdb_wall_selection_view
 features[views_view][] = bibsdb_wall_sorting_view
 mtime = 1461752432
 project path = sites/default/modules
+
+;----------// JavaScripts
+;scripts[] = scripts/imagesloaded/imagesloaded.pkgd.min.js
+;scripts[] = scripts/packery/packery.pkgd.min.js
+;scripts[] = masonry.pkgd.min.js
+;scripts[] = scripts/packery.options.js
+
+stylesheets[all][] = css/packery.css

@@ -27,11 +27,24 @@ function bibsdb_expose_preprocess_views_view(&$vars) {
   * Add wall maxwidth as class to view
   */
 function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
+
+  // Add JavaScript and CSS using wrapper functions.
+  _bibsdb_expose_add_javascript();
+  _bibsdb_expose_add_css();
+
+
+  // Extract wall class from wall taxonomy term name
   $wall_id = $vars['view']->args[0];
   $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));
   $term_name = $term_wrapper->name->value();
   
   $term_name_elements = explode('-', $term_name);
   $vars['classes_array'] = array_merge($vars['classes_array'], $term_name_elements);
+
+  // Add gutter and col spacer divs
+  $vars['rows'] .= "<div class=\"colwidth\"></div>";
+  $vars['rows'] .= "<div class=\"gutterwidth\"></div>";
+
+  
 }
 	
