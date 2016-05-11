@@ -44,7 +44,7 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   // If there are no rows hide the wall
   if (empty($vars['rows'])) {
     array_push($vars['classes_array'], 'empty');
-    $vars['rows'] .= "<div class=\"brick col1 w1 h05\">Ingen indhold</div>";
+    $vars['rows'] .= "<div class=\"brick col4 w1 h05\"><div class=\"container\">Ingen indhold</div></div>";
   }
 
   // Add gutter and col spacer divs

@@ -9,18 +9,19 @@
  .packery {
 
  	.imagewtitle {
- 		padding-bottom: 2%;
- 		
 
+ 		.img {
+ 			padding-top: 4%;
+ 		}
  		.tagandtitle {
- 			@include dotted-gradient;
  			width: 100%;
  			position: absolute;
  			left: 0;
  			bottom: 0;
  			background-color: $white;
- 			padding-top: 2%;
- 			padding-bottom: 2%;
+ 			padding-top: 4%;
+ 			padding-bottom: 4%;
+ 			@include dotted-gradient;
  		}
 
  		.title, .tag {

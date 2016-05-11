@@ -434,7 +434,7 @@ function _bibsdb_expose_add_javascript() {
   // Ad our own JS to control and setup packery.
   $module_path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_js($module_path . '/scripts/packery.options.js');
-  drupal_add_js($module_path . '/scripts/bibsdb_expose.admin.js');
+  drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
 }
 
 
