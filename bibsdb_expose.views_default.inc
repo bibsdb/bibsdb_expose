@@ -33,6 +33,14 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'Empty view';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Empty view';
+  $handler->display->display_options['empty']['area']['format'] = 'html';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['id'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['table'] = 'field_data_field_bibsdb_brick_content';
@@ -85,6 +93,7 @@ function bibsdb_expose_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Empty view'),
     t('Content entity referenced from field_bibsdb_brick_content'),
     t('Exposure ID'),
     t('.'),
@@ -716,8 +725,8 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['row_class'] = '[status_1]';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -1101,13 +1110,6 @@ function bibsdb_expose_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
     t('Content entity referenced from field_bibsdb_brick_content'),
     t('.'),
     t(','),

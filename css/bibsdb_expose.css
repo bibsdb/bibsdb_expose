@@ -1,80 +1,407 @@
-/*
-Syntax error: File to import not found or unreadable: module/_bibsdb.imagewtitle.
-              Load paths:
-                /mnt/sdb1/www/betabib.sonderborg.dk/drupal/sites/default/modules/bibsdb_expose/sass
-                /var/lib/gems/1.9.1/gems/compass-0.12.7/frameworks/blueprint/stylesheets
-                /var/lib/gems/1.9.1/gems/compass-0.12.7/frameworks/compass/stylesheets
-                Compass::SpriteImporter
-        on line 21 of /mnt/sdb1/www/betabib.sonderborg.dk/drupal/sites/default/modules/bibsdb_expose/sass/bibsdb_expose.scss
+/**
+ * Variables
+ *
+ * @author agms
+ */
+/* Spacing variables
+   ========================================================================== */
+/* Zen Grid variables
+   ========================================================================== */
+/* Breakpoints
+   ========================================================================== */
+/* Standard color definitions - changed - agms
+   ========================================================================== */
+/* Font library
+   ========================================================================== */
+/* Typography
+   ========================================================================== */
+/* Font variables
+   ========================================================================== */
+/* Font sizes
+   ========================================================================== */
+/* Labels
+   ========================================================================== */
+/* Navigation
+   ========================================================================== */
+/* Availability
+   ========================================================================== */
+/**
+ * Mixins
+ *
+ * @author magnify
+ */
+/* Breakpoints
+========================================================================== */
+/* Media query
+========================================================================== */
+/* Breakpoints
+========================================================================== */
+/* Typography mixins
+ *
+ * These are mixins to allow for use in media queries
+ ========================================================================== */
+/* Border mixin
+ *
+ ========================================================================== */
+/**
+ * Packery configuration
+ *
+ * @author agms
+ */
+/* Variables
+========================================================================== */
+/* Sizing
+========================================================================== */
+/* line 47, ../sass/module/_bibsdb.packery.scss */
+.packery .colwidth {
+  width: 8.33333%;
+}
+/* line 51, ../sass/module/_bibsdb.packery.scss */
+.packery .gutterwidth {
+  width: 2%;
+}
+/* line 55, ../sass/module/_bibsdb.packery.scss */
+.packery .brick {
+  float: left;
+  position: relative;
+  height: 0;
+}
+/* line 60, ../sass/module/_bibsdb.packery.scss */
+.packery .brick .container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+}
+/* line 70, ../sass/module/_bibsdb.packery.scss */
+.packery .col1.w1 {
+  width: 100%;
+}
+/* line 73, ../sass/module/_bibsdb.packery.scss */
+.packery .col1.h05 {
+  padding-bottom: 37.5%;
+}
+/* line 76, ../sass/module/_bibsdb.packery.scss */
+.packery .col1.h1 {
+  padding-bottom: 75%;
+}
+/* line 79, ../sass/module/_bibsdb.packery.scss */
+.packery .col1.h2 {
+  padding-bottom: 152%;
+}
+/* line 86, ../sass/module/_bibsdb.packery.scss */
+.packery .col2.w1 {
+  width: 49%;
+}
+/* line 89, ../sass/module/_bibsdb.packery.scss */
+.packery .col2.w2 {
+  width: 100%;
+}
+/* line 92, ../sass/module/_bibsdb.packery.scss */
+.packery .col2.h05 {
+  padding-bottom: 18.375%;
+}
+/* line 95, ../sass/module/_bibsdb.packery.scss */
+.packery .col2.h1 {
+  padding-bottom: 36.75%;
+}
+/* line 98, ../sass/module/_bibsdb.packery.scss */
+.packery .col2.h2 {
+  padding-bottom: 75.5%;
+}
+/* line 105, ../sass/module/_bibsdb.packery.scss */
+.packery .col3.w1 {
+  width: 32.0%;
+}
+@media only screen and (max-width: 480px) {
+  /* line 105, ../sass/module/_bibsdb.packery.scss */
+  .packery .col3.w1 {
+    width: 49%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 105, ../sass/module/_bibsdb.packery.scss */
+  .packery .col3.w1 {
+    width: 49%;
+  }
+}
+/* line 115, ../sass/module/_bibsdb.packery.scss */
+.packery .col3.w2 {
+  width: 66%;
+}
+/* line 118, ../sass/module/_bibsdb.packery.scss */
+.packery .col3.h05 {
+  padding-bottom: 12.0%;
+}
+/* line 121, ../sass/module/_bibsdb.packery.scss */
+.packery .col3.h1 {
+  padding-bottom: 24.0%;
+}
+@media only screen and (max-width: 480px) {
+  /* line 121, ../sass/module/_bibsdb.packery.scss */
+  .packery .col3.h1 {
+    padding-bottom: 37.25%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 121, ../sass/module/_bibsdb.packery.scss */
+  .packery .col3.h1 {
+    padding-bottom: 37.25%;
+  }
+}
+/* line 130, ../sass/module/_bibsdb.packery.scss */
+.packery .col3.h2 {
+  padding-bottom: 50.0%;
+}
+/* line 137, ../sass/module/_bibsdb.packery.scss */
+.packery .col4.w1 {
+  width: 23.5%;
+}
+@media only screen and (max-width: 480px) {
+  /* line 137, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.w1 {
+    width: 49%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 137, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.w1 {
+    width: 49%;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 137, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.w1 {
+    width: 49%;
+  }
+}
+/* line 149, ../sass/module/_bibsdb.packery.scss */
+.packery .col4.w2 {
+  width: 49%;
+}
+/* line 152, ../sass/module/_bibsdb.packery.scss */
+.packery .col4.h05 {
+  padding-bottom: 8.8125%;
+}
+/* line 155, ../sass/module/_bibsdb.packery.scss */
+.packery .col4.h1 {
+  padding-bottom: 17.625%;
+}
+@media only screen and (max-width: 480px) {
+  /* line 155, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.h1 {
+    padding-bottom: 37.25%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 155, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.h1 {
+    padding-bottom: 37.25%;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 155, ../sass/module/_bibsdb.packery.scss */
+  .packery .col4.h1 {
+    padding-bottom: 37.25%;
+  }
+}
+/* line 167, ../sass/module/_bibsdb.packery.scss */
+.packery .col4.h2 {
+  padding-bottom: 37.25%;
+}
+/* line 173, ../sass/module/_bibsdb.packery.scss */
+.packery .col6 {
+  background-color: green;
+  width: calc((1/6 * 100%) - (5/6 * 1%));
+}
 
-Backtrace:
-/mnt/sdb1/www/betabib.sonderborg.dk/drupal/sites/default/modules/bibsdb_expose/sass/bibsdb_expose.scss:21
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/import_node.rb:45:in `import'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/import_node.rb:28:in `imported_file'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/import_node.rb:37:in `css_import?'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/root_node.rb:20:in `render'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:315:in `_render'
-/var/lib/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:262:in `render'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:139:in `block (2 levels) in compile'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:126:in `timed'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:138:in `block in compile'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/logger.rb:45:in `red'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:137:in `compile'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:118:in `compile_if_required'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:101:in `each'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:101:in `block in run'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:126:in `timed'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/compiler.rb:100:in `run'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/commands/watch_project.rb:147:in `recompile'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:73:in `call'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:73:in `run_callback'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:55:in `callback_action'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:31:in `create'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:26:in `block in created'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:25:in `each'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:25:in `created'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:17:in `refresh'
-/usr/lib/ruby/vendor_ruby/fssm/backends/inotify.rb:12:in `block in add_handler'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:205:in `call'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:205:in `block in watch'
-/usr/lib/ruby/vendor_ruby/rb-inotify/watcher.rb:41:in `[]'
-/usr/lib/ruby/vendor_ruby/rb-inotify/watcher.rb:41:in `callback!'
-/usr/lib/ruby/vendor_ruby/rb-inotify/event.rb:128:in `callback!'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `block in process'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `each'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `process'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:221:in `run'
-/usr/lib/ruby/vendor_ruby/fssm/backends/inotify.rb:20:in `run'
-/usr/lib/ruby/vendor_ruby/fssm/monitor.rb:26:in `run'
-/usr/lib/ruby/vendor_ruby/fssm.rb:67:in `monitor'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/commands/watch_project.rb:87:in `perform'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/commands/base.rb:18:in `execute'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/commands/project_base.rb:19:in `execute'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/bin/compass:30:in `block in <top (required)>'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/bin/compass:44:in `call'
-/var/lib/gems/1.9.1/gems/compass-0.12.7/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: module/_bibsdb.imagewtitle.\A               Load paths:\A                 /mnt/sdb1/www/betabib.sonderborg.dk/drupal/sites/default/modules/bibsdb_expose/sass\A                 /var/lib/gems/1.9.1/gems/compass-0.12.7/frameworks/blueprint/stylesheets\A                 /var/lib/gems/1.9.1/gems/compass-0.12.7/frameworks/compass/stylesheets\A                 Compass::SpriteImporter\A         on line 21 of /mnt/sdb1/www/betabib.sonderborg.dk/drupal/sites/default/modules/bibsdb_expose/sass/bibsdb_expose.scss"; }
+/* Basic configuration
+========================================================================== */
+/* line 182, ../sass/module/_bibsdb.packery.scss */
+.pane-bibsdb-wall-panel-bibsdb-wall {
+  background-color: white;
+}
+
+/* line 186, ../sass/module/_bibsdb.packery.scss */
+.view-bibsdb-wall {
+  padding: 1.5%;
+}
+
+/* line 190, ../sass/module/_bibsdb.packery.scss */
+.packery {
+  background-color: white;
+}
+/* line 193, ../sass/module/_bibsdb.packery.scss */
+.packery .brick {
+  font-family: "SourceSansProSemibold";
+  word-wrap: break-word;
+}
+/* line 197, ../sass/module/_bibsdb.packery.scss */
+.packery .brick .container {
+  background-color: white;
+}
+@media only screen and (max-width: 480px) {
+  /* line 193, ../sass/module/_bibsdb.packery.scss */
+  .packery .brick {
+    font-size: 80%;
+    line-height: 110%;
+    background-color: yellow;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 193, ../sass/module/_bibsdb.packery.scss */
+  .packery .brick {
+    font-size: 100%;
+    line-height: 110%;
+    background-color: #a32e10;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 193, ../sass/module/_bibsdb.packery.scss */
+  .packery .brick {
+    font-size: 110%;
+    line-height: 110%;
+    background-color: #00caff;
+  }
+}
+@media only screen and (min-width: 941px) and (max-width: 1210px) {
+  /* line 193, ../sass/module/_bibsdb.packery.scss */
+  .packery .brick {
+    font-size: 110%;
+    line-height: 110%;
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 1211px) {
+  /* line 193, ../sass/module/_bibsdb.packery.scss */
+  .packery .brick {
+    font-size: 130%;
+    line-height: 110%;
+    background-color: #b7bbbf;
+  }
+}
+/* line 233, ../sass/module/_bibsdb.packery.scss */
+.packery .brick a:link {
+  color: rgba(0, 0, 0, 0.7);
+}
+/* line 236, ../sass/module/_bibsdb.packery.scss */
+.packery .brick a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+/* line 239, ../sass/module/_bibsdb.packery.scss */
+.packery .brick a:visited {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Empty wall config
+========================================================================== */
+/* line 248, ../sass/module/_bibsdb.packery.scss */
+.contextual-links-region .view-bibsdb-wall {
+  background: linear-gradient(to left bottom, #ffff00, #ffff00) no-repeat;
+  background-size: 60px 30px;
+  background-position: right top;
+}
+
+/* line 254, ../sass/module/_bibsdb.packery.scss */
+.view-bibsdb-wall.empty {
+  display: none;
+}
+
+/* line 258, ../sass/module/_bibsdb.packery.scss */
+.contextual-links-region .view-bibsdb-wall.empty {
+  display: block;
+}
+
+/**
+ * Style definition of brick-layout: Image with title
+ *
+ * @author agms
+ */
+/* line 11, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle {
+  padding-bottom: 2%;
+}
+/* line 15, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle .tagandtitle {
+  background-image: linear-gradient(to right, #333333 40%, rgba(255, 255, 255, 0) 20%);
+  background-position: bottom;
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+/* line 26, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle .title, .packery .imagewtitle .tag {
+  display: inline;
+}
+/* line 30, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle .tag {
+  color: green;
+}
+/* line 34, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle .tag::after {
+  content: ": ";
+}
+/* line 40, ../sass/bricks/_bibsdb.imagewtitle.scss */
+.packery .imagewtitle.w2.h2.col4 .tagandtitle {
+  width: 50%;
+  position: absolute;
+  left: 46%;
+  bottom: 70%;
+  padding: 2%;
+}
+@media only screen and (max-width: 480px) {
+  /* line 39, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 {
+    font-size: 80%;
+    line-height: 110%;
+  }
+  /* line 52, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 .tagandtitle {
+    width: 80%;
+    left: 16%;
+    bottom: 50%;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 39, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 {
+    font-size: 110%;
+    line-height: 110%;
+  }
+  /* line 64, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 .tagandtitle {
+    width: 70%;
+    left: 26%;
+    bottom: 60%;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 39, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 {
+    font-size: 130%;
+    line-height: 110%;
+  }
+}
+@media only screen and (min-width: 941px) and (max-width: 1210px) {
+  /* line 39, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 {
+    font-size: 130%;
+    line-height: 110%;
+  }
+}
+@media only screen and (min-width: 1211px) {
+  /* line 39, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  .packery .imagewtitle.w2.h2.col4 {
+    font-size: 160%;
+    line-height: 110%;
+  }
+}

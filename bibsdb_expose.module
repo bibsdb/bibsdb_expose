@@ -167,7 +167,7 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'template' => 'views-view-unformatted--bibsdb-wall',
       'original hook' => 'views_view_unformatted',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
-    ),
+      ),
     );
 }
 
@@ -221,13 +221,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       'suffix' => 'tag',
       'view_mode' => 'full',
       'options' => array(),
-    ),
+      ),
     'lead' => array(
       'prefix' => 'field_ding',
       'suffix' => 'lead',
       'view_mode' => 'full',
       'options' => array(),
-    ),
+      ),
     'img' => array(
       'prefix' => 'field_ding',
       'suffix' => 'list_image',
@@ -235,12 +235,12 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       'options' => array(
         'type' => 'image',
         'settings' => array(
-          'image_style' => $term_name_elements[5],
+          'image_style' => $term_name_elements[4],
           'image_link' => 'content',
+          ),
         ),
       ),
-    ),
-  );
+    );
 
   // Build the render array
   $entity->content['fields'] = array();
@@ -250,19 +250,40 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       '#type' => 'container',
       '#attributes' => array(
         'class' => array($fieldkey),
-      ),
-    );
+        ),
+      );
 
     if($fieldkey == 'title') {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => $node->title,
         '#href'  => 'node/' . $node->nid,
-      );
+        );
     }
     else {
       $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
     }
+  }
+
+  // If tag is empty uset element in array
+  if (empty($entity->content['fields']['tag']['content']['#markup'])) {
+    unset($entity->content['fields']['tag']);
+  }
+
+  // Some brick types demands that tag and title are wrapped in a div
+  if (array_intersect($term_name_elements, ['imagewtitle'])) {
+    $entity->content['fields']['tagandtitle'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => 'tagandtitle',
+        ),
+      );
+    $entity->content['fields']['tagandtitle']['tag'] = $entity->content['fields']['tag'];
+
+    $entity->content['fields']['tagandtitle']['title'] = $entity->content['fields']['title'];
+    
+    unset($entity->content['fields']['title']);
+    unset($entity->content['fields']['tag']);
   }
 }
 
@@ -413,6 +434,7 @@ function _bibsdb_expose_add_javascript() {
   // Ad our own JS to control and setup packery.
   $module_path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_js($module_path . '/scripts/packery.options.js');
+  drupal_add_js($module_path . '/scripts/bibsdb_expose.admin.js');
 }
 
 

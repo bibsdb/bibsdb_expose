@@ -41,10 +41,14 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   $term_name_elements = explode('-', $term_name);
   $vars['classes_array'] = array_merge($vars['classes_array'], $term_name_elements);
 
+  // If there are no rows hide the wall
+  if (empty($vars['rows'])) {
+    array_push($vars['classes_array'], 'empty');
+    $vars['rows'] .= "<div class=\"brick col1 w1 h05\">Ingen indhold</div>";
+  }
+
   // Add gutter and col spacer divs
   $vars['rows'] .= "<div class=\"colwidth\"></div>";
   $vars['rows'] .= "<div class=\"gutterwidth\"></div>";
-
-  
 }
 	

@@ -4,6 +4,90 @@
  * @author agms
  */
 
+
+
  .packery {
- 	
+
+ 	.imagewtitle {
+ 		padding-bottom: 2%;
+ 		
+
+ 		.tagandtitle {
+ 			@include dotted-gradient;
+ 			width: 100%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			background-color: $white;
+ 			padding-top: 2%;
+ 			padding-bottom: 2%;
+ 		}
+
+ 		.title, .tag {
+ 			display: inline;
+ 		}
+
+ 		.tag {
+ 			color: green;
+ 		}
+
+ 		.tag::after {
+ 			content: ": ";
+ 		}
+ 	}
+
+ 	.imagewtitle.w2.h2.col4 {
+ 		.tagandtitle {
+ 			width: 50%;
+ 			position: absolute;
+ 			left: 46%; // 100% - 2xpadding - width
+ 			bottom: 70%;
+ 			padding: 2%;
+ 		}
+
+ 		@include low() {
+ 			font-size: $font-size-tiny;
+ 			line-height: $font-size-medium;
+
+ 			.tagandtitle {
+ 				width: 80%;
+ 				left: 16%; // 100% - 2xpadding - width
+ 				bottom: 50%;
+ 				padding: 2%;
+ 			}
+ 		}
+
+ 		@include small() {
+ 			font-size: $font-size-medium;
+ 			line-height: $font-size-medium;
+
+ 			.tagandtitle {
+ 				width: 70%;
+ 				left: 26%; // 100% - 2xpadding - width
+ 				bottom: 60%;
+ 				padding: 2%;
+ 			}
+ 		}
+
+ 		@include medium() {
+ 			font-size: $font-size-large;
+ 			line-height: $font-size-medium;
+ 		}
+
+
+ 		@include large() {
+ 			font-size: $font-size-large;
+ 			line-height: $font-size-medium;
+ 		}
+
+ 		@include x-large() {
+ 			font-size: $font-size-larger;
+ 			line-height: $font-size-medium;
+ 		}
+
+
+
+
+ 	}
+
  }
