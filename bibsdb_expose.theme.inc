@@ -32,7 +32,7 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   _bibsdb_expose_add_javascript();
   _bibsdb_expose_add_css();
 
-
+  dd($vars['view']);
   // Extract wall class from wall taxonomy term name
   $wall_id = $vars['view']->args[0];
   $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));

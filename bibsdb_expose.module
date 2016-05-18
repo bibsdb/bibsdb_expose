@@ -5,15 +5,16 @@
  */
 
 include_once 'bibsdb_expose.features.inc';
-
-// Alterations to node add/edit form
-include_once 'bibsdb_expose.admin.inc';
-
 // Load tag logic
 include_once 'bibsdb_expose.tag.inc';
 
 // Load code that generates list images with background effect. 
 include_once 'bibsdb_expose.bgimg.inc';
+
+// Alterations to node add/edit form
+include_once 'bibsdb_expose.admin.inc';
+
+
 include_once 'bibsdb_expose.theme.inc';
 
 
@@ -392,6 +393,7 @@ function bibsdb_expose_vbo_expose_submit($form, $form_state) {
  */
 function bibsdb_expose_vbo_expose(&$node, $context) {
 
+  dd($context['view_info']);
   $wall = $context['view_info']['arguments']['0'];
   $brick_type = $context['brick_type'];
   $brick_content = $node->nid;
