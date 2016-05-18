@@ -9,6 +9,14 @@
  */
 function bibsdb_expose_taxonomy_default_vocabularies() {
   return array(
+    'bibsdb_brick_colors' => array(
+      'name' => 'Brick Colors',
+      'machine_name' => 'bibsdb_brick_colors',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'bibsdb_brick_type' => array(
       'name' => 'Bricks',
       'machine_name' => 'bibsdb_brick_type',
