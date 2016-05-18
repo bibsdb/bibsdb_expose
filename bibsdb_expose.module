@@ -211,6 +211,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   // Add all the info from term-name as classes
   $entity->content['classes'] .= 'brick ';
   $entity->content['classes'] .= $colclass;
+  $entity->content['classes'] .= $exposure_wrapper->field_bibsdb_brick_color->value()->name . ' ';
   $entity->content['classes'] .= strtolower(implode(' ', $term_name_elements));
 
 
@@ -365,12 +366,31 @@ function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
   foreach ($tree as $term) {
     $brick_type_options[$term->tid] = $term->name;
   }
+
+
+  // Load brick color vocabulary
+  $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_color');
+  $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
+
+  $brick_color_options = array();
+  foreach ($tree as $term) {
+    $brick_color_options[$term->tid] = $term->name;
+  }
+
+
   // Build form
   $form = array();
   $form['brick_type'] = array(
     '#type' => 'select', 
     '#title' => t('Choose brick type'),
     '#options' => $brick_type_options,
+    '#required' => TRUE,
+    );
+
+  $form['brick_color'] = array(
+    '#type' => 'select', 
+    '#title' => t('Choose brick color'),
+    '#options' => $brick_color_options,
     '#required' => TRUE,
     );
 
@@ -385,6 +405,7 @@ function bibsdb_expose_vbo_expose_submit($form, $form_state) {
 
   $return = array(); 
   $return['brick_type'] = $form_state['values']['brick_type'];
+  $return['brick_color'] = $form_state['values']['brick_color'];
   return $return; //Note, return value here must be an array.
 }
 
@@ -396,6 +417,7 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   dd($context['view_info']);
   $wall = $context['view_info']['arguments']['0'];
   $brick_type = $context['brick_type'];
+  $brick_color = $context['brick_color'];
   $brick_content = $node->nid;
   $hosting_node = $context['view_info']['arguments']['1'];
 
@@ -406,6 +428,7 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   
   $wrapper->field_bibsdb_wall = $wall;
   $wrapper->field_bibsdb_brick_type = $brick_type;
+  $wrapper->field_bibsdb_brick_color = $brick_color;
   $wrapper->field_bibsdb_brick_content = $brick_content;
   $wrapper->field_bibsdb_hosting_node = $hosting_node;
   $wrapper->save();
