@@ -397,6 +397,8 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wall = $context['view_info']['arguments']['0'];
   $brick_type = $context['brick_type'];
   $brick_content = $node->nid;
+  $hosting_node = $context['view_info']['arguments']['1'];
+
 
   $entity_type = 'exposure';
   $entity = entity_create($entity_type, array('bundle' => $entity_type));
@@ -405,6 +407,7 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->field_bibsdb_wall = $wall;
   $wrapper->field_bibsdb_brick_type = $brick_type;
   $wrapper->field_bibsdb_brick_content = $brick_content;
+  $wrapper->field_bibsdb_hosting_node = $hosting_node;
   $wrapper->save();
 }
 
