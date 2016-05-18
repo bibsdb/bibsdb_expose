@@ -414,7 +414,6 @@ function bibsdb_expose_vbo_expose_submit($form, $form_state) {
  */
 function bibsdb_expose_vbo_expose(&$node, $context) {
 
-  dd($context['view_info']);
   $wall = $context['view_info']['arguments']['0'];
   $brick_type = $context['brick_type'];
   $brick_color = $context['brick_color'];
