@@ -14,6 +14,9 @@ function bibsdb_expose_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
 }
 
 /**
@@ -96,4 +99,21 @@ function bibsdb_expose_image_default_styles() {
   );
 
   return $styles;
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function bibsdb_expose_node_info() {
+  $items = array(
+    'bibsdb_text_fragment' => array(
+      'name' => t('Text Fragment'),
+      'base' => 'node_content',
+      'description' => t('Wall-glue. A heading or a text-snippet that can be displayed on a wall. Isn\'t searchable and has no value as a standalone content element.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
 }
