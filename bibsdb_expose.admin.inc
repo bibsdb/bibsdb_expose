@@ -52,7 +52,7 @@ function bibsdb_expose_preprocess_html(&$variables) {
   if (arg(0)=="admin") {
     // reference your own stylesheet    
     drupal_add_css(drupal_get_path('module', 'bibsdb_expose') . '/css/bibsdb_expose.admin.css', array('weight' => CSS_THEME));
-    drupal_add_js(drupal_get_path('module', 'bibsdb_expose') . '/scripts/bibsdb_expose.admin.js');
+    //drupal_add_js(drupal_get_path('module', 'bibsdb_expose') . '/scripts/bibsdb_expose.admin.js');
   }
 }
 
