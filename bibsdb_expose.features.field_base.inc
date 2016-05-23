@@ -102,7 +102,7 @@ function bibsdb_expose_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'bibsdb_brick_colors',
+          'vocabulary' => 'bibsdb_brick_color',
           'parent' => 0,
         ),
       ),
