@@ -219,20 +219,20 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   // This is nessecary because the fields are named differently in the content types
   $field_selection_settings = array(
     'tag' => array(
-      'prefix' => 'field_bibsdb',
-      'suffix' => 'tag',
+      'prefix' => array('field_bibsdb'),
+      'suffix' => array('tag'),
       'view_mode' => 'full',
       'options' => array(),
       ),
     'lead' => array(
-      'prefix' => 'field_ding',
-      'suffix' => 'lead',
+      'prefix' => array('field_ding', 'field_bibsdb'),
+      'suffix' => array('lead'),
       'view_mode' => 'full',
       'options' => array(),
       ),
     'img' => array(
-      'prefix' => 'field_ding',
-      'suffix' => 'list_image',
+      'prefix' => array('field_ding', 'field_bibsdb','field_search_context'),
+      'suffix' => array('list_image', 'new_materials_image'),
       'view_mode' => 'teaser',
       'options' => array(
         'type' => 'image',
@@ -241,6 +241,12 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
           'image_link' => 'content',
           ),
         ),
+      ),
+    'body' => array(
+      'prefix' => array('field_ding', 'field_bibsdb'),
+      'suffix' => array('body'),
+      'view_mode' => 'full',
+      'options' => array(),
       ),
     );
 
@@ -312,11 +318,15 @@ class ExposureEntity extends Entity {
 */
 function _build_field($node, $nodeprops, $field_settings) {
   $delta = 0;
-  foreach ($nodeprops as $key => $value) {
-    if (_starts_with($key, $field_settings['prefix']) && _ends_with($key, $field_settings['suffix'])){
-      $field = field_get_items('node', $node, $key);
-      // If we are about to shaow an image set the image style
-      return field_view_value('node', $node, $key, $field[$delta], $field_settings['options']);
+  foreach ($nodeprops as $nodepropskey => $nodepropsvalue) {
+    foreach ($field_settings['prefix'] as $prefixvalue) {
+      foreach ($field_settings['suffix'] as $suffixvalue) {
+        if (_starts_with($nodepropskey, $prefixvalue) && _ends_with($nodepropskey, $suffixvalue)){
+          $field = field_get_items('node', $node, $nodepropskey);
+          // If we are about to shaow an image set the image style
+          return field_view_value('node', $node, $nodepropskey, $field[$delta], $field_settings['options']);
+        }
+      }
     }
   }
   return array();
