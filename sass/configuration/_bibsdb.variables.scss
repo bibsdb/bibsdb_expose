@@ -54,6 +54,13 @@ $green:                          #7fc241;
 $green-dark:										 darken($green, 12%) !default;
 $green-darker:									 darken($green-dark, 15%) !default;
 
+$brickgreen:                     #6DA737;
+$brickblue:                      #006E90;
+$brickorange:                    #F18F01;
+$brickgray:                      #ADCAD6;
+$brickturquoise:                 #41BBD9;
+$brickblack:                     transparentize($black, .3);
+
 
 /* Font library
    ========================================================================== */

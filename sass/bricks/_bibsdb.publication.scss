@@ -1,0 +1,80 @@
+/**
+ * Style definition of brick-layout: Image with title
+ *
+ * @author agms
+ */
+
+
+
+
+
+ .packery {
+
+ 	.publication {
+ 		.container {
+ 			background-color: $black;
+
+ 		}
+
+ 		.title {
+ 			color: $white;
+ 			width: 92%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			background-color: $brickblack;
+ 			padding: 4%;
+ 			line-height: 26px;
+
+ 			a:link {
+ 				color: $white;
+ 			}
+ 			a:hover {
+ 				color: $white;
+ 			}
+ 			a:visited {
+ 				color: $white;
+ 			}
+
+ 			font-size: $font-size-large;
+ 			@include low() {
+ 				font-size: $font-size-reset;
+ 			}
+
+ 			@include small() {
+ 				font-size: $font-size-reset;
+ 			}
+
+ 			
+ 		}
+
+ 		.tag {
+
+ 			.green & {
+ 				@include ribbon($brickorange);
+ 			}
+
+ 	
+ 			a {
+ 				color: $white;
+ 				text-decoration: none;
+ 				font-size: $font-size-tiny;
+ 				text-transform: uppercase;
+ 				@include low() {
+ 					font-size: $font-size-reset;
+ 				}
+
+ 				@include small() {
+ 					font-size: $font-size-tiny;
+ 				}
+
+ 				@include medium() {
+ 					font-size: $font-size-reset;
+ 				}
+ 				
+ 			}
+ 		}
+ 	}
+ }
+
+ 

@@ -183,6 +183,15 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   $node = $node_wrapper->value();
   $nodeprops = $node_wrapper->getPropertyInfo();
 
+  // Strip tag from title
+  if($node->type == 'ding_news' || $node->type == 'new_materials' || $node->type == 'ding_eresource' || $node->type == 'ding_event') {
+    _strip_tag_from_title($node);
+  }
+
+  if($node->type == 'ding_group' || $node->type == 'ding_search_context_link' || $node->type == 'ding_page') {
+    _strip_tag_from_title($node);
+  }
+
   //Load the brick type
   $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
   $term_name = $term_wrapper->name->value();
@@ -264,8 +273,8 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
     if($fieldkey == 'title') {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
-        '#title' => $node->title,
-        '#href'  => 'node/' . $node->nid,
+        '#title' => _strip_tag($node->title),
+        '#href'  => _bibsdb_expose_build_url($node),
         );
     }
     else {
@@ -276,6 +285,19 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   // If tag is empty uset element in array
   if (empty($entity->content['fields']['tag']['content']['#markup'])) {
     unset($entity->content['fields']['tag']);
+  }
+  // Turn tag into a link
+  else {
+    $entity->content['fields']['tag']['content'] = array(
+        '#type'  => 'link',
+        '#title' => $entity->content['fields']['tag']['content']['#markup'],
+        '#href'  => _bibsdb_expose_build_url($node),
+    );
+  }
+
+  // Fix the image link
+  if (isset($entity->content['fields']['img']['content']['#path']['path'])) {
+    $entity->content['fields']['img']['content']['#path']['path'] = _bibsdb_expose_build_url($node);
   }
 
   // Some brick types demands that tag and title are wrapped in a div
@@ -293,6 +315,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
     unset($entity->content['fields']['title']);
     unset($entity->content['fields']['tag']);
   }
+  kpr($entity->content['fields']);
 }
 
 
@@ -346,6 +369,25 @@ function _starts_with($haystack, $needle) {
 function _ends_with($haystack, $needle) {
   // search forward starting from end minus needle length characters
   return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+}
+
+/** 
+* Helper function to strip the tag from the title.
+*/
+function _strip_tag($title) {
+
+  //Strip text in front of colon
+  $arr = explode(": ", $title);
+
+  // Returns position (0 to count-1) if found - returns FALSE if not found
+  $title_contains_colon = strpos($title, ":");
+  
+  if (!($title_contains_colon === FALSE)) {
+    array_shift($arr);
+    $title = implode($arr, ": ");
+  }
+
+  return $title;
 }
 
 
@@ -441,6 +483,54 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->field_bibsdb_brick_content = $brick_content;
   $wrapper->field_bibsdb_hosting_node = $hosting_node;
   $wrapper->save();
+}
+
+function _bibsdb_expose_build_url($node) {
+  $wrapper = entity_metadata_wrapper('node', $node);
+  if ($node->type == 'ding_search_context_link') {
+    $url = $wrapper->field_search_context_link->url->value();
+    // One of the main usecases for ding_search_context_links is to link to
+    // search queries. Search queries are tricky because they are a mix of
+    // escaped and not escaped characters. This code handles it in a primitive
+    // fashion by only escaping the quotes.
+    //
+    // Quotes inside search queries need to be escaped.
+    $url = str_replace('"', '%22', $url);
+
+    // Only add Webtrends tracking params to internal links.
+    if (_bibsdb_expose_url_is_internal($url)) {
+      if (strpos($url, '?') === FALSE) {
+        $url .= '';
+      }
+      else {
+        $url .= '';
+      }
+    }
+  }
+  else {
+    $url = url('node/' . $node->nid, array('absolute' => TRUE));
+  }
+  return $url;
+
+}
+
+/**
+ * Helper function to determine if a link is internal.
+ *
+ * Accounting for absolute internal links.
+ */
+function _bibsdb_expose_url_is_internal($url) {
+  $result = TRUE;
+
+  if (url_is_external($url)) {
+    // Still might be an internal absolute URL.
+    $parsed_url = parse_url($url);
+    if ($parsed_url['host'] !== $_SERVER['HTTP_HOST']) {
+      $result = FALSE;
+    }
+  }
+
+  return $result;
 }
 
 /**
