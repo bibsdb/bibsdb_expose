@@ -11,6 +11,7 @@
 //col1
 $col1width1: (1/1 * 100%); // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col1height05: (1/1 * 100%) * 1/2;
+$col1height033: (1/1 * 100%) * 1/3;
 $col1height1: (1/1 * 100%);
 $col1height2: (1/1 * 100%) * 2 + 2%;
 
@@ -18,6 +19,7 @@ $col1height2: (1/1 * 100%) * 2 + 2%;
 $col2width1: (1/2 * 100%) - (1/2 * 2%); // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col2width2: ((1/2 * 100%) - (1/2 * 2%)) * 2 + 2%;
 $col2height05: ((1/2 * 100%) - (1/2 * 2%)) * 1/2;
+$col2height033: ((1/2 * 100%) - (1/2 * 2%)) * 1/3;
 $col2height1: ((1/2 * 100%) - (1/2 * 2%));
 $col2height2: ((1/2 * 100%) - (1/2 * 2%)) * 2 + 2%;
 
@@ -25,6 +27,7 @@ $col2height2: ((1/2 * 100%) - (1/2 * 2%)) * 2 + 2%;
 $col3width1: (1/3 * 100%) - (2/3 * 2%); // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col3width2: ((1/3 * 100%) - (2/3 * 2%)) * 2 + 2%;
 $col3height05: ((1/3 * 100%) - (2/3 * 2%)) * 1/2;
+$col3height033: ((1/3 * 100%) - (2/3 * 2%)) * 1/3;
 $col3height1: ((1/3 * 100%) - (2/3 * 2%));
 $col3height2: ((1/3 * 100%) - (2/3 * 2%)) * 2 + 2%;
 
@@ -33,6 +36,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * 2%)) * 2 + 2%;
 $col4width1: (1/4 * 100%) - (3/4 * 2%); // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col4width2: ((1/4 * 100%) - (3/4 * 2%)) * 2 + 2%;
 $col4height05: ((1/4 * 100%) - (3/4 * 2%)) * 1/2;
+$col4height033: ((1/4 * 100%) - (3/4 * 2%)) * (1/3) - (2/3 * 2%); //One third of the width - gutternum/rownum * gutterwidth
 $col4height15: ((1/4 * 100%) - (3/4 * 2%)) * 3/2 + 2%;
 $col4height1: ((1/4 * 100%) - (3/4 * 2%));
 $col4height2: ((1/4 * 100%) - (3/4 * 2%)) * 2 + 2%;
@@ -42,6 +46,7 @@ $col4height3: ((1/4 * 100%) - (3/4 * 2%)) * 3 + 4%;
 $col6width1: (1/6 * 100%) - (5/6 * 2%); // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col6width2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 $col6height05: ((1/6 * 100%) - (5/6 * 2%)) * 1/2;
+$col6height033: ((1/6 * 100%) - (5/6 * 2%)) * 1/3;
 $col6height15: ((1/6 * 100%) - (5/6 * 2%)) * 3/2 + 2%;
 $col6height1: ((1/6 * 100%) - (5/6 * 2%));
 $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
@@ -80,6 +85,9 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		&.h05 {
 			padding-bottom: $col1height05;
 		}
+		&.h033 {
+			padding-bottom: $col1height033;
+		}
 		&.h1 {
 			padding-bottom: $col1height1;
 		}
@@ -98,6 +106,9 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		}
 		&.h05 {
 			padding-bottom: $col2height05;
+		}
+		&.h033 {
+			padding-bottom: $col2height033;
 		}
 		&.h1 {
 			padding-bottom: $col2height1;
@@ -124,6 +135,9 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		}
 		&.h05 {
 			padding-bottom: $col3height05;
+		}
+		&.h033 {
+			padding-bottom: $col3height033;
 		}
 		&.h1 {
 			padding-bottom: $col3height1;
@@ -158,6 +172,9 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		}
 		&.h05 {
 			padding-bottom: $col4height05;
+		}
+		&.h033 {
+			padding-bottom: $col4height033;
 		}
 		&.h15 {
 			padding-bottom: $col4height15;
@@ -198,6 +215,9 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		}
 		&.h05 {
 			padding-bottom: $col6height05;
+		}
+		&.h033 {
+			padding-bottom: $col6height033;
 		}
 		&.h15 {
 			padding-bottom: $col6height15;

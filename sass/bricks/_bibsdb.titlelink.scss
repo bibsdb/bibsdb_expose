@@ -1,0 +1,48 @@
+/**
+ * Style definition of brick-layout: Image with title
+ *
+ * @author agms
+ */
+
+
+
+ .packery {
+
+ 	.titlelink {
+ 		.container{
+ 		}
+ 
+
+ 		.tagandtitle {
+ 			width: 100%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			
+ 			padding-top: 4%;
+ 			padding-bottom: 4%;
+
+ 			font-size: $font-size-large;
+ 			line-height: 28px;
+ 			@include dotted-gradient;
+ 			
+ 		}
+
+ 		.title, .tag {
+ 			display: inline;
+ 		}
+
+ 		.tag {
+ 			a {
+ 				color: $green;
+ 			}
+ 		}
+
+ 		.tag::after {
+ 			content: ": ";
+ 			color: $green;
+ 		}
+ 	}
+
+ 	
+ }

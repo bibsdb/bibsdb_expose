@@ -756,7 +756,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['style_options']['row_class'] = '[status_1]';
   $handler->display->display_options['style_options']['columns'] = array(
     'id' => 'id',
-    'views_bulk_operations' => 'views_bulk_operations',
+    'views_bulk_operations_1' => 'views_bulk_operations_1',
     'field_ding_news_list_image' => 'field_ding_news_list_image',
     'field_search_context_list_image' => 'field_ding_news_list_image',
     'field_bibsdb_new_materials_image' => 'field_ding_news_list_image',
@@ -764,8 +764,9 @@ function bibsdb_expose_views_default_views() {
     'field_ding_event_list_image' => 'field_ding_news_list_image',
     'field_ding_group_list_image' => 'field_ding_news_list_image',
     'field_bibsdb_brick_content' => 'field_bibsdb_brick_content',
-    'edit_node' => 'edit_node',
+    'edit_node' => 'field_bibsdb_brick_content',
     'field_bibsdb_brick_type' => 'field_bibsdb_brick_type',
+    'field_bibsdb_brick_color' => 'field_bibsdb_brick_color',
     'draggableviews' => 'draggableviews',
     'status' => 'status',
     'publish_on' => 'publish_on',
@@ -781,7 +782,7 @@ function bibsdb_expose_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'views_bulk_operations' => array(
+    'views_bulk_operations_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -847,6 +848,13 @@ function bibsdb_expose_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_bibsdb_brick_color' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'draggableviews' => array(
       'align' => '',
       'separator' => '',
@@ -894,22 +902,27 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
   /* Field: Bulk operations: Exposure */
-  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'bibsdb_expose_exposures';
-  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
-  $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+  $handler->display->display_options['fields']['views_bulk_operations_1']['id'] = 'views_bulk_operations_1';
+  $handler->display->display_options['fields']['views_bulk_operations_1']['table'] = 'bibsdb_expose_exposures';
+  $handler->display->display_options['fields']['views_bulk_operations_1']['field'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations_1']['vbo_settings']['display_type'] = '1';
+  $handler->display->display_options['fields']['views_bulk_operations_1']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations_1']['vbo_settings']['force_single'] = 0;
+  $handler->display->display_options['fields']['views_bulk_operations_1']['vbo_settings']['entity_load_capacity'] = '10';
+  $handler->display->display_options['fields']['views_bulk_operations_1']['vbo_operations'] = array(
+    'action::bibsdb_expose_vbo_change_brick_type' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 0,
+      'label' => '',
+    ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Fjern fra listen',
+      'override_label' => 0,
+      'label' => '',
     ),
     'action::views_bulk_operations_delete_revision' => array(
       'selected' => 0,
@@ -930,11 +943,11 @@ function bibsdb_expose_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Skift brick type',
+      'label' => 'Change color',
       'settings' => array(
         'show_all_tokens' => 0,
         'display_values' => array(
-          'exposure::field_bibsdb_brick_type' => 'exposure::field_bibsdb_brick_type',
+          'exposure::field_bibsdb_brick_color' => 'exposure::field_bibsdb_brick_color',
         ),
       ),
     ),
@@ -947,24 +960,10 @@ function bibsdb_expose_views_default_views() {
         'url' => '',
       ),
     ),
-    'action::bibsdb_expose_vbo_publish' => array(
-      'selected' => 1,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 0,
-      'label' => '',
-    ),
     'action::system_send_email_action' => array(
       'selected' => 0,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-    'action::bibsdb_expose_vbo_set_publish_on' => array(
-      'selected' => 1,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 1,
       'override_label' => 0,
       'label' => '',
     ),
@@ -1061,11 +1060,16 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = ' (edit)';
   /* Field: Exposure: Brick Type */
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['id'] = 'field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['table'] = 'field_data_field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['field'] = 'field_bibsdb_brick_type';
-  $handler->display->display_options['fields']['field_bibsdb_brick_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_bibsdb_brick_type']['type'] = 'bibsdb_term_field_formatter';
+  /* Field: Exposure: Brick color */
+  $handler->display->display_options['fields']['field_bibsdb_brick_color']['id'] = 'field_bibsdb_brick_color';
+  $handler->display->display_options['fields']['field_bibsdb_brick_color']['table'] = 'field_data_field_bibsdb_brick_color';
+  $handler->display->display_options['fields']['field_bibsdb_brick_color']['field'] = 'field_bibsdb_brick_color';
   /* Field: Draggableviews: Exposure */
   $handler->display->display_options['fields']['draggableviews']['id'] = 'draggableviews';
   $handler->display->display_options['fields']['draggableviews']['table'] = 'bibsdb_expose_exposures';
@@ -1146,12 +1150,13 @@ function bibsdb_expose_views_default_views() {
     t('Content entity referenced from field_bibsdb_brick_content'),
     t('.'),
     t(','),
-    t('- Choose an operation -'),
-    t('Fjern fra listen'),
-    t('Skift brick type'),
-    t('Brick Content'),
-    t('Brick Type'),
     t('Exposure'),
+    t('- Choose an operation -'),
+    t('Change color'),
+    t('Brick Content'),
+    t(' (edit)'),
+    t('Brick Type'),
+    t('Brick color'),
     t('Published'),
     t('Publish on'),
     t('Unpublish on'),

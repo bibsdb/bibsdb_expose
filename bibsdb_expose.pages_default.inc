@@ -594,33 +594,6 @@ function bibsdb_expose_default_page_manager_handlers() {
     $display->content['new-0d732c8e-6a2e-4993-ba6f-7cb2025bada6'] = $pane;
     $display->panels['left_sidebar'][4] = 'new-0d732c8e-6a2e-4993-ba6f-7cb2025bada6';
     $pane = new stdClass();
-    $pane->pid = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '185',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall1',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
-    $display->content['new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4'] = $pane;
-    $display->panels['main_content'][0] = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
-    $pane = new stdClass();
     $pane->pid = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
     $pane->panel = 'main_content';
     $pane->type = 'node_content';
@@ -648,11 +621,38 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = '';
     $pane->uuid = '33f78b6a-3147-455f-b437-70261fe3426c';
     $display->content['new-33f78b6a-3147-455f-b437-70261fe3426c'] = $pane;
-    $display->panels['main_content'][1] = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
+    $display->panels['main_content'][0] = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
+    $pane = new stdClass();
+    $pane->pid = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
+    $pane->panel = 'main_content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'field_bibsdb_wall_tid' => '185',
+        'field_bibsdb_hosting_node_target_id' => '%node:nid',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'wall wall1',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
+    $display->content['new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4'] = $pane;
+    $display->panels['main_content'][1] = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
     $pane = new stdClass();
     $pane->pid = 'new-3ab3d3c1-e8a8-4c80-980c-7172ae380d7b';
     $pane->panel = 'main_content';
@@ -672,7 +672,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall2',
+      'css_class' => 'wall wall2 left',
     );
     $pane->extras = array();
     $pane->position = 2;
@@ -699,7 +699,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall3',
+      'css_class' => 'wall wall2 right',
     );
     $pane->extras = array();
     $pane->position = 3;
@@ -726,7 +726,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall4',
+      'css_class' => 'wall wall3',
     );
     $pane->extras = array();
     $pane->position = 4;
@@ -753,7 +753,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall5',
+      'css_class' => 'wall wall4 left',
     );
     $pane->extras = array();
     $pane->position = 5;
@@ -780,7 +780,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall6',
+      'css_class' => 'wall wall5 right',
     );
     $pane->extras = array();
     $pane->position = 6;

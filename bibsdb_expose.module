@@ -7,6 +7,7 @@
 include_once 'bibsdb_expose.features.inc';
 // Load tag logic
 include_once 'bibsdb_expose.tag.inc';
+include_once 'bibsdb_expose.vbo.inc';
 
 // Load code that generates list images with background effect. 
 include_once 'bibsdb_expose.bgimg.inc';
@@ -16,6 +17,7 @@ include_once 'bibsdb_expose.admin.inc';
 
 
 include_once 'bibsdb_expose.theme.inc';
+include_once 'bibsdb_expose.field_formatter.inc';
 
 
 
@@ -169,6 +171,9 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'original hook' => 'views_view_unformatted',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
       ),
+    'bibsdb_expose_bibsdb_term_field_formatter' => array(
+      'variables' => array('element' => NULL),
+      ),
     );
 }
 
@@ -270,6 +275,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
         ),
       );
 
+    // Title
     if($fieldkey == 'title') {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
@@ -277,45 +283,56 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
         '#href'  => _bibsdb_expose_build_url($node),
         );
     }
+
+    // Tagandtitle
+    else if($fieldkey == 'tagandtitle') {
+
+      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
+      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
+
+      unset($entity->content['fields']['title']);
+      unset($entity->content['fields']['tag']);
+
+    }
     else {
       $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
     }
   }
 
-  // If tag is empty uset element in array
+  // Tag: If tag is empty uset element in array
   if (empty($entity->content['fields']['tag']['content']['#markup'])) {
     unset($entity->content['fields']['tag']);
   }
-  // Turn tag into a link
+      // Turn tag into a link
   else {
     $entity->content['fields']['tag']['content'] = array(
-        '#type'  => 'link',
-        '#title' => $entity->content['fields']['tag']['content']['#markup'],
-        '#href'  => _bibsdb_expose_build_url($node),
-    );
+      '#type'  => 'link',
+      '#title' => $entity->content['fields']['tag']['content']['#markup'],
+      '#href'  => _bibsdb_expose_build_url($node),
+      );
   }
 
-  // Fix the image link
+  // Tagandtitle: If tag is empty uset element in array
+  if (empty($entity->content['fields']['tagandtitle']['tag']['content']['#markup'])) {
+    unset($entity->content['fields']['tagandtitle']['tag']);
+  }
+  // Turn tag into a link
+  else {
+    $entity->content['fields']['tagandtitle']['tag']['content'] = array(
+      '#type'  => 'link',
+      '#title' => $entity->content['fields']['tagandtitle']['tag']['content']['#markup'],
+      '#href'  => _bibsdb_expose_build_url($node),
+      );
+  }
+
+
+
+
+      // Fix the image link
   if (isset($entity->content['fields']['img']['content']['#path']['path'])) {
     $entity->content['fields']['img']['content']['#path']['path'] = _bibsdb_expose_build_url($node);
   }
 
-  // Some brick types demands that tag and title are wrapped in a div
-  if (array_intersect($term_name_elements, ['imagewtitle'])) {
-    $entity->content['fields']['tagandtitle'] = array(
-      '#type' => 'container',
-      '#attributes' => array(
-        'class' => 'tagandtitle',
-        ),
-      );
-    $entity->content['fields']['tagandtitle']['tag'] = $entity->content['fields']['tag'];
-
-    $entity->content['fields']['tagandtitle']['title'] = $entity->content['fields']['title'];
-    
-    unset($entity->content['fields']['title']);
-    unset($entity->content['fields']['tag']);
-  }
-  kpr($entity->content['fields']);
 }
 
 
@@ -405,85 +422,17 @@ function bibsdb_expose_action_info() {
       'vbo_configurable' => FALSE,
       'triggers' => array('any'),
       ),
+    'bibsdb_expose_vbo_change_brick_type' => array(
+      'type' => 'exposure',
+      'label' => t('Change brick type'),
+      'configurable' => TRUE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+      ),
     );
 }
 
-function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
-  // Load brick type vocabulary
-  $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_type');
-  $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
 
-  // Build select
-  $brick_type_options = array();
-  foreach ($tree as $term) {
-    $brick_type_options[$term->tid] = $term->name;
-  }
-
-
-  // Load brick color vocabulary
-  $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_color');
-  $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
-
-  $brick_color_options = array();
-  foreach ($tree as $term) {
-    $brick_color_options[$term->tid] = $term->name;
-  }
-
-
-  // Build form
-  $form = array();
-  $form['brick_type'] = array(
-    '#type' => 'select', 
-    '#title' => t('Choose brick type'),
-    '#options' => $brick_type_options,
-    '#required' => TRUE,
-    );
-
-  $form['brick_color'] = array(
-    '#type' => 'select', 
-    '#title' => t('Choose brick color'),
-    '#options' => $brick_color_options,
-    '#required' => TRUE,
-    );
-
-  // Add redirect to return to 
-  $view = $settings['view'];
-  $wall = $view->args[0];
-
-  return $form;
-}
-
-function bibsdb_expose_vbo_expose_submit($form, $form_state) {
-
-  $return = array(); 
-  $return['brick_type'] = $form_state['values']['brick_type'];
-  $return['brick_color'] = $form_state['values']['brick_color'];
-  return $return; //Note, return value here must be an array.
-}
-
-/**
- * VBO action that creates an exposure entity.
- */
-function bibsdb_expose_vbo_expose(&$node, $context) {
-
-  $wall = $context['view_info']['arguments']['0'];
-  $brick_type = $context['brick_type'];
-  $brick_color = $context['brick_color'];
-  $brick_content = $node->nid;
-  $hosting_node = $context['view_info']['arguments']['1'];
-
-
-  $entity_type = 'exposure';
-  $entity = entity_create($entity_type, array('bundle' => $entity_type));
-  $wrapper = entity_metadata_wrapper($entity_type, $entity);
-  
-  $wrapper->field_bibsdb_wall = $wall;
-  $wrapper->field_bibsdb_brick_type = $brick_type;
-  $wrapper->field_bibsdb_brick_color = $brick_color;
-  $wrapper->field_bibsdb_brick_content = $brick_content;
-  $wrapper->field_bibsdb_hosting_node = $hosting_node;
-  $wrapper->save();
-}
 
 function _bibsdb_expose_build_url($node) {
   $wrapper = entity_metadata_wrapper('node', $node);
