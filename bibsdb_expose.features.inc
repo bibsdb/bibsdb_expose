@@ -111,7 +111,7 @@ function bibsdb_expose_node_info() {
       'base' => 'node_content',
       'description' => t('Wall-glue. A heading or a text-snippet that can be displayed on a wall. Isn\'t searchable and has no value as a standalone content element.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

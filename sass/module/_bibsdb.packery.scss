@@ -241,14 +241,19 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 	&.front {
 		padding: 1.5%;
 	}
-
-	&.nopadding {
-		padding: 0;
+	&.nocontent {
+		display: none;
 	}
-}
+	&.nocontent.editormode {
+		padding: 0;
+		display: block;
 
-.view-bibsdb-wall {
-	
+		.view-bibsdb-wall {
+			background: linear-gradient( to left bottom, yellow, yellow) no-repeat;
+			background-size: 60px 30px;
+			background-position: right top;
+		}
+	}
 }
 
 .packery {
@@ -301,22 +306,124 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 	}
 }
 
-/* Empty wall config
-========================================================================== */
 
-.contextual-links-region .view-bibsdb-wall {
-	background: linear-gradient( to left bottom, yellow, yellow) no-repeat;
-	background-size: 60px 30px;
-	background-position: right top;
+
+/* Walls on ding_page
+============================================================================ */
+
+.node-type-ding-page .default-layout {
+
+	.primary-content {
+		@include zen-clear();
+		@include zen-grid-container;
+	}
+
+	/* Page content */
+	article.page {
+		@include zen-grid-item(9, 1);
+	}
+
+	&.empty-wall0 article.page {
+		@include zen-grid-item(12, 1);
+	}
+
+	&.empty-wall0.editormode article.page {
+		@include zen-grid-item(9, 1);
+	}
+
 }
 
-.view-bibsdb-wall.empty {
-	display: none;
+
+/* Walls */
+.node-type-ding-page .default-layout {
+
+	.wall.left {
+		@include zen-grid-item(6, 1);
+		@include zen-clear(left);
+	}
+
+	.wall.right {
+		@include zen-grid-item(6, 7);
+		@include zen-clear(right);
+	}
+
+	.wall0 {
+		@include zen-clear(right);
+		@include zen-grid-item(3, 1, right);
+	}
+
+	&.empty-wall0 .wall0 {
+		display: none;
+	}
+
+	&.empty-wall0.editormode .wall0 {
+		display: block;
+		@include zen-grid-item(3, 1, right);
+	}
 }
 
-.contextual-links-region .view-bibsdb-wall.empty {
-	display: block;
+/* Walls on ding_group
+============================================================================ */
+
+.node-type-ding-group .default-layout {
+
+	.primary-content {
+		@include zen-clear();
+		@include zen-grid-container;
+	}
+
+	/* Page content */
+	.pane-node-content {
+		@include zen-grid-item(9, 1);
+	}
+
+	&.empty-wall0 .pane-node-content {
+		@include zen-grid-item(12, 1);
+	}
+
+	&.empty-wall0.editormode .pane-node-content {
+		@include zen-grid-item(9, 1);
+	}
+
 }
+
+
+/* Walls */
+.node-type-ding-group .default-layout {
+
+	.wall.left {
+		@include zen-grid-item(6, 1);
+		@include zen-clear(left);
+	}
+
+	.wall.right {
+		@include zen-grid-item(6, 7);
+		@include zen-clear(right);
+	}
+
+	.wall0 {
+		@include zen-clear(right);
+		@include zen-grid-item(3, 1, right);
+	}
+
+	&.empty-wall0 .wall0 {
+		display: none;
+	}
+
+	&.empty-wall0.editormode .wall0 {
+		display: block;
+		@include zen-grid-item(3, 1, right);
+	}
+}
+
+
+
+
+
+
+
+
+
 
 
 
