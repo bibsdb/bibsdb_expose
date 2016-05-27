@@ -308,10 +308,10 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 
 
 
-/* Walls on ding_page
+/* Walls on ding_page and page_group
 ============================================================================ */
 
-.node-type-ding-page .default-layout {
+.node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
 
 	.primary-content {
 		@include zen-clear();
@@ -319,23 +319,52 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 	}
 
 	/* Page content */
-	article.page {
+	article.page, .pane-node-content {
 		@include zen-grid-item(9, 1);
+
+		@include low() {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include small {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include medium {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
 	}
 
-	&.empty-wall0 article.page {
+	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content{
 		@include zen-grid-item(12, 1);
 	}
 
-	&.empty-wall0.editormode article.page {
+	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content {
 		@include zen-grid-item(9, 1);
+		@include low() {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include small {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include medium {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
 	}
 
 }
 
 
 /* Walls */
-.node-type-ding-page .default-layout {
+.node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
 
 	.wall.left {
 		@include zen-grid-item(6, 1);
@@ -347,9 +376,45 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 		@include zen-clear(right);
 	}
 
+	@include low() {
+		.wall.left, .wall.right {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+	}
+
+	@include small {
+		.wall.left, .wall.right {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+	}
+
+	@include medium {
+		.wall.left, .wall.right {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+	}
+
 	.wall0 {
 		@include zen-clear(right);
 		@include zen-grid-item(3, 1, right);
+
+		@include low() {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include small {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include medium {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
 	}
 
 	&.empty-wall0 .wall0 {
@@ -359,64 +424,22 @@ $col6height2: ((1/6 * 100%) - (5/6 * 2%)) * 2 + 2%;
 	&.empty-wall0.editormode .wall0 {
 		display: block;
 		@include zen-grid-item(3, 1, right);
+		@include low() {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include small {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include medium {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
 	}
 }
-
-/* Walls on ding_group
-============================================================================ */
-
-.node-type-ding-group .default-layout {
-
-	.primary-content {
-		@include zen-clear();
-		@include zen-grid-container;
-	}
-
-	/* Page content */
-	.pane-node-content {
-		@include zen-grid-item(9, 1);
-	}
-
-	&.empty-wall0 .pane-node-content {
-		@include zen-grid-item(12, 1);
-	}
-
-	&.empty-wall0.editormode .pane-node-content {
-		@include zen-grid-item(9, 1);
-	}
-
-}
-
-
-/* Walls */
-.node-type-ding-group .default-layout {
-
-	.wall.left {
-		@include zen-grid-item(6, 1);
-		@include zen-clear(left);
-	}
-
-	.wall.right {
-		@include zen-grid-item(6, 7);
-		@include zen-clear(right);
-	}
-
-	.wall0 {
-		@include zen-clear(right);
-		@include zen-grid-item(3, 1, right);
-	}
-
-	&.empty-wall0 .wall0 {
-		display: none;
-	}
-
-	&.empty-wall0.editormode .wall0 {
-		display: block;
-		@include zen-grid-item(3, 1, right);
-	}
-}
-
-
 
 
 

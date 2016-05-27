@@ -368,29 +368,29 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* Walls on ding_page
+/* Walls on ding_page and page_group
 ============================================================================ */
 /* line 314, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout {
+.node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
   /* Page content */
 }
 /* line 316, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .primary-content {
+.node-type-ding-page .default-layout .primary-content, .node-type-ding-group .default-layout .primary-content {
   clear: left;
   *position: relative;
   *zoom: 1;
 }
 /* line 46, ../../../../../../../../../../var/lib/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-.node-type-ding-page .default-layout .primary-content:before, .node-type-ding-page .default-layout .primary-content:after {
+.node-type-ding-page .default-layout .primary-content:before, .node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:before, .node-type-ding-group .default-layout .primary-content:after {
   content: "";
   display: table;
 }
 /* line 50, ../../../../../../../../../../var/lib/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-.node-type-ding-page .default-layout .primary-content:after {
+.node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:after {
   clear: both;
 }
 /* line 322, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout article.page {
+.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
   float: left;
   width: 75%;
   margin-left: 0%;
@@ -407,47 +407,71 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 326, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0 article.page {
-  float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: -100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
+@media only screen and (max-width: 480px) {
+  /* line 322, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
 }
-/* line 330, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0.editormode article.page {
-  float: left;
-  width: 75%;
-  margin-left: 0%;
-  margin-right: -75%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 322, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
 }
-
-/* Walls */
-/* line 340, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall {
-  clear: left;
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 322, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+/* line 341, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout.empty-wall0 article.page, .node-type-ding-page .default-layout.empty-wall0 .pane-node-content, .node-type-ding-group .default-layout.empty-wall0 article.page, .node-type-ding-group .default-layout.empty-wall0 .pane-node-content {
   float: left;
   width: 100%;
   margin-left: 0%;
@@ -465,109 +489,7 @@
   _overflow-y: visible;
 }
 /* line 345, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.left {
-  float: left;
-  width: 50%;
-  margin-left: 0%;
-  margin-right: -50%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  clear: left;
-}
-/* line 350, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.right {
-  float: left;
-  width: 50%;
-  margin-left: 50%;
-  margin-right: -100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  clear: right;
-}
-/* line 355, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall0 {
-  clear: right;
-  float: right;
-  width: 25%;
-  margin-right: 0%;
-  margin-left: -25%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-}
-/* line 360, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0 .wall0 {
-  display: none;
-}
-/* line 364, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0.editormode .wall0 {
-  display: block;
-  float: right;
-  width: 25%;
-  margin-right: 0%;
-  margin-left: -25%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-}
-
-/* Walls on ding_group
-============================================================================ */
-/* line 373, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout {
-  /* Page content */
-}
-/* line 375, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout .primary-content {
-  clear: left;
-  *position: relative;
-  *zoom: 1;
-}
-/* line 46, ../../../../../../../../../../var/lib/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-.node-type-ding-group .default-layout .primary-content:before, .node-type-ding-group .default-layout .primary-content:after {
-  content: "";
-  display: table;
-}
-/* line 50, ../../../../../../../../../../var/lib/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-.node-type-ding-group .default-layout .primary-content:after {
-  clear: both;
-}
-/* line 381, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout .pane-node-content {
+.node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
   float: left;
   width: 75%;
   margin-left: 0%;
@@ -584,46 +506,73 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 385, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout.empty-wall0 .pane-node-content {
-  float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: -100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
+@media only screen and (max-width: 480px) {
+  /* line 345, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
 }
-/* line 389, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
-  float: left;
-  width: 75%;
-  margin-left: 0%;
-  margin-right: -75%;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 345, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 345, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
 }
 
 /* Walls */
-/* line 399, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout .wall.left {
+/* line 369, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout .wall.left, .node-type-ding-group .default-layout .wall.left {
   float: left;
   width: 50%;
   margin-left: 0%;
@@ -641,8 +590,8 @@
   _overflow-y: visible;
   clear: left;
 }
-/* line 404, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout .wall.right {
+/* line 374, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.right {
   float: left;
   width: 50%;
   margin-left: 50%;
@@ -660,8 +609,71 @@
   _overflow-y: visible;
   clear: right;
 }
-/* line 409, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout .wall0 {
+@media only screen and (max-width: 480px) {
+  /* line 380, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 387, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 394, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+/* line 400, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
   clear: right;
   float: right;
   width: 25%;
@@ -679,12 +691,75 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 414, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout.empty-wall0 .wall0 {
+@media only screen and (max-width: 480px) {
+  /* line 400, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 400, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 400, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+/* line 420, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout.empty-wall0 .wall0, .node-type-ding-group .default-layout.empty-wall0 .wall0 {
   display: none;
 }
-/* line 418, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+/* line 424, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
   display: block;
   float: right;
   width: 25%;
@@ -701,6 +776,69 @@
   _display: inline;
   _overflow: hidden;
   _overflow-y: visible;
+}
+@media only screen and (max-width: 480px) {
+  /* line 424, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 424, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+  /* line 424, ../sass/module/_bibsdb.packery.scss */
+  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    *behavior: url("/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc");
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    clear: left;
+  }
 }
 
 /**
