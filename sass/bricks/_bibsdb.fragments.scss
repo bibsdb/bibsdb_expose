@@ -1,0 +1,149 @@
+/**
+ * Style definition of brick-layout: Headers and html fragments
+ *
+ * @author agms
+ */
+
+
+/**
+* Header Styling
+*/
+
+.packery {
+	.header {
+		.container {
+			h2 {
+				color: white;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				padding: 1%;
+				width: 100%;
+				margin-bottom: 7px;
+				font-size: $font-size-large;
+			}
+		}
+	}
+}
+
+
+/**
+* Header Colors
+*/
+
+.packery {
+	.header {
+
+		&.black {
+			.container {
+				@include solid-gradient($brickblack);
+			}
+			h2 {
+				background-color: $brickblack;
+			}
+		}
+
+		&.blue {
+			.container {
+				@include solid-gradient($brickblue);
+			}
+			h2 {
+				background-color: $brickblue;
+			}
+		}
+
+		&.orange {
+			.container {
+				@include solid-gradient($brickorange);
+			}
+			h2 {
+				background-color: $brickorange;
+			}
+		}
+
+		&.gray {
+			.container {
+				@include solid-gradient($brickgray);
+			}
+			h2 {
+				background-color: $brickgray;
+			}
+		}
+
+		&.green {
+			.container {
+				@include solid-gradient($brickgreen);
+			}
+			h2 {
+				background-color: $brickgreen;
+			}
+		}
+
+		&.turquoise {
+			.container {
+				@include solid-gradient($brickturquoise);
+			}
+			h2 {
+				background-color: $brickturquoise;
+			}
+		}
+	}
+}
+
+/**
+* Horizontal Ruler styling
+*/
+.packery {
+	.horizontalruler {
+
+		hr {
+			border: 2px solid black;
+			margin : 0.2em 0;
+
+		}
+	}
+}
+
+/**
+* Horizontal Ruler Colors
+*/
+.packery {
+	.horizontalruler {
+
+		&.black {
+			hr {
+				border-color: $brickblack;
+			}
+		}
+
+		&.blue {
+			hr {
+				border-color: $brickblue;
+			}
+		}
+
+		&.orange {
+			hr {
+				border-color: $brickorange;
+			}
+		}
+
+		&.gray {
+			hr {
+				border-color: $brickgray;
+			}
+		}
+
+		&.green {
+			hr {
+				border-color: $brickgreen;
+			}
+		}
+
+		&.turquoise {
+			hr {
+				border-color: $brickturquoise;
+			}
+		}
+	}
+}

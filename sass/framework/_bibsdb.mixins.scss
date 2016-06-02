@@ -122,7 +122,14 @@ $breakpoint-x-large:              1210px;
   background-repeat: repeat-x;
 }
 
-/* Corner ribbon
+@mixin solid-gradient($brickcolor: $brickblack) {
+  background-image: linear-gradient(to right, $brickcolor 40%, $brickcolor 40%);
+  background-position: bottom;
+  background-size: 3px 4px;
+  background-repeat: repeat-x;
+}
+
+/* Ribbon
  *
  ========================================================================== */
 

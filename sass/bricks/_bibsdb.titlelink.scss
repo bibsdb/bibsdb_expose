@@ -4,45 +4,118 @@
  * @author agms
  */
 
+/**
+* Titlelink styling
+*/
 
+.packery {
 
- .packery {
+	.titlelink {
 
- 	.titlelink {
- 		.container{
- 		}
- 
+		.tagandtitle {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
 
- 		.tagandtitle {
- 			width: 100%;
- 			position: absolute;
- 			left: 0;
- 			bottom: 0;
- 			
- 			padding-top: 4%;
- 			padding-bottom: 4%;
+			padding-top: 2%;
+			padding-bottom: 2%;
 
- 			font-size: $font-size-large;
- 			line-height: 28px;
- 			@include dotted-gradient;
- 			
- 		}
+			font-size: $font-size-large;
+			line-height: 25px;
+			@include dotted-gradient;
 
- 		.title, .tag {
- 			display: inline;
- 		}
+		}
 
- 		.tag {
- 			a {
- 				color: $green;
- 			}
- 		}
+		.title, .tag {
+			display: inline;
+		}
 
- 		.tag::after {
- 			content: ": ";
- 			color: $green;
- 		}
- 	}
+		.tag {
+			a {
+				color: $green;
+			}
+		}
 
- 	
- }
+		.tag::after {
+			content: ": ";
+			color: $green;
+		}
+	}
+}
+
+ /**
+* Titlelink colors
+*/
+
+.packery {
+
+	.titlelink {
+
+		&.black {
+			.tag {
+				&:after {
+					color: $brickblack;
+				}
+				a {
+					color: $brickblack;
+				}
+			}
+		}
+
+		&.blue {
+			.tag {
+				&:after {
+					color: $brickblue;
+				}
+				a {
+					color: $brickblue;
+				}
+			}
+		}
+
+		&.orange {
+			.tag {
+				&:after {
+					color: $brickorange;
+				}
+				a {
+					color: $brickorange;
+				}
+			}
+		}
+
+		&.gray {
+			.tag {
+				&:after {
+					color: $brickgray;
+				}
+				a {
+					color: $brickgray;
+				}
+			}
+		}
+
+		&.green {
+			.tag {
+				&:after {
+					color: $brickgreen;
+				}
+				a {
+					color: $brickgreen;
+				}
+			}
+		}
+
+		&.turquoise {
+			.tag {
+				&:after {
+					color: $brickturquoise;
+				}
+				a {
+					color: $brickturquoise;
+				}
+			}
+		}
+	}
+}
