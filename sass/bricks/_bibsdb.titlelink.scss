@@ -13,17 +13,22 @@
 	.titlelink {
 
 		.tagandtitle {
+
+			@include medium-font();
 			width: 100%;
 			position: absolute;
 			left: 0;
 			bottom: 0;
+			padding-bottom: 1%;
 
-			padding-top: 2%;
-			padding-bottom: 2%;
-
-			font-size: $font-size-large;
-			line-height: 25px;
 			@include dotted-gradient;
+
+			&:before {
+				font-family: fontawesome;
+				@include tiny-font();
+		    content: "\F04D";
+		    margin-right: .5em;
+			}
 
 		}
 
@@ -31,15 +36,8 @@
 			display: inline;
 		}
 
-		.tag {
-			a {
-				color: $green;
-			}
-		}
-
 		.tag::after {
 			content: ": ";
-			color: $green;
 		}
 	}
 }
@@ -49,73 +47,7 @@
 */
 
 .packery {
-
 	.titlelink {
-
-		&.black {
-			.tag {
-				&:after {
-					color: $brickblack;
-				}
-				a {
-					color: $brickblack;
-				}
-			}
-		}
-
-		&.blue {
-			.tag {
-				&:after {
-					color: $brickblue;
-				}
-				a {
-					color: $brickblue;
-				}
-			}
-		}
-
-		&.orange {
-			.tag {
-				&:after {
-					color: $brickorange;
-				}
-				a {
-					color: $brickorange;
-				}
-			}
-		}
-
-		&.gray {
-			.tag {
-				&:after {
-					color: $brickgray;
-				}
-				a {
-					color: $brickgray;
-				}
-			}
-		}
-
-		&.green {
-			.tag {
-				&:after {
-					color: $brickgreen;
-				}
-				a {
-					color: $brickgreen;
-				}
-			}
-		}
-
-		&.turquoise {
-			.tag {
-				&:after {
-					color: $brickturquoise;
-				}
-				a {
-					color: $brickturquoise;
-				}
-			}
-		}
+		@include colored-dot();	
 	}
 }

@@ -5,9 +5,6 @@
  */
 
 
-
-
-
  .packery {
 
  	.publication {
@@ -15,17 +12,20 @@
  			background-color: $black;
 
  		}
-
- 		.title {
- 			color: $white;
+ 		.tagandtitle {
  			width: 92%;
  			position: absolute;
  			left: 0;
  			bottom: 0;
  			background-color: $brickblack;
  			padding: 4%;
- 			line-height: 26px;
 
+ 		}
+
+ 		.title {
+ 			@include large-font();
+ 			color: $white;
+ 			
  			a:link {
  				color: $white;
  			}
@@ -34,47 +34,28 @@
  			}
  			a:visited {
  				color: $white;
- 			}
-
- 			font-size: $font-size-large;
- 			@include low() {
- 				font-size: $font-size-reset;
- 			}
-
- 			@include small() {
- 				font-size: $font-size-reset;
- 			}
-
- 			
+ 			} 			
  		}
 
  		.tag {
-
- 			.green & {
- 				@include ribbon($brickorange);
- 			}
-
- 	
  			a {
+ 				@include tiny-font();
  				color: $white;
  				text-decoration: none;
- 				font-size: $font-size-tiny;
  				text-transform: uppercase;
- 				@include low() {
- 					font-size: $font-size-reset;
- 				}
-
- 				@include small() {
- 					font-size: $font-size-tiny;
- 				}
-
- 				@include medium() {
- 					font-size: $font-size-reset;
- 				}
- 				
  			}
  		}
  	}
  }
 
- 
+/**
+* Publication colors
+*/
+
+.packery {
+	.publication {
+		@include colored-tag();
+	}
+
+}
+
