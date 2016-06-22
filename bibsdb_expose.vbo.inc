@@ -5,10 +5,24 @@ function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
   $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_type');
   $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
 
+   // Filter bricks to match wall
+  $view = $settings['view'];
+  $wall = $view->args[0];
+  $wall_term = taxonomy_term_load($wall);
+  $wall_name = $wall_term->name;
+  $wall_name_elements = explode('-', $wall_name);
+
+
   // Build select
   $brick_type_options = array();
   foreach ($tree as $term) {
-    $brick_type_options[$term->tid] = $term->description;
+    $term_name_elements = explode('-', $term->name);
+    // Only display the bricks that are allowed on this wall
+    if (!(empty(array_intersect($wall_name_elements, $term_name_elements )))) {
+      // Remove first p-tag so that title stands on same line as radio button
+      $term_description = preg_replace('~<p>(.*?)</p>~is', '$1', $term->description, /* limit */ 1);
+      $brick_type_options[$term->tid] = $term_description;
+    }
   }
 
 
@@ -25,20 +39,21 @@ function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
   // Build form
   $form = array();
   $form['brick_type'] = array(
-    '#type' => 'select', 
+    '#type' => 'radios', 
     '#title' => t('Choose brick type'),
     '#options' => $brick_type_options,
     '#required' => TRUE,
     );
 
   $form['brick_color'] = array(
-    '#type' => 'select', 
+    '#type' => 'radios', 
     '#title' => t('Choose brick color'),
+    '#default_value' => 223, //default is black
     '#options' => $brick_color_options,
     '#required' => TRUE,
     );
 
-  // Add redirect to return to 
+  // Add redirect back to wall
   $view = $settings['view'];
   $wall = $view->args[0];
 
@@ -82,16 +97,29 @@ function bibsdb_expose_vbo_change_brick_type_form($settings, &$form_state) {
   $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_type');
   $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
 
+  // Filter bricks to match wall
+  $view = $settings['view'];
+  $wall = $view->args[0];
+  $wall_term = taxonomy_term_load($wall);
+  $wall_name = $wall_term->name;
+  $wall_name_elements = explode('-', $wall_name);
+
   // Build select
   $brick_type_options = array();
   foreach ($tree as $term) {
-    $brick_type_options[$term->tid] = $term->description;
+    $term_name_elements = explode('-', $term->name);
+    // Only display the bricks that are allowed on this wall
+    if (!(empty(array_intersect($wall_name_elements, $term_name_elements )))) {
+      // Remove first p-tag so that title stands on same line as radio button
+      $term_description = preg_replace('~<p>(.*?)</p>~is', '$1', $term->description, /* limit */ 1);
+      $brick_type_options[$term->tid] = $term_description;
+    }
   }
 
   // Build form
   $form = array();
   $form['brick_type'] = array(
-    '#type' => 'select', 
+    '#type' => 'radios', 
     '#title' => t('Choose brick type'),
     '#options' => $brick_type_options,
     '#required' => TRUE,

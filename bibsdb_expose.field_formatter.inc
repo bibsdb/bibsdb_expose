@@ -37,9 +37,10 @@ function theme_bibsdb_expose_bibsdb_term_field_formatter($items) {
   
   $tid = $items[0]['tid'];
   $term = taxonomy_term_load($tid);
-  $term_description = $term->description;
-
- 
+  // Strip img tag and other tags away
+  $term_description = strip_tags($term->description);
+  $brick_type_options[$term->tid] = $term_description;
+  
   return $term_description;
 }
 
