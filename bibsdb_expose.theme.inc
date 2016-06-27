@@ -37,8 +37,16 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));
   $term_name = $term_wrapper->name->value();
   
-  $term_name_elements = explode('-', $term_name);
+   $term_name_elements = explode('-', $term_name);
+
+  // Modify the col number so it doesn't start with a number
+  $colnumber = explode('COL', array_shift($term_name_elements));
+  $colclass = "col" . $colnumber[0];
+
+  // Append classes
+  array_push($vars['classes_array'], $colclass);
   $vars['classes_array'] = array_merge($vars['classes_array'], $term_name_elements);
+
 
   // If there are no rows hide the wall
   if (empty($vars['rows'])) {

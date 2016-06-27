@@ -9,16 +9,16 @@
 
  	.publication {
  		.container {
- 			background-color: $black;
+ 			background-color: transparentize($white, .1);
 
  		}
  		.tagandtitle {
- 			width: 92%;
+ 			width: 95%;
  			position: absolute;
  			left: 0;
  			bottom: 0;
  			background-color: $brickblack;
- 			padding: 4%;
+ 			padding: 3%;
 
  		}
 
