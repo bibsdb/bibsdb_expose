@@ -433,7 +433,7 @@ function _bibsdb_expose_build_url($node) {
   
     //Replace external link with value derived from internal link
     $internal = $wrapper->field_bibsdb_internal_link;
-    dd($internal->getIdentifier());
+    
     if ($internal->value() != null) {
       $url = url('node/' . $internal->getIdentifier(), array('absolute' => TRUE));
     }
