@@ -188,15 +188,6 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   $node = $node_wrapper->value();
   $nodeprops = $node_wrapper->getPropertyInfo();
 
-  // Strip tag from title
-  if($node->type == 'ding_news' || $node->type == 'new_materials' || $node->type == 'ding_eresource' || $node->type == 'ding_event') {
-    _strip_tag_from_title($node);
-  }
-
-  if($node->type == 'ding_group' || $node->type == 'ding_search_context_link' || $node->type == 'ding_page') {
-    _strip_tag_from_title($node);
-  }
-
   //Load the brick type
   $term_wrapper = $exposure_wrapper->field_bibsdb_brick_type;
   $term_name = $term_wrapper->name->value();
@@ -436,8 +427,17 @@ function bibsdb_expose_action_info() {
 
 function _bibsdb_expose_build_url($node) {
   $wrapper = entity_metadata_wrapper('node', $node);
+
   if ($node->type == 'ding_search_context_link') {
     $url = $wrapper->field_search_context_link->url->value();
+  
+    //Replace external link with value derived from internal link
+    $internal = $wrapper->field_bibsdb_internal_link;
+    dd($internal->getIdentifier());
+    if ($internal->value() != null) {
+      $url = url('node/' . $internal->getIdentifier(), array('absolute' => TRUE));
+    }
+    
     // One of the main usecases for ding_search_context_links is to link to
     // search queries. Search queries are tricky because they are a mix of
     // escaped and not escaped characters. This code handles it in a primitive

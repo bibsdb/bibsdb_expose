@@ -1,21 +1,6 @@
 <?php
 
-/*
- * Implements hook_node_prepare.
- * Act on a node object about to be shown on the add/edit form.
- * Strip titletag from title. Applies to news and new_materails.
- */
-function bibsdb_expose_node_prepare($node) {
-  if($node->type == 'ding_news' || $node->type == 'new_materials' || $node->type == 'ding_eresource' || $node->type == 'ding_event') {
-    _strip_tag_from_title($node);
-  }
 
-  if($node->type == 'ding_group' || $node->type == 'ding_search_context_link' || $node->type == 'ding_page') {
-    _strip_tag_from_title($node);
-  }
-
-
-}
 
 /**
  * Implements hook_node_presave. 
@@ -26,16 +11,6 @@ function bibsdb_expose_node_prepare($node) {
  */
 function bibsdb_expose_node_presave($node) {
   
-
-  // TITLE TAG
-  // Append titletag to title. Applies to news and new_materails.
-  if($node->type == 'ding_news' || $node->type == 'new_materials' || $node->type == 'ding_eresource' || $node->type == 'ding_event') {
-    _add_tag_to_title($node);
-  }
-
-  if($node->type == 'ding_group' || $node->type == 'ding_search_context_link' || $node->type == 'ding_page') {
-    _add_tag_to_title($node);
-  }
 
   // BACKGROUND IMAGE
   if ('ding_news' == $node->type) {
