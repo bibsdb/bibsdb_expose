@@ -91,9 +91,8 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->field_bibsdb_hosting_node = $hosting_node;
   $wrapper->save();
 
-  dd($context['view_info']['arguments']);
-
-  $url = url('search/ting/', array('absolute' => TRUE));
+  // Clear containing page in page cache 
+  $url = url($context['view_info']['exposed_input']['destination'], array('absolute' => TRUE));
   cache_clear_all($url, 'cache_page', TRUE);
 }
 
