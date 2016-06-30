@@ -48,7 +48,7 @@ function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
   $form['brick_color'] = array(
     '#type' => 'radios', 
     '#title' => t('Choose brick color'),
-    '#default_value' => 223, //default is black
+    '#default_value' => 239, //default is black
     '#options' => $brick_color_options,
     '#required' => TRUE,
     );
@@ -155,4 +155,71 @@ function bibsdb_expose_vbo_change_brick_type(&$exposure, $context) {
 	$wrapper = entity_metadata_wrapper($entity_type, $exposure);
 	$wrapper->field_bibsdb_brick_type = $brick_type;
 	$wrapper->save();
+
+  // Clear containing page in page cache 
+  $url = url($context['view_info']['exposed_input']['destination'], array('absolute' => TRUE));
+  cache_clear_all($url, 'cache_page', TRUE);
+}
+
+
+function bibsdb_expose_vbo_change_color_form($settings, &$form_state) {
+  // Load brick color vocabulary
+  $vocabulary = taxonomy_vocabulary_machine_name_load('bibsdb_brick_color');
+  $tree = taxonomy_get_tree($vocabulary->vid, $parent = 0, $max_depth = 1, $load_entities = FALSE);
+
+  $brick_color_options = array();
+  foreach ($tree as $term) {
+    $brick_color_options[$term->tid] = $term->name;
+  }
+
+  $form['brick_color'] = array(
+    '#type' => 'radios', 
+    '#title' => t('Choose brick color'),
+    '#default_value' => 239, //default is black
+    '#options' => $brick_color_options,
+    '#required' => TRUE,
+    );
+
+  return $form;
+}
+
+function bibsdb_expose_vbo_change_color_submit($form, $form_state) {
+
+  $return = array(); 
+  $return['brick_color'] = $form_state['values']['brick_color'];
+  return $return; //Note, return value here must be an array.
+}
+
+/**
+ * VBO action that changes the color of the brick.
+ */
+function bibsdb_expose_vbo_change_color(&$exposure, $context) {
+  // Get value from form
+  $brick_color = $context['brick_color'];
+
+  // Modify exposure
+  $entity_type = 'exposure';
+  $wrapper = entity_metadata_wrapper($entity_type, $exposure);
+  $wrapper->field_bibsdb_brick_color = $brick_color;
+  $wrapper->save();
+
+  // Clear containing page in page cache 
+  $url = url($context['view_info']['exposed_input']['destination'], array('absolute' => TRUE));
+  cache_clear_all($url, 'cache_page', TRUE);
+}
+
+/**
+ * VBO action that deletes the brick.
+ */
+function bibsdb_expose_vbo_unexpose(&$exposure, $context) {
+
+  // Delete exposure
+  $entity_type = 'exposure';
+  $wrapper = entity_metadata_wrapper($entity_type, $exposure);
+  entity_delete($entity_type, $wrapper->getIdentifier());
+
+
+  // Clear containing page in page cache 
+  $url = url($context['view_info']['exposed_input']['destination'], array('absolute' => TRUE));
+  cache_clear_all($url, 'cache_page', TRUE);
 }

@@ -420,6 +420,20 @@ function bibsdb_expose_action_info() {
       'vbo_configurable' => FALSE,
       'triggers' => array('any'),
       ),
+    'bibsdb_expose_vbo_change_color' => array(
+      'type' => 'exposure',
+      'label' => t('Change color'),
+      'configurable' => TRUE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+      ),
+    'bibsdb_expose_vbo_unexpose' => array(
+      'type' => 'exposure',
+      'label' => t('Unexpose content'),
+      'configurable' => FALSE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+      ),
     );
 }
 
