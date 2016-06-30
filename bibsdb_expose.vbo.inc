@@ -90,6 +90,11 @@ function bibsdb_expose_vbo_expose(&$node, $context) {
   $wrapper->field_bibsdb_brick_content = $brick_content;
   $wrapper->field_bibsdb_hosting_node = $hosting_node;
   $wrapper->save();
+
+  dd($context['view_info']['arguments']);
+
+  $url = url('search/ting/', array('absolute' => TRUE));
+  cache_clear_all($url, 'cache_page', TRUE);
 }
 
 function bibsdb_expose_vbo_change_brick_type_form($settings, &$form_state) {
