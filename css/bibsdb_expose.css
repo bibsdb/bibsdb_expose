@@ -1252,76 +1252,42 @@
 .packery .publication .title a:visited {
   color: white;
 }
-@media only screen and (max-width: 480px) {
-  /* line 40, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title::before {
-    content: "low ";
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 46, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title::before {
-    content: "small ";
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 52, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title::before {
-    content: "medium ";
-  }
-}
-@media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 25, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title {
-    line-height: 110%;
-  }
-  /* line 59, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title::before {
-    content: "large ";
-  }
-}
-@media only screen and (min-width: 1211px) {
-  /* line 66, ../sass/bricks/_bibsdb.publication.scss */
-  .packery .publication .title::before {
-    content: "x-large ";
-  }
-}
-/* line 73, ../sass/bricks/_bibsdb.publication.scss */
+/* line 42, ../sass/bricks/_bibsdb.publication.scss */
 .packery .publication .tag a {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
 }
 @media only screen and (max-width: 480px) {
-  /* line 73, ../sass/bricks/_bibsdb.publication.scss */
+  /* line 42, ../sass/bricks/_bibsdb.publication.scss */
   .packery .publication .tag a {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 73, ../sass/bricks/_bibsdb.publication.scss */
+  /* line 42, ../sass/bricks/_bibsdb.publication.scss */
   .packery .publication .tag a {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 73, ../sass/bricks/_bibsdb.publication.scss */
+  /* line 42, ../sass/bricks/_bibsdb.publication.scss */
   .packery .publication .tag a {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 73, ../sass/bricks/_bibsdb.publication.scss */
+  /* line 42, ../sass/bricks/_bibsdb.publication.scss */
   .packery .publication .tag a {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 73, ../sass/bricks/_bibsdb.publication.scss */
+  /* line 42, ../sass/bricks/_bibsdb.publication.scss */
   .packery .publication .tag a {
     font-size: 80%;
     line-height: 110%;
