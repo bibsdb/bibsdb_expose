@@ -24,16 +24,6 @@ $box-sizing-polyfill-path: "/profiles/ding2/themes/ddbasic/scripts/boxsizing.htc
 
 
 
-/* Breakpoints
-   ========================================================================== */
-
-$breakpoint-low:                  580px;
-$breakpoint-small:                480px;
-$breakpoint-medium:               768px;
-$breakpoint-large:                940px;
-$breakpoint-x-large:              1210px;
-
-
 
 /* Standard color definitions - changed - agms
    ========================================================================== */
@@ -59,7 +49,7 @@ $brickblue:                      #2F5A7B;
 $brickorange:                    #E18203;
 $brickgray:                      #ADCAD6;
 $brickturquoise:                 #286E74;
-$brickblack:                     transparentize($black, .3);
+$brickblack:                     transparentize($black, .2);
 
 
 /* Font library

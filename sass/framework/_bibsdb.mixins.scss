@@ -9,8 +9,8 @@
 
 $breakpoint-low:                  580px;
 $breakpoint-small:                480px;
-$breakpoint-medium:               768px;
-$breakpoint-large:                940px;
+$breakpoint-medium:               767px;
+$breakpoint-large:                939px;
 $breakpoint-x-large:              1210px;
 
 
@@ -122,7 +122,7 @@ $breakpoint-x-large:              1210px;
   background-repeat: repeat-x;
 }
 
- @mixin fat-dotted-gradient() {
+@mixin fat-dotted-gradient() {
   background-image: linear-gradient(to right, #333 40%, rgba(255, 255, 255, 0) 20%);
   background-position: bottom;
   background-size: 6px 3px;
@@ -201,6 +201,96 @@ $breakpoint-x-large:              1210px;
   }
 }
 
+
+/* Color mixin for imagewtitle 
+*
+==============================================================================*/
+@mixin colored-background() {
+  &.black {
+    .container {
+      background-color: $brickblack;
+    }
+    .tag {
+      &:after {
+        color: $brickgray;
+      }
+      a {
+        color: $brickgray;
+      }
+    }
+  }
+
+  &.blue {
+    .container {
+      background-color: $brickblue;
+    }
+    .tag {
+      &:after {
+        color: $brickorange;
+      }
+      a {
+        color: $brickorange;
+      }
+    }
+  }
+
+  &.orange {
+    .container {
+      background-color: $brickorange;
+    }
+    .tag {
+      &:after {
+        color: $brickblack;
+      }
+      a {
+        color: $brickblack;
+      }
+    }
+  }
+
+  &.gray {
+    .container {
+      background-color: darken($brickgray, 10%);
+    }
+    .tag {
+      &:after {
+        color: $brickblack;
+      }
+      a {
+        color: $brickblack;
+      }
+    }
+  }
+
+  &.green {
+    .container {
+      background-color: $brickgreen;
+    }
+    .tag {
+      &:after {
+        color: $brickblack;
+      }
+      a {
+        color: $brickblack;
+      }
+    }
+  }
+
+  &.turquoise {
+    .container {
+      background-color: $brickturquoise;
+    }
+    .tag {
+      &:after {
+        color: $brickorange;
+      }
+      a {
+        color: $brickorange;
+      }
+    }
+  }
+}
+
 /* Color mixin for titlelink
 *
 ==============================================================================*/
@@ -253,24 +343,60 @@ $breakpoint-x-large:              1210px;
     }
   }
 }
+
+
+
+
+
+
+
 /*
 * Responsive font-size mixins
 */
 
 
-@mixin larger-font() {
+@mixin largest-font() {
   @include low() {
-    font-size: $font-size-tiny;
-    line-height: $font-size-medium;
+    font-size: $font-size-large;
+    line-height: $font-size-large;
   }
 
   @include small() {
-    font-size: $font-size-medium;
+    font-size: $font-size-larger;
     line-height: $font-size-medium;
   }
 
   @include medium() {
-    font-size: $font-size-large;
+    font-size: $font-size-largest;
+    line-height: $font-size-medium;
+  }
+
+
+  @include large() {
+    font-size: $font-size-larger;
+    line-height: $font-size-medium;
+  }
+
+  @include x-large() {
+    font-size: $font-size-larger;
+    line-height: $font-size-medium;
+  }
+}
+
+
+@mixin larger-font() {
+  @include low() {
+    font-size: $font-size-medium;
+    line-height: $font-size-medium;
+  }
+
+  @include small() {
+    font-size: $font-size-larger;
+    line-height: $font-size-medium;
+  }
+
+  @include medium() {
+    font-size: $font-size-larger;
     line-height: $font-size-medium;
   }
 
@@ -281,7 +407,7 @@ $breakpoint-x-large:              1210px;
   }
 
   @include x-large() {
-    font-size: $font-size-larger;
+    font-size: $font-size-large;
     line-height: $font-size-medium;
   }
 }
@@ -294,7 +420,7 @@ $breakpoint-x-large:              1210px;
   }
 
   @include small() {
-    font-size: $font-size-reset;
+    font-size: $font-size-large;
     line-height: $font-size-medium;
   }
 
@@ -318,12 +444,40 @@ $breakpoint-x-large:              1210px;
 
 @mixin medium-font() {
   @include low() {
-    font-size: $font-size-reset;
+    font-size: $font-size-tiny;
     line-height: $font-size-medium;
   }
 
   @include small() {
-    font-size: $font-size-reset;
+    font-size: $font-size-large;
+    line-height: $font-size-medium;
+  }
+
+  @include medium() {
+    font-size: $font-size-large;
+    line-height: $font-size-medium;
+  }
+
+
+  @include large() {
+    font-size: $font-size-medium;
+    line-height: $font-size-medium;
+  }
+
+  @include x-large() {
+    font-size: $font-size-medium;
+    line-height: $font-size-medium;
+  }
+}
+
+@mixin small-font() {
+  @include low() {
+    font-size: $font-size-small;
+    line-height: $font-size-small;
+  }
+
+  @include small() {
+    font-size: $font-size-large;
     line-height: $font-size-medium;
   }
 
@@ -348,7 +502,7 @@ $breakpoint-x-large:              1210px;
 
 @mixin tiny-font() {
   @include low() {
-    font-size: $font-size-reset;
+    font-size: $font-size-tiny;
     line-height: $font-size-medium;
   }
 

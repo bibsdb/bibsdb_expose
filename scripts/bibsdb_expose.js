@@ -16,6 +16,7 @@
     $(".default-layout").has(".wall0.nocontent").addClass("empty-wall0");
   }
 
+  
 
   // When ready start the magic.
   $(document).ready(function () {

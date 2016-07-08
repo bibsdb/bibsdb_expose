@@ -11,10 +11,13 @@
 .packery {
 
 	.titlelink {
+		.col3 {
+			
+		}
 
 		.tagandtitle {
 
-			@include medium-font();
+			@include small-font();
 			width: 100%;
 			position: absolute;
 			left: 0;

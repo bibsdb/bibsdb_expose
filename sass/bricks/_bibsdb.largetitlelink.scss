@@ -8,18 +8,18 @@
 
  .packery {
 
- 	.imagewtitle {
+ 	.largetitlelink {
  		@include colored-background();
 
  		.tagandtitle {
 
- 			@include medium-font();
+ 			@include largest-font();
  			
- 			width: 94%; // 100% - 3% -3%
+ 			width: 90%;
  			position: absolute;
  			left: 0;
- 			top: 68%;
- 			padding: 3%;
+ 			top: 10%;
+ 			padding: 5%;
  		}
 
  		.title {

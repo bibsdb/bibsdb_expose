@@ -34,6 +34,38 @@
  			}
  			a:visited {
  				color: $white;
+ 			}
+
+ 			@include low() {
+ 				&::before {
+ 					content: "low ";
+ 				}
+ 			}
+
+ 			@include small() {
+ 				&::before {
+ 					content: "small ";
+ 				}
+ 			}
+
+ 			@include medium() {
+ 				&::before {
+ 					content: "medium ";
+ 				}
+ 			}
+
+
+ 			@include large() {
+ 				&::before {
+ 					content: "large ";
+ 				}
+ 				line-height: $font-size-medium;
+ 			}
+
+ 			@include x-large() {
+ 				&::before {
+ 					content: "x-large ";
+ 				}
  			} 			
  		}
 

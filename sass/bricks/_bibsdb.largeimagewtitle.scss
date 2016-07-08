@@ -1,0 +1,41 @@
+
+/**
+* Imagewtitle colors
+*/
+
+.packery {
+	.largeimagewtitle {
+
+		@include colored-tag();		
+
+		.tagandtitle {
+			@include largest-font();
+			width: 70%;
+			position: absolute;
+			left: 26%; // 100% - 2xpadding - width
+			top: 20%;
+			padding: 2%;
+			background-color: $brickblack;
+		}
+		.title {
+
+			a:link {
+				color: $white;
+			}
+			a:hover {
+				color: $white;
+			}
+			a:visited {
+				color: $white;
+			} 			
+		}
+
+		.title, .tag {
+			display: inline;
+		}
+
+		.tag::after {
+			content: ": ";
+		}
+	}
+}
