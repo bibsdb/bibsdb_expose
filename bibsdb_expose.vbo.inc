@@ -45,6 +45,7 @@ function bibsdb_expose_vbo_expose_form($settings, &$form_state) {
     '#required' => TRUE,
     );
 
+
   $form['brick_color'] = array(
     '#type' => 'radios', 
     '#title' => t('Choose brick color'),
@@ -223,3 +224,5 @@ function bibsdb_expose_vbo_unexpose(&$exposure, $context) {
   $url = url($context['view_info']['exposed_input']['destination'], array('absolute' => TRUE));
   cache_clear_all($url, 'cache_page', TRUE);
 }
+
+

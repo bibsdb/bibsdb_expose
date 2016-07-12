@@ -10,8 +10,8 @@
 ========================================================================== */
 
 //col1
-$col1width1: (1/1 * 100%); // 1/colnum*100% - gutternum/colnum * gutterwidth
-$col1height1: (1/1 * 100%);
+$col1width1: (1/1 * 100%) + 11/2; // 1/colnum*100% - gutternum/colnum * gutterwidth
+$col1height1: (1/1 * 100%) + 11/2;
 $col1height15: (1/1 * 100%) * 3/2 + 8%;
 
 //col2
@@ -70,8 +70,27 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 	&.col1{
 		.gutterwidth {
 			width: 8%;
+			@include low() {
+				width: 4%;
+			}
+			@include small() {
+				width: 4%;
+			}
+			@include medium() {
+				width: 4%;
+			}
 		}
+
 	}
+}
+
+.wall.right .packery.col1 {
+	.gutterwidth {
+		width: 4%;
+	}
+}
+
+.packery {
 
 	.brick { 
 		float: left;
@@ -90,12 +109,39 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 		&.col1 {
 			&.w1 {
 				width: $col1width1;
+				@include low() {
+					width: $col2width1small;
+				}
+				@include small() {
+					width: $col2width1small;
+				}
+				@include medium() {
+					width: $col2width1small;
+				}
 			}
 			&.h1 {
 				padding-bottom: $col1height1;
+				@include low() {
+					padding-bottom: $col2height1small;
+				}
+				@include small() {
+					padding-bottom: $col2height1small;
+				}
+				@include medium() {
+					padding-bottom: $col2height1small;
+				}
 			}
 			&.h15 {
 				padding-bottom: $col1height15;
+				@include low() {
+					padding-bottom: $col2height15small;
+				}
+				@include small() {
+					padding-bottom: $col2height15small;
+				}
+				@include medium() {
+					padding-bottom: $col2height15small;
+				}
 			}
 		}
 
@@ -236,7 +282,7 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 
 /* Basic configuration
 ========================================================================== */
-.pane-bibsdb-wall-panel-bibsdb-wall {
+.wall {
 	background-color: $white;
 	padding-top: 1.5%;
 	@include low() {
@@ -261,6 +307,9 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 			padding: 4%;
 		}
 	}
+
+
+
 	&.nocontent {
 		display: none;
 	}
@@ -389,17 +438,30 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 	.wall.left {
 		@include zen-grid-item(6, 1);
 		@include zen-clear(left);
+
+		&.seccontent {
+			@include zen-grid-item(8, 1);
+			@include zen-nested-container;
+		}
 	}
 
 	.wall.right {
 		@include zen-grid-item(6, 7);
 		@include zen-clear(right);
+		
+		&.seccontent {
+			@include zen-grid-item(4, 9);
+		}
 	}
 
 	@include low() {
 		.wall.left, .wall.right {
 			@include zen-grid-item(12, 1);
 			@include zen-clear();
+			&.seccontent {
+				@include zen-grid-item(12, 1);
+				@include zen-clear();
+			}
 		}
 	}
 
@@ -407,6 +469,10 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 		.wall.left, .wall.right {
 			@include zen-grid-item(12, 1);
 			@include zen-clear();
+			&.seccontent {
+				@include zen-grid-item(12, 1);
+				@include zen-clear();
+			}
 		}
 	}
 
@@ -414,6 +480,10 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 		.wall.left, .wall.right {
 			@include zen-grid-item(12, 1);
 			@include zen-clear();
+			&.seccontent {
+				@include zen-grid-item(12, 1);
+				@include zen-clear();
+			}
 		}
 	}
 

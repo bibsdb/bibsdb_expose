@@ -32,21 +32,22 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   _bibsdb_expose_add_javascript();
   _bibsdb_expose_add_css();
 
-  // Extract wall class from wall taxonomy term name
+   // Extract wall classes from wall taxonomy term name
   $wall_id = $vars['view']->args[0];
   $term_wrapper = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($wall_id));
   $term_name = $term_wrapper->name->value();
   
-   $term_name_elements = explode('-', $term_name);
+  $term_name_elements = explode('-', $term_name);
+
+  $class_name_elements = array_intersect($term_name_elements, array("1COL", "2COL", "3COL"));
 
   // Modify the col number so it doesn't start with a number
-  $colnumber = explode('COL', array_shift($term_name_elements));
-  $colclass = "col" . $colnumber[0];
+  foreach ($class_name_elements as $value) {
+    $colclass = "col" . $value[0];
+    array_push($vars['classes_array'], $colclass);
+  }
 
-  // Append classes
-  array_push($vars['classes_array'], $colclass);
-  $vars['classes_array'] = array_merge($vars['classes_array'], $term_name_elements);
-
+  array_push($vars['classes_array'], "packery");
 
   // If there are no rows hide the wall
   if (empty($vars['rows'])) {

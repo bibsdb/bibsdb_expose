@@ -207,7 +207,7 @@ $breakpoint-x-large:              1210px;
 ==============================================================================*/
 @mixin colored-background() {
   &.black {
-    .container {
+    .container, .tagandtitle {
       background-color: $brickblack;
     }
     .tag {
@@ -221,7 +221,7 @@ $breakpoint-x-large:              1210px;
   }
 
   &.blue {
-    .container {
+    .container, .tagandtitle {
       background-color: $brickblue;
     }
     .tag {
@@ -235,7 +235,7 @@ $breakpoint-x-large:              1210px;
   }
 
   &.orange {
-    .container {
+    .container, .tagandtitle {
       background-color: $brickorange;
     }
     .tag {
@@ -249,7 +249,7 @@ $breakpoint-x-large:              1210px;
   }
 
   &.gray {
-    .container {
+    .container, .tagandtitle {
       background-color: darken($brickgray, 10%);
     }
     .tag {
@@ -263,7 +263,7 @@ $breakpoint-x-large:              1210px;
   }
 
   &.green {
-    .container {
+    .container, .tagandtitle {
       background-color: $brickgreen;
     }
     .tag {
@@ -277,7 +277,7 @@ $breakpoint-x-large:              1210px;
   }
 
   &.turquoise {
-    .container {
+    .container, .tagandtitle {
       background-color: $brickturquoise;
     }
     .tag {
@@ -358,7 +358,7 @@ $breakpoint-x-large:              1210px;
 @mixin largest-font() {
   @include low() {
     font-size: $font-size-large;
-    line-height: $font-size-large;
+    line-height: $font-size-medium;
   }
 
   @include small() {
