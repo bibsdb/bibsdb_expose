@@ -35,7 +35,7 @@
 		}
 
 		.tag::after {
-			content: ": ";
+			content: ":\00a0";
 		}
 	}
 }

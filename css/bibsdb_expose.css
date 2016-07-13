@@ -1377,7 +1377,7 @@
 }
 /* line 37, ../sass/bricks/_bibsdb.largeimagewtitle.scss */
 .packery .largeimagewtitle .tag::after {
-  content: ": ";
+  content: ":\00a0";
 }
 
 /**
