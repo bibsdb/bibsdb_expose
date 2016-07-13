@@ -488,12 +488,12 @@ $breakpoint-x-large:              1210px;
 
 
   @include large() {
-    font-size: $font-size-medium;
+    font-size: $font-size-reset;
     line-height: $font-size-medium;
   }
 
   @include x-large() {
-    font-size: $font-size-medium;
+    font-size: $font-size-reset;
     line-height: $font-size-medium;
   }
 }
@@ -518,12 +518,12 @@ $breakpoint-x-large:              1210px;
 
 
   @include large() {
-    font-size: $font-size-tiny;
+    font-size: $font-size-small;
     line-height: $font-size-medium;
   }
 
   @include x-large() {
-    font-size: $font-size-tiny;
+    font-size: $font-size-small;
     line-height: $font-size-medium;
   }
 }

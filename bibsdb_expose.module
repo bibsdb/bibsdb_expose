@@ -285,6 +285,19 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       unset($entity->content['fields']['tag']);
 
     }
+    // Tagandtitleandlead
+    else if($fieldkey == 'tagandtitleandlead') {
+
+      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
+      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
+      $entity->content['fields'][$fieldkey]['lead'] = $entity->content['fields']['lead'];
+      dd($entity->content['fields'][$fieldkey]['lead']);
+
+      unset($entity->content['fields']['title']);
+      unset($entity->content['fields']['tag']);
+      unset($entity->content['fields']['lead']);
+
+    }
     else {
       $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
     }
@@ -312,6 +325,29 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
     $entity->content['fields']['tagandtitle']['tag']['content'] = array(
       '#type'  => 'link',
       '#title' => $entity->content['fields']['tagandtitle']['tag']['content']['#markup'],
+      '#href'  => _bibsdb_expose_build_url($node),
+      );
+  }
+
+   // Tagandtitleandlead: If tag og lead is empty uset element in array
+  if (empty($entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'])) {
+    unset($entity->content['fields']['tagandtitleandlead']['tag']);
+  }
+  // Turn tag into a link
+  else {
+    $entity->content['fields']['tagandtitleandlead']['tag']['content'] = array(
+      '#type'  => 'link',
+      '#title' => $entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'],
+      '#href'  => _bibsdb_expose_build_url($node),
+      );
+  }
+  if (empty($entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'])) {
+    unset($entity->content['fields']['tagandtitleandlead']['lead']);
+  }
+  else {
+    $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
+      '#type'  => 'link',
+      '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
       '#href'  => _bibsdb_expose_build_url($node),
       );
   }
@@ -444,7 +480,7 @@ function _bibsdb_expose_build_url($node) {
 
   if ($node->type == 'ding_search_context_link') {
     $url = $wrapper->field_search_context_link->url->value();
-  
+
     //Replace external link with value derived from internal link
     $internal = $wrapper->field_bibsdb_internal_link;
     

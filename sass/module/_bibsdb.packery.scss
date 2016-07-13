@@ -10,8 +10,8 @@
 ========================================================================== */
 
 //col1
-$col1width1: (1/1 * 100%) + 11/2; // 1/colnum*100% - gutternum/colnum * gutterwidth
-$col1height1: (1/1 * 100%) + 11/2;
+$col1width1: 105%; // 1/colnum*100% - gutternum/colnum * gutterwidth
+$col1height1: 105%;
 $col1height15: (1/1 * 100%) * 3/2 + 8%;
 
 //col2
@@ -118,6 +118,12 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 				@include medium() {
 					width: $col2width1small;
 				}
+				@include large() {
+					width: 110%;
+				}
+				@include x-large() {
+					width: 105%;
+				}
 			}
 			&.h1 {
 				padding-bottom: $col1height1;
@@ -129,6 +135,12 @@ $col3height2small: ((1/3 * 100%) - (2/3 * 4%)) * 2 + 4%;
 				}
 				@include medium() {
 					padding-bottom: $col2height1small;
+				}
+				@include large() {
+					padding-bottom: 106%;
+				}
+				@include x-large() {
+					padding-bottom: 105%;
 				}
 			}
 			&.h15 {

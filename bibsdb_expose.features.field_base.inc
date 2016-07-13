@@ -363,6 +363,35 @@ function bibsdb_expose_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_bibsdb_sclink_lead'
+  $field_bases['field_bibsdb_sclink_lead'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_bibsdb_sclink_lead',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_bibsdb_tag'
   $field_bases['field_bibsdb_tag'] = array(
     'active' => 1,

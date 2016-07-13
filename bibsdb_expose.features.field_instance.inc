@@ -747,6 +747,52 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ding_search_context_link-field_bibsdb_sclink_lead'
+  $field_instances['node-ding_search_context_link-field_bibsdb_sclink_lead'] = array(
+    'bundle' => 'ding_search_context_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_sclink_lead',
+    'label' => 'Lead',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 44,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_search_context_link-field_bibsdb_tag'
   $field_instances['node-ding_search_context_link-field_bibsdb_tag'] = array(
     'bundle' => 'ding_search_context_link',
@@ -804,6 +850,7 @@ function bibsdb_expose_field_default_field_instances() {
   t('Fact Box Title');
   t('Hidden field to store original list image');
   t('Hosting node');
+  t('Lead');
   t('List Image - Bredde (px)');
   t('List Image - Højde (px)');
   t('List Image vil blive placeret oven på baggrundsbilledet i den lodrette position du angiver her.');

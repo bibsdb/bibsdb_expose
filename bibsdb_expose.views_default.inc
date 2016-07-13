@@ -175,9 +175,11 @@ function bibsdb_expose_views_default_views() {
     'field_search_context_list_image' => 'field_ding_news_list_image',
     'field_ding_page_list_image' => 'field_ding_news_list_image',
     'field_ding_group_list_image' => 'field_ding_news_list_image',
+    'field_ding_eresource_list_image' => 'field_ding_news_list_image',
     'title' => 'title',
     'type' => 'type',
     'realname' => 'realname',
+    'status' => 'status',
     'edit_node' => 'edit_node',
     'delete_node' => 'delete_node',
     'clone_node' => 'clone_node',
@@ -231,6 +233,13 @@ function bibsdb_expose_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_ding_eresource_list_image' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'title' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -246,6 +255,13 @@ function bibsdb_expose_views_default_views() {
       'empty_column' => 0,
     ),
     'realname' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'status' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -573,6 +589,18 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
+  /* Felt: Eresource Logo */
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['id'] = 'field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['table'] = 'field_data_field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['field'] = 'field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['ui_name'] = 'Eresource Logo';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['label'] = '';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => 'content',
+  );
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -837,8 +865,10 @@ function bibsdb_expose_views_default_views() {
     'field_ding_page_list_image' => 'field_ding_news_list_image',
     'field_ding_event_list_image' => 'field_ding_news_list_image',
     'field_ding_group_list_image' => 'field_ding_news_list_image',
+    'field_ding_eresource_list_image' => 'field_ding_news_list_image',
     'field_bibsdb_brick_content' => 'field_bibsdb_brick_content',
     'edit_node' => 'field_bibsdb_brick_content',
+    'type' => 'type',
     'field_bibsdb_brick_type' => 'field_bibsdb_brick_type',
     'field_bibsdb_brick_color' => 'field_bibsdb_brick_color',
     'draggableviews' => 'draggableviews',
@@ -903,6 +933,13 @@ function bibsdb_expose_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_ding_eresource_list_image' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_bibsdb_brick_content' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -911,6 +948,13 @@ function bibsdb_expose_views_default_views() {
       'empty_column' => 0,
     ),
     'edit_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1131,6 +1175,19 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['field_ding_group_list_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ding_group_list_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_ding_group_list_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => 'content',
+  );
+  /* Felt: Eresorce logo */
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['id'] = 'field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['table'] = 'field_data_field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['field'] = 'field_ding_eresource_list_image';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['relationship'] = 'field_bibsdb_brick_content_target_id';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['ui_name'] = 'Eresorce logo';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['label'] = '';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ding_eresource_list_image']['settings'] = array(
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );

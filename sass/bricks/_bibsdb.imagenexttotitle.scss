@@ -1,0 +1,57 @@
+/**
+ * Style definition of brick-layout: Image with title
+ *
+ * @author agms
+ */
+
+
+
+ .packery {
+
+ 	.imagenexttotitle {
+ 		@include colored-background();
+
+ 		.img {
+ 			width: 50%;
+ 		}
+
+ 		.tagandtitleandlead {
+
+ 			width: 44%;
+ 			position: absolute;
+ 			left: 50%;
+ 			top: 5%;
+ 			padding: 3%;
+ 		}
+
+ 		.title, .lead {
+
+ 			a:link {
+ 				color: $white;
+ 			}
+ 			a:hover {
+ 				color: $white;
+ 			}
+ 			a:visited {
+ 				color: $white;
+ 			} 			
+ 		}
+
+ 		.title {
+ 			@include larger-font();
+ 		}
+
+ 		.tag {
+ 			@include tiny-font();
+ 			text-transform: uppercase;
+ 			padding-bottom: 3%;
+ 		}
+
+ 		.lead {
+ 			@include small-font();
+ 			padding-top: 4%;
+ 			font-family: "SourceSansProRegular"; 			
+ 		}
+ 	}
+ }
+
