@@ -1322,7 +1322,7 @@
   left: 26%;
   top: 20%;
   padding: 2%;
-  background-color: #333333;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 @media only screen and (max-width: 480px) {
   /* line 11, ../sass/bricks/_bibsdb.largeimagewtitle.scss */
