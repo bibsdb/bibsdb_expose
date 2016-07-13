@@ -291,7 +291,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
       $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
       $entity->content['fields'][$fieldkey]['lead'] = $entity->content['fields']['lead'];
-      dd($entity->content['fields'][$fieldkey]['lead']);
+      
 
       unset($entity->content['fields']['title']);
       unset($entity->content['fields']['tag']);
