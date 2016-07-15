@@ -296,7 +296,7 @@ $breakpoint-x-large:              1210px;
 ==============================================================================*/
 @mixin colored-dot() {
   &.black {
-    .tagandtitle {
+    .link a {
       &:before {
         color: $brickblack;
       }

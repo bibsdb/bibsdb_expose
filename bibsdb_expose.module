@@ -247,9 +247,9 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
           ),
         ),
       ),
-    'body' => array(
+    'link' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
-      'suffix' => array('body'),
+      'suffix' => array('link'),
       'view_mode' => 'full',
       'options' => array(),
       ),
@@ -267,98 +267,118 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       );
 
     // Title
-    if($fieldkey == 'title') {
+
+    if ($fieldkey == 'title') {
+      if ($node->type == "bibsdb_link_collection") {
+       $entity->content['fields'][$fieldkey]['content'] = array(
+        '#type'  => 'markup',
+        '#markup' => _strip_tag($node->title),
+        );
+     }
+     else {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => _strip_tag($node->title),
         '#href'  => _bibsdb_expose_build_url($node),
         );
     }
+  }
+
 
     // Tagandtitle
-    else if($fieldkey == 'tagandtitle') {
+  else if($fieldkey == 'tagandtitle') {
 
-      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
-      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
+    $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
+    $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
 
-      unset($entity->content['fields']['title']);
-      unset($entity->content['fields']['tag']);
+    unset($entity->content['fields']['title']);
+    unset($entity->content['fields']['tag']);
 
-    }
-    // Tagandtitleandlead
-    else if($fieldkey == 'tagandtitleandlead') {
-
-      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
-      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
-      $entity->content['fields'][$fieldkey]['lead'] = $entity->content['fields']['lead'];
-      
-
-      unset($entity->content['fields']['title']);
-      unset($entity->content['fields']['tag']);
-      unset($entity->content['fields']['lead']);
-
-    }
-    else {
-      $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
-    }
   }
+    // Tagandtitleandlead
+  else if($fieldkey == 'tagandtitleandlead') {
+
+    $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
+    $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
+    $entity->content['fields'][$fieldkey]['lead'] = $entity->content['fields']['lead'];
+
+
+    unset($entity->content['fields']['title']);
+    unset($entity->content['fields']['tag']);
+    unset($entity->content['fields']['lead']);
+
+  }
+  else {
+    $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
+  }
+}
 
   // Tag: If tag is empty uset element in array
-  if (empty($entity->content['fields']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tag']);
-  }
+if (empty($entity->content['fields']['tag']['content']['#markup'])) {
+  unset($entity->content['fields']['tag']);
+}
       // Turn tag into a link
-  else {
-    $entity->content['fields']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
+else {
+  $entity->content['fields']['tag']['content'] = array(
+    '#type'  => 'link',
+    '#title' => $entity->content['fields']['tag']['content']['#markup'],
+    '#href'  => _bibsdb_expose_build_url($node),
+    );
+}
 
   // Tagandtitle: If tag is empty uset element in array
-  if (empty($entity->content['fields']['tagandtitle']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitle']['tag']);
-  }
+if (empty($entity->content['fields']['tagandtitle']['tag']['content']['#markup'])) {
+  unset($entity->content['fields']['tagandtitle']['tag']);
+}
   // Turn tag into a link
-  else {
-    $entity->content['fields']['tagandtitle']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tagandtitle']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
+else {
+  $entity->content['fields']['tagandtitle']['tag']['content'] = array(
+    '#type'  => 'link',
+    '#title' => $entity->content['fields']['tagandtitle']['tag']['content']['#markup'],
+    '#href'  => _bibsdb_expose_build_url($node),
+    );
+}
 
    // Tagandtitleandlead: If tag og lead is empty uset element in array
-  if (empty($entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitleandlead']['tag']);
-  }
+if (empty($entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'])) {
+  unset($entity->content['fields']['tagandtitleandlead']['tag']);
+}
   // Turn tag into a link
-  else {
-    $entity->content['fields']['tagandtitleandlead']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
-  if (empty($entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitleandlead']['lead']);
-  }
-  else {
-    $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
+else {
+  $entity->content['fields']['tagandtitleandlead']['tag']['content'] = array(
+    '#type'  => 'link',
+    '#title' => $entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'],
+    '#href'  => _bibsdb_expose_build_url($node),
+    );
+}
+if (empty($entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'])) {
+  unset($entity->content['fields']['tagandtitleandlead']['lead']);
+}
+else {
+  
+ if ($node->type == "bibsdb_link_collection") {
+  $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
+    '#type'  => 'markup',
+    '#markup' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
+    );
+ }
+ else {
+   $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
+    '#type'  => 'link',
+    '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
+    '#href'  => _bibsdb_expose_build_url($node),
+    );
+ }
+
+}
 
 
 
 
       // Fix the image link
-  if (isset($entity->content['fields']['img']['content']['#path']['path'])) {
-    $entity->content['fields']['img']['content']['#path']['path'] = _bibsdb_expose_build_url($node);
-  }
+if (isset($entity->content['fields']['img']['content']['#path']['path'])) {
+  $entity->content['fields']['img']['content']['#path']['path'] = _bibsdb_expose_build_url($node);
+}
 
 }
 
@@ -384,12 +404,23 @@ class ExposureEntity extends Entity {
 * Todo: Only works for single value fields.
 */
 function _build_field($node, $nodeprops, $field_settings) {
-  $delta = 0;
+  $delta=0;
+
   foreach ($nodeprops as $nodepropskey => $nodepropsvalue) {
     foreach ($field_settings['prefix'] as $prefixvalue) {
       foreach ($field_settings['suffix'] as $suffixvalue) {
         if (_starts_with($nodepropskey, $prefixvalue) && _ends_with($nodepropskey, $suffixvalue)){
+
           $field = field_get_items('node', $node, $nodepropskey);
+
+          // Handle multivalued field in link collection
+          if ($nodepropskey == "field_bibsdb_link_coll_link") {
+            $content = array();
+            foreach($field as $link) {
+              array_push($content, field_view_value('node', $node, $nodepropskey, $link, $field_settings['options']));
+            }
+            return $content;
+          }
           // If we are about to shaow an image set the image style
           return field_view_value('node', $node, $nodepropskey, $field[$delta], $field_settings['options']);
         }

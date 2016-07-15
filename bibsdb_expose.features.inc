@@ -106,12 +106,12 @@ function bibsdb_expose_image_default_styles() {
  */
 function bibsdb_expose_node_info() {
   $items = array(
-    'bibsdb_text_fragment' => array(
-      'name' => t('Text Fragment'),
+    'bibsdb_link_collection' => array(
+      'name' => t('Link Collection'),
       'base' => 'node_content',
-      'description' => t('Wall-glue. A heading or a text-snippet that can be displayed on a wall. Isn\'t searchable and has no value as a standalone content element.'),
+      'description' => '',
       'has_title' => '1',
-      'title_label' => t('Titel'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

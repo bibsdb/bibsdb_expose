@@ -1,0 +1,65 @@
+/**
+ * Style definition of brick-layout: Image with title
+ *
+ * @author agms
+ */
+
+/**
+* Linkcollection styling
+*/
+
+.packery {
+
+	.linkcollection {
+		@include colored-background();
+
+		.lead {
+			position: absolute;
+ 			right: 0;
+ 			top: 5%;
+ 			width: 30%;
+		}
+
+		.link {
+			position: absolute;
+ 			left: 0;
+ 			top: 5%;
+ 			width: 70%;
+
+		}
+
+		.link a {
+			display: block;
+			@include small-font();
+			width: 100%;
+	
+			padding-top: 2%;
+			padding-bottom: 1%;
+
+			@include dotted-gradient;
+
+			&:before {
+				font-family: fontawesome;
+				@include tiny-font();
+		    content: "\F04D";
+		    margin-right: .5em;
+			}
+
+		}
+
+		.title {
+			display: inline;
+		}
+
+	}
+}
+
+ /**
+* Titlelink colors
+*/
+
+.packery {
+	.linkcollection a {
+		@include colored-dot();	
+	}
+}
