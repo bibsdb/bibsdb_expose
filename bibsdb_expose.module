@@ -510,6 +510,7 @@ function _bibsdb_expose_build_url($node) {
   $wrapper = entity_metadata_wrapper('node', $node);
 
   if ($node->type == 'ding_search_context_link') {
+    $url = $wrapper->field_search_context_link->url->value();
     
     // One of the main usecases for ding_search_context_links is to link to
     // search queries. Search queries are tricky because they are a mix of

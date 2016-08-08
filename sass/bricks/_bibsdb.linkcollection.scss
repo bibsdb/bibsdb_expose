@@ -11,28 +11,39 @@
 .packery {
 
 	.linkcollection {
-		@include colored-background();
+		@include colored-dot();
+
+		.title {
+			@include larger-font();
+		
+ 			width: 100%;
+ 			font-family: "SourceSansProBold"; 
+ 			text-transform: uppercase;
+ 			border-top: 4px solid $black;
+ 			border-bottom: 4px solid $black;
+ 			padding: 4px 0;
+
+		}
 
 		.lead {
-			position: absolute;
- 			right: 0;
- 			top: 5%;
- 			width: 30%;
+			position: relative;
+ 			left: 0;
+ 			top: 0;
+ 			width: 100%;
+ 			font-family: "SourceSansProRegular"; 
 		}
 
 		.link {
-			position: absolute;
+			position: relative;
  			left: 0;
- 			top: 5%;
- 			width: 70%;
-
+ 			top: 0;
+ 			width: 100%;
 		}
 
 		.link a {
 			display: block;
 			@include small-font();
 			width: 100%;
-	
 			padding-top: 2%;
 			padding-bottom: 1%;
 
@@ -46,11 +57,6 @@
 			}
 
 		}
-
-		.title {
-			display: inline;
-		}
-
 	}
 }
 
