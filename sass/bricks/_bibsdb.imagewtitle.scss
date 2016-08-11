@@ -9,39 +9,44 @@
  .packery {
 
  	.imagewtitle {
- 		@include colored-background();
+
+ 		.container {
+ 			@include dotted-gradient;
+
+ 		}
 
  		.tagandtitle {
-
- 			@include medium-font();
- 			
- 			width: 94%; // 100% - 3% -3%
+ 			width: 100%;
  			position: absolute;
  			left: 0;
- 			bottom: 0;
- 			padding: 3%;
+ 			top: 78%;
+ 			
+ 			padding-bottom: 8px;
  		}
 
  		.title {
-
- 			a:link {
- 				color: $white;
- 			}
- 			a:hover {
- 				color: $white;
- 			}
- 			a:visited {
- 				color: $white;
- 			} 			
+ 			@include medium-font();
  		}
 
- 		.title, .tag {
- 			display: inline;
- 		}
-
- 		.tag::after {
- 			content: ":\00a0";
+ 		.tag {
+ 			a {
+ 				@include tiny-font();
+ 				color: $black;
+ 				text-decoration: none;
+ 				text-transform: uppercase;
+ 			}
  		}
  	}
  }
+
+ /**
+* Publication colors
+*/
+
+.packery {
+	.imagewtitle {
+		@include colored-tag();
+	}
+
+}
 

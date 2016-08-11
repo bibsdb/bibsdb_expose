@@ -19,9 +19,8 @@
  			width: 100%;
  			font-family: "SourceSansProBold"; 
  			text-transform: uppercase;
- 			border-top: 4px solid $black;
- 			border-bottom: 4px solid $black;
- 			padding: 4px 0;
+ 			
+ 			padding: 0 0 8px 0;
 
 		}
 
@@ -31,6 +30,7 @@
  			top: 0;
  			width: 100%;
  			font-family: "SourceSansProRegular"; 
+ 			padding-bottom: 2%;
 		}
 
 		.link {
@@ -55,7 +55,9 @@
 		    content: "\F04D";
 		    margin-right: .5em;
 			}
-
+			&:first-child {
+				padding-top: 0;
+			}
 		}
 	}
 }

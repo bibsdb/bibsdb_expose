@@ -304,39 +304,46 @@ $breakpoint-x-large:              1210px;
   }
 
   &.blue {
-    .tagandtitle {
+    .link a {
       &:before {
         color: $brickblue;
       }
     }
   }
+  
 
   &.orange {
-    .tagandtitle {
+    .link a {
       &:before {
         color: $brickorange;
       }
     }
   }
+  
 
   &.gray {
-    .tagandtitle {
+    
+    .link a {
       &:before {
         color: $brickgray;
       }
     }
   }
+  
 
   &.green {
-    .tagandtitle {
+
+    .link a {
       &:before {
         color: $brickgreen;
       }
     }
   }
+  
 
   &.turquoise {
-    .tagandtitle {
+
+    .link a {
       &:before {
         color: $brickturquoise;
       }

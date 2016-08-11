@@ -1,0 +1,49 @@
+.packery {
+	.tallimagenexttotitle {
+
+		.container {
+			border: 1px solid $gray-dark;
+		}
+
+		.img {
+			width: 35%;
+			padding-right: 1%;
+		}
+
+		.tagandtitleandlead {
+			width: 59%;
+			position: absolute;
+			left: 35%;
+			top: 5%;
+			padding: 3%;
+		}
+
+		.title {
+			@include larger-font();
+		}
+
+		.tag {
+			@include tiny-font();
+			text-transform: uppercase;
+			padding-bottom: 3%;
+		}
+
+		.lead {
+			@include small-font();
+			padding-top: 4%;
+			font-family: "SourceSansProRegular"; 			
+		}
+	}
+}
+
+
+/**
+* Publication colors
+*/
+
+.packery {
+	.tallimagenexttotitle {
+		@include colored-tag();
+	}
+
+}

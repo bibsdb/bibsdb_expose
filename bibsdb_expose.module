@@ -313,11 +313,11 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   }
 }
 
-  // Tag: If tag is empty uset element in array
+// Tag: If tag is empty uset element in array
 if (empty($entity->content['fields']['tag']['content']['#markup'])) {
   unset($entity->content['fields']['tag']);
 }
-      // Turn tag into a link
+// Turn tag into a link
 else {
   $entity->content['fields']['tag']['content'] = array(
     '#type'  => 'link',
@@ -355,21 +355,27 @@ if (empty($entity->content['fields']['tagandtitleandlead']['lead']['content']['#
   unset($entity->content['fields']['tagandtitleandlead']['lead']);
 }
 else {
-  
+
  if ($node->type == "bibsdb_link_collection") {
   $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
     '#type'  => 'markup',
     '#markup' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
     );
- }
- else {
-   $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
-    '#type'  => 'link',
-    '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
-    '#href'  => _bibsdb_expose_build_url($node),
-    );
- }
+}
+else {
+ $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
+  '#type'  => 'link',
+  '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
+  '#href'  => _bibsdb_expose_build_url($node),
+  );
+}
 
+}
+
+
+// Lead: If lead is empty unset element in array
+if (empty($entity->content['fields']['lead']['content']['#markup'])) {
+  unset($entity->content['fields']['lead']);
 }
 
 
