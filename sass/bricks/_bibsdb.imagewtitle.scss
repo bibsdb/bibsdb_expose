@@ -10,18 +10,15 @@
 
  	.imagewtitle {
 
- 		.container {
- 			@include dotted-gradient;
-
- 		}
-
  		.tagandtitle {
  			width: 100%;
  			position: absolute;
  			left: 0;
- 			top: 78%;
- 			
- 			padding-bottom: 8px;
+ 			bottom: 0;
+ 			background-color: $white;
+ 			padding: 3% 0;
+ 			@include dotted-gradient;
+
  		}
 
  		.title {

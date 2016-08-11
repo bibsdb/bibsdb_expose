@@ -923,91 +923,89 @@
  * @author agms
  */
 /* line 13, ../sass/bricks/_bibsdb.imagewtitle.scss */
-.packery .imagewtitle .container {
+.packery .imagewtitle .tagandtitle {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 3% 0;
   background-image: linear-gradient(to right, #333333 40%, rgba(255, 255, 255, 0) 20%);
   background-position: bottom;
   background-size: 3px 1px;
   background-repeat: repeat-x;
 }
-/* line 18, ../sass/bricks/_bibsdb.imagewtitle.scss */
-.packery .imagewtitle .tagandtitle {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 78%;
-  padding-bottom: 8px;
-}
 @media only screen and (max-width: 480px) {
-  /* line 27, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 24, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .title {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 27, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 24, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .title {
     font-size: 130%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 27, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 24, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .title {
     font-size: 130%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 27, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 24, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .title {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 27, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 24, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .title {
     font-size: 110%;
     line-height: 110%;
   }
 }
-/* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+/* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
 .packery .imagewtitle .tag a {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
 }
 @media only screen and (max-width: 480px) {
-  /* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .tag a {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .tag a {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .tag a {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .tag a {
     font-size: 90%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 32, ../sass/bricks/_bibsdb.imagewtitle.scss */
+  /* line 29, ../sass/bricks/_bibsdb.imagewtitle.scss */
   .packery .imagewtitle .tag a {
     font-size: 90%;
     line-height: 110%;
