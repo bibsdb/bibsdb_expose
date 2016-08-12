@@ -41,6 +41,9 @@
 /* Border mixin
  *
  ========================================================================== */
+/* Color mixin for title in linkcollection
+*
+==============================================================================*/
 /* Color mixin for titlelink and imagewtitle 
 *
 ==============================================================================*/
@@ -172,55 +175,59 @@
 .packery .brick.col2.h1 {
   padding-bottom: 48%;
 }
-/* line 135, ../sass/module/_bibsdb.packery.scss */
+/* line 132, ../sass/module/_bibsdb.packery.scss */
+.packery .brick.col2.h15 {
+  padding-bottom: 76%;
+}
+/* line 138, ../sass/module/_bibsdb.packery.scss */
 .packery .brick.col3.w1 {
   width: 30.66667%;
 }
-/* line 138, ../sass/module/_bibsdb.packery.scss */
+/* line 141, ../sass/module/_bibsdb.packery.scss */
 .packery .brick.col3.w2 {
   width: 65.33333%;
 }
-/* line 141, ../sass/module/_bibsdb.packery.scss */
+/* line 144, ../sass/module/_bibsdb.packery.scss */
 .packery .brick.col3.h021 {
   padding-bottom: 3.45333%;
 }
 @media only screen and (max-width: 480px) {
-  /* line 145, ../sass/module/_bibsdb.packery.scss */
+  /* line 148, ../sass/module/_bibsdb.packery.scss */
   .packery .brick.col3.w2.h021 {
     width: 80.66667%;
     padding-bottom: 7.55556%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 145, ../sass/module/_bibsdb.packery.scss */
+  /* line 148, ../sass/module/_bibsdb.packery.scss */
   .packery .brick.col3.w2.h021 {
     width: 80.66667%;
     padding-bottom: 7.55556%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 145, ../sass/module/_bibsdb.packery.scss */
+  /* line 148, ../sass/module/_bibsdb.packery.scss */
   .packery .brick.col3.w2.h021 {
     padding-bottom: 4.66667%;
   }
 }
-/* line 158, ../sass/module/_bibsdb.packery.scss */
+/* line 161, ../sass/module/_bibsdb.packery.scss */
 .packery .brick.col3.h1 {
   padding-bottom: 30.66667%;
 }
-/* line 161, ../sass/module/_bibsdb.packery.scss */
+/* line 164, ../sass/module/_bibsdb.packery.scss */
 .packery .brick.col3.h15 {
   padding-bottom: 49.0%;
 }
 @media only screen and (max-width: 480px) {
-  /* line 166, ../sass/module/_bibsdb.packery.scss */
+  /* line 169, ../sass/module/_bibsdb.packery.scss */
   .packery .brick.col3.w1.h15.header {
     width: 15.33333%;
     padding-bottom: 65.33333%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 166, ../sass/module/_bibsdb.packery.scss */
+  /* line 169, ../sass/module/_bibsdb.packery.scss */
   .packery .brick.col3.w1.h15.header {
     width: 15.33333%;
     padding-bottom: 65.33333%;
@@ -229,135 +236,135 @@
 
 /* Basic configuration
 ========================================================================== */
-/* line 185, ../sass/module/_bibsdb.packery.scss */
+/* line 188, ../sass/module/_bibsdb.packery.scss */
 .wall {
   background-color: white;
   padding-top: 1.5%;
 }
 @media only screen and (max-width: 480px) {
-  /* line 185, ../sass/module/_bibsdb.packery.scss */
+  /* line 188, ../sass/module/_bibsdb.packery.scss */
   .wall {
     padding-top: 4%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 185, ../sass/module/_bibsdb.packery.scss */
+  /* line 188, ../sass/module/_bibsdb.packery.scss */
   .wall {
     padding-top: 4%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 185, ../sass/module/_bibsdb.packery.scss */
+  /* line 188, ../sass/module/_bibsdb.packery.scss */
   .wall {
     padding-top: 4%;
   }
 }
-/* line 198, ../sass/module/_bibsdb.packery.scss */
+/* line 201, ../sass/module/_bibsdb.packery.scss */
 .wall.front {
   padding: 1.5%;
 }
 @media only screen and (max-width: 480px) {
-  /* line 198, ../sass/module/_bibsdb.packery.scss */
+  /* line 201, ../sass/module/_bibsdb.packery.scss */
   .wall.front {
     padding: 4%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 198, ../sass/module/_bibsdb.packery.scss */
+  /* line 201, ../sass/module/_bibsdb.packery.scss */
   .wall.front {
     padding: 4%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 198, ../sass/module/_bibsdb.packery.scss */
+  /* line 201, ../sass/module/_bibsdb.packery.scss */
   .wall.front {
     padding: 4%;
   }
 }
-/* line 213, ../sass/module/_bibsdb.packery.scss */
+/* line 216, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent {
   display: none;
 }
-/* line 216, ../sass/module/_bibsdb.packery.scss */
+/* line 219, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent.editormode {
   padding: 0;
   display: block;
 }
-/* line 220, ../sass/module/_bibsdb.packery.scss */
+/* line 223, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent.editormode .view-bibsdb-wall {
   background: linear-gradient(to left bottom, #ffff00, #ffff00) no-repeat;
   background-size: 60px 20px;
   background-position: right top;
 }
 
-/* line 228, ../sass/module/_bibsdb.packery.scss */
+/* line 231, ../sass/module/_bibsdb.packery.scss */
 .packery {
   background-color: white;
 }
-/* line 231, ../sass/module/_bibsdb.packery.scss */
+/* line 234, ../sass/module/_bibsdb.packery.scss */
 .packery .brick {
   font-family: "SourceSansProSemibold";
   word-wrap: break-word;
 }
-/* line 235, ../sass/module/_bibsdb.packery.scss */
+/* line 238, ../sass/module/_bibsdb.packery.scss */
 .packery .brick .container {
   background-color: white;
 }
 @media only screen and (max-width: 480px) {
-  /* line 231, ../sass/module/_bibsdb.packery.scss */
+  /* line 234, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 231, ../sass/module/_bibsdb.packery.scss */
+  /* line 234, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 231, ../sass/module/_bibsdb.packery.scss */
+  /* line 234, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 231, ../sass/module/_bibsdb.packery.scss */
+  /* line 234, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 231, ../sass/module/_bibsdb.packery.scss */
+  /* line 234, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 130%;
     line-height: 110%;
   }
 }
-/* line 266, ../sass/module/_bibsdb.packery.scss */
+/* line 269, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:link {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 269, ../sass/module/_bibsdb.packery.scss */
+/* line 272, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 272, ../sass/module/_bibsdb.packery.scss */
+/* line 275, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:visited {
   color: rgba(0, 0, 0, 0.7);
 }
 
 /* Walls on ding_page and page_group
 ============================================================================ */
-/* line 283, ../sass/module/_bibsdb.packery.scss */
+/* line 286, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
   /* Page content */
 }
-/* line 285, ../sass/module/_bibsdb.packery.scss */
+/* line 288, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .primary-content, .node-type-ding-group .default-layout .primary-content {
   clear: left;
   *position: relative;
@@ -372,7 +379,7 @@
 .node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:after {
   clear: both;
 }
-/* line 291, ../sass/module/_bibsdb.packery.scss */
+/* line 294, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
   float: left;
   width: 75%;
@@ -391,7 +398,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 291, ../sass/module/_bibsdb.packery.scss */
+  /* line 294, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -412,7 +419,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 291, ../sass/module/_bibsdb.packery.scss */
+  /* line 294, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -433,7 +440,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 291, ../sass/module/_bibsdb.packery.scss */
+  /* line 294, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -453,7 +460,7 @@
     clear: left;
   }
 }
-/* line 310, ../sass/module/_bibsdb.packery.scss */
+/* line 313, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0 article.page, .node-type-ding-page .default-layout.empty-wall0 .pane-node-content, .node-type-ding-group .default-layout.empty-wall0 article.page, .node-type-ding-group .default-layout.empty-wall0 .pane-node-content {
   float: left;
   width: 100%;
@@ -471,7 +478,7 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 314, ../sass/module/_bibsdb.packery.scss */
+/* line 317, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
   float: left;
   width: 75%;
@@ -490,7 +497,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 314, ../sass/module/_bibsdb.packery.scss */
+  /* line 317, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -511,7 +518,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 314, ../sass/module/_bibsdb.packery.scss */
+  /* line 317, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -532,7 +539,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 314, ../sass/module/_bibsdb.packery.scss */
+  /* line 317, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -554,7 +561,7 @@
 }
 
 /* Walls */
-/* line 338, ../sass/module/_bibsdb.packery.scss */
+/* line 341, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall.left, .node-type-ding-group .default-layout .wall.left {
   float: left;
   width: 50%;
@@ -573,7 +580,7 @@
   _overflow-y: visible;
   clear: left;
 }
-/* line 342, ../sass/module/_bibsdb.packery.scss */
+/* line 345, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent {
   float: left;
   width: 66.66667%;
@@ -591,7 +598,7 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 347, ../sass/module/_bibsdb.packery.scss */
+/* line 350, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.right {
   float: left;
   width: 50%;
@@ -610,7 +617,7 @@
   _overflow-y: visible;
   clear: right;
 }
-/* line 351, ../sass/module/_bibsdb.packery.scss */
+/* line 354, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
   float: left;
   width: 33.33333%;
@@ -629,7 +636,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 357, ../sass/module/_bibsdb.packery.scss */
+  /* line 360, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
@@ -648,7 +655,7 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 360, ../sass/module/_bibsdb.packery.scss */
+  /* line 363, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
@@ -669,7 +676,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 368, ../sass/module/_bibsdb.packery.scss */
+  /* line 371, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
@@ -688,7 +695,7 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 371, ../sass/module/_bibsdb.packery.scss */
+  /* line 374, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
@@ -709,7 +716,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 379, ../sass/module/_bibsdb.packery.scss */
+  /* line 382, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
@@ -728,7 +735,7 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 382, ../sass/module/_bibsdb.packery.scss */
+  /* line 385, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
@@ -748,7 +755,7 @@
     clear: left;
   }
 }
-/* line 389, ../sass/module/_bibsdb.packery.scss */
+/* line 392, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
   clear: right;
   float: right;
@@ -768,7 +775,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 389, ../sass/module/_bibsdb.packery.scss */
+  /* line 392, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
@@ -789,7 +796,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 389, ../sass/module/_bibsdb.packery.scss */
+  /* line 392, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
@@ -810,7 +817,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 389, ../sass/module/_bibsdb.packery.scss */
+  /* line 392, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
@@ -830,11 +837,11 @@
     clear: left;
   }
 }
-/* line 409, ../sass/module/_bibsdb.packery.scss */
+/* line 412, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0 .wall0, .node-type-ding-group .default-layout.empty-wall0 .wall0 {
   display: none;
 }
-/* line 413, ../sass/module/_bibsdb.packery.scss */
+/* line 416, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
   display: block;
   float: right;
@@ -854,7 +861,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 413, ../sass/module/_bibsdb.packery.scss */
+  /* line 416, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
@@ -875,7 +882,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 413, ../sass/module/_bibsdb.packery.scss */
+  /* line 416, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
@@ -896,7 +903,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 413, ../sass/module/_bibsdb.packery.scss */
+  /* line 416, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
@@ -1015,51 +1022,51 @@
  /**
 * Publication colors
 */
-/* line 139, ../sass/framework/_bibsdb.mixins.scss */
+/* line 180, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.black .tag:after {
   color: #333333;
 }
-/* line 142, ../sass/framework/_bibsdb.mixins.scss */
+/* line 183, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.black .tag a {
   color: #333333;
 }
-/* line 150, ../sass/framework/_bibsdb.mixins.scss */
+/* line 191, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.blue .tag:after {
   color: #2f5a7b;
 }
-/* line 153, ../sass/framework/_bibsdb.mixins.scss */
+/* line 194, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.blue .tag a {
   color: #2f5a7b;
 }
-/* line 161, ../sass/framework/_bibsdb.mixins.scss */
+/* line 202, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.orange .tag:after {
   color: #e18203;
 }
-/* line 164, ../sass/framework/_bibsdb.mixins.scss */
+/* line 205, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.orange .tag a {
   color: #e18203;
 }
-/* line 172, ../sass/framework/_bibsdb.mixins.scss */
+/* line 213, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.gray .tag:after {
   color: #adcad6;
 }
-/* line 175, ../sass/framework/_bibsdb.mixins.scss */
+/* line 216, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.gray .tag a {
   color: #adcad6;
 }
-/* line 183, ../sass/framework/_bibsdb.mixins.scss */
+/* line 224, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.green .tag:after {
   color: #528c10;
 }
-/* line 186, ../sass/framework/_bibsdb.mixins.scss */
+/* line 227, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.green .tag a {
   color: #528c10;
 }
-/* line 194, ../sass/framework/_bibsdb.mixins.scss */
+/* line 235, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.turquoise .tag:after {
   color: #286e74;
 }
-/* line 197, ../sass/framework/_bibsdb.mixins.scss */
+/* line 238, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagewtitle.turquoise .tag a {
   color: #286e74;
 }
@@ -1067,51 +1074,51 @@
 /**
 * Imagewtitle colors
 */
-/* line 139, ../sass/framework/_bibsdb.mixins.scss */
+/* line 180, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.black .tag:after {
   color: #333333;
 }
-/* line 142, ../sass/framework/_bibsdb.mixins.scss */
+/* line 183, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.black .tag a {
   color: #333333;
 }
-/* line 150, ../sass/framework/_bibsdb.mixins.scss */
+/* line 191, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.blue .tag:after {
   color: #2f5a7b;
 }
-/* line 153, ../sass/framework/_bibsdb.mixins.scss */
+/* line 194, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.blue .tag a {
   color: #2f5a7b;
 }
-/* line 161, ../sass/framework/_bibsdb.mixins.scss */
+/* line 202, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.orange .tag:after {
   color: #e18203;
 }
-/* line 164, ../sass/framework/_bibsdb.mixins.scss */
+/* line 205, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.orange .tag a {
   color: #e18203;
 }
-/* line 172, ../sass/framework/_bibsdb.mixins.scss */
+/* line 213, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.gray .tag:after {
   color: #adcad6;
 }
-/* line 175, ../sass/framework/_bibsdb.mixins.scss */
+/* line 216, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.gray .tag a {
   color: #adcad6;
 }
-/* line 183, ../sass/framework/_bibsdb.mixins.scss */
+/* line 224, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.green .tag:after {
   color: #528c10;
 }
-/* line 186, ../sass/framework/_bibsdb.mixins.scss */
+/* line 227, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.green .tag a {
   color: #528c10;
 }
-/* line 194, ../sass/framework/_bibsdb.mixins.scss */
+/* line 235, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.turquoise .tag:after {
   color: #286e74;
 }
-/* line 197, ../sass/framework/_bibsdb.mixins.scss */
+/* line 238, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largeimagewtitle.turquoise .tag a {
   color: #286e74;
 }
@@ -1290,51 +1297,51 @@
 /**
 * Publication colors
 */
-/* line 139, ../sass/framework/_bibsdb.mixins.scss */
+/* line 180, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.black .tag:after {
   color: #333333;
 }
-/* line 142, ../sass/framework/_bibsdb.mixins.scss */
+/* line 183, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.black .tag a {
   color: #333333;
 }
-/* line 150, ../sass/framework/_bibsdb.mixins.scss */
+/* line 191, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.blue .tag:after {
   color: #2f5a7b;
 }
-/* line 153, ../sass/framework/_bibsdb.mixins.scss */
+/* line 194, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.blue .tag a {
   color: #2f5a7b;
 }
-/* line 161, ../sass/framework/_bibsdb.mixins.scss */
+/* line 202, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.orange .tag:after {
   color: #e18203;
 }
-/* line 164, ../sass/framework/_bibsdb.mixins.scss */
+/* line 205, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.orange .tag a {
   color: #e18203;
 }
-/* line 172, ../sass/framework/_bibsdb.mixins.scss */
+/* line 213, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.gray .tag:after {
   color: #adcad6;
 }
-/* line 175, ../sass/framework/_bibsdb.mixins.scss */
+/* line 216, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.gray .tag a {
   color: #adcad6;
 }
-/* line 183, ../sass/framework/_bibsdb.mixins.scss */
+/* line 224, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.green .tag:after {
   color: #528c10;
 }
-/* line 186, ../sass/framework/_bibsdb.mixins.scss */
+/* line 227, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.green .tag a {
   color: #528c10;
 }
-/* line 194, ../sass/framework/_bibsdb.mixins.scss */
+/* line 235, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.turquoise .tag:after {
   color: #286e74;
 }
-/* line 197, ../sass/framework/_bibsdb.mixins.scss */
+/* line 238, ../sass/framework/_bibsdb.mixins.scss */
 .packery .publication.turquoise .tag a {
   color: #286e74;
 }
@@ -1447,27 +1454,27 @@
  /**
 * Titlelink colors
 */
-/* line 300, ../sass/framework/_bibsdb.mixins.scss */
+/* line 341, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.black .link a:before {
   color: #333333;
 }
-/* line 308, ../sass/framework/_bibsdb.mixins.scss */
+/* line 349, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.blue .link a:before {
   color: #2f5a7b;
 }
-/* line 317, ../sass/framework/_bibsdb.mixins.scss */
+/* line 358, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.orange .link a:before {
   color: #e18203;
 }
-/* line 327, ../sass/framework/_bibsdb.mixins.scss */
+/* line 368, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.gray .link a:before {
   color: #adcad6;
 }
-/* line 337, ../sass/framework/_bibsdb.mixins.scss */
+/* line 378, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.green .link a:before {
   color: #528c10;
 }
-/* line 347, ../sass/framework/_bibsdb.mixins.scss */
+/* line 388, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelink.turquoise .link a:before {
   color: #286e74;
 }
@@ -1477,75 +1484,75 @@
  *
  * @author agms
  */
-/* line 210, ../sass/framework/_bibsdb.mixins.scss */
+/* line 251, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.black .container, .packery .largetitlelink.black .tagandtitle {
   background-color: #333333;
 }
-/* line 214, ../sass/framework/_bibsdb.mixins.scss */
+/* line 255, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.black .tag:after {
   color: #adcad6;
 }
-/* line 217, ../sass/framework/_bibsdb.mixins.scss */
+/* line 258, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.black .tag a {
   color: #adcad6;
 }
-/* line 224, ../sass/framework/_bibsdb.mixins.scss */
+/* line 265, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.blue .container, .packery .largetitlelink.blue .tagandtitle {
   background-color: #2f5a7b;
 }
-/* line 228, ../sass/framework/_bibsdb.mixins.scss */
+/* line 269, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.blue .tag:after {
   color: #e18203;
 }
-/* line 231, ../sass/framework/_bibsdb.mixins.scss */
+/* line 272, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.blue .tag a {
   color: #e18203;
 }
-/* line 238, ../sass/framework/_bibsdb.mixins.scss */
+/* line 279, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.orange .container, .packery .largetitlelink.orange .tagandtitle {
   background-color: #e18203;
 }
-/* line 242, ../sass/framework/_bibsdb.mixins.scss */
+/* line 283, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.orange .tag:after {
   color: #333333;
 }
-/* line 245, ../sass/framework/_bibsdb.mixins.scss */
+/* line 286, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.orange .tag a {
   color: #333333;
 }
-/* line 252, ../sass/framework/_bibsdb.mixins.scss */
+/* line 293, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.gray .container, .packery .largetitlelink.gray .tagandtitle {
   background-color: #8bb4c5;
 }
-/* line 256, ../sass/framework/_bibsdb.mixins.scss */
+/* line 297, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.gray .tag:after {
   color: #333333;
 }
-/* line 259, ../sass/framework/_bibsdb.mixins.scss */
+/* line 300, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.gray .tag a {
   color: #333333;
 }
-/* line 266, ../sass/framework/_bibsdb.mixins.scss */
+/* line 307, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.green .container, .packery .largetitlelink.green .tagandtitle {
   background-color: #528c10;
 }
-/* line 270, ../sass/framework/_bibsdb.mixins.scss */
+/* line 311, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.green .tag:after {
   color: #333333;
 }
-/* line 273, ../sass/framework/_bibsdb.mixins.scss */
+/* line 314, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.green .tag a {
   color: #333333;
 }
-/* line 280, ../sass/framework/_bibsdb.mixins.scss */
+/* line 321, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.turquoise .container, .packery .largetitlelink.turquoise .tagandtitle {
   background-color: #286e74;
 }
-/* line 284, ../sass/framework/_bibsdb.mixins.scss */
+/* line 325, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.turquoise .tag:after {
   color: #e18203;
 }
-/* line 287, ../sass/framework/_bibsdb.mixins.scss */
+/* line 328, ../sass/framework/_bibsdb.mixins.scss */
 .packery .largetitlelink.turquoise .tag a {
   color: #e18203;
 }
@@ -1759,75 +1766,75 @@
  *
  * @author agms
  */
-/* line 210, ../sass/framework/_bibsdb.mixins.scss */
+/* line 251, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.black .container, .packery .imagenexttotitle.black .tagandtitle {
   background-color: #333333;
 }
-/* line 214, ../sass/framework/_bibsdb.mixins.scss */
+/* line 255, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.black .tag:after {
   color: #adcad6;
 }
-/* line 217, ../sass/framework/_bibsdb.mixins.scss */
+/* line 258, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.black .tag a {
   color: #adcad6;
 }
-/* line 224, ../sass/framework/_bibsdb.mixins.scss */
+/* line 265, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.blue .container, .packery .imagenexttotitle.blue .tagandtitle {
   background-color: #2f5a7b;
 }
-/* line 228, ../sass/framework/_bibsdb.mixins.scss */
+/* line 269, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.blue .tag:after {
   color: #e18203;
 }
-/* line 231, ../sass/framework/_bibsdb.mixins.scss */
+/* line 272, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.blue .tag a {
   color: #e18203;
 }
-/* line 238, ../sass/framework/_bibsdb.mixins.scss */
+/* line 279, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.orange .container, .packery .imagenexttotitle.orange .tagandtitle {
   background-color: #e18203;
 }
-/* line 242, ../sass/framework/_bibsdb.mixins.scss */
+/* line 283, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.orange .tag:after {
   color: #333333;
 }
-/* line 245, ../sass/framework/_bibsdb.mixins.scss */
+/* line 286, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.orange .tag a {
   color: #333333;
 }
-/* line 252, ../sass/framework/_bibsdb.mixins.scss */
+/* line 293, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.gray .container, .packery .imagenexttotitle.gray .tagandtitle {
   background-color: #8bb4c5;
 }
-/* line 256, ../sass/framework/_bibsdb.mixins.scss */
+/* line 297, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.gray .tag:after {
   color: #333333;
 }
-/* line 259, ../sass/framework/_bibsdb.mixins.scss */
+/* line 300, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.gray .tag a {
   color: #333333;
 }
-/* line 266, ../sass/framework/_bibsdb.mixins.scss */
+/* line 307, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.green .container, .packery .imagenexttotitle.green .tagandtitle {
   background-color: #528c10;
 }
-/* line 270, ../sass/framework/_bibsdb.mixins.scss */
+/* line 311, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.green .tag:after {
   color: #333333;
 }
-/* line 273, ../sass/framework/_bibsdb.mixins.scss */
+/* line 314, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.green .tag a {
   color: #333333;
 }
-/* line 280, ../sass/framework/_bibsdb.mixins.scss */
+/* line 321, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.turquoise .container, .packery .imagenexttotitle.turquoise .tagandtitle {
   background-color: #286e74;
 }
-/* line 284, ../sass/framework/_bibsdb.mixins.scss */
+/* line 325, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.turquoise .tag:after {
   color: #e18203;
 }
-/* line 287, ../sass/framework/_bibsdb.mixins.scss */
+/* line 328, ../sass/framework/_bibsdb.mixins.scss */
 .packery .imagenexttotitle.turquoise .tag a {
   color: #e18203;
 }
@@ -2107,51 +2114,51 @@
 /**
 * Publication colors
 */
-/* line 139, ../sass/framework/_bibsdb.mixins.scss */
+/* line 180, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.black .tag:after {
   color: #333333;
 }
-/* line 142, ../sass/framework/_bibsdb.mixins.scss */
+/* line 183, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.black .tag a {
   color: #333333;
 }
-/* line 150, ../sass/framework/_bibsdb.mixins.scss */
+/* line 191, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.blue .tag:after {
   color: #2f5a7b;
 }
-/* line 153, ../sass/framework/_bibsdb.mixins.scss */
+/* line 194, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.blue .tag a {
   color: #2f5a7b;
 }
-/* line 161, ../sass/framework/_bibsdb.mixins.scss */
+/* line 202, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.orange .tag:after {
   color: #e18203;
 }
-/* line 164, ../sass/framework/_bibsdb.mixins.scss */
+/* line 205, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.orange .tag a {
   color: #e18203;
 }
-/* line 172, ../sass/framework/_bibsdb.mixins.scss */
+/* line 213, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.gray .tag:after {
   color: #adcad6;
 }
-/* line 175, ../sass/framework/_bibsdb.mixins.scss */
+/* line 216, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.gray .tag a {
   color: #adcad6;
 }
-/* line 183, ../sass/framework/_bibsdb.mixins.scss */
+/* line 224, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.green .tag:after {
   color: #528c10;
 }
-/* line 186, ../sass/framework/_bibsdb.mixins.scss */
+/* line 227, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.green .tag a {
   color: #528c10;
 }
-/* line 194, ../sass/framework/_bibsdb.mixins.scss */
+/* line 235, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.turquoise .tag:after {
   color: #286e74;
 }
-/* line 197, ../sass/framework/_bibsdb.mixins.scss */
+/* line 238, ../sass/framework/_bibsdb.mixins.scss */
 .packery .tallimagenexttotitle.turquoise .tag a {
   color: #286e74;
 }
@@ -2161,75 +2168,75 @@
  *
  * @author agms
  */
-/* line 210, ../sass/framework/_bibsdb.mixins.scss */
+/* line 251, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.black .container, .packery .titlelinkwteaser.black .tagandtitle {
   background-color: #333333;
 }
-/* line 214, ../sass/framework/_bibsdb.mixins.scss */
+/* line 255, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.black .tag:after {
   color: #adcad6;
 }
-/* line 217, ../sass/framework/_bibsdb.mixins.scss */
+/* line 258, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.black .tag a {
   color: #adcad6;
 }
-/* line 224, ../sass/framework/_bibsdb.mixins.scss */
+/* line 265, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.blue .container, .packery .titlelinkwteaser.blue .tagandtitle {
   background-color: #2f5a7b;
 }
-/* line 228, ../sass/framework/_bibsdb.mixins.scss */
+/* line 269, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.blue .tag:after {
   color: #e18203;
 }
-/* line 231, ../sass/framework/_bibsdb.mixins.scss */
+/* line 272, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.blue .tag a {
   color: #e18203;
 }
-/* line 238, ../sass/framework/_bibsdb.mixins.scss */
+/* line 279, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.orange .container, .packery .titlelinkwteaser.orange .tagandtitle {
   background-color: #e18203;
 }
-/* line 242, ../sass/framework/_bibsdb.mixins.scss */
+/* line 283, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.orange .tag:after {
   color: #333333;
 }
-/* line 245, ../sass/framework/_bibsdb.mixins.scss */
+/* line 286, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.orange .tag a {
   color: #333333;
 }
-/* line 252, ../sass/framework/_bibsdb.mixins.scss */
+/* line 293, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.gray .container, .packery .titlelinkwteaser.gray .tagandtitle {
   background-color: #8bb4c5;
 }
-/* line 256, ../sass/framework/_bibsdb.mixins.scss */
+/* line 297, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.gray .tag:after {
   color: #333333;
 }
-/* line 259, ../sass/framework/_bibsdb.mixins.scss */
+/* line 300, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.gray .tag a {
   color: #333333;
 }
-/* line 266, ../sass/framework/_bibsdb.mixins.scss */
+/* line 307, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.green .container, .packery .titlelinkwteaser.green .tagandtitle {
   background-color: #528c10;
 }
-/* line 270, ../sass/framework/_bibsdb.mixins.scss */
+/* line 311, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.green .tag:after {
   color: #333333;
 }
-/* line 273, ../sass/framework/_bibsdb.mixins.scss */
+/* line 314, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.green .tag a {
   color: #333333;
 }
-/* line 280, ../sass/framework/_bibsdb.mixins.scss */
+/* line 321, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.turquoise .container, .packery .titlelinkwteaser.turquoise .tagandtitle {
   background-color: #286e74;
 }
-/* line 284, ../sass/framework/_bibsdb.mixins.scss */
+/* line 325, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.turquoise .tag:after {
   color: #e18203;
 }
-/* line 287, ../sass/framework/_bibsdb.mixins.scss */
+/* line 328, ../sass/framework/_bibsdb.mixins.scss */
 .packery .titlelinkwteaser.turquoise .tag a {
   color: #e18203;
 }
@@ -2377,73 +2384,96 @@
 /**
 * Linkcollection styling
 */
-/* line 300, ../sass/framework/_bibsdb.mixins.scss */
+/* line 341, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.black .link a:before {
   color: #333333;
 }
-/* line 308, ../sass/framework/_bibsdb.mixins.scss */
+/* line 349, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.blue .link a:before {
   color: #2f5a7b;
 }
-/* line 317, ../sass/framework/_bibsdb.mixins.scss */
+/* line 358, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.orange .link a:before {
   color: #e18203;
 }
-/* line 327, ../sass/framework/_bibsdb.mixins.scss */
+/* line 368, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.gray .link a:before {
   color: #adcad6;
 }
-/* line 337, ../sass/framework/_bibsdb.mixins.scss */
+/* line 378, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.green .link a:before {
   color: #528c10;
 }
-/* line 347, ../sass/framework/_bibsdb.mixins.scss */
+/* line 388, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection.turquoise .link a:before {
   color: #286e74;
 }
-/* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 137, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.black .title {
+  color: #333333;
+}
+/* line 143, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.blue .title {
+  color: #2f5a7b;
+}
+/* line 149, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.orange .title {
+  color: #e18203;
+}
+/* line 155, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.gray .title {
+  color: #adcad6;
+}
+/* line 161, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.green .title {
+  color: #528c10;
+}
+/* line 167, ../sass/framework/_bibsdb.mixins.scss */
+.packery .linkcollection.turquoise .title {
+  color: #286e74;
+}
+/* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .title {
   width: 100%;
   font-family: "SourceSansProBold";
-  text-transform: uppercase;
   padding: 0 0 8px 0;
 }
 @media only screen and (max-width: 480px) {
-  /* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .title {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .title {
     font-size: 160%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .title {
     font-size: 160%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .title {
     font-size: 130%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 16, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 17, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .title {
     font-size: 130%;
     line-height: 110%;
   }
 }
-/* line 27, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 25, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .lead {
   position: relative;
   left: 0;
@@ -2452,14 +2482,14 @@
   font-family: "SourceSansProRegular";
   padding-bottom: 2%;
 }
-/* line 36, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 34, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .link {
   position: relative;
   left: 0;
   top: 0;
   width: 100%;
 }
-/* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .link a {
   display: block;
   width: 100%;
@@ -2471,82 +2501,82 @@
   background-repeat: repeat-x;
 }
 @media only screen and (max-width: 480px) {
-  /* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a {
     font-size: 90%;
     line-height: 90%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a {
     font-size: 130%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a {
     font-size: 130%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 43, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 41, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a {
     font-size: 100%;
     line-height: 110%;
   }
 }
-/* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .link a:before {
   font-family: fontawesome;
   content: "\F04D";
   margin-right: .5em;
 }
 @media only screen and (max-width: 480px) {
-  /* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a:before {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a:before {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a:before {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a:before {
     font-size: 90%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 52, ../sass/bricks/_bibsdb.linkcollection.scss */
+  /* line 50, ../sass/bricks/_bibsdb.linkcollection.scss */
   .packery .linkcollection .link a:before {
     font-size: 90%;
     line-height: 110%;
   }
 }
-/* line 58, ../sass/bricks/_bibsdb.linkcollection.scss */
+/* line 56, ../sass/bricks/_bibsdb.linkcollection.scss */
 .packery .linkcollection .link a:first-child {
   padding-top: 0;
 }
@@ -2554,27 +2584,27 @@
  /**
 * Titlelink colors
 */
-/* line 300, ../sass/framework/_bibsdb.mixins.scss */
+/* line 341, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.black .link a:before {
   color: #333333;
 }
-/* line 308, ../sass/framework/_bibsdb.mixins.scss */
+/* line 349, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.blue .link a:before {
   color: #2f5a7b;
 }
-/* line 317, ../sass/framework/_bibsdb.mixins.scss */
+/* line 358, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.orange .link a:before {
   color: #e18203;
 }
-/* line 327, ../sass/framework/_bibsdb.mixins.scss */
+/* line 368, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.gray .link a:before {
   color: #adcad6;
 }
-/* line 337, ../sass/framework/_bibsdb.mixins.scss */
+/* line 378, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.green .link a:before {
   color: #528c10;
 }
-/* line 347, ../sass/framework/_bibsdb.mixins.scss */
+/* line 388, ../sass/framework/_bibsdb.mixins.scss */
 .packery .linkcollection a.turquoise .link a:before {
   color: #286e74;
 }

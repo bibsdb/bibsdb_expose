@@ -129,6 +129,47 @@ $breakpoint-x-large:              1210px;
   background-repeat: repeat-x;
 }
 
+/* Color mixin for title in linkcollection
+*
+==============================================================================*/
+@mixin colored-title() {
+  &.black {
+    .title {
+      color: $brickblack;
+    }
+  }
+
+  &.blue {
+    .title {
+      color: $brickblue;
+    }
+  }
+
+  &.orange {
+    .title {
+      color: $brickorange;
+    }
+  }
+
+  &.gray {
+    .title {
+      color: $brickgray;
+    }
+  }
+
+  &.green {
+    .title {
+      color: $brickgreen;
+    }
+  }
+
+  &.turquoise {
+    .title {
+        color: $brickturquoise;
+    }
+  }
+}
+
 
 /* Color mixin for titlelink and imagewtitle 
 *
@@ -322,7 +363,7 @@ $breakpoint-x-large:              1210px;
   
 
   &.gray {
-    
+
     .link a {
       &:before {
         color: $brickgray;

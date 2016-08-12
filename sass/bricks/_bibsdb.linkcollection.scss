@@ -12,14 +12,12 @@
 
 	.linkcollection {
 		@include colored-dot();
+		@include colored-title();
 
 		.title {
 			@include larger-font();
-		
  			width: 100%;
- 			font-family: "SourceSansProBold"; 
- 			text-transform: uppercase;
- 			
+ 			font-family: "SourceSansProBold";  			
  			padding: 0 0 8px 0;
 
 		}
