@@ -261,110 +261,92 @@
 }
 /* line 201, ../sass/module/_bibsdb.packery.scss */
 .wall.front {
-  padding: 1.5%;
+  padding: 10px 0;
 }
-@media only screen and (max-width: 480px) {
-  /* line 201, ../sass/module/_bibsdb.packery.scss */
-  .wall.front {
-    padding: 4%;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 201, ../sass/module/_bibsdb.packery.scss */
-  .wall.front {
-    padding: 4%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 201, ../sass/module/_bibsdb.packery.scss */
-  .wall.front {
-    padding: 4%;
-  }
-}
-/* line 216, ../sass/module/_bibsdb.packery.scss */
+/* line 207, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent {
   display: none;
 }
-/* line 219, ../sass/module/_bibsdb.packery.scss */
+/* line 210, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent.editormode {
   padding: 0;
   display: block;
 }
-/* line 223, ../sass/module/_bibsdb.packery.scss */
+/* line 214, ../sass/module/_bibsdb.packery.scss */
 .wall.nocontent.editormode .view-bibsdb-wall {
   background: linear-gradient(to left bottom, #ffff00, #ffff00) no-repeat;
   background-size: 60px 20px;
   background-position: right top;
 }
 
-/* line 231, ../sass/module/_bibsdb.packery.scss */
+/* line 222, ../sass/module/_bibsdb.packery.scss */
 .packery {
   background-color: white;
 }
-/* line 234, ../sass/module/_bibsdb.packery.scss */
+/* line 225, ../sass/module/_bibsdb.packery.scss */
 .packery .brick {
   font-family: "SourceSansProSemibold";
   word-wrap: break-word;
 }
-/* line 238, ../sass/module/_bibsdb.packery.scss */
+/* line 229, ../sass/module/_bibsdb.packery.scss */
 .packery .brick .container {
   background-color: white;
 }
 @media only screen and (max-width: 480px) {
-  /* line 234, ../sass/module/_bibsdb.packery.scss */
+  /* line 225, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 234, ../sass/module/_bibsdb.packery.scss */
+  /* line 225, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 234, ../sass/module/_bibsdb.packery.scss */
+  /* line 225, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 234, ../sass/module/_bibsdb.packery.scss */
+  /* line 225, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 234, ../sass/module/_bibsdb.packery.scss */
+  /* line 225, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 130%;
     line-height: 110%;
   }
 }
-/* line 269, ../sass/module/_bibsdb.packery.scss */
+/* line 260, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:link {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 272, ../sass/module/_bibsdb.packery.scss */
+/* line 263, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 275, ../sass/module/_bibsdb.packery.scss */
+/* line 266, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:visited {
   color: rgba(0, 0, 0, 0.7);
 }
 
 /* Walls on ding_page and page_group
 ============================================================================ */
-/* line 286, ../sass/module/_bibsdb.packery.scss */
+/* line 277, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
   /* Page content */
 }
-/* line 288, ../sass/module/_bibsdb.packery.scss */
+/* line 279, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .primary-content, .node-type-ding-group .default-layout .primary-content {
   clear: left;
   *position: relative;
@@ -379,7 +361,7 @@
 .node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:after {
   clear: both;
 }
-/* line 294, ../sass/module/_bibsdb.packery.scss */
+/* line 285, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
   float: left;
   width: 75%;
@@ -398,7 +380,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 294, ../sass/module/_bibsdb.packery.scss */
+  /* line 285, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -419,7 +401,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 294, ../sass/module/_bibsdb.packery.scss */
+  /* line 285, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -440,7 +422,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 294, ../sass/module/_bibsdb.packery.scss */
+  /* line 285, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content {
     float: left;
     width: 100%;
@@ -460,7 +442,7 @@
     clear: left;
   }
 }
-/* line 313, ../sass/module/_bibsdb.packery.scss */
+/* line 304, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0 article.page, .node-type-ding-page .default-layout.empty-wall0 .pane-node-content, .node-type-ding-group .default-layout.empty-wall0 article.page, .node-type-ding-group .default-layout.empty-wall0 .pane-node-content {
   float: left;
   width: 100%;
@@ -478,7 +460,7 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 317, ../sass/module/_bibsdb.packery.scss */
+/* line 308, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
   float: left;
   width: 75%;
@@ -497,7 +479,7 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 317, ../sass/module/_bibsdb.packery.scss */
+  /* line 308, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -518,7 +500,7 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 317, ../sass/module/_bibsdb.packery.scss */
+  /* line 308, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -539,7 +521,7 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 317, ../sass/module/_bibsdb.packery.scss */
+  /* line 308, ../sass/module/_bibsdb.packery.scss */
   .node-type-ding-page .default-layout.empty-wall0.editormode article.page, .node-type-ding-page .default-layout.empty-wall0.editormode .pane-node-content, .node-type-ding-group .default-layout.empty-wall0.editormode article.page, .node-type-ding-group .default-layout.empty-wall0.editormode .pane-node-content {
     float: left;
     width: 100%;
@@ -561,8 +543,8 @@
 }
 
 /* Walls */
-/* line 341, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.left, .node-type-ding-group .default-layout .wall.left {
+/* line 332, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout .wall.left, .node-type-ding-page .default-layout .wall.left, .node-type-ding-group .default-layout .wall.left {
   float: left;
   width: 50%;
   margin-left: 0%;
@@ -580,8 +562,8 @@
   _overflow-y: visible;
   clear: left;
 }
-/* line 345, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent {
+/* line 336, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent {
   float: left;
   width: 66.66667%;
   margin-left: 0%;
@@ -598,8 +580,8 @@
   _overflow: hidden;
   _overflow-y: visible;
 }
-/* line 350, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.right {
+/* line 341, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout .wall.right, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.right {
   float: left;
   width: 50%;
   margin-left: 50%;
@@ -617,8 +599,8 @@
   _overflow-y: visible;
   clear: right;
 }
-/* line 354, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
+/* line 345, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout .wall.right.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
   float: left;
   width: 33.33333%;
   margin-left: 66.66667%;
@@ -636,8 +618,8 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 360, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+  /* line 351, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left, .front .frontpage-layout .wall.right, .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -655,8 +637,8 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 363, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
+  /* line 354, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left.seccontent, .front .frontpage-layout .wall.right.seccontent, .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -676,8 +658,8 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 371, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+  /* line 362, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left, .front .frontpage-layout .wall.right, .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -695,8 +677,8 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 374, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
+  /* line 365, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left.seccontent, .front .frontpage-layout .wall.right.seccontent, .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -716,8 +698,8 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 382, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
+  /* line 373, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left, .front .frontpage-layout .wall.right, .node-type-ding-page .default-layout .wall.left, .node-type-ding-page .default-layout .wall.right, .node-type-ding-group .default-layout .wall.left, .node-type-ding-group .default-layout .wall.right {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -735,8 +717,8 @@
     _overflow-y: visible;
     clear: left;
   }
-  /* line 385, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
+  /* line 376, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall.left.seccontent, .front .frontpage-layout .wall.right.seccontent, .node-type-ding-page .default-layout .wall.left.seccontent, .node-type-ding-page .default-layout .wall.right.seccontent, .node-type-ding-group .default-layout .wall.left.seccontent, .node-type-ding-group .default-layout .wall.right.seccontent {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -755,8 +737,8 @@
     clear: left;
   }
 }
-/* line 392, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+/* line 383, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout .wall0, .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
   clear: right;
   float: right;
   width: 25%;
@@ -775,8 +757,8 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 392, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+  /* line 383, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall0, .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -796,8 +778,8 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 392, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+  /* line 383, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall0, .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -817,8 +799,8 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 392, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
+  /* line 383, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout .wall0, .node-type-ding-page .default-layout .wall0, .node-type-ding-group .default-layout .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -837,12 +819,12 @@
     clear: left;
   }
 }
-/* line 412, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0 .wall0, .node-type-ding-group .default-layout.empty-wall0 .wall0 {
+/* line 403, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout.empty-wall0 .wall0, .node-type-ding-page .default-layout.empty-wall0 .wall0, .node-type-ding-group .default-layout.empty-wall0 .wall0 {
   display: none;
 }
-/* line 416, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+/* line 407, ../sass/module/_bibsdb.packery.scss */
+.front .frontpage-layout.empty-wall0.editormode .wall0, .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
   display: block;
   float: right;
   width: 25%;
@@ -861,8 +843,8 @@
   _overflow-y: visible;
 }
 @media only screen and (max-width: 480px) {
-  /* line 416, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+  /* line 407, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout.empty-wall0.editormode .wall0, .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -882,8 +864,8 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 416, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+  /* line 407, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout.empty-wall0.editormode .wall0, .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -903,8 +885,8 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 416, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
+  /* line 407, ../sass/module/_bibsdb.packery.scss */
+  .front .frontpage-layout.empty-wall0.editormode .wall0, .node-type-ding-page .default-layout.empty-wall0.editormode .wall0, .node-type-ding-group .default-layout.empty-wall0.editormode .wall0 {
     float: left;
     width: 100%;
     margin-left: 0%;

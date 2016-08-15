@@ -199,16 +199,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	}
 
 	&.front {
-		padding: 1.5%;
-		@include low() {
-			padding: $gutter;
-		}
-		@include small() {
-			padding: $gutter;
-		}
-		@include medium() {
-			padding: $gutter;
-		}
+		padding: 10px 0;
 	}
 
 
@@ -336,7 +327,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 
 
 /* Walls */
-.node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
+.front .frontpage-layout, .node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
 
 	.wall.left {
 		@include zen-grid-item(6, 1);
