@@ -202,6 +202,10 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		padding: 10px 0;
 	}
 
+	&.large-padding {
+		padding: 5% 0;
+	}
+
 
 
 	&.nocontent {
@@ -274,7 +278,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 /* Walls on ding_page and page_group
 ============================================================================ */
 
-.node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
+.node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
 
 	.primary-content {
 		@include zen-clear();
@@ -282,7 +286,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	}
 
 	/* Page content */
-	article.page, .pane-node-content {
+	article.page, .pane-node-content, .pane-new-materials, .pane-bibsdb-new-materials-more-link {
 		@include zen-grid-item(9, 1);
 
 		@include low() {
@@ -301,11 +305,51 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		}
 	}
 
-	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content{
+
+
+	.pane-new-materials {
+		.new-materials-header .new-materials-title {
+			padding-left: 0;
+		}
+		ul {
+			padding-left: 0;
+		}
+	}
+
+	.pane-bibsdb-new-materials-more-link {
+		@include zen-clear(left);
+		
+		.pane-content {
+			background-color: gray;
+			padding: $large-spacing;
+			text-align: center;
+
+			
+
+			color: $white;
+			@include largest-font();
+
+			a:link {
+				color: $white;
+			}
+			a:hover {
+				color: $white;
+			}
+			a:visited {
+				color: $white;
+			}
+
+			
+		}
+	}
+
+
+
+	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content, &.empty-wall0 .pane-new-materials{
 		@include zen-grid-item(12, 1);
 	}
 
-	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content {
+	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content, &.empty-wall0 .pane-new-materials {
 		@include zen-grid-item(9, 1);
 		@include low() {
 			@include zen-grid-item(12, 1);
@@ -327,7 +371,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 
 
 /* Walls */
-.front .frontpage-layout, .node-type-ding-page .default-layout, .node-type-ding-group .default-layout {
+.front .frontpage-layout, .node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
 
 	.wall.left {
 		@include zen-grid-item(6, 1);
@@ -423,14 +467,4 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
