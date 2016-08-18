@@ -305,6 +305,29 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		}
 	}
 
+	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content, &.empty-wall0 .pane-new-materials, &.empty-wall0 .pane-bibsdb-new-materials-more-link{
+		@include zen-grid-item(12, 1);
+	}
+
+	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content, &.empty-wall0.editormode .pane-new-materials, &.empty-wall0.editormode .pane-bibsdb-new-materials-more-link{
+		@include zen-grid-item(9, 1);
+		@include low() {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include small {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+
+		@include medium {
+			@include zen-grid-item(12, 1);
+			@include zen-clear();
+		}
+	}
+
+
 
 
 	.pane-new-materials {
@@ -345,27 +368,6 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 
 
 
-	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content, &.empty-wall0 .pane-new-materials{
-		@include zen-grid-item(12, 1);
-	}
-
-	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content, &.empty-wall0 .pane-new-materials {
-		@include zen-grid-item(9, 1);
-		@include low() {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include small {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include medium {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-	}
 
 }
 
