@@ -271,8 +271,8 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-bibsdb_link_collection-field_bibsdb_link_coll_link'
-  $field_instances['node-bibsdb_link_collection-field_bibsdb_link_coll_link'] = array(
+  // Exported field_instance: 'node-bibsdb_link_collection-field_bibsdb_link_coll_link_ref'
+  $field_instances['node-bibsdb_link_collection-field_bibsdb_link_coll_link_ref'] = array(
     'bundle' => 'bibsdb_link_collection',
     'default_value' => NULL,
     'deleted' => 0,
@@ -280,10 +280,12 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
-        'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -299,45 +301,22 @@ function bibsdb_expose_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_bibsdb_link_coll_link',
+    'field_name' => 'field_bibsdb_link_coll_link_ref',
     'label' => 'Link',
     'required' => 0,
     'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'configurable_title' => 0,
-        'rel' => '',
-        'target' => 'default',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'rel_remove' => 'default',
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
       'user_register_form' => FALSE,
-      'validate_url' => 1,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'advanced_link',
+      'module' => 'entityreference',
       'settings' => array(
-        'default_titles' => '',
-        'urls_allowed' => 'both',
-        'urls_filter' => 'indhold/*
-nye-udgivelser/*
-nyheder/*
-arrangementer/*
-temaer/*
-menukort',
-        'urls_search' => 'contains',
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
       ),
-      'type' => 'advanced_link',
-      'weight' => 42,
+      'type' => 'entityreference_autocomplete',
+      'weight' => 43,
     ),
   );
 
@@ -911,7 +890,7 @@ menukort',
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 44,
+      'weight' => 9,
     ),
   );
 
@@ -957,7 +936,7 @@ menukort',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -10,
+      'weight' => 0,
     ),
   );
 
