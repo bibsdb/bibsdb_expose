@@ -513,11 +513,14 @@ function bibsdb_expose_action_info() {
 
 
 function _bibsdb_expose_build_url($node) {
-  $wrapper = entity_metadata_wrapper('node', $node);
 
   if ($node->type == 'ding_search_context_link') {
-    $url = $wrapper->field_search_context_link->url->value();
-    
+
+    // Update the search context link from internal or external link field
+    _fill_search_context_link($node, TRUE);
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    $url = $wrapper->field_search_context_link->value()['url'];
     // One of the main usecases for ding_search_context_links is to link to
     // search queries. Search queries are tricky because they are a mix of
     // escaped and not escaped characters. This code handles it in a primitive
