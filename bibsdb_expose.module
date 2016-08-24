@@ -249,9 +249,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       ),
     'link' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
-      'suffix' => array('link'),
+      'suffix' => array('link', 'ref'),
       'view_mode' => 'full',
-      'options' => array(),
+      'options' => array(
+        'settings' => array(
+          'link' => TRUE,
+          ),
+        ),
       ),
     );
 
@@ -412,7 +416,7 @@ class ExposureEntity extends Entity {
 function _build_field($node, $nodeprops, $field_settings) {
   $delta=0;
 
-  foreach ($nodeprops as $nodepropskey => $nodepropsvalue) {
+  foreach ($nodeprops as $nodepropskey => $nodepropsvalue) {    
     foreach ($field_settings['prefix'] as $prefixvalue) {
       foreach ($field_settings['suffix'] as $suffixvalue) {
         if (_starts_with($nodepropskey, $prefixvalue) && _ends_with($nodepropskey, $suffixvalue)){
@@ -420,7 +424,7 @@ function _build_field($node, $nodeprops, $field_settings) {
           $field = field_get_items('node', $node, $nodepropskey);
 
           // Handle multivalued field in link collection
-          if ($nodepropskey == "field_bibsdb_link_coll_link") {
+          if ($nodepropskey == "field_bibsdb_link_coll_link_ref") {
             $content = array();
             foreach($field as $link) {
               array_push($content, field_view_value('node', $node, $nodepropskey, $link, $field_settings['options']));
