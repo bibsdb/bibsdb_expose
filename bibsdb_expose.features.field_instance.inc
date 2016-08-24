@@ -890,7 +890,7 @@ function bibsdb_expose_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 5,
     ),
   );
 
@@ -936,7 +936,7 @@ function bibsdb_expose_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => -10,
     ),
   );
 
