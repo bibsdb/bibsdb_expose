@@ -1,7 +1,6 @@
 name = Bibsdb Expose
 core = 7.x
 package = Bibsdb
-dependencies[] = advanced_link
 dependencies[] = ctools
 dependencies[] = draggableviews
 dependencies[] = entity
@@ -101,5 +100,6 @@ features[views_view][] = bibsdb_wall_sorting_view
 features_exclude[taxonomy][bibsdb_brick_colors] = bibsdb_brick_colors
 features_exclude[field_base][field_bibsdb_link_coll_link] = field_bibsdb_link_coll_link
 features_exclude[field_instance][node-bibsdb_link_collection-field_bibsdb_link_coll_link] = node-bibsdb_link_collection-field_bibsdb_link_coll_link
-mtime = 1472041208
+features_exclude[dependencies][advanced_link] = advanced_link
+mtime = 1472041278
 project path = sites/default/modules
