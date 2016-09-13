@@ -313,7 +313,7 @@ function bibsdb_expose_field_default_field_instances() {
       'settings' => array(
         'match_operator' => 'CONTAINS',
         'path' => '',
-        'size' => 60,
+        'size' => 100,
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 43,
