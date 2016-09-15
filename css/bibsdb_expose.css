@@ -1178,8 +1178,8 @@
 .packery .largeimagewtitle .tagandtitle {
   width: 70%;
   position: absolute;
-  left: 26%;
-  top: 20%;
+  right: 24%;
+  bottom: 10%;
   padding: 2%;
   background-color: rgba(0, 0, 0, 0.8);
 }

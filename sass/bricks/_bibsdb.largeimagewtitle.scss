@@ -12,8 +12,8 @@
 			@include largest-font();
 			width: 70%;
 			position: absolute;
-			left: 26%; // 100% - 2xpadding - width
-			top: 20%;
+			right: 24%; // 100% - 2xpadding - width
+			bottom: 10%;
 			padding: 2%;
 			background-color: transparentize($black, .2);;
 		}
