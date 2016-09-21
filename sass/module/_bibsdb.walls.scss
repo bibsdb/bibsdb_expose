@@ -1,0 +1,12 @@
+
+
+/* Configuration of backgroundcolor on specific walls on specific pages
+========================================================================== */
+
+
+.page-node-1558 .wall.left2 {
+	background-color: $brickgray;
+	.packery {
+		background-color: $brickgray;
+	}
+}

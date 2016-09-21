@@ -1,0 +1,6 @@
+/* Configuration of backgroundcolor on specific walls on specific pages
+========================================================================== */
+/* line 5, ../../sass/walls/nye-udgivelser-for-voksne.scss */
+.page-node-1558 .wall.left1 {
+  background-color: blue;
+}

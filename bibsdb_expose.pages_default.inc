@@ -255,7 +255,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left1',
     );
     $pane->extras = array();
     $pane->position = 4;
@@ -282,7 +282,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right1',
     );
     $pane->extras = array();
     $pane->position = 5;
@@ -309,7 +309,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left2',
     );
     $pane->extras = array();
     $pane->position = 6;
@@ -336,7 +336,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right2',
     );
     $pane->extras = array();
     $pane->position = 7;
@@ -363,7 +363,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left3',
     );
     $pane->extras = array();
     $pane->position = 8;
@@ -390,7 +390,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right3',
     );
     $pane->extras = array();
     $pane->position = 9;
@@ -417,7 +417,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left4',
     );
     $pane->extras = array();
     $pane->position = 10;
@@ -444,7 +444,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right4',
     );
     $pane->extras = array();
     $pane->position = 11;
@@ -471,7 +471,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left5',
     );
     $pane->extras = array();
     $pane->position = 12;
@@ -498,7 +498,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right5',
     );
     $pane->extras = array();
     $pane->position = 13;
@@ -525,7 +525,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left6',
     );
     $pane->extras = array();
     $pane->position = 14;
@@ -552,7 +552,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right6',
     );
     $pane->extras = array();
     $pane->position = 15;
@@ -579,7 +579,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left7',
     );
     $pane->extras = array();
     $pane->position = 16;
@@ -606,7 +606,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right7',
     );
     $pane->extras = array();
     $pane->position = 17;
@@ -1243,7 +1243,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left1',
     );
     $pane->extras = array();
     $pane->position = 2;
@@ -1270,7 +1270,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right1',
     );
     $pane->extras = array();
     $pane->position = 3;
@@ -1297,7 +1297,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left2',
     );
     $pane->extras = array();
     $pane->position = 4;
@@ -1324,7 +1324,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right2',
     );
     $pane->extras = array();
     $pane->position = 5;
@@ -1351,7 +1351,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left3',
     );
     $pane->extras = array();
     $pane->position = 6;
@@ -1378,7 +1378,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right3',
     );
     $pane->extras = array();
     $pane->position = 7;
@@ -1405,7 +1405,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left4',
     );
     $pane->extras = array();
     $pane->position = 8;
@@ -1432,7 +1432,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right4',
     );
     $pane->extras = array();
     $pane->position = 9;
@@ -1459,7 +1459,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left5',
     );
     $pane->extras = array();
     $pane->position = 10;
@@ -1486,7 +1486,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right5',
     );
     $pane->extras = array();
     $pane->position = 11;
@@ -1513,7 +1513,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left6',
     );
     $pane->extras = array();
     $pane->position = 12;
@@ -1540,7 +1540,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right6',
     );
     $pane->extras = array();
     $pane->position = 13;
@@ -1567,7 +1567,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left7',
     );
     $pane->extras = array();
     $pane->position = 14;
@@ -1594,7 +1594,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right7',
     );
     $pane->extras = array();
     $pane->position = 15;
@@ -1621,7 +1621,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall left left8',
     );
     $pane->extras = array();
     $pane->position = 16;
@@ -1648,7 +1648,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall right right8',
     );
     $pane->extras = array();
     $pane->position = 17;
