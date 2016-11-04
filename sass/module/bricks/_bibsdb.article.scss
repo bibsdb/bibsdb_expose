@@ -1,0 +1,24 @@
+/**
+ * Style definition of brick-layout: Article
+ *
+ * @author agms
+ */
+
+
+
+ .packery {
+
+ 	.article {
+
+ 		.title {
+ 			@include medium-font();
+ 		}
+
+
+ 		.body {
+ 			@include tiny-font();	
+ 			font-family: "SourceSansProRegular"; 			
+ 		}
+ 	}
+ }
+

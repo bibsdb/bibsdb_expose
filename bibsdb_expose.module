@@ -257,6 +257,12 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
           ),
         ),
       ),
+    'body' => array(
+      'prefix' => array('field_ding', 'field_bibsdb'),
+      'suffix' => array('body'),
+      'view_mode' => 'full',
+      'options' => array(),
+      ),
     );
 
   // Build the render array
@@ -273,7 +279,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
     // Title
 
     if ($fieldkey == 'title') {
-      if ($node->type == "bibsdb_link_collection") {
+      if ($node->type == "bibsdb_link_collection" || $node->type == "bibsdb_text_fragment") {
        $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'markup',
         '#markup' => _strip_tag($node->title),
