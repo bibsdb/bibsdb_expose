@@ -5,16 +5,34 @@
 /**
  * Implements hook_node_presave. 
  * Triggers creation of background image om news node types
- * Merges tag into title on selected node types.
+ * Changes xmlsitemap settings for pages with tag inspirationsliste
  * 
  * @param $node
  */
 function bibsdb_expose_node_presave($node) {
-  
+
 
   // BACKGROUND IMAGE
   if ('ding_news' == $node->type) {
     _create_background_image($node);
+  }
+
+  // Pages of with taxonomy term "Inspirationsliste" must be excluded from the xmlsitemap
+  if ('ding_page' == $node->type) {
+    $tid = 61;
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // Set the defaults
+    $node->xmlsitemap['status'] = 1;
+    $node->xmlsitemap['status_override'] = 0;
+
+    // Change if inspirationsliste
+    foreach ($wrapper->field_ding_page_tags->getIterator() as $delta => $term_wrapper) {
+      if ( $term_wrapper->getIdentifier() == $tid) {
+        $node->xmlsitemap['status'] = 0;
+        $node->xmlsitemap['status_override'] = 1;
+      }
+    } 
   }
 }
 
@@ -28,6 +46,32 @@ function bibsdb_expose_preprocess_html(&$variables) {
     // reference your own stylesheet    
     drupal_add_css(drupal_get_path('module', 'bibsdb_expose') . '/css/bibsdb_expose.admin.css', array('weight' => CSS_THEME));
     //drupal_add_js(drupal_get_path('module', 'bibsdb_expose') . '/scripts/bibsdb_expose.admin.js');
+  }
+}
+
+
+/**
+ * Implements hook_pathauto_alias_alter().
+ * Change the pathauto alias for pages with tag "inspirationsliste"
+ */
+
+function bibsdb_expose_pathauto_alias_alter(&$alias, array &$context) {
+
+  $tid = 61;
+
+  // Limit to node entity type
+  if ($context['module'] == 'node') {
+    $node = $context['data']['node'];
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // Limit to ding_pages that is tagged with "inspirationsliste"
+    if ($node->type == 'ding_page') {
+      foreach ($wrapper->field_ding_page_tags->getIterator() as $delta => $term_wrapper) {
+        if ( $term_wrapper->getIdentifier() == $tid) {
+          $alias = str_replace('indhold/', 'dbcliste/', $alias);
+        }
+      }
+    }
   }
 }
 
@@ -74,7 +118,7 @@ function bibsdb_expose_image_styles_alter(&$styles) {
  * Move the 'field_bibsdb_brick_type' field to the 'options' fieldset.
  * Move the 'field_ding_news_category' field to the 'options' fieldset.
  */
-function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
+ function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
 
   $type = $form['#node']->type;
 
