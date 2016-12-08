@@ -381,7 +381,7 @@
   clear: both;
 }
 /* line 306, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .pane-bibsdb-new-materials-more-link, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .pane-bibsdb-new-materials-more-link, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .pane-bibsdb-new-materials-more-link {
+.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
   float: left;
   width: 75%;
   margin-left: 0%;
@@ -396,7 +396,7 @@
 }
 @media only screen and (max-width: 480px) {
   /* line 306, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .pane-bibsdb-new-materials-more-link, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .pane-bibsdb-new-materials-more-link, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .pane-bibsdb-new-materials-more-link {
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -413,7 +413,7 @@
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   /* line 306, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .pane-bibsdb-new-materials-more-link, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .pane-bibsdb-new-materials-more-link, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .pane-bibsdb-new-materials-more-link {
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -430,7 +430,7 @@
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
   /* line 306, ../sass/module/_bibsdb.packery.scss */
-  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .pane-bibsdb-new-materials-more-link, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .pane-bibsdb-new-materials-more-link, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .pane-bibsdb-new-materials-more-link {
+  .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
     float: left;
     width: 100%;
     margin-left: 0%;
