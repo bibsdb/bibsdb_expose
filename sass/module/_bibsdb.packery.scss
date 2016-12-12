@@ -55,13 +55,22 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		.gutterwidth {
 			width: $col1gutter;
 		}
-
+		@media only screen and (max-width: $breakpoint-large) {
+			.gutterwidth {
+				width: $gutter;
+			}
+		}
 	}
 }
 
 .wall.right .packery.col1 {
 	.gutterwidth {
 		width: $col1gutter;
+	}
+	@media only screen and (max-width: $breakpoint-large) {
+		.gutterwidth {
+			width: $gutter;
+		}
 	}
 }
 
@@ -84,37 +93,19 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		&.col1 {
 			&.w1 {
 				width: $col1width1;
-				@include low() {
-					width: $col2width1;
-				}
-				@include small() {
-					width: $col2width1;
-				}
-				@include medium() {
+				@media only screen and (max-width: $breakpoint-large) {
 					width: $col2width1;
 				}
 			}
 			&.h1 {
 				padding-bottom: $col1height1;
-				@include low() {
-					padding-bottom: $col2height1;
-				}
-				@include small() {
-					padding-bottom: $col2height1;
-				}
-				@include medium() {
+				@media only screen and (max-width: $breakpoint-large) {
 					padding-bottom: $col2height1;
 				}
 			}
 			&.h15 {
 				padding-bottom: $col1height15;
-				@include low() {
-					padding-bottom: $col2height15;
-				}
-				@include small() {
-					padding-bottom: $col2height15;
-				}
-				@include medium() {
+				@media only screen and (max-width: $breakpoint-large) {
 					padding-bottom: $col2height15;
 				}
 			}
@@ -192,13 +183,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 .wall {
 	background-color: $white;
 	padding-top: 1.5%;
-	@include low() {
-		padding-top: $gutter;
-	}
-	@include small() {
-		padding-top: $gutter;
-	}
-	@include medium() {
+	@media only screen and (max-width: $breakpoint-large) {
 		padding-top: $gutter;
 	}
 
@@ -404,17 +389,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		@include zen-clear(right);
 		@include zen-grid-item(3, 1, right);
 
-		@include low() {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include small {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include medium {
+		@media only screen and (max-width: $breakpoint-large) {
 			@include zen-grid-item(12, 1);
 			@include zen-clear();
 		}
@@ -427,17 +402,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	&.empty-wall0.editormode .wall0 {
 		display: block;
 		@include zen-grid-item(3, 1, right);
-		@include low() {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include small {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include medium {
+		@media only screen and (max-width: $breakpoint-large) {
 			@include zen-grid-item(12, 1);
 			@include zen-clear();
 		}
