@@ -100,20 +100,3 @@ function bibsdb_expose_image_default_styles() {
 
   return $styles;
 }
-
-/**
- * Implements hook_node_info().
- */
-function bibsdb_expose_node_info() {
-  $items = array(
-    'bibsdb_link_collection' => array(
-      'name' => t('Link Collection'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Titel'),
-      'help' => '',
-    ),
-  );
-  return $items;
-}
