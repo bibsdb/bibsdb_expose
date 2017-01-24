@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Implements hook_field_formatter_info().text_long
+* Implements hook_field_formatter_info().
 */
 function bibsdb_expose_field_formatter_info() {
   $info = array(
@@ -9,8 +9,13 @@ function bibsdb_expose_field_formatter_info() {
       'label' => t('Display term decription'), 
       'field types' => array('taxonomy_term_reference'),
       'description' => t('Display the term description instead of the term name.'),
-    ), 
-  );
+      ), 
+    'bibsdb_wall_title_formatter' => array(
+      'label' => t('Wall Title as H2'), 
+      'field types' => array('text'),
+      'description' => t('Wall title as H2.'),
+      ), 
+    );
   return $info;
 }
 
@@ -23,7 +28,7 @@ function bibsdb_expose_field_formatter_view($entity_type, $entity, $field, $inst
   foreach ($items as $delta => $item) {
     $elements[$delta] = array(
       '#markup' => theme('bibsdb_expose_'. $display['type'], $items),
-    );
+      );
   }
 
   return $elements;
@@ -31,10 +36,10 @@ function bibsdb_expose_field_formatter_view($entity_type, $entity, $field, $inst
 
 
 /**
-* Theme function for the bibsdb_cdata field formatter.
+* Theme function for the bibsdb term field formatter.
 */
 function theme_bibsdb_expose_bibsdb_term_field_formatter($items) {
-  
+
   $tid = $items[0]['tid'];
   $term = taxonomy_term_load($tid);
   // Strip img tag and other tags away
@@ -42,5 +47,21 @@ function theme_bibsdb_expose_bibsdb_term_field_formatter($items) {
   $brick_type_options[$term->tid] = $term_description;
   
   return $term_description;
+}
+
+/**
+* Theme function for the bibsdb wall title field formatter.
+*/
+function theme_bibsdb_expose_bibsdb_wall_title_formatter($items) {
+  $title = $items[0]['safe_value'];
+  return theme('html_tag', array(
+    'element' => array(
+      '#tag' => 'h2',
+      '#attributes' => array(
+        'class' => 'wall-title',
+        ),
+      '#value' => $title,
+    ),
+  ));
 }
 
