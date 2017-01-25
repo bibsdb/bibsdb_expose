@@ -11,150 +11,6 @@ function bibsdb_expose_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'bibsdb_link_collection_node_reference_view';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Bibsdb Link Collection Node Reference View';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mere';
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Tag (Exclude from display) */
-  $handler->display->display_options['fields']['field_bibsdb_tag']['id'] = 'field_bibsdb_tag';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['table'] = 'field_data_field_bibsdb_tag';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['field'] = 'field_bibsdb_tag';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['ui_name'] = 'Tag (Exclude from display)';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['label'] = '';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_bibsdb_tag']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_bibsdb_tag']['alter']['text'] = '[field_bibsdb_tag]: ';
-  $handler->display->display_options['fields']['field_bibsdb_tag']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_bibsdb_tag']['hide_empty'] = TRUE;
-  /* Field: Content: Tilte + tag */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['ui_name'] = 'Content: Tilte + tag';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_bibsdb_tag][title]';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Type */
-  $handler->display->display_options['fields']['type']['id'] = 'type';
-  $handler->display->display_options['fields']['type']['table'] = 'node';
-  $handler->display->display_options['fields']['type']['field'] = 'type';
-  $handler->display->display_options['fields']['type']['label'] = '';
-  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_ding_event_date']['id'] = 'field_ding_event_date';
-  $handler->display->display_options['fields']['field_ding_event_date']['table'] = 'field_data_field_ding_event_date';
-  $handler->display->display_options['fields']['field_ding_event_date']['field'] = 'field_ding_event_date';
-  $handler->display->display_options['fields']['field_ding_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_ding_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_ding_event_date']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_ding_event_date']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['nid']['alter']['text'] = '(nid: [nid])';
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'ding_eresource' => 'ding_eresource',
-    'ding_event' => 'ding_event',
-    'ding_group' => 'ding_group',
-    'new_materials' => 'new_materials',
-    'ding_news' => 'ding_news',
-    'ding_search_context_link' => 'ding_search_context_link',
-    'ding_page' => 'ding_page',
-    'webform' => 'webform',
-  );
-
-  /* Display: Entity Reference */
-  $handler = $view->new_display('entityreference', 'Entity Reference', 'entityreference_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'entityreference_style';
-  $handler->display->display_options['style_options']['search_fields'] = array(
-    'title' => 'title',
-    'field_bibsdb_tag' => 'field_bibsdb_tag',
-    'type' => 0,
-    'nid' => 0,
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $translatables['bibsdb_link_collection_node_reference_view'] = array(
-    t('Master'),
-    t('mere'),
-    t('Udfør'),
-    t('Gendan'),
-    t('Sortér efter'),
-    t('Stigende'),
-    t('Faldende'),
-    t('Antal elementer'),
-    t('- Alle -'),
-    t('Forskydning'),
-    t('« første'),
-    t('‹ forrige'),
-    t('næste ›'),
-    t('sidste »'),
-    t('[field_bibsdb_tag]: '),
-    t('[field_bibsdb_tag][title]'),
-    t('(nid: [nid])'),
-    t('Entity Reference'),
-    t('more'),
-  );
-  $export['bibsdb_link_collection_node_reference_view'] = $view;
-
-  $view = new view();
   $view->name = 'bibsdb_wall';
   $view->description = '';
   $view->tag = 'default';
@@ -183,7 +39,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
-  /* No results behavior: Global: Text area */
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -191,22 +47,22 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Empty view';
   $handler->display->display_options['empty']['area']['format'] = 'html';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Refereret entity */
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['id'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['table'] = 'field_data_field_bibsdb_brick_content';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['field'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['required'] = TRUE;
-  /* Field: Exposure: Exposure ID */
+  /* Felt: Exposure: Exposure ID */
   $handler->display->display_options['fields']['id']['id'] = 'id';
   $handler->display->display_options['fields']['id']['table'] = 'bibsdb_expose_exposures';
   $handler->display->display_options['fields']['id']['field'] = 'id';
-  /* Sort criterion: Draggableviews: Weight */
+  /* Sorteringskriterie: Draggableviews: Vægt */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'bibsdb_wall_sorting_view:page';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
-  /* Contextual filter: Exposure: Wall (field_bibsdb_wall) */
+  /* Kontekstuelt filter: Exposure: Wall (field_bibsdb_wall) */
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['id'] = 'field_bibsdb_wall_tid';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['table'] = 'field_data_field_bibsdb_wall';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['field'] = 'field_bibsdb_wall_tid';
@@ -215,7 +71,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Exposure: Hosting node (field_bibsdb_hosting_node) */
+  /* Kontekstuelt filter: Exposure: Hosting node (field_bibsdb_hosting_node) */
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['id'] = 'field_bibsdb_hosting_node_target_id';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['table'] = 'field_data_field_bibsdb_hosting_node';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['field'] = 'field_bibsdb_hosting_node_target_id';
@@ -224,7 +80,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -262,13 +118,12 @@ function bibsdb_expose_views_default_views() {
     t('Stigende'),
     t('Faldende'),
     t('Empty view'),
-    t('Content entity referenced from field_bibsdb_brick_content'),
+    t('Indhold entity refereret fra field_bibsdb_brick_content'),
     t('Exposure ID'),
     t('.'),
     t(','),
     t('Alle'),
     t('Content pane'),
-    t('more'),
     t('Bibsdb'),
   );
   $export['bibsdb_wall'] = $view;
@@ -429,14 +284,14 @@ function bibsdb_expose_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Header: Global: View area */
+  /* Overskrift: Global: View-område */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['label'] = 'Sorting view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'bibsdb_wall_sorting_view:page';
   $handler->display->display_options['header']['view']['inherit_arguments'] = TRUE;
-  /* Header: Global: Text area */
+  /* Overskrift: Global: Tekstområde */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -444,11 +299,11 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<hr/>
 <h2>Tilføj indhold</h2>';
   $handler->display->display_options['header']['area']['format'] = 'html';
-  /* Relationship: Content: Author */
+  /* Forbindelse: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Bulk operations: Content */
+  /* Felt: Masse-handlinger: Indhold */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -662,7 +517,7 @@ function bibsdb_expose_views_default_views() {
       'label' => '',
     ),
   );
-  /* Field: News List image */
+  /* Felt: News List image */
   $handler->display->display_options['fields']['field_ding_news_list_image']['id'] = 'field_ding_news_list_image';
   $handler->display->display_options['fields']['field_ding_news_list_image']['table'] = 'field_data_field_ding_news_list_image';
   $handler->display->display_options['fields']['field_ding_news_list_image']['field'] = 'field_ding_news_list_image';
@@ -674,7 +529,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Event List image */
+  /* Felt: Event List image */
   $handler->display->display_options['fields']['field_ding_event_list_image']['id'] = 'field_ding_event_list_image';
   $handler->display->display_options['fields']['field_ding_event_list_image']['table'] = 'field_data_field_ding_event_list_image';
   $handler->display->display_options['fields']['field_ding_event_list_image']['field'] = 'field_ding_event_list_image';
@@ -686,7 +541,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: New Materials List Image */
+  /* Felt: New Materials List Image */
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['id'] = 'field_bibsdb_new_materials_image';
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['table'] = 'field_data_field_bibsdb_new_materials_image';
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['field'] = 'field_bibsdb_new_materials_image';
@@ -698,7 +553,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Search Context Link List Image */
+  /* Felt: Search Context Link List Image */
   $handler->display->display_options['fields']['field_search_context_list_image']['id'] = 'field_search_context_list_image';
   $handler->display->display_options['fields']['field_search_context_list_image']['table'] = 'field_data_field_search_context_list_image';
   $handler->display->display_options['fields']['field_search_context_list_image']['field'] = 'field_search_context_list_image';
@@ -710,7 +565,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Page List image */
+  /* Felt: Page List image */
   $handler->display->display_options['fields']['field_ding_page_list_image']['id'] = 'field_ding_page_list_image';
   $handler->display->display_options['fields']['field_ding_page_list_image']['table'] = 'field_data_field_ding_page_list_image';
   $handler->display->display_options['fields']['field_ding_page_list_image']['field'] = 'field_ding_page_list_image';
@@ -722,7 +577,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Group List image */
+  /* Felt: Group List image */
   $handler->display->display_options['fields']['field_ding_group_list_image']['id'] = 'field_ding_group_list_image';
   $handler->display->display_options['fields']['field_ding_group_list_image']['table'] = 'field_data_field_ding_group_list_image';
   $handler->display->display_options['fields']['field_ding_group_list_image']['field'] = 'field_ding_group_list_image';
@@ -734,7 +589,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Eresource Logo */
+  /* Felt: Eresource Logo */
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['id'] = 'field_ding_eresource_list_image';
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['table'] = 'field_data_field_ding_eresource_list_image';
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['field'] = 'field_ding_eresource_list_image';
@@ -746,53 +601,53 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Type */
+  /* Felt: Indhold: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Field: Realname: Real name */
+  /* Felt: Realname: Rigtigt navn */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
   $handler->display->display_options['fields']['realname']['field'] = 'realname';
   $handler->display->display_options['fields']['realname']['relationship'] = 'uid';
   $handler->display->display_options['fields']['realname']['label'] = 'Forfatter';
   $handler->display->display_options['fields']['realname']['element_label_colon'] = FALSE;
-  /* Field: Content: Published */
+  /* Felt: Indhold: Udgivet */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['type'] = 'unicode-yes-no';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Field: Content: Edit link */
+  /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  /* Field: Content: Delete link */
+  /* Felt: Indhold: Slet-link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
-  /* Field: Content: Clone link */
+  /* Felt: Indhold: Kopiér link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['label'] = '';
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Wall id */
+  /* Kontekstuelt filter: Wall id */
   $handler->display->display_options['arguments']['null']['id'] = 'null';
   $handler->display->display_options['arguments']['null']['table'] = 'views';
   $handler->display->display_options['arguments']['null']['field'] = 'null';
@@ -802,7 +657,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['arguments']['null']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['null']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['null']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Hosting node */
+  /* Kontekstuelt filter: Hosting node */
   $handler->display->display_options['arguments']['null_1']['id'] = 'null_1';
   $handler->display->display_options['arguments']['null_1']['table'] = 'views';
   $handler->display->display_options['arguments']['null_1']['field'] = 'null';
@@ -812,7 +667,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['arguments']['null_1']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['null_1']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['null_1']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -834,7 +689,7 @@ function bibsdb_expose_views_default_views() {
     8 => 0,
     9 => 0,
   );
-  /* Filter criterion: Content: Title */
+  /* Filterkriterie: Indhold: Titel */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -855,7 +710,7 @@ function bibsdb_expose_views_default_views() {
     8 => 0,
     9 => 0,
   );
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -875,7 +730,7 @@ function bibsdb_expose_views_default_views() {
     8 => 0,
     9 => 0,
   );
-  /* Filter criterion: Realname: Name */
+  /* Filterkriterie: Realname: Navn */
   $handler->display->display_options['filters']['realname']['id'] = 'realname';
   $handler->display->display_options['filters']['realname']['table'] = 'realname';
   $handler->display->display_options['filters']['realname']['field'] = 'realname';
@@ -897,7 +752,7 @@ function bibsdb_expose_views_default_views() {
     8 => 0,
     9 => 0,
   );
-  /* Filter criterion: Content: Tags (field_ding_page_tags) */
+  /* Filterkriterie: Indhold: Tags (field_ding_page_tags) */
   $handler->display->display_options['filters']['field_ding_page_tags_tid']['id'] = 'field_ding_page_tags_tid';
   $handler->display->display_options['filters']['field_ding_page_tags_tid']['table'] = 'field_data_field_ding_page_tags';
   $handler->display->display_options['filters']['field_ding_page_tags_tid']['field'] = 'field_ding_page_tags_tid';
@@ -958,21 +813,18 @@ function bibsdb_expose_views_default_views() {
     t('Tilføj indhold'),
     t('<hr/>
 <h2>Tilføj indhold</h2>'),
-    t('author'),
-    t('Content'),
-    t('- Choose an operation -'),
-    t('Title'),
+    t('forfatter'),
+    t('Indhold'),
+    t('- Vælg en handling -'),
+    t('Titel'),
     t('Type'),
     t('Forfatter'),
-    t('Published'),
-    t('Alle'),
     t('Udgivet'),
-    t('Titel'),
+    t('Alle'),
     t('Navn'),
     t('Page Tag'),
     t('Begræns til inspirationslister'),
     t('Page'),
-    t('more'),
   );
   $export['bibsdb_wall_selection_view'] = $view;
 
@@ -1155,19 +1007,19 @@ function bibsdb_expose_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Refereret entity */
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['id'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['table'] = 'field_data_field_bibsdb_brick_content';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['field'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['relationships']['field_bibsdb_brick_content_target_id']['required'] = TRUE;
-  /* Field: Exposure: Exposure ID */
+  /* Felt: Exposure: Exposure ID */
   $handler->display->display_options['fields']['id']['id'] = 'id';
   $handler->display->display_options['fields']['id']['table'] = 'bibsdb_expose_exposures';
   $handler->display->display_options['fields']['id']['field'] = 'id';
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Bulk operations: Exposure */
+  /* Felt: Masse-handlinger: Exposure */
   $handler->display->display_options['fields']['views_bulk_operations_1']['id'] = 'views_bulk_operations_1';
   $handler->display->display_options['fields']['views_bulk_operations_1']['table'] = 'bibsdb_expose_exposures';
   $handler->display->display_options['fields']['views_bulk_operations_1']['field'] = 'views_bulk_operations';
@@ -1248,7 +1100,7 @@ function bibsdb_expose_views_default_views() {
       'label' => '',
     ),
   );
-  /* Field: News List Image */
+  /* Felt: News List Image */
   $handler->display->display_options['fields']['field_ding_news_list_image']['id'] = 'field_ding_news_list_image';
   $handler->display->display_options['fields']['field_ding_news_list_image']['table'] = 'field_data_field_ding_news_list_image';
   $handler->display->display_options['fields']['field_ding_news_list_image']['field'] = 'field_ding_news_list_image';
@@ -1261,7 +1113,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Search Context Link List Image */
+  /* Felt: Search Context Link List Image */
   $handler->display->display_options['fields']['field_search_context_list_image']['id'] = 'field_search_context_list_image';
   $handler->display->display_options['fields']['field_search_context_list_image']['table'] = 'field_data_field_search_context_list_image';
   $handler->display->display_options['fields']['field_search_context_list_image']['field'] = 'field_search_context_list_image';
@@ -1274,7 +1126,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: New Materials List Image */
+  /* Felt: New Materials List Image */
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['id'] = 'field_bibsdb_new_materials_image';
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['table'] = 'field_data_field_bibsdb_new_materials_image';
   $handler->display->display_options['fields']['field_bibsdb_new_materials_image']['field'] = 'field_bibsdb_new_materials_image';
@@ -1287,7 +1139,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Page List Image */
+  /* Felt: Page List Image */
   $handler->display->display_options['fields']['field_ding_page_list_image']['id'] = 'field_ding_page_list_image';
   $handler->display->display_options['fields']['field_ding_page_list_image']['table'] = 'field_data_field_ding_page_list_image';
   $handler->display->display_options['fields']['field_ding_page_list_image']['field'] = 'field_ding_page_list_image';
@@ -1300,7 +1152,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Event List Image */
+  /* Felt: Event List Image */
   $handler->display->display_options['fields']['field_ding_event_list_image']['id'] = 'field_ding_event_list_image';
   $handler->display->display_options['fields']['field_ding_event_list_image']['table'] = 'field_data_field_ding_event_list_image';
   $handler->display->display_options['fields']['field_ding_event_list_image']['field'] = 'field_ding_event_list_image';
@@ -1313,7 +1165,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Group List Image */
+  /* Felt: Group List Image */
   $handler->display->display_options['fields']['field_ding_group_list_image']['id'] = 'field_ding_group_list_image';
   $handler->display->display_options['fields']['field_ding_group_list_image']['table'] = 'field_data_field_ding_group_list_image';
   $handler->display->display_options['fields']['field_ding_group_list_image']['field'] = 'field_ding_group_list_image';
@@ -1326,7 +1178,7 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Eresorce logo */
+  /* Felt: Eresorce logo */
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['id'] = 'field_ding_eresource_list_image';
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['table'] = 'field_data_field_ding_eresource_list_image';
   $handler->display->display_options['fields']['field_ding_eresource_list_image']['field'] = 'field_ding_eresource_list_image';
@@ -1339,14 +1191,14 @@ function bibsdb_expose_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Exposure: Brick Content */
+  /* Felt: Exposure: Brick Content */
   $handler->display->display_options['fields']['field_bibsdb_brick_content']['id'] = 'field_bibsdb_brick_content';
   $handler->display->display_options['fields']['field_bibsdb_brick_content']['table'] = 'field_data_field_bibsdb_brick_content';
   $handler->display->display_options['fields']['field_bibsdb_brick_content']['field'] = 'field_bibsdb_brick_content';
   $handler->display->display_options['fields']['field_bibsdb_brick_content']['settings'] = array(
     'link' => 0,
   );
-  /* Field: Content: Edit link */
+  /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -1354,49 +1206,49 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = ' (edit)';
-  /* Field: Content: Type */
+  /* Felt: Indhold: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'field_bibsdb_brick_content_target_id';
-  /* Field: Exposure: Brick Type */
+  /* Felt: Exposure: Brick Type */
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['id'] = 'field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['table'] = 'field_data_field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['field'] = 'field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['type'] = 'bibsdb_term_field_formatter';
-  /* Field: Exposure: Brick color */
+  /* Felt: Exposure: Brick color */
   $handler->display->display_options['fields']['field_bibsdb_brick_color']['id'] = 'field_bibsdb_brick_color';
   $handler->display->display_options['fields']['field_bibsdb_brick_color']['table'] = 'field_data_field_bibsdb_brick_color';
   $handler->display->display_options['fields']['field_bibsdb_brick_color']['field'] = 'field_bibsdb_brick_color';
-  /* Field: Draggableviews: Exposure */
+  /* Felt: Draggableviews: Exposure */
   $handler->display->display_options['fields']['draggableviews']['id'] = 'draggableviews';
   $handler->display->display_options['fields']['draggableviews']['table'] = 'bibsdb_expose_exposures';
   $handler->display->display_options['fields']['draggableviews']['field'] = 'draggableviews';
   $handler->display->display_options['fields']['draggableviews']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['draggableviews']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['draggableviews']['draggableviews']['ajax'] = 0;
-  /* Field: Content: Published */
+  /* Felt: Indhold: Udgivet */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['relationship'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['fields']['status']['type'] = 'unicode-yes-no';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Field: Scheduler: Publish on */
+  /* Felt: Planlægning: Udgiv den */
   $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['relationship'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['fields']['publish_on']['date_format'] = 'medium';
   $handler->display->display_options['fields']['publish_on']['second_date_format'] = 'ding_date_only';
-  /* Field: Scheduler: Unpublish on */
+  /* Felt: Planlægning: Afpublicér den */
   $handler->display->display_options['fields']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['unpublish_on']['field'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['relationship'] = 'field_bibsdb_brick_content_target_id';
   $handler->display->display_options['fields']['unpublish_on']['date_format'] = 'medium';
   $handler->display->display_options['fields']['unpublish_on']['second_date_format'] = 'ding_date_only';
-  /* Field: Source for published/unpublished css class  */
+  /* Felt: Source for published/unpublished css class  */
   $handler->display->display_options['fields']['status_1']['id'] = 'status_1';
   $handler->display->display_options['fields']['status_1']['table'] = 'node';
   $handler->display->display_options['fields']['status_1']['field'] = 'status';
@@ -1409,13 +1261,13 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['status_1']['type_custom_true'] = 'udgivet';
   $handler->display->display_options['fields']['status_1']['type_custom_false'] = 'unpublished';
   $handler->display->display_options['fields']['status_1']['not'] = 0;
-  /* Sort criterion: Draggableviews: Weight */
+  /* Sorteringskriterie: Draggableviews: Vægt */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'bibsdb_wall_sorting_view:page';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
-  /* Contextual filter: Exposure: Wall (field_bibsdb_wall) */
+  /* Kontekstuelt filter: Exposure: Wall (field_bibsdb_wall) */
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['id'] = 'field_bibsdb_wall_tid';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['table'] = 'field_data_field_bibsdb_wall';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['field'] = 'field_bibsdb_wall_tid';
@@ -1425,7 +1277,7 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_bibsdb_wall_tid']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Exposure: Hosting node (field_bibsdb_hosting_node) */
+  /* Kontekstuelt filter: Exposure: Hosting node (field_bibsdb_hosting_node) */
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['id'] = 'field_bibsdb_hosting_node_target_id';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['table'] = 'field_data_field_bibsdb_hosting_node';
   $handler->display->display_options['arguments']['field_bibsdb_hosting_node_target_id']['field'] = 'field_bibsdb_hosting_node_target_id';
@@ -1447,25 +1299,24 @@ function bibsdb_expose_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Content entity referenced from field_bibsdb_brick_content'),
+    t('Indhold entity refereret fra field_bibsdb_brick_content'),
     t('.'),
     t(','),
     t('Exposure'),
-    t('- Choose an operation -'),
+    t('- Vælg en handling -'),
     t('Change color'),
     t('Brick Content'),
     t(' (edit)'),
     t('Type'),
     t('Brick Type'),
     t('Brick color'),
-    t('Published'),
-    t('Publish on'),
-    t('Unpublish on'),
+    t('Udgivet'),
+    t('Udgiv den'),
+    t('Afpublicér den'),
     t('udgivet'),
     t('unpublished'),
     t('Alle'),
     t('Page'),
-    t('more'),
   );
   $export['bibsdb_wall_sorting_view'] = $view;
 

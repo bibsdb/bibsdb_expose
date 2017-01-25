@@ -225,101 +225,6 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-bibsdb_link_collection-field_bibsdb_link_coll_lead'
-  $field_instances['node-bibsdb_link_collection-field_bibsdb_link_coll_lead'] = array(
-    'bundle' => 'bibsdb_link_collection',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser_highlight' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_bibsdb_link_coll_lead',
-    'label' => 'Lead',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 41,
-    ),
-  );
-
-  // Exported field_instance: 'node-bibsdb_link_collection-field_bibsdb_link_coll_link_ref'
-  $field_instances['node-bibsdb_link_collection-field_bibsdb_link_coll_link_ref'] = array(
-    'bundle' => 'bibsdb_link_collection',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser_highlight' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_bibsdb_link_coll_link_ref',
-    'label' => 'Link',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 100,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 43,
-    ),
-  );
-
   // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_1'
   $field_instances['node-ding_group-field_bibsdb_wall_title_1'] = array(
     'bundle' => 'ding_group',
@@ -1500,8 +1405,6 @@ function bibsdb_expose_field_default_field_instances() {
   t('Fact Box Title');
   t('Hidden field to store original list image');
   t('Hosting node');
-  t('Lead');
-  t('Link');
   t('List Image - Bredde (px)');
   t('List Image - Højde (px)');
   t('List Image vil blive placeret oven på baggrundsbilledet i den lodrette position du angiver her.');
