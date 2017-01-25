@@ -63,17 +63,6 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	}
 }
 
-.wall.right .packery.col1 {
-	.gutterwidth {
-		width: $col1gutter;
-	}
-	@media only screen and (max-width: $breakpoint-large) {
-		.gutterwidth {
-			width: $gutter;
-		}
-	}
-}
-
 .packery {
 
 	.brick { 
@@ -190,36 +179,6 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	&.front {
 		padding: 10px 0;
 	}
-
-	&.large-padding {
-		padding: 5% 0;
-	}
-
-	&.left, &.right {
-		padding-bottom: 20px;
-	}
-
-	/* All ellements except the first */
-	&.left ~ &.left, &.right ~ &.right {
-		border-top: 3px solid $brickblack;
-	}
-
-	&.nocontent {
-		display: none;
-	}
-	&.nocontent.editormode {
-		padding: 0;
-		display: block;
-
-		.view-bibsdb-wall {
-			background: linear-gradient( to left bottom, yellow, yellow) no-repeat;
-			background-size: 60px 20px;
-			background-position: right top;
-		}
-	}
-	&.nocontent.editormode.left, &.nocontent.editormode.right {
-		border:0;
-	}
 }
 
 
@@ -289,123 +248,13 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 
 	/* Page content */
 	article.page, .pane-node-content, .pane-new-materials {
-		@include zen-grid-item(9, 1);
-
-		@include low() {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include small {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include medium {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-	}
-
-	&.empty-wall0 article.page, &.empty-wall0 .pane-node-content, &.empty-wall0 .pane-new-materials, &.empty-wall0 .pane-bibsdb-new-materials-more-link{
 		@include zen-grid-item(12, 1);
-	}
-
-	&.empty-wall0.editormode article.page, &.empty-wall0.editormode .pane-node-content, &.empty-wall0.editormode .pane-new-materials, &.empty-wall0.editormode .pane-bibsdb-new-materials-more-link{
-		@include zen-grid-item(9, 1);
-		@include low() {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include small {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-
-		@include medium {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
+		@include zen-clear();
 	}
 }
 
+	
 
-/* Walls */
-.front .frontpage-layout, .node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
+	
 
-	.wall.left {
-		@include zen-grid-item(6, 1);
-		@include zen-clear(left);
-
-		&.seccontent {
-			@include zen-grid-item(8, 1);
-		}
-	}
-
-	.wall.right {
-		@include zen-grid-item(6, 7);
-		@include zen-clear(right);
-		
-		&.seccontent {
-			@include zen-grid-item(4, 9);
-		}
-	}
-
-	@include low() {
-		.wall.left, .wall.right {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-			&.seccontent {
-				@include zen-grid-item(12, 1);
-				@include zen-clear();
-			}
-		}
-	}
-
-	@include small {
-		.wall.left, .wall.right {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-			&.seccontent {
-				@include zen-grid-item(12, 1);
-				@include zen-clear();
-			}
-		}
-	}
-
-	@include medium {
-		.wall.left, .wall.right {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-			&.seccontent {
-				@include zen-grid-item(12, 1);
-				@include zen-clear();
-			}
-		}
-	}
-
-	.wall0 {
-		@include zen-clear(right);
-		@include zen-grid-item(3, 1, right);
-
-		@media only screen and (max-width: $breakpoint-large) {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-	}
-
-	&.empty-wall0 .wall0 {
-		display: none;
-	}
-
-	&.empty-wall0.editormode .wall0 {
-		display: block;
-		@include zen-grid-item(3, 1, right);
-		@media only screen and (max-width: $breakpoint-large) {
-			@include zen-grid-item(12, 1);
-			@include zen-clear();
-		}
-	}
-}
 

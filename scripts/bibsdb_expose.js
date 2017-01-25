@@ -32,8 +32,8 @@
 
   // When ready start the magic.
   $(document).ready(function () {
-    empty_wall();
-    add_secondary_content_class();
+    //empty_wall();
+    //add_secondary_content_class();
   });
 
 })(jQuery);

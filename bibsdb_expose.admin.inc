@@ -70,8 +70,6 @@ function bibsdb_expose_image_styles_alter(&$styles) {
  /*
  * Public: Implements hook_form_FORM_ID_alter.
  *
- * Move the 'field_bibsdb_brick_type' field to the 'options' fieldset.
- * Move the 'field_ding_news_category' field to the 'options' fieldset.
  */
  function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
 
