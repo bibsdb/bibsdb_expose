@@ -57,9 +57,6 @@ function theme_bibsdb_expose_bibsdb_wall_title_formatter($items) {
   return theme('html_tag', array(
     'element' => array(
       '#tag' => 'h2',
-      '#attributes' => array(
-        'class' => 'wall-title',
-        ),
       '#value' => $title,
     ),
   ));
