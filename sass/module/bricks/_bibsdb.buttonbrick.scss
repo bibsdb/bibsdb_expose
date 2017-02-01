@@ -1,0 +1,89 @@
+/**
+ * Style definition of brick-layout: Graytone button
+ *
+ * @author agms
+ */
+
+ @import "compass/css3";
+
+ .packery {
+
+ 	.buttonbrick {
+
+ 		.container {
+ 
+ 			background-color: rgba(11, 30, 45, 0.5);
+ 		}
+
+ 		.wrapper {
+ 			background-color: transparent;
+ 			background-image: linear-gradient(-90deg,transparent 0%, rgba(11, 30, 45, 1.0) 100%);
+ 			width: 60%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			padding: 3%;
+
+ 			color: #fff;
+
+ 		}
+
+ 		a {
+ 			display: block;
+ 			position: relative;
+ 			padding-top: 56.25%;
+ 			background-color: #e5e5e5;
+ 			background-size: cover;
+ 			background-position: center center;
+ 			text-decoration: none;
+ 		}
+
+ 		a:hover {
+ 			color: #262626;
+ 			text-decoration: underline;
+ 		}
+
+
+ 		.title, .lead {
+
+ 			a:link {
+ 				color: $white;
+ 			}
+ 			a:hover {
+ 				color: $white;
+ 				text-decoration: underline;
+ 			}
+ 			a:visited {
+ 				color: $white;
+ 			} 			
+ 		}
+
+ 		.tag {
+ 			@include tiny-font();
+ 		}
+
+ 		&.col2 {
+ 			.title {
+ 				@include large-font();
+ 			}
+ 		}
+
+ 		&.col3 {
+ 			.wrapper {
+ 				width: 80%;
+ 			}
+ 			.title {
+ 				@include medium-font();
+ 				@media only screen and (max-width: $breakpoint-large) {
+ 					@include large-font();
+ 				}
+ 			}
+ 		}
+
+
+ 		.lead {
+
+ 		}
+ 	}
+ }
+

@@ -223,8 +223,146 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   $entity->content['classes'] .= strtolower(implode(' ', $term_name_elements));
 
 
-  // This is a config-array that helps us select the same fields in different content type
-  // This is nessecary because the fields are named differently in the content types
+  // Build the render array
+  $entity->content['fields'] = array();
+  $entity->content['fields']['wrapper'] = _build_container(array('wrapper'));
+
+  foreach ($fieldlist as $fieldkey) {
+    switch ($fieldkey) {
+      case 'titlelink':
+        // Build title div
+      $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array('title'));
+   
+        // Insert title link
+      $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
+        '#type'  => 'link',
+        '#title' => _strip_tag($node->title),
+        '#href'  => _bibsdb_expose_build_url($node),
+        );
+      
+      break;
+
+      case 'title':
+        // Build title div
+      $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+  
+      $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
+        '#type' => 'markup',
+        '#markup' => _strip_tag($node->title),
+        );
+
+      break;
+
+      case 'taglink':
+        // Check that tag is not empty
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting('tag'));
+
+
+      if (!(empty($arr['#markup']))) {
+
+        // Build tag div
+        $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array('tag'));
+
+          // Insert tag link
+        $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
+          '#type'  => 'link',
+          '#title' => $arr['#markup'],
+          '#href'  => _bibsdb_expose_build_url($node),
+          );
+      }
+      break;
+
+     
+
+      case 'tag';
+        // Check that tag is not empty
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+
+      if (!(empty($arr['#markup']))) {
+
+        // Build tag div
+        $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+
+        $entity->content['fields']['wrapper'][$fieldkey]['content'] = $arr;
+      }
+
+      break;
+
+      case 'lead':
+
+        // Check that tag is not empty
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+
+      if (!(empty($arr['#markup']))) {
+
+        // Build lead div
+        $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+
+        $entity->content['fields']['wrapper'][$fieldkey]['content'] = $arr;
+
+      }
+      break;
+
+      case 'img':
+
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+
+      // Turn img into a link
+      if (isset($arr['#path']['path'])) {
+        $arr['#path']['path'] = _bibsdb_expose_build_url($node);
+      }
+
+      $arr['#image_style'] = $term_name_elements[4];
+
+      $entity->content['fields'][$fieldkey]['content'] = $arr;
+      break;
+
+      case 'bgimg':
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting('img'));
+      
+      $img_url = image_style_url($term_name_elements[4], $arr['#item']['uri']);
+      
+      // Insert img link
+      $entity->content['fields'][$fieldkey]['content'] = array(
+        '#type'  => 'link',
+        '#title' => render($entity->content['fields']['wrapper']),
+        '#href'  => _bibsdb_expose_build_url($node),
+        '#attributes' => array(
+          'style' => 'background-image: url(' . $img_url .')',
+          ),
+        '#options' => array(
+          'html' => true,
+          ),
+        );
+
+      unset($entity->content['fields']['wrapper']);
+      break;
+    }
+  }
+
+}
+
+
+/**
+ * Exposure entity class extending the Entity class
+ */
+class ExposureEntity extends Entity {
+
+  /**
+   * Change the default URI from default/id to exposure/id
+   */
+  protected function defaultUri() {
+    return array('path' => 'exposure/' . $this->identifier());
+  }
+  
+}
+
+/**
+*  This is a config-array that helps us select the same fields in different content type
+*  This is nessecary because the fields are named differently in the content types
+*/
+
+function _get_field_selection_setting($fieldkey) {
   $field_selection_settings = array(
     'tag' => array(
       'prefix' => array('field_bibsdb'),
@@ -260,141 +398,10 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
           ),
         ),
       ),
-    'body' => array(
-      'prefix' => array('field_ding', 'field_bibsdb'),
-      'suffix' => array('body'),
-      'view_mode' => 'full',
-      'options' => array(),
-      ),
     );
 
-  // Build the render array
-  $entity->content['fields'] = array();
+  return $field_selection_settings[$fieldkey];
 
-  foreach ($fieldlist as $fieldkey) {
-    $entity->content['fields'][$fieldkey] = array(
-      '#type' => 'container',
-      '#attributes' => array(
-        'class' => array($fieldkey),
-        ),
-      );
-
-    // Title
-
-    if ($fieldkey == 'title') {
-
-      $entity->content['fields'][$fieldkey]['content'] = array(
-        '#type'  => 'link',
-        '#title' => _strip_tag($node->title),
-        '#href'  => _bibsdb_expose_build_url($node),
-        );
-    }
-
-
-    // Tagandtitle
-    else if($fieldkey == 'tagandtitle') {
-
-      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
-      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
-
-      unset($entity->content['fields']['title']);
-      unset($entity->content['fields']['tag']);
-
-    }
-    // Tagandtitleandlead
-    else if($fieldkey == 'tagandtitleandlead') {
-
-      $entity->content['fields'][$fieldkey]['tag'] = $entity->content['fields']['tag'];
-      $entity->content['fields'][$fieldkey]['title'] = $entity->content['fields']['title'];
-      $entity->content['fields'][$fieldkey]['lead'] = $entity->content['fields']['lead'];
-
-
-      unset($entity->content['fields']['title']);
-      unset($entity->content['fields']['tag']);
-      unset($entity->content['fields']['lead']);
-
-    }
-    else {
-      $entity->content['fields'][$fieldkey]['content'] = _build_field($node, $nodeprops, $field_selection_settings[$fieldkey]);
-    }
-  }
-
-  // Tag: If tag is empty uset element in array
-  if (empty($entity->content['fields']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tag']);
-  }
-  // Turn tag into a link
-  else {
-    $entity->content['fields']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
-
-  // Tagandtitle: If tag is empty uset element in array
-  if (empty($entity->content['fields']['tagandtitle']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitle']['tag']);
-  }
-  // Turn tag into a link
-  else {
-    $entity->content['fields']['tagandtitle']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tagandtitle']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
-
-   // Tagandtitleandlead: If tag og lead is empty uset element in array
-  if (empty($entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitleandlead']['tag']);
-  }
-  // Turn tag into a link
-  else {
-    $entity->content['fields']['tagandtitleandlead']['tag']['content'] = array(
-      '#type'  => 'link',
-      '#title' => $entity->content['fields']['tagandtitleandlead']['tag']['content']['#markup'],
-      '#href'  => _bibsdb_expose_build_url($node),
-      );
-  }
-  if (empty($entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'])) {
-    unset($entity->content['fields']['tagandtitleandlead']['lead']);
-  }
-  else {
-    $entity->content['fields']['tagandtitleandlead']['lead']['content'] = array(
-    '#type'  => 'link',
-    '#title' => $entity->content['fields']['tagandtitleandlead']['lead']['content']['#markup'],
-    '#href'  => _bibsdb_expose_build_url($node),
-    );
-  }
-
-
-  // Lead: If lead is empty unset element in array
-  if (empty($entity->content['fields']['lead']['content']['#markup'])) {
-    unset($entity->content['fields']['lead']);
-  }
-
-
-  // Fix the image link
-  if (isset($entity->content['fields']['img']['content']['#path']['path'])) {
-    $entity->content['fields']['img']['content']['#path']['path'] = _bibsdb_expose_build_url($node);
-  }
-
-}
-
-
-/**
- * Exposure entity class extending the Entity class
- */
-class ExposureEntity extends Entity {
-
-  /**
-   * Change the default URI from default/id to exposure/id
-   */
-  protected function defaultUri() {
-    return array('path' => 'exposure/' . $this->identifier());
-  }
-  
 }
 
 
@@ -420,6 +427,20 @@ function _build_field($node, $nodeprops, $field_settings) {
   }
   return array();
 }
+
+/** 
+* Helper function to build a render array div container.
+*/
+function _build_container($classes) {
+ return array(
+  '#type' => 'container',
+  '#attributes' => array(
+    'class' => $classes,
+    ),
+  );
+}
+
+
 
 /** 
 * Helper function to determine if a string starts with another string.
