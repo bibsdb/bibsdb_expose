@@ -219,7 +219,6 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
   // Add all the info from term-name as classes
   $entity->content['classes'] .= 'brick ';
   $entity->content['classes'] .= $colclass;
-  $entity->content['classes'] .= $exposure_wrapper->field_bibsdb_brick_color->value()->name . ' ';
   $entity->content['classes'] .= strtolower(implode(' ', $term_name_elements));
 
 
@@ -495,13 +494,6 @@ function bibsdb_expose_action_info() {
     'bibsdb_expose_vbo_change_brick_type' => array(
       'type' => 'exposure',
       'label' => t('Change brick type'),
-      'configurable' => TRUE,
-      'vbo_configurable' => FALSE,
-      'triggers' => array('any'),
-      ),
-    'bibsdb_expose_vbo_change_color' => array(
-      'type' => 'exposure',
-      'label' => t('Change color'),
       'configurable' => TRUE,
       'vbo_configurable' => FALSE,
       'triggers' => array('any'),

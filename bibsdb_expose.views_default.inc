@@ -1036,7 +1036,7 @@ function bibsdb_expose_views_default_views() {
       'label' => '',
     ),
     'action::bibsdb_expose_vbo_change_color' => array(
-      'selected' => 1,
+      'selected' => 0,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 0,
@@ -1216,10 +1216,6 @@ function bibsdb_expose_views_default_views() {
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['table'] = 'field_data_field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['field'] = 'field_bibsdb_brick_type';
   $handler->display->display_options['fields']['field_bibsdb_brick_type']['type'] = 'bibsdb_term_field_formatter';
-  /* Felt: Exposure: Brick color */
-  $handler->display->display_options['fields']['field_bibsdb_brick_color']['id'] = 'field_bibsdb_brick_color';
-  $handler->display->display_options['fields']['field_bibsdb_brick_color']['table'] = 'field_data_field_bibsdb_brick_color';
-  $handler->display->display_options['fields']['field_bibsdb_brick_color']['field'] = 'field_bibsdb_brick_color';
   /* Felt: Draggableviews: Exposure */
   $handler->display->display_options['fields']['draggableviews']['id'] = 'draggableviews';
   $handler->display->display_options['fields']['draggableviews']['table'] = 'bibsdb_expose_exposures';
@@ -1309,7 +1305,6 @@ function bibsdb_expose_views_default_views() {
     t(' (edit)'),
     t('Type'),
     t('Brick Type'),
-    t('Brick color'),
     t('Udgivet'),
     t('Udgiv den'),
     t('Afpublicér den'),
