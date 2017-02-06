@@ -188,6 +188,57 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ding_group-field_bibsdb_group_body_2'
+  $field_instances['node-ding_group-field_bibsdb_group_body_2'] = array(
+    'bundle' => 'ding_group',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_group_body_2',
+    'label' => 'Bibsdb Group Body 2',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 48,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_1'
   $field_instances['node-ding_group-field_bibsdb_wall_title_1'] = array(
     'bundle' => 'ding_group',
@@ -197,9 +248,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'search_result' => array(
@@ -249,9 +299,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 7,
       ),
       'search_result' => array(
@@ -301,9 +350,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'search_result' => array(
@@ -353,9 +401,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 9,
       ),
       'search_result' => array(
@@ -405,9 +452,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 10,
       ),
       'search_result' => array(
@@ -457,9 +503,8 @@ function bibsdb_expose_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 11,
       ),
       'search_result' => array(
@@ -1052,6 +1097,57 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ding_page-field_bibsdb_page_body_2'
+  $field_instances['node-ding_page-field_bibsdb_page_body_2'] = array(
+    'bundle' => 'ding_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_page_body_2',
+    'label' => 'Bibsdb Page Body 2',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 47,
+    ),
+  );
+
   // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_1'
   $field_instances['node-ding_page-field_bibsdb_wall_title_1'] = array(
     'bundle' => 'ding_page',
@@ -1361,6 +1457,8 @@ function bibsdb_expose_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Background Image');
+  t('Bibsdb Group Body 2');
+  t('Bibsdb Page Body 2');
   t('Brick Content');
   t('Brick Type');
   t('Fact Box Body');
