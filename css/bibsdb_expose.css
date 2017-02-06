@@ -38,9 +38,6 @@
  *
  * These are mixins to allow for use in media queries
  ========================================================================== */
-/* Color mixin for titlelink and imagewtitle 
-*
-==============================================================================*/
 /*
 * Responsive font-size mixins
 */
@@ -212,76 +209,96 @@
 .wall.front {
   padding: 10px 0;
 }
+/* line 180, ../sass/module/_bibsdb.packery.scss */
+.wall.nocontent {
+  display: none;
+}
+/* line 183, ../sass/module/_bibsdb.packery.scss */
+.wall.nocontent.editormode {
+  clear: both;
+  padding: 0;
+  display: block;
+}
+/* line 188, ../sass/module/_bibsdb.packery.scss */
+.wall.nocontent.editormode .brick {
+  width: 100%;
+  padding-bottom: 20px;
+}
+/* line 191, ../sass/module/_bibsdb.packery.scss */
+.wall.nocontent.editormode .brick .container {
+  background-color: yellow;
+  margin: 2px;
+}
 
-/* line 184, ../sass/module/_bibsdb.packery.scss */
+/* line 202, ../sass/module/_bibsdb.packery.scss */
 .packery {
   background-color: #fff;
 }
-/* line 187, ../sass/module/_bibsdb.packery.scss */
+/* line 205, ../sass/module/_bibsdb.packery.scss */
 .packery .brick {
   font-family: "SourceSansProSemibold";
   word-wrap: break-word;
 }
-/* line 191, ../sass/module/_bibsdb.packery.scss */
+/* line 209, ../sass/module/_bibsdb.packery.scss */
 .packery .brick .container {
   background-color: #fff;
 }
 @media only screen and (max-width: 480px) {
-  /* line 187, ../sass/module/_bibsdb.packery.scss */
+  /* line 205, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 80%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 187, ../sass/module/_bibsdb.packery.scss */
+  /* line 205, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 100%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 187, ../sass/module/_bibsdb.packery.scss */
+  /* line 205, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 187, ../sass/module/_bibsdb.packery.scss */
+  /* line 205, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 110%;
     line-height: 110%;
   }
 }
 @media only screen and (min-width: 1211px) {
-  /* line 187, ../sass/module/_bibsdb.packery.scss */
+  /* line 205, ../sass/module/_bibsdb.packery.scss */
   .packery .brick {
     font-size: 130%;
     line-height: 110%;
   }
 }
-/* line 222, ../sass/module/_bibsdb.packery.scss */
+/* line 240, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:link {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 225, ../sass/module/_bibsdb.packery.scss */
+/* line 243, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 228, ../sass/module/_bibsdb.packery.scss */
+/* line 246, ../sass/module/_bibsdb.packery.scss */
 .packery .brick a:visited {
   color: rgba(0, 0, 0, 0.7);
 }
 
 /* Walls on ding_page and page_group
 ============================================================================ */
-/* line 239, ../sass/module/_bibsdb.packery.scss */
+/* line 257, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
   /* Page content */
   /* All ellements except the first */
 }
-/* line 241, ../sass/module/_bibsdb.packery.scss */
+/* line 259, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .primary-content, .node-type-ding-group .default-layout .primary-content, .node-type-new-materials .default-layout .primary-content {
   clear: left;
 }
@@ -294,7 +311,7 @@
 .node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:after, .node-type-new-materials .default-layout .primary-content:after {
   clear: both;
 }
-/* line 247, ../sass/module/_bibsdb.packery.scss */
+/* line 265, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
   float: left;
   width: 100%;
@@ -309,7 +326,7 @@
   word-wrap: break-word;
   clear: left;
 }
-/* line 254, ../sass/module/_bibsdb.packery.scss */
+/* line 272, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall-title, .node-type-ding-group .default-layout .wall-title, .node-type-new-materials .default-layout .wall-title {
   padding-top: 50px;
 }
@@ -382,58 +399,6 @@
 /* line 44, ../sass/module/bricks/_bibsdb.imagewtitle.scss */
 .packery .imagewtitle .tag a:hover {
   text-decoration: underline;
-}
-
- /**
-* Publication colors
-*/
-/* line 124, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.black .tag:after {
-  color: #333333;
-}
-/* line 127, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.black .tag a {
-  color: #333333;
-}
-/* line 135, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.blue .tag:after {
-  color: #2F5A7B;
-}
-/* line 138, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.blue .tag a {
-  color: #2F5A7B;
-}
-/* line 146, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.orange .tag:after {
-  color: #E18203;
-}
-/* line 149, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.orange .tag a {
-  color: #E18203;
-}
-/* line 157, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.gray .tag:after {
-  color: #ADCAD6;
-}
-/* line 160, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.gray .tag a {
-  color: #ADCAD6;
-}
-/* line 168, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.green .tag:after {
-  color: #528c10;
-}
-/* line 171, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.green .tag a {
-  color: #528c10;
-}
-/* line 179, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.turquoise .tag:after {
-  color: #286E74;
-}
-/* line 182, ../sass/framework/_bibsdb.mixins.scss */
-.packery .imagewtitle.turquoise .tag a {
-  color: #286E74;
 }
 
 /**
@@ -623,194 +588,6 @@
 .packery .publication.w2 .wrapper {
   padding: 2%;
   padding-top: 5%;
-}
-
-/**
-* Publication colors
-*/
-/* line 4, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-.packery .tallimagenexttotitle .container {
-  border: 1px solid #979da2;
-}
-/* line 8, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-.packery .tallimagenexttotitle .img {
-  width: 35%;
-  padding-right: 1%;
-}
-/* line 13, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-.packery .tallimagenexttotitle .wrapper {
-  width: 59%;
-  position: absolute;
-  left: 35%;
-  top: 5%;
-  padding: 3%;
-}
-@media only screen and (max-width: 480px) {
-  /* line 21, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .title {
-    font-size: 110%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 21, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .title {
-    font-size: 160%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 21, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .title {
-    font-size: 160%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 21, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .title {
-    font-size: 130%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 1211px) {
-  /* line 21, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .title {
-    font-size: 130%;
-    line-height: 110%;
-  }
-}
-/* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-.packery .tallimagenexttotitle .tag {
-  text-transform: uppercase;
-  padding-bottom: 3%;
-}
-@media only screen and (max-width: 480px) {
-  /* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .tag {
-    font-size: 100%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .tag {
-    font-size: 100%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .tag {
-    font-size: 100%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .tag {
-    font-size: 90%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 1211px) {
-  /* line 25, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .tag {
-    font-size: 90%;
-    line-height: 110%;
-  }
-}
-/* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-.packery .tallimagenexttotitle .lead {
-  padding-top: 4%;
-  font-family: "SourceSansProRegular";
-}
-@media only screen and (max-width: 480px) {
-  /* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .lead {
-    font-size: 90%;
-    line-height: 90%;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .lead {
-    font-size: 130%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 939px) {
-  /* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .lead {
-    font-size: 130%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 940px) and (max-width: 1210px) {
-  /* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .lead {
-    font-size: 100%;
-    line-height: 110%;
-  }
-}
-@media only screen and (min-width: 1211px) {
-  /* line 31, ../sass/module/bricks/_bibsdb.tallimagenexttotitle.scss */
-  .packery .tallimagenexttotitle .lead {
-    font-size: 100%;
-    line-height: 110%;
-  }
-}
-
-/**
-* Publication colors
-*/
-/* line 124, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.black .tag:after {
-  color: #333333;
-}
-/* line 127, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.black .tag a {
-  color: #333333;
-}
-/* line 135, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.blue .tag:after {
-  color: #2F5A7B;
-}
-/* line 138, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.blue .tag a {
-  color: #2F5A7B;
-}
-/* line 146, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.orange .tag:after {
-  color: #E18203;
-}
-/* line 149, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.orange .tag a {
-  color: #E18203;
-}
-/* line 157, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.gray .tag:after {
-  color: #ADCAD6;
-}
-/* line 160, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.gray .tag a {
-  color: #ADCAD6;
-}
-/* line 168, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.green .tag:after {
-  color: #528c10;
-}
-/* line 171, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.green .tag a {
-  color: #528c10;
-}
-/* line 179, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.turquoise .tag:after {
-  color: #286E74;
-}
-/* line 182, ../sass/framework/_bibsdb.mixins.scss */
-.packery .tallimagenexttotitle.turquoise .tag a {
-  color: #286E74;
 }
 
 /**
