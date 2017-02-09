@@ -273,7 +273,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_1',
-    'label' => 'Titel Wall 1',
+    'label' => 'Titel View 1',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -324,7 +324,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_2',
-    'label' => 'Titel Wall 2',
+    'label' => 'Titel View 2',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -375,7 +375,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_3',
-    'label' => 'Titel Wall 3',
+    'label' => 'Titel View 3',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -426,7 +426,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_4',
-    'label' => 'Titel Wall 4',
+    'label' => 'Titel View 4',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -477,7 +477,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_5',
-    'label' => 'Titel Wall 5',
+    'label' => 'Titel View 5',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -528,7 +528,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_6',
-    'label' => 'Titel Wall 6',
+    'label' => 'Titel View 6',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1182,7 +1182,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_1',
-    'label' => 'Titel Wall 1',
+    'label' => 'Titel View 1',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1233,7 +1233,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_2',
-    'label' => 'Titel Wall 2',
+    'label' => 'Titel View 2',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1284,7 +1284,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_3',
-    'label' => 'Titel Wall 3',
+    'label' => 'Titel View 3',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1335,7 +1335,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_4',
-    'label' => 'Titel Wall 4',
+    'label' => 'Titel View 4',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1386,7 +1386,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_5',
-    'label' => 'Titel Wall 5',
+    'label' => 'Titel View 5',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1437,7 +1437,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_bibsdb_wall_title_6',
-    'label' => 'Titel Wall 6',
+    'label' => 'Titel View 6',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1474,12 +1474,12 @@ function bibsdb_expose_field_default_field_instances() {
   t('Lodret position på baggrundsbilledet (px)');
   t('OPTIONAL. This image is merged into the background of title image and list image. ');
   t('Tag');
-  t('Titel Wall 1');
-  t('Titel Wall 2');
-  t('Titel Wall 3');
-  t('Titel Wall 4');
-  t('Titel Wall 5');
-  t('Titel Wall 6');
+  t('Titel View 1');
+  t('Titel View 2');
+  t('Titel View 3');
+  t('Titel View 4');
+  t('Titel View 5');
+  t('Titel View 6');
   t('Vandret position på baggrundsbilledet (px)');
   t('Wall');
 
