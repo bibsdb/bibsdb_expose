@@ -73,6 +73,8 @@ function bibsdb_expose_image_styles_alter(&$styles) {
  */
  function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
 
+  kpr($form);
+
   $type = $form['#node']->type;
 
   // MOVE PUBLISHING OPTIONS TO THE TOP OF THE VERTICAL TABS
@@ -89,8 +91,15 @@ function bibsdb_expose_image_styles_alter(&$styles) {
     $form['#group_children']['field_bibsdb_fact_box_body'] = 'group_bibsdb_fact_box';
   }
 
-  // Move group group_bibsdb_fact_box into group_ding_news_content
+  
   if(isset($form['#groups']['group_bibsdb_fact_box'])) {
+    // Set fact box group weight
+    $form['#groups']['group_bibsdb_fact_box']->weight = 7;
+
+    // Set fact box group label
+    $form['#groups']['group_bibsdb_fact_box']->label = 'Fakta boks';
+
+    // Move group group_bibsdb_fact_box into group_ding_news_content
     $form['#group_children']['group_bibsdb_fact_box'] = 'group_ding_news_content';
   }
 
@@ -121,8 +130,15 @@ function bibsdb_expose_image_styles_alter(&$styles) {
     $form['#group_children']['field_bibsdb_listimg_width'] = 'group_bibsdb_background_image';
   }
 
-  // Move group group_bibsdb_background_image into group_ding_news_images
+  
   if(isset($form['#groups']['group_bibsdb_background_image'])) {
+    // Set fact box group weight
+    $form['#groups']['group_bibsdb_background_image']->weight = 4;
+
+    // Set fact box group label
+    $form['#groups']['group_bibsdb_background_image']->label = 'Baggrundsbillede';
+
+    // Move group group_bibsdb_background_image into group_ding_news_images
     $form['#group_children']['group_bibsdb_background_image'] = 'group_ding_news_images';
   }
 
