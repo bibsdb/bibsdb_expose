@@ -73,8 +73,6 @@ function bibsdb_expose_image_styles_alter(&$styles) {
  */
  function bibsdb_expose_form_node_form_alter(&$form, $form_state) {
 
-  kpr($form);
-
   $type = $form['#node']->type;
 
   // MOVE PUBLISHING OPTIONS TO THE TOP OF THE VERTICAL TABS
