@@ -236,7 +236,8 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => _strip_tag($node->title),
-        '#href'  => _bibsdb_expose_build_url($node),
+        '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
+        '#options' => array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]),
         );
       
       break;
@@ -266,7 +267,8 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
         $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
           '#type'  => 'link',
           '#title' => $arr['#markup'],
-          '#href'  => _bibsdb_expose_build_url($node),
+          '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
+          '#options' => array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]),
           );
       }
       break;
@@ -305,10 +307,12 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       case 'img':
 
       $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+      dd($arr);
 
       // Turn img into a link
       if (isset($arr['#path']['path'])) {
-        $arr['#path']['path'] = _bibsdb_expose_build_url($node);
+        $arr['#path']['path'] = explode('#', _bibsdb_expose_build_url($node))[0];
+        $arr['#path']['options'] = array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]);
       }
 
       $arr['#image_style'] = $term_name_elements[4];
@@ -325,12 +329,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => render($entity->content['fields']['wrapper']),
-        '#href'  => _bibsdb_expose_build_url($node),
+        '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
         '#attributes' => array(
           'style' => 'background-image: url(' . $img_url .')',
           ),
         '#options' => array(
           'html' => true,
+          'fragment' => explode('#', _bibsdb_expose_build_url($node))[1],
           ),
         );
 
@@ -519,6 +524,7 @@ function _bibsdb_expose_build_url($node) {
     $wrapper = entity_metadata_wrapper('node', $node);
 
     $url = $wrapper->field_search_context_link->value()['url'];
+
     // One of the main usecases for ding_search_context_links is to link to
     // search queries. Search queries are tricky because they are a mix of
     // escaped and not escaped characters. This code handles it in a primitive
@@ -536,6 +542,7 @@ function _bibsdb_expose_build_url($node) {
         $url .= '';
       }
     }
+
   }
   else {
     $url = url('node/' . $node->nid, array('absolute' => TRUE));
