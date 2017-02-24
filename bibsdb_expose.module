@@ -231,13 +231,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       case 'titlelink':
         // Build title div
       $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array('title'));
-   
+
         // Insert title link
       $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => _strip_tag($node->title),
-        '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
-        '#options' => array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]),
+        '#href'  => explode('#',_bibsdb_expose_build_url($node))[0],
+        '#options' => array('fragment' => _bibsdb_expose_get_anchor(_bibsdb_expose_build_url($node))),
         );
       
       break;
@@ -245,7 +245,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       case 'title':
         // Build title div
       $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
-  
+
       $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
         '#type' => 'markup',
         '#markup' => _strip_tag($node->title),
@@ -267,13 +267,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
         $entity->content['fields']['wrapper'][$fieldkey]['content'] = array(
           '#type'  => 'link',
           '#title' => $arr['#markup'],
-          '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
-          '#options' => array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]),
+          '#href'  => explode('#',_bibsdb_expose_build_url($node))[0],
+          '#options' => array('fragment' => _bibsdb_expose_get_anchor(_bibsdb_expose_build_url($node))),
           );
       }
       break;
 
-     
+
 
       case 'tag';
         // Check that tag is not empty
@@ -311,8 +311,8 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
 
       // Turn img into a link
       if (isset($arr['#path']['path'])) {
-        $arr['#path']['path'] = explode('#', _bibsdb_expose_build_url($node))[0];
-        $arr['#path']['options'] = array('fragment' => explode('#', _bibsdb_expose_build_url($node))[1]);
+        $arr['#path']['path'] = explode('#',_bibsdb_expose_build_url($node))[0];
+        $arr['#path']['options'] = array('fragment' => _bibsdb_expose_get_anchor(_bibsdb_expose_build_url($node)));
       }
 
       $arr['#image_style'] = $term_name_elements[4];
@@ -329,13 +329,13 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       $entity->content['fields'][$fieldkey]['content'] = array(
         '#type'  => 'link',
         '#title' => render($entity->content['fields']['wrapper']),
-        '#href'  => explode('#', _bibsdb_expose_build_url($node))[0],
+        '#href'  => explode('#',_bibsdb_expose_build_url($node))[0],
         '#attributes' => array(
           'style' => 'background-image: url(' . $img_url .')',
           ),
         '#options' => array(
           'html' => true,
-          'fragment' => explode('#', _bibsdb_expose_build_url($node))[1],
+          'fragment' => _bibsdb_expose_get_anchor(_bibsdb_expose_build_url($node)),
           ),
         );
 
@@ -547,8 +547,21 @@ function _bibsdb_expose_build_url($node) {
   else {
     $url = url('node/' . $node->nid, array('absolute' => TRUE));
   }
+
   return $url;
 
+}
+
+/**
+ * Helper function to extract the anchor link part from a url.
+ *
+ */
+function _bibsdb_expose_get_anchor($url) {
+  $arr = explode('#', $url); 
+  if (isset($arr[1])) {
+   return $arr[1];
+  }
+  return "";
 }
 
 /**
