@@ -10,7 +10,7 @@
  	.publication {
 
  		.wrapper {
- 			width: 96%;
+ 			width: 94%;
  			position: absolute;
  			left: 0;
  			bottom: 0;
@@ -18,13 +18,14 @@
  			background-color: transparent;
  			padding: 3%;
  			padding-top: 8%;
+
  		}
 
  		.title {
  			@include medium-font();
- 			
+
  			color: $white;
- 			
+
  			a:link {
  				color: $white;
  			}
@@ -34,14 +35,15 @@
  			a:visited {
  				color: $white;
  			}
+ 			@media only screen and (max-width: $breakpoint-large) {
+ 				@include large-font();
+ 			}
 
  		}
 
 
  		.tag {
-
  			a {
-
  				font-family: $font-regular;
  				@include tiny-font();
  				color: $white;
@@ -51,7 +53,11 @@
  			a:hover {
  				text-decoration: underline;
  			}
+ 			@media only screen and (max-width: $breakpoint-large) {
+ 				@include medium-font();
+ 			}
  		}
+
  		&.w2 {
  			.title {
  				@include larger-font();
