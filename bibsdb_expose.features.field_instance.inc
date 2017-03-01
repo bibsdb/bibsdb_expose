@@ -225,7 +225,7 @@ function bibsdb_expose_field_default_field_instances() {
     'label' => 'Bibsdb Group Body 2',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1134,7 +1134,7 @@ function bibsdb_expose_field_default_field_instances() {
     'label' => 'Bibsdb Page Body 2',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
