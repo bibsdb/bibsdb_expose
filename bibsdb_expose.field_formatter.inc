@@ -54,11 +54,13 @@ function theme_bibsdb_expose_bibsdb_term_field_formatter($items) {
 */
 function theme_bibsdb_expose_bibsdb_wall_title_formatter($items) {
   $title = $items[0]['safe_value'];
+  $stripped_title = preg_replace('@[^a-z0-9-]+@','-', strtolower($title));
   return theme('html_tag', array(
     'element' => array(
       '#tag' => 'h2',
+      '#value_prefix' => '<a name=\'' . $stripped_title . '\'></a>',
       '#value' => $title,
-    ),
-  ));
+      ),
+    ));
 }
 
