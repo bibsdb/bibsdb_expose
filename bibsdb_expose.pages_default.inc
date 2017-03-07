@@ -1833,6 +1833,33 @@ function bibsdb_expose_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-ed2b452f-1028-4ecb-9f79-4ecbe9d5039d';
+    $pane->panel = 'attachment_1_1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'field_bibsdb_wall_tid' => '206',
+        'field_bibsdb_hosting_node_target_id' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'wall',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ed2b452f-1028-4ecb-9f79-4ecbe9d5039d';
+    $display->content['new-ed2b452f-1028-4ecb-9f79-4ecbe9d5039d'] = $pane;
+    $display->panels['attachment_1_1'][0] = 'new-ed2b452f-1028-4ecb-9f79-4ecbe9d5039d';
+    $pane = new stdClass();
     $pane->pid = 'new-a3e659f7-e285-4383-aefa-dd87b563ade6';
     $pane->panel = 'attachment_1_1';
     $pane->type = 'views_panes';
@@ -1846,11 +1873,11 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'a3e659f7-e285-4383-aefa-dd87b563ade6';
     $display->content['new-a3e659f7-e285-4383-aefa-dd87b563ade6'] = $pane;
-    $display->panels['attachment_1_1'][0] = 'new-a3e659f7-e285-4383-aefa-dd87b563ade6';
+    $display->panels['attachment_1_1'][1] = 'new-a3e659f7-e285-4383-aefa-dd87b563ade6';
     $pane = new stdClass();
     $pane->pid = 'new-74a49488-f11d-40b6-8211-52e84c8b296a';
     $pane->panel = 'primary';
