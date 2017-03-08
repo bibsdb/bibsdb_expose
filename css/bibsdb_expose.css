@@ -286,7 +286,6 @@
 /* line 251, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
   /* Page content */
-  /* All ellements except the first */
 }
 /* line 253, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .primary-content, .node-type-ding-group .default-layout .primary-content, .node-type-new-materials .default-layout .primary-content {
@@ -316,9 +315,15 @@
   word-wrap: break-word;
   clear: left;
 }
-/* line 266, ../sass/module/_bibsdb.packery.scss */
+/* line 265, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall-title, .node-type-ding-group .default-layout .wall-title, .node-type-new-materials .default-layout .wall-title {
   padding-top: 30px;
+}
+/* line 267, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout .wall-title h2, .node-type-ding-group .default-layout .wall-title h2, .node-type-new-materials .default-layout .wall-title h2 {
+  font-size: 180%;
+  font-family: "SourceSansProBold";
+  font-weight: normal;
 }
 
 /**
