@@ -830,7 +830,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall wall0 large-padding',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 1;
@@ -887,7 +887,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left large-padding',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 3;
@@ -914,7 +914,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right large-padding',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 4;
@@ -941,7 +941,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 5;
@@ -968,7 +968,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 6;
@@ -995,7 +995,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall left',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 7;
@@ -1022,7 +1022,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'wall right',
+      'css_class' => 'wall',
     );
     $pane->extras = array();
     $pane->position = 8;
