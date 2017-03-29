@@ -281,7 +281,7 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* Walls on ding_page and page_group
+/* Walls on ding_page and page_group and new-materials
 ============================================================================ */
 /* line 251, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout {
@@ -301,7 +301,7 @@
   clear: both;
 }
 /* line 259, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials {
+.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .wall, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .wall, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .wall {
   float: left;
   width: 100%;
   margin-left: 0%;
