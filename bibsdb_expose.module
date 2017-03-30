@@ -304,6 +304,22 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       }
       break;
 
+      case 'query':
+
+        // Check that tag is not empty
+      $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+
+      if (!(empty($arr['#markup']))) {
+        dpm(bibsdb_open_platform_get_token());
+
+        // Build lead div
+        $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+
+        $entity->content['fields']['wrapper'][$fieldkey]['content'] = $arr;
+
+      }
+      break;
+
       case 'img':
 
       $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
@@ -376,6 +392,12 @@ function _get_field_selection_setting($fieldkey) {
     'lead' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
       'suffix' => array('lead'),
+      'view_mode' => 'full',
+      'options' => array(),
+      ),
+    'query' => array(
+      'prefix' => array('field_ting'),
+      'suffix' => array('new_materials_search'),
       'view_mode' => 'full',
       'options' => array(),
       ),
