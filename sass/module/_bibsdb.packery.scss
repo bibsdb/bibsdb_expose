@@ -255,8 +255,9 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 		@include zen-grid-container;
 	}
 
+
 	/* Page content */
-	article.page, .pane-node-content, .pane-new-materials, .wall{
+	article.page, .pane-node-content, .pane-new-materials, .wall, .pane-node-field-bibsdb-page-body-2{
 		@include zen-grid-item(12, 1);
 		@include zen-clear();
 	}

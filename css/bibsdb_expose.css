@@ -300,8 +300,8 @@
 .node-type-ding-page .default-layout .primary-content:after, .node-type-ding-group .default-layout .primary-content:after, .node-type-new-materials .default-layout .primary-content:after {
   clear: both;
 }
-/* line 259, ../sass/module/_bibsdb.packery.scss */
-.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .wall, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .wall, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .wall {
+/* line 260, ../sass/module/_bibsdb.packery.scss */
+.node-type-ding-page .default-layout article.page, .node-type-ding-page .default-layout .pane-node-content, .node-type-ding-page .default-layout .pane-new-materials, .node-type-ding-page .default-layout .wall, .node-type-ding-page .default-layout .pane-node-field-bibsdb-page-body-2, .node-type-ding-group .default-layout article.page, .node-type-ding-group .default-layout .pane-node-content, .node-type-ding-group .default-layout .pane-new-materials, .node-type-ding-group .default-layout .wall, .node-type-ding-group .default-layout .pane-node-field-bibsdb-page-body-2, .node-type-new-materials .default-layout article.page, .node-type-new-materials .default-layout .pane-node-content, .node-type-new-materials .default-layout .pane-new-materials, .node-type-new-materials .default-layout .wall, .node-type-new-materials .default-layout .pane-node-field-bibsdb-page-body-2 {
   float: left;
   width: 100%;
   margin-left: 0%;
@@ -315,7 +315,7 @@
   word-wrap: break-word;
   clear: left;
 }
-/* line 265, ../sass/module/_bibsdb.packery.scss */
+/* line 266, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall-title, .node-type-ding-group .default-layout .wall-title, .node-type-new-materials .default-layout .wall-title {
   float: left;
   width: 100%;
@@ -331,7 +331,7 @@
   clear: left;
   padding-top: 30px;
 }
-/* line 269, ../sass/module/_bibsdb.packery.scss */
+/* line 270, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall-title h2, .node-type-ding-group .default-layout .wall-title h2, .node-type-new-materials .default-layout .wall-title h2 {
   font-size: 180%;
   font-family: "SourceSansProBold";
