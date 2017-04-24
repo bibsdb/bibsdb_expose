@@ -165,6 +165,16 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'template' => 'templates/exposure',
       //'file' => 'bibsdb_expose.theme.inc',
       ),
+    'carousel' => array(
+      'variables' => array('content' => null),
+      'template' => 'carousel',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+      ),
+    'carousel_item' => array(
+      'variables' => array('content' => null),
+      'template' => 'carousel-item',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+      ),
     'views_view_unformatted__bibsdb_wall' => array(
       'arguments' => array('view' => NULL, 'field' => NULL, 'row' => NULL),
       'template' => 'views-view-unformatted--bibsdb-wall',
@@ -175,6 +185,9 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'variables' => array('element' => NULL),
       ),
     'bibsdb_expose_bibsdb_wall_title_formatter'  => array(
+      'variables' => array('element' => NULL),
+      ),
+    'bibsdb_expose_bibsdb_query_to_carousel_formatter'  => array(
       'variables' => array('element' => NULL),
       ),
     );
@@ -309,8 +322,9 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
         // Check that tag is not empty
       $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
 
+
       if (!(empty($arr['#markup']))) {
-        dpm(bibsdb_open_platform_get_token());
+        _bibsdb_expose_add_query_javascript_css($node);
 
         // Build lead div
         $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
@@ -386,25 +400,23 @@ function _get_field_selection_setting($fieldkey) {
     'tag' => array(
       'prefix' => array('field_bibsdb'),
       'suffix' => array('tag'),
-      'view_mode' => 'full',
       'options' => array(),
       ),
     'lead' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
       'suffix' => array('lead'),
-      'view_mode' => 'full',
       'options' => array(),
       ),
     'query' => array(
       'prefix' => array('field_ting'),
       'suffix' => array('new_materials_search'),
-      'view_mode' => 'full',
-      'options' => array(),
+      'options' => array(
+        'type' => 'bibsdb_query_to_carousel_formatter',
+        ),
       ),
     'img' => array(
       'prefix' => array('field_ding', 'field_bibsdb','field_search_context'),
       'suffix' => array('list_image', 'new_materials_image'),
-      'view_mode' => 'teaser',
       'options' => array(
         'type' => 'image',
         'settings' => array(
@@ -416,7 +428,6 @@ function _get_field_selection_setting($fieldkey) {
     'link' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
       'suffix' => array('link', 'ref'),
-      'view_mode' => 'full',
       'options' => array(
         'settings' => array(
           'link' => TRUE,
@@ -620,6 +631,7 @@ function _bibsdb_expose_add_javascript() {
   $module_path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_js($module_path . '/scripts/packery.options.js');
   drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
+
 }
 
 
@@ -631,3 +643,22 @@ function _bibsdb_expose_add_css() {
   $path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_css($path . '/css/bibsdb_expose.css');
 }
+
+/**
+ * Wrapper function that adds query specific js and css.
+ */
+function _bibsdb_expose_add_query_javascript_css ($node) {
+  // Add JS and css to control and setup the carousel.
+  $module_path = drupal_get_path('module', 'bibsdb_expose');
+  drupal_add_css($module_path . '/scripts/slick/slick.css');
+  drupal_add_js($module_path . '/scripts/slick/slick.min.js');
+  drupal_add_js($module_path . '/scripts/bibsdb_query_carousel.js');  
+  drupal_add_css($module_path . '/scripts/slick/slick-theme.css');
+
+  // Add Javascript settings.
+  $bibsdb_expose_query = array();
+  $bibsdb_expose_query[] = array($node->nid, 10);
+  drupal_add_js(array('bibsdb_expose_query' => $bibsdb_expose_query), 'setting');
+
+}
+

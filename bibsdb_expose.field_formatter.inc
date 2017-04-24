@@ -15,6 +15,11 @@ function bibsdb_expose_field_formatter_info() {
       'field types' => array('text'),
       'description' => t('Wall title as H2.'),
       ), 
+    'bibsdb_query_to_carousel_formatter' => array(
+      'label' => t('Query to carousel'), 
+      'field types' => array('text_long'),
+      'description' => t('Query to carousel.'),
+      ), 
     );
   return $info;
 }
@@ -24,6 +29,7 @@ function bibsdb_expose_field_formatter_info() {
  * This code just passes straight through to a theme function.
  */
 function bibsdb_expose_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+
   $elements = array();
   foreach ($items as $delta => $item) {
     $elements[$delta] = array(
@@ -62,5 +68,17 @@ function theme_bibsdb_expose_bibsdb_wall_title_formatter($items) {
       '#value' => $title,
       ),
     ));
+}
+
+/**
+* Theme function for the bibsdb query to carousel formatter.
+*/
+function theme_bibsdb_expose_bibsdb_query_to_carousel_formatter($items) {
+  
+  $query = $items[0]['safe_value'];
+  $results = bibsdb_open_platform_search($query);
+  $content = theme('carousel', array('content' => $results));
+
+  return $content;
 }
 
