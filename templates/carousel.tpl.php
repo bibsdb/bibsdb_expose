@@ -13,12 +13,9 @@
 
 
 
-<div class="slick-carousel">
-	<?php
-	foreach ($content->data as $data) {
-		print theme('carousel_item', array('content' => $data));
-	}
-	?>
-</div>
+<div class="open-platform-item-list" id="<?php print $nid; ?>">
 
+
+</div>
+  
 

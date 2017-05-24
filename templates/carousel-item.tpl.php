@@ -9,13 +9,11 @@
  * @see template_process()
  */
 ?>
-<div class="book">
-
-
+<div class="open-platform-item">
 	<a href="<?php print $objecturl;?>" style="background-image: url(https:<?php print $content->coverUrlFull[0];?>)">
-		<div class="book-container">
-			<div class="book-title"><?php print $content->title[0];?></div>
-			<div class="book-author"><?php print $content->creator[0];?></div>
+		<div class="item-container">
+			<div class="item-title"><?php print $content->title[0];?></div>
+			<div class="item-author"><?php print $content->creator[0];?></div>
 		</div>
 	</a>
 </div>

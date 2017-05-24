@@ -87,6 +87,14 @@ function bibsdb_expose_menu() {
     'access arguments' => array('access content'),
     'file' => 'bibsdb_expose.pages.inc',
     );
+
+  $items['bibsdb_open_platform_query/content/ajax'] = array(
+    'title' => 'Fetch materials from open platform',
+    'page callback' => 'bibsdb_expose_bibsdb_open_platform_query',
+    'access arguments' => array('access content'),
+    'file' => 'bibsdb_expose.pages.inc',
+    'type' => MENU_CALLBACK,
+    );
   
   return $items;
 }
@@ -166,7 +174,7 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       //'file' => 'bibsdb_expose.theme.inc',
       ),
     'carousel' => array(
-      'variables' => array('content' => null),
+      'variables' => array('nid' => null),
       'template' => 'carousel',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
       ),
@@ -318,20 +326,18 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       break;
 
       case 'query':
+      // Add slick
+      _bibsdb_expose_add_slick_javascript_css();
 
-        // Check that tag is not empty
-      $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
+      $carouselmarkup = array(
+        '#type' => 'markup',
+        '#markup' => theme('carousel', array('nid' => $node->nid)),
+        );
 
+      // Build div container
+      $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+      $entity->content['fields']['wrapper'][$fieldkey]['content'] = $carouselmarkup;
 
-      if (!(empty($arr['#markup']))) {
-        _bibsdb_expose_add_query_javascript_css($node);
-
-        // Build lead div
-        $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
-
-        $entity->content['fields']['wrapper'][$fieldkey]['content'] = $arr;
-
-      }
       break;
 
       case 'img':
@@ -629,7 +635,7 @@ function _bibsdb_expose_add_javascript() {
 
   // Ad our own JS to control and setup packery.
   $module_path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_js($module_path . '/scripts/packery.options.js');
+  drupal_add_js($module_path . '/scripts/wall.packery.options.js');
   drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
 
 }
@@ -647,18 +653,79 @@ function _bibsdb_expose_add_css() {
 /**
  * Wrapper function that adds query specific js and css.
  */
-function _bibsdb_expose_add_query_javascript_css ($node) {
-  // Add JS and css to control and setup the carousel.
+function _bibsdb_expose_add_slick_javascript_css ($slick_config_path) {
+
+  // Add the slick library files
+  if ($library_path = libraries_get_path('slick')) {
+
+    $library_path .= '';
+    $options = array('group' => JS_LIBRARY);
+    drupal_add_js($library_path . '/slick.min.js', $options);
+
+    drupal_add_css($library_path . '/slick.css');
+    drupal_add_css($library_path . '/slick-theme.css');
+  }
+
+  // Add bibsdb slick implementation
   $module_path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_css($module_path . '/scripts/slick/slick.css');
-  drupal_add_js($module_path . '/scripts/slick/slick.min.js');
-  drupal_add_js($module_path . '/scripts/bibsdb_query_carousel.js');  
-  drupal_add_css($module_path . '/scripts/slick/slick-theme.css');
-
-  // Add Javascript settings.
-  $bibsdb_expose_query = array();
-  $bibsdb_expose_query[] = array($node->nid, 10);
-  drupal_add_js(array('bibsdb_expose_query' => $bibsdb_expose_query), 'setting');
-
+  drupal_add_js($module_path . '/scripts/bibsdb_slick.js');  
 }
 
+/**
+ * Private: bibsdb_expose_open_platform_search.
+ */
+function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
+
+  $new_materials_arr = array();
+  $slice = array();
+
+  //dd("offset");
+  //dd($offset);
+  // Get cached carousel content
+  $cache = cache_get('new_materials_search_'.$nid, 'cache');
+  //dd($cache->cid);
+  if (isset($cache->data)) {
+    $new_materials_arr = $cache->data;
+    //dd("whats in cache before request");
+    //dd($new_materials_arr);
+    //dd(count($new_materials_arr));
+  }
+
+  // Is it relevant for this query? Is content count larger that the requested offset?
+  // If yes return 15 items starting from offset-index
+  if (count($new_materials_arr) > $offset) {
+    // Yes, we have relevant cached carousel content.
+    //dd("we have relevant cached content - this is the returned slice");
+    // Return 
+    $slice = array_slice($new_materials_arr, $offset, 15);
+    //dd($slice);
+    return $slice;
+  }
+
+  // No, we have no relevant cached content. We have to query the open platform.
+  //dd("No we dont have cached content");
+  $wrapper = entity_metadata_wrapper('node', $nid);
+  // Extract the query from the node
+  $query = $wrapper->field_ting_new_materials_search->value();
+
+  // Query the open platform with the offset
+  $results = bibsdb_open_platform_search($query, $offset);
+  
+  // Append fetched items to the existing cached items for this node
+  foreach ($results->data as $data) {
+    //dd("data");
+    //dd(isset($data->coverUrlFull[0]));
+    // Skip materials without cover
+    if(isset($data->coverUrlFull[0])) {
+      array_push($new_materials_arr, theme('carousel_item', array('content' => $data)));
+    }
+  }
+
+  cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
+  //dd("New materials returned fron open platform appended to cache");
+  //dd($new_materials_arr);
+  // return 50 items starting from offset-index
+  $slice = array_slice($new_materials_arr, $offset, 50);
+
+  return $slice;
+}
