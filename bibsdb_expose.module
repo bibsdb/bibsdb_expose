@@ -679,31 +679,22 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
   $new_materials_arr = array();
   $slice = array();
 
-  //dd("offset");
-  //dd($offset);
   // Get cached carousel content
   $cache = cache_get('new_materials_search_'.$nid, 'cache');
-  //dd($cache->cid);
+
   if (isset($cache->data)) {
     $new_materials_arr = $cache->data;
-    //dd("whats in cache before request");
-    //dd($new_materials_arr);
-    //dd(count($new_materials_arr));
   }
 
   // Is it relevant for this query? Is content count larger that the requested offset?
-  // If yes return 15 items starting from offset-index
+  // If yes return 16 items starting from offset-index
   if (count($new_materials_arr) > $offset) {
     // Yes, we have relevant cached carousel content.
-    //dd("we have relevant cached content - this is the returned slice");
-    // Return 
-    $slice = array_slice($new_materials_arr, $offset, 15);
-    //dd($slice);
+    $slice = array_slice($new_materials_arr, $offset, 16);
     return $slice;
   }
 
   // No, we have no relevant cached content. We have to query the open platform.
-  //dd("No we dont have cached content");
   $wrapper = entity_metadata_wrapper('node', $nid);
   // Extract the query from the node
   $query = $wrapper->field_ting_new_materials_search->value();
@@ -713,8 +704,6 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
   
   // Append fetched items to the existing cached items for this node
   foreach ($results->data as $data) {
-    //dd("data");
-    //dd(isset($data->coverUrlFull[0]));
     // Skip materials without cover
     if(isset($data->coverUrlFull[0])) {
       array_push($new_materials_arr, theme('carousel_item', array('content' => $data)));
@@ -722,10 +711,8 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
   }
 
   cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
-  //dd("New materials returned fron open platform appended to cache");
-  //dd($new_materials_arr);
-  // return 50 items starting from offset-index
-  $slice = array_slice($new_materials_arr, $offset, 50);
+  // return 16 items starting from offset-index
+  $slice = array_slice($new_materials_arr, $offset, 16);
 
   return $slice;
 }

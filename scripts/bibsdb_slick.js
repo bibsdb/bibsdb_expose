@@ -160,9 +160,9 @@
         {
           breakpoint: 768,
           settings: {
-            arrows: true,
-            slidesToShow: 2,
-            slidesToScroll: 2
+            arrows: false,
+            slidesToShow: 3,
+            slidesToScroll: 3
           }
         }
         ]
