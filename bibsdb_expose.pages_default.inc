@@ -787,10 +787,10 @@ function bibsdb_expose_default_page_manager_handlers() {
     $display->content['new-0e287121-f776-49bb-8663-c4a21de2a5b6'] = $pane;
     $display->panels['left_sidebar'][0] = 'new-0e287121-f776-49bb-8663-c4a21de2a5b6';
     $pane = new stdClass();
-    $pane->pid = 'new-88baaf0d-bddf-4649-9029-d84fec86a486';
+    $pane->pid = 'new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
     $pane->panel = 'main_content';
-    $pane->type = 'new_materials';
-    $pane->subtype = 'new_materials';
+    $pane->type = 'new_materials_list';
+    $pane->subtype = 'new_materials_list';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -799,6 +799,7 @@ function bibsdb_expose_default_page_manager_handlers() {
       ),
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -808,9 +809,9 @@ function bibsdb_expose_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '88baaf0d-bddf-4649-9029-d84fec86a486';
-    $display->content['new-88baaf0d-bddf-4649-9029-d84fec86a486'] = $pane;
-    $display->panels['main_content'][0] = 'new-88baaf0d-bddf-4649-9029-d84fec86a486';
+    $pane->uuid = '97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
+    $display->content['new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156'] = $pane;
+    $display->panels['main_content'][0] = 'new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
     $pane = new stdClass();
     $pane->pid = 'new-cd1bb14b-bf56-4dca-bed7-edb8ee8e2eee';
     $pane->panel = 'main_content';
@@ -1031,7 +1032,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     $display->content['new-ba95363e-a4f9-4501-bde7-8a4bfc594d71'] = $pane;
     $display->panels['main_content'][8] = 'new-ba95363e-a4f9-4501-bde7-8a4bfc594d71';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-88baaf0d-bddf-4649-9029-d84fec86a486';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['node_view__bibsdb-new-materials'] = $handler;
 

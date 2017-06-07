@@ -87,6 +87,14 @@ function bibsdb_expose_menu() {
     'access arguments' => array('access content'),
     'file' => 'bibsdb_expose.pages.inc',
     );
+
+  $items['bibsdb_open_platform_query/content/ajax'] = array(
+    'title' => 'Fetch materials from open platform',
+    'page callback' => 'bibsdb_expose_bibsdb_open_platform_query',
+    'access arguments' => array('access content'),
+    'file' => 'bibsdb_expose.pages.inc',
+    'type' => MENU_CALLBACK,
+    );
   
   return $items;
 }
@@ -165,6 +173,16 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'template' => 'templates/exposure',
       //'file' => 'bibsdb_expose.theme.inc',
       ),
+    'carousel' => array(
+      'variables' => array('nid' => null),
+      'template' => 'carousel',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+      ),
+    'carousel_item' => array(
+      'variables' => array('content' => null),
+      'template' => 'carousel-item',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+      ),
     'views_view_unformatted__bibsdb_wall' => array(
       'arguments' => array('view' => NULL, 'field' => NULL, 'row' => NULL),
       'template' => 'views-view-unformatted--bibsdb-wall',
@@ -175,6 +193,9 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'variables' => array('element' => NULL),
       ),
     'bibsdb_expose_bibsdb_wall_title_formatter'  => array(
+      'variables' => array('element' => NULL),
+      ),
+    'bibsdb_expose_bibsdb_query_to_carousel_formatter'  => array(
       'variables' => array('element' => NULL),
       ),
     );
@@ -304,6 +325,21 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       }
       break;
 
+      case 'query':
+      // Add slick
+      _bibsdb_expose_add_slick_javascript_css();
+
+      $carouselmarkup = array(
+        '#type' => 'markup',
+        '#markup' => theme('carousel', array('nid' => $node->nid)),
+        );
+
+      // Build div container
+      $entity->content['fields']['wrapper'][$fieldkey] = _build_container(array($fieldkey));
+      $entity->content['fields']['wrapper'][$fieldkey]['content'] = $carouselmarkup;
+
+      break;
+
       case 'img':
 
       $arr = _build_field($node, $nodeprops, _get_field_selection_setting($fieldkey));
@@ -370,19 +406,23 @@ function _get_field_selection_setting($fieldkey) {
     'tag' => array(
       'prefix' => array('field_bibsdb'),
       'suffix' => array('tag'),
-      'view_mode' => 'full',
       'options' => array(),
       ),
     'lead' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
       'suffix' => array('lead'),
-      'view_mode' => 'full',
       'options' => array(),
+      ),
+    'query' => array(
+      'prefix' => array('field_ting'),
+      'suffix' => array('new_materials_search'),
+      'options' => array(
+        'type' => 'bibsdb_query_to_carousel_formatter',
+        ),
       ),
     'img' => array(
       'prefix' => array('field_ding', 'field_bibsdb','field_search_context'),
       'suffix' => array('list_image', 'new_materials_image'),
-      'view_mode' => 'teaser',
       'options' => array(
         'type' => 'image',
         'settings' => array(
@@ -394,7 +434,6 @@ function _get_field_selection_setting($fieldkey) {
     'link' => array(
       'prefix' => array('field_ding', 'field_bibsdb'),
       'suffix' => array('link', 'ref'),
-      'view_mode' => 'full',
       'options' => array(
         'settings' => array(
           'link' => TRUE,
@@ -596,8 +635,9 @@ function _bibsdb_expose_add_javascript() {
 
   // Ad our own JS to control and setup packery.
   $module_path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_js($module_path . '/scripts/packery.options.js');
+  drupal_add_js($module_path . '/scripts/wall.packery.options.js');
   drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
+
 }
 
 
@@ -608,4 +648,71 @@ function _bibsdb_expose_add_javascript() {
 function _bibsdb_expose_add_css() {
   $path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_css($path . '/css/bibsdb_expose.css');
+}
+
+/**
+ * Wrapper function that adds query specific js and css.
+ */
+function _bibsdb_expose_add_slick_javascript_css ($slick_config_path) {
+
+  // Add the slick library files
+  if ($library_path = libraries_get_path('slick')) {
+
+    $library_path .= '';
+    $options = array('group' => JS_LIBRARY);
+    drupal_add_js($library_path . '/slick.min.js', $options);
+
+    drupal_add_css($library_path . '/slick.css');
+    drupal_add_css($library_path . '/slick-theme.css');
+  }
+
+  // Add bibsdb slick implementation
+  $module_path = drupal_get_path('module', 'bibsdb_expose');
+  drupal_add_js($module_path . '/scripts/bibsdb_slick.js');  
+}
+
+/**
+ * Private: bibsdb_expose_open_platform_search.
+ */
+function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
+
+  $new_materials_arr = array();
+  $slice = array();
+
+  // Get cached carousel content
+  $cache = cache_get('new_materials_search_'.$nid, 'cache');
+
+  if (isset($cache->data)) {
+    $new_materials_arr = $cache->data;
+  }
+
+  // Is it relevant for this query? Is content count larger that the requested offset?
+  // If yes return 16 items starting from offset-index
+  if (count($new_materials_arr) > $offset) {
+    // Yes, we have relevant cached carousel content.
+    $slice = array_slice($new_materials_arr, $offset, 16);
+    return $slice;
+  }
+
+  // No, we have no relevant cached content. We have to query the open platform.
+  $wrapper = entity_metadata_wrapper('node', $nid);
+  // Extract the query from the node
+  $query = $wrapper->field_ting_new_materials_search->value();
+
+  // Query the open platform with the offset
+  $results = bibsdb_open_platform_search($query, $offset);
+  
+  // Append fetched items to the existing cached items for this node
+  foreach ($results->data as $data) {
+    // Skip materials without cover
+    if(isset($data->coverUrlFull[0])) {
+      array_push($new_materials_arr, theme('carousel_item', array('content' => $data)));
+    }
+  }
+
+  cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
+  // return 16 items starting from offset-index
+  $slice = array_slice($new_materials_arr, $offset, 16);
+
+  return $slice;
 }
