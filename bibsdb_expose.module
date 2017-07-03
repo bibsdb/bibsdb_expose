@@ -653,7 +653,7 @@ function _bibsdb_expose_add_css() {
 /**
  * Wrapper function that adds query specific js and css.
  */
-function _bibsdb_expose_add_slick_javascript_css ($slick_config_path) {
+function _bibsdb_expose_add_slick_javascript_css () {
 
   // Add the slick library files
   if ($library_path = libraries_get_path('slick')) {
