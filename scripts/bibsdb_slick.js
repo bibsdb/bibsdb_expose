@@ -174,7 +174,7 @@
 
       // Initially load some content
       $( '.open-platform-item-list' ).each(function() {
-       _fetch($(this), 0);
+       _fetch($(this), 5);
      });
 
       // Enable next-button

@@ -174,7 +174,7 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       //'file' => 'bibsdb_expose.theme.inc',
       ),
     'carousel' => array(
-      'variables' => array('nid' => null),
+      'variables' => array('nid' => null, 'items' => null),
       'template' => 'carousel',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
       ),
@@ -329,9 +329,11 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       // Add slick
       _bibsdb_expose_add_slick_javascript_css();
 
+      $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 5);
+
       $carouselmarkup = array(
         '#type' => 'markup',
-        '#markup' => theme('carousel', array('nid' => $node->nid)),
+        '#markup' => theme('carousel', array('nid' => $node->nid, 'items' => $items)),
         );
 
       // Build div container
@@ -674,7 +676,7 @@ function _bibsdb_expose_add_slick_javascript_css () {
 /**
  * Private: bibsdb_expose_open_platform_search.
  */
-function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
+function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $length = 16) {
 
   $new_materials_arr = array();
   $slice = array();
@@ -687,10 +689,10 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
   }
 
   // Is it relevant for this query? Is content count larger that the requested offset?
-  // If yes return 16 items starting from offset-index
+  // If yes return $length items starting from offset-index
   if (count($new_materials_arr) > $offset) {
     // Yes, we have relevant cached carousel content.
-    $slice = array_slice($new_materials_arr, $offset, 16);
+    $slice = array_slice($new_materials_arr, $offset, $length);
     return $slice;
   }
 
@@ -711,8 +713,8 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset) {
   }
 
   cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
-  // return 16 items starting from offset-index
-  $slice = array_slice($new_materials_arr, $offset, 16);
+  // return $length items starting from offset-index
+  $slice = array_slice($new_materials_arr, $offset, $length);
 
   return $slice;
 }
