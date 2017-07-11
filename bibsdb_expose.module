@@ -329,7 +329,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       // Add slick
       _bibsdb_expose_add_slick_javascript_css();
 
-      $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 5);
+      $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 6);
 
       $carouselmarkup = array(
         '#type' => 'markup',
@@ -704,17 +704,68 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
   // Query the open platform with the offset
   $results = bibsdb_open_platform_search($query, $offset);
   
-  // Append fetched items to the existing cached items for this node
+  
   foreach ($results->data as $data) {
     // Skip materials without cover
-    if(isset($data->coverUrlFull[0])) {
-      array_push($new_materials_arr, theme('carousel_item', array('content' => $data)));
+    $ac_identifier = $data->acIdentifier;
+    $id_arr = explode("|", $ac_identifier[0]);
+
+    $item_info = array(
+      'local_id' => $id_arr[0],
+      'owner_id' => $id_arr[1],
+      'title' => $data->title[0],
+      'author' => $data->creator[0],
+      'dbc_cover_url' => 'https:' . $data->coverUrlFull[0],
+      'ting_object_url' => "/ting/object/" . $id_arr[1] . ":" . $id_arr[0],
+      'image_style' => 'ding_list_small'
+
+      );
+
+    if(isset($item_info['dbc_cover_url'])) {
+
+
+
+      // Add the local cover url to $item_info
+      $item_info['local_cover_url'] = _bibsdb_expose_get_cover_url($item_info);
+
+      array_push($new_materials_arr, theme('carousel_item', array('content' => $item_info)));
     }
   }
-
+  // Append fetched items to the existing cached items for this node
   cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
   // return $length items starting from offset-index
   $slice = array_slice($new_materials_arr, $offset, $length);
 
   return $slice;
+}
+
+/**
+ * Private: Fetch the covers for the materials in the result
+ * If no cover existsts skip the material
+ */
+function _bibsdb_expose_get_cover_url($item_info) {
+
+  $path = ting_covers_object_path($item_info['local_id']);
+  $url = "";
+  $image_styles = array();
+
+  if (file_exists($path)) {
+    // If we we already have a valid cover image w/o style then just use it.
+    $url = image_style_url($item_info['image_style'], $path);
+  }
+  else {
+
+    // Try to download the image locally.
+    module_load_include('inc', 'ting_covers', 'ting_covers.pages');
+
+    if ($file = _ting_covers_pages_fetch_image(ting_covers_object_path($item_info['local_id']), $item_info['dbc_cover_url'])) {
+      
+      // Image style to match later one.
+      $image_styles[$item_info['local_id']] = $item_info['image_style'];
+
+      // Generate a path corresponding to the downloaded image, styled.
+      $url = image_style_url($image_styles[$item_info['local_id']], $file);
+    }
+  }
+  return $url;
 }

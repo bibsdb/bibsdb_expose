@@ -60,15 +60,5 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
   $vars['rows'] .= "<div class=\"gutterwidth\"></div>";
 }
 
-/**
-  * Prepare open platform result for display
-  */
-function bibsdb_expose_preprocess_carousel_item(&$vars) {
-  $content = $vars['content'];
-  $ac_identifier = $content->acIdentifier;
-  $id_arr = explode("|", $ac_identifier[0]);
-  $objecturl = "/ting/object/" . $id_arr[1] . ":" . $id_arr[0];
-  $vars['objecturl'] = $objecturl;
-}
 
 	

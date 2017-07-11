@@ -172,11 +172,6 @@
 	  	// Control visibility of prev-arrow
 	  	_control_arrows();
 
-      // Initially load some content
-      $( '.open-platform-item-list' ).each(function() {
-       _fetch($(this), 5);
-     });
-
       // Enable next-button
       _fetch_on_next();
 
