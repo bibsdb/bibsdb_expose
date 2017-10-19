@@ -715,7 +715,7 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
       'owner_id' => $id_arr[1],
       'title' => $data->title[0],
       'author' => $data->creator[0],
-      'dbc_cover_url' => 'https:' . $data->coverUrlFull[0],
+      'dbc_cover_url' => $data->coverUrlFull[0],
       'ting_object_url' => "/ting/object/" . $id_arr[1] . ":" . $id_arr[0],
       'image_style' => 'ding_list_small'
 
