@@ -715,7 +715,7 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
     $id_arr = explode("|", $ac_identifier[0]);
 
     $item_info = array(
-      'local_id' => "754000-katalog:" . $id_arr[0],
+      'local_id' => "754000-katalog:" . $id_arr[0], //Bad fix. Open Platform doesn't return the full id.
       'owner_id' => $id_arr[1],
       'title' => $data->title[0],
       'author' => $data->creator[0],
