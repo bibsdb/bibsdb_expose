@@ -681,6 +681,10 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
   $new_materials_arr = array();
   $slice = array();
 
+  // Clear the cache for this nid. Enable when debugging.
+  //cache_clear_all("new_materials_search_".$nid, "cache", $wildcard = TRUE);
+
+
   // Get cached carousel content
   $cache = cache_get('new_materials_search_'.$nid, 'cache');
 
@@ -711,25 +715,20 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
     $id_arr = explode("|", $ac_identifier[0]);
 
     $item_info = array(
-      'local_id' => $id_arr[0],
+      'local_id' => "754000-katalog:" . $id_arr[0],
       'owner_id' => $id_arr[1],
       'title' => $data->title[0],
       'author' => $data->creator[0],
-      'dbc_cover_url' => $data->coverUrlFull[0],
       'ting_object_url' => "/ting/object/" . $id_arr[1] . ":" . $id_arr[0],
       'image_style' => 'ding_list_small'
 
       );
 
-    if(isset($item_info['dbc_cover_url'])) {
+    // Add the local cover url to $item_info
+    $item_info['local_cover_url'] = _bibsdb_expose_get_cover_url($item_info);
 
-
-
-      // Add the local cover url to $item_info
-      $item_info['local_cover_url'] = _bibsdb_expose_get_cover_url($item_info);
-
-      array_push($new_materials_arr, theme('carousel_item', array('content' => $item_info)));
-    }
+    array_push($new_materials_arr, theme('carousel_item', array('content' => $item_info)));
+    
   }
   // Append fetched items to the existing cached items for this node
   cache_set('new_materials_search_'.$nid, $new_materials_arr, 'cache', CACHE_PERMANENT);
@@ -744,28 +743,15 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
  * If no cover existsts skip the material
  */
 function _bibsdb_expose_get_cover_url($item_info) {
+  $url = NULL;
+  // Use ting_covers_get to fetch covers
+  $path = ting_covers_get(array($item_info['local_id']));
 
-  $path = ting_covers_object_path($item_info['local_id']);
-  $url = "";
-  $image_styles = array();
-
-  if (file_exists($path)) {
+  if (isset($path[$item_info['local_id']])) {
     // If we we already have a valid cover image w/o style then just use it.
-    $url = image_style_url($item_info['image_style'], $path);
+    $url = image_style_url($item_info['image_style'], $path[$item_info['local_id']]);
   }
-  else {
 
-    // Try to download the image locally.
-    //module_load_include('inc', 'ting_covers', 'ting_covers.pages');
-
-    if ($file = ting_covers_fetch_image(ting_covers_object_path($item_info['local_id']), $item_info['dbc_cover_url'])) {
-
-      // Image style to match later one.
-      $image_styles[$item_info['local_id']] = $item_info['image_style'];
-
-      // Generate a path corresponding to the downloaded image, styled.
-      $url = image_style_url($image_styles[$item_info['local_id']], $file);
-    }
-  }
+  // If we we already have a valid cover image w/o style then just use it.
   return $url;
 }
