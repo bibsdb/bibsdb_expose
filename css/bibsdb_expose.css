@@ -252,7 +252,7 @@
 }
 /* line 216, ../sass/module/_bibsdb.packery.scss */
 .packery .brick {
-  font-family: "SourceSansProSemibold";
+  font-family: "brother_1816medium";
   word-wrap: break-word;
 }
 /* line 220, ../sass/module/_bibsdb.packery.scss */
@@ -359,9 +359,9 @@
 }
 /* line 288, ../sass/module/_bibsdb.packery.scss */
 .node-type-ding-page .default-layout .wall-title h2, .node-type-ding-group .default-layout .wall-title h2, .node-type-new-materials .default-layout .wall-title h2 {
-  font-size: 180%;
-  font-family: "SourceSansProBold";
+  font-family: "brother_1816medium";
   font-weight: normal;
+  font-size: 180%;
 }
 
 /**
@@ -539,7 +539,7 @@
 
 /* line 46, ../sass/module/bricks/_bibsdb.publication.scss */
 .packery .publication .tag a {
-  font-family: "SourceSansProRegular";
+  font-family: "brother_1816regular";
   color: #fff;
   padding: 1% 0;
   background-color: transparent;
@@ -964,7 +964,7 @@
 }
 /* line 90, ../sass/module/bricks/_bibsdb.carousel.scss */
 .newmaterials .item-author, .newmaterials .item-title {
-  font-family: "SourceSansProRegular", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
+  font-family: "brother_1816regular", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
   font-weight: normal;
   line-height: 120%;
   font-size: 75%;
@@ -978,6 +978,6 @@
 }
 /* line 99, ../sass/module/bricks/_bibsdb.carousel.scss */
 .newmaterials .item-title {
-  font-family: "SourceSansProSemibold";
+  font-family: "brother_1816medium";
   font-weight: normal;
 }
