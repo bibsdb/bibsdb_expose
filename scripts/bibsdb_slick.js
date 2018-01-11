@@ -101,6 +101,8 @@
      */
      function _control_arrows() {
 
+      console.log($('.slick-prev'));
+
 			// Hide prev-arrow on load
 			$('.slick-prev').hide();
 
@@ -141,7 +143,7 @@
      function init() {
 
 
-      $('.open-platform-item-list').slick({
+      $('.not-front .open-platform-item-list').slick({
         infinite: false,
         slidesToShow: 5,
         slidesToScroll: 5,
@@ -160,9 +162,37 @@
         {
           breakpoint: 768,
           settings: {
-            arrows: false,
-            slidesToShow: 3,
-            slidesToScroll: 3
+            arrows: true,
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        }
+        ]
+      });
+
+      // Frontpage settings
+      $('.front .open-platform-item-list').slick({
+        infinite: false,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        arrows: true,
+        bibsdbFull: false,
+        bibsdbRunningRequest: false,
+        responsive: [
+        {
+          breakpoint: 940,
+          settings: {
+            arrows: true,
+            slidesToShow: 4,
+            slidesToScroll: 4
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         }
         ]

@@ -88,7 +88,7 @@ function bibsdb_expose_menu() {
     'file' => 'bibsdb_expose.pages.inc',
     );
 
-  $items['bibsdb_open_platform_query/content/ajax'] = array(
+  $items['bibsdb_open_platform_querybibsdb_expose_open_platform_new_materials_search/content/ajax'] = array(
     'title' => 'Fetch materials from open platform',
     'page callback' => 'bibsdb_expose_bibsdb_open_platform_query',
     'access arguments' => array('access content'),
@@ -329,7 +329,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       // Add slick
       _bibsdb_expose_add_slick_javascript_css();
 
-      $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 6);
+      $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 7);
 
       $carouselmarkup = array(
         '#type' => 'markup',
@@ -682,7 +682,8 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
   $slice = array();
 
   // Clear the cache for this nid. Enable when debugging.
-  //cache_clear_all("new_materials_search_".$nid, "cache", $wildcard = TRUE);
+  cache_clear_all("new_materials_search_".$nid, "cache", $wildcard = TRUE);
+  bibsdb_open_platform_get_token();
 
 
   // Get cached carousel content
@@ -691,7 +692,6 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
   if (isset($cache->data)) {
     $new_materials_arr = $cache->data;
   }
-
   // Is it relevant for this query? Is content count larger that the requested offset?
   // If yes return $length items starting from offset-index
   if (count($new_materials_arr) > $offset) {
@@ -707,7 +707,6 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
 
   // Query the open platform with the offset
   $results = bibsdb_open_platform_search($query, $offset);
-
 
   foreach ($results->data as $data) {
     // Skip materials without cover

@@ -5,45 +5,51 @@
  */
 
 
-
-
- .newmaterials {
-
-
+.newmaterials {
 
  	.title {
  		font-size: $font-size-large;
- 		font-family: "SourceSansProBold";
+ 		font-family: $font-extrabold;
  		font-weight: normal;
  		padding: 5px 0 20px 0;
  	}
 
  	.slick-arrow {
- 		min-height: 100%;
- 		width: 50px;
+ 		min-height: 40px;
+ 		width: 40px;
+ 		padding-bottom: 5px;
+ 		background-color: $mkh-blue1;
+ 		opacity: .80;
  	}
  	.slick-prev:before,
  	.slick-next:before {
- 		font-size: 40px;
- 		line-height: 1;
+ 		font-size: 35px;
  		opacity: .80;
- 		color: $white;
- 	}
+ 		color: white;
+    font-family: $font-extrabold;
+    line-height: 0.8;
+  }
 
  	.slick-prev {
- 		left: 1.5%;
+ 		left: 0;
  		top: 45%;
- 		z-index: 1001;
+ 		z-index: 1;
+ 		&:before {
+ 			content: '←';
+ 		}
  	}
 
  	.slick-next {
- 		right: 1.5%;
+ 		right: 0;
  		top: 45%;
-    background-position: -55px 0;
+    &:before {
+ 			content: '→';
+ 		}
  	}	
 
  	.open-platform-item-list {
  		height: 250px;
+ 		padding: 0 10px;
  	}
 
  	.open-platform-item {
