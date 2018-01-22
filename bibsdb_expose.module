@@ -88,7 +88,7 @@ function bibsdb_expose_menu() {
     'file' => 'bibsdb_expose.pages.inc',
     );
 
-  $items['bibsdb_open_platform_querybibsdb_expose_open_platform_new_materials_search/content/ajax'] = array(
+  $items['bibsdb_open_platform_query/content/ajax'] = array(
     'title' => 'Fetch materials from open platform',
     'page callback' => 'bibsdb_expose_bibsdb_open_platform_query',
     'access arguments' => array('access content'),
@@ -713,7 +713,7 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
     $id_arr = explode("|", $ac_identifier[0]);
 
     $item_info = array(
-      'local_id' => "754000-katalog:" . $id_arr[0], //Bad fix. Open Platform doesn't return the full id.
+      'local_id' => "870970-basis:" . $id_arr[0], //Bad fix. Open Platform doesn't return the full id.
       'owner_id' => $id_arr[1],
       'title' => $data->title[0],
       'author' => $data->creator[0],

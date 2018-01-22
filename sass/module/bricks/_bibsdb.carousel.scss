@@ -17,39 +17,37 @@
  	.slick-arrow {
  		min-height: 40px;
  		width: 40px;
- 		padding-bottom: 5px;
  		background-color: $mkh-blue1;
  		opacity: .80;
  	}
  	.slick-prev:before,
  	.slick-next:before {
- 		font-size: 35px;
- 		opacity: .80;
+ 		font-size: 30px;
+ 		opacity: .90;
  		color: white;
-    font-family: $font-extrabold;
-    line-height: 0.8;
+    font-family: FontAwesome;
+
   }
 
  	.slick-prev {
- 		left: 0;
+ 		left: 15px;
  		top: 45%;
  		z-index: 1;
  		&:before {
- 			content: '←';
+ 			content: "\f053";
  		}
  	}
 
  	.slick-next {
- 		right: 0;
+ 		right: 15px;
  		top: 45%;
     &:before {
- 			content: '→';
+ 			content: "\f054";
  		}
  	}	
 
  	.open-platform-item-list {
  		height: 250px;
- 		padding: 0 10px;
  	}
 
  	.open-platform-item {
