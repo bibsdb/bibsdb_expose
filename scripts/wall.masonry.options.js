@@ -7,11 +7,11 @@
     var $boxes = $('.brick');
     $boxes.hide();
 
-    var $container = $('.packery');
+    var $container = $('.masonry');
     $container.imagesLoaded( function() {
       $boxes.fadeIn();
 
-      $container.packery({
+      $container.masonry({
         itemSelector: '.brick',
         columnwidth : '.colwidth',
         gutter: '.gutterwidth',

@@ -1,5 +1,5 @@
 /**
- * Packery configuration
+ * masonry configuration
  *
  * @author agms
  */
@@ -50,7 +50,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 /* Sizing
 ========================================================================== */
 
-.packery {
+.masonry {
 
 	.colwidth {
 		width: (1/12 * 100%);
@@ -72,13 +72,13 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	}
 }
 
-.front .packery {
+.front .masonry {
 	.gutterwidth {
 		width: $frontgutter;
 	}
 }
 
-.packery {
+.masonry {
 
 	.brick { 
 		float: left;
@@ -243,7 +243,7 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 
 
 
-.packery {
+.masonry {
 	background-color: $white;
 
 	.brick {

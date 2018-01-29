@@ -47,7 +47,7 @@ function bibsdb_expose_preprocess_views_view__bibsdb_wall(&$vars) {
     array_push($vars['classes_array'], $colclass);
   }
 
-  array_push($vars['classes_array'], "packery");
+  array_push($vars['classes_array'], "masonry");
 
   // If there are no rows hide the wall
   if (empty($vars['rows'])) {

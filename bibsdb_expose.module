@@ -614,30 +614,10 @@ function _bibsdb_expose_url_is_internal($url) {
  * Wrapper function that adds the modules JavaScript.
  */
 function _bibsdb_expose_add_javascript() {
-  // We will add nothing if our required library is not present. This will have
-  // the desired effect of not showing anything to the user. The check could be
-  // better integrated in the theme hook, but this will do for now.
-  if ($library_path = libraries_get_path('packery')) {
-    drupal_add_library('system', 'ui.widget');
 
-    // Use the minified versions.
-    $library_path .= '';
-    $options = array('group' => JS_LIBRARY);
-    drupal_add_js($library_path . '/packery.pkgd.min.js', $options);
-  }
-
-  if ($library_path = libraries_get_path('imagesloaded')) {
-    drupal_add_library('system', 'ui.widget');
-
-    // Use the minified versions.
-    $library_path .= '';
-    $options = array('group' => JS_LIBRARY);
-    drupal_add_js($library_path . '/imagesloaded.pkgd.min.js', $options);
-  }
-
-  // Ad our own JS to control and setup packery.
+  // Ad our own JS to control and setup masonry.
   $module_path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_js($module_path . '/scripts/wall.packery.options.js');
+  drupal_add_js($module_path . '/scripts/wall.masonry.options.js');
   drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
 
 }
