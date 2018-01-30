@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function bibsdb_expose_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -20,7 +20,7 @@ function bibsdb_expose_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = '';
-  $export['group_bibsdb_background_image|node|ding_news|form'] = $field_group;
+  $field_groups['group_bibsdb_background_image|node|ding_news|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -32,7 +32,7 @@ function bibsdb_expose_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = '';
-  $export['group_bibsdb_fact_box|node|ding_news|form'] = $field_group;
+  $field_groups['group_bibsdb_fact_box|node|ding_news|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -65,7 +65,7 @@ function bibsdb_expose_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_bibsdb_wall|node|ding_group|form'] = $field_group;
+  $field_groups['group_bibsdb_wall|node|ding_group|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -98,7 +98,12 @@ function bibsdb_expose_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_bibsdb_wall|node|ding_page|form'] = $field_group;
+  $field_groups['group_bibsdb_wall|node|ding_page|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Wall Titles');
+  t('Wall titles');
+
+  return $field_groups;
 }

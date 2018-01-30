@@ -13,1037 +13,11 @@ function bibsdb_expose_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view__bibsdb-groups';
-  $handler->task = 'node_view';
-  $handler->subtask = '';
-  $handler->handler = 'panel_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'Bibsdb Groups',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'access' => array(
-      'logic' => 'and',
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'ding_group' => 'ding_group',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
-      ),
-    ),
-    'name' => 'bibsdb-groups',
-  );
-  $display = new panels_display();
-  $display->layout = '25_50_25';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'left_sidebar' => NULL,
-      'main_content' => NULL,
-      'right_sidebar' => NULL,
-      'attachment_4_1' => NULL,
-      'attachment_4_2' => NULL,
-      'attachment_4_3' => NULL,
-      'attachment_4_4' => NULL,
-      'attachment_3_1' => NULL,
-      'attachment_3_2' => NULL,
-      'attachment_3_3' => NULL,
-      'attachment_2_1' => NULL,
-      'attachment_2_2' => NULL,
-      'attachment_1_1' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = '4d5ebb9a-6744-4fab-b173-28619324b293';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-fff67ee4-207e-421d-9fd6-ad12b8078621';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'og_menu-og_single_menu_block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'fff67ee4-207e-421d-9fd6-ad12b8078621';
-    $display->content['new-fff67ee4-207e-421d-9fd6-ad12b8078621'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-fff67ee4-207e-421d-9fd6-ad12b8078621';
-    $pane = new stdClass();
-    $pane->pid = 'new-c9969c72-cf63-49ed-b371-61bb19780890';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'campaign';
-    $pane->subtype = 'campaign';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'ding_campaign_count' => 3,
-      'ding_campaign_offset' => 0,
-      'ding_campaign_image_style' => 'medium',
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-        1 => 'empty',
-        2 => 'empty',
-        3 => 'empty',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'c9969c72-cf63-49ed-b371-61bb19780890';
-    $display->content['new-c9969c72-cf63-49ed-b371-61bb19780890'] = $pane;
-    $display->panels['left_sidebar'][1] = 'new-c9969c72-cf63-49ed-b371-61bb19780890';
-    $pane = new stdClass();
-    $pane->pid = 'new-7dd3f895-e740-4c1e-a5c8-dd0d49a87cbf';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_group_title_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'cs_adaptive_image',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'image_link' => '',
-        'styles' => array(
-          'breakpoint_1' => '768',
-          'style_1' => 'ding_panorama_primary_medium',
-          'breakpoint_2' => '500',
-          'style_2' => 'ding_panorama_primary_small',
-          'max_style' => 'ding_panorama_primary_medium',
-          'fallback_style' => 'ding_panorama_primary_medium',
-        ),
-      ),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '7dd3f895-e740-4c1e-a5c8-dd0d49a87cbf';
-    $display->content['new-7dd3f895-e740-4c1e-a5c8-dd0d49a87cbf'] = $pane;
-    $display->panels['main_content'][0] = 'new-7dd3f895-e740-4c1e-a5c8-dd0d49a87cbf';
-    $pane = new stdClass();
-    $pane->pid = 'new-2d541291-f5de-469f-ab29-d97930300bee';
-    $pane->panel = 'main_content';
-    $pane->type = 'node_title';
-    $pane->subtype = 'node_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'link' => 0,
-      'markup' => 'h1',
-      'id' => '',
-      'class' => 'page-title',
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '2d541291-f5de-469f-ab29-d97930300bee';
-    $display->content['new-2d541291-f5de-469f-ab29-d97930300bee'] = $pane;
-    $display->panels['main_content'][1] = 'new-2d541291-f5de-469f-ab29-d97930300bee';
-    $pane = new stdClass();
-    $pane->pid = 'new-2e357f32-b169-4ebf-8cf5-66b1414f305a';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_group_lead';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '2e357f32-b169-4ebf-8cf5-66b1414f305a';
-    $display->content['new-2e357f32-b169-4ebf-8cf5-66b1414f305a'] = $pane;
-    $display->panels['main_content'][2] = 'new-2e357f32-b169-4ebf-8cf5-66b1414f305a';
-    $pane = new stdClass();
-    $pane->pid = 'new-342b3c78-fae6-4332-b0b0-6c9445232176';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '342b3c78-fae6-4332-b0b0-6c9445232176';
-    $display->content['new-342b3c78-fae6-4332-b0b0-6c9445232176'] = $pane;
-    $display->panels['main_content'][3] = 'new-342b3c78-fae6-4332-b0b0-6c9445232176';
-    $pane = new stdClass();
-    $pane->pid = 'new-5c76b05e-de14-4bc0-8ba4-4bad3cc3f7cf';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '179',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '5c76b05e-de14-4bc0-8ba4-4bad3cc3f7cf';
-    $display->content['new-5c76b05e-de14-4bc0-8ba4-4bad3cc3f7cf'] = $pane;
-    $display->panels['main_content'][4] = 'new-5c76b05e-de14-4bc0-8ba4-4bad3cc3f7cf';
-    $pane = new stdClass();
-    $pane->pid = 'new-89d8ff35-eb7a-4319-b486-71407d8fda54';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '89d8ff35-eb7a-4319-b486-71407d8fda54';
-    $display->content['new-89d8ff35-eb7a-4319-b486-71407d8fda54'] = $pane;
-    $display->panels['main_content'][5] = 'new-89d8ff35-eb7a-4319-b486-71407d8fda54';
-    $pane = new stdClass();
-    $pane->pid = 'new-3a5104c7-f48e-42af-9c8a-4408581cacb3';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '180',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = '3a5104c7-f48e-42af-9c8a-4408581cacb3';
-    $display->content['new-3a5104c7-f48e-42af-9c8a-4408581cacb3'] = $pane;
-    $display->panels['main_content'][6] = 'new-3a5104c7-f48e-42af-9c8a-4408581cacb3';
-    $pane = new stdClass();
-    $pane->pid = 'new-23cb1359-c432-4b02-ac8a-2def72e670e2';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_3';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 7;
-    $pane->locks = array();
-    $pane->uuid = '23cb1359-c432-4b02-ac8a-2def72e670e2';
-    $display->content['new-23cb1359-c432-4b02-ac8a-2def72e670e2'] = $pane;
-    $display->panels['main_content'][7] = 'new-23cb1359-c432-4b02-ac8a-2def72e670e2';
-    $pane = new stdClass();
-    $pane->pid = 'new-5944ec5a-12fa-4f74-8691-1001a461f6b5';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '181',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 8;
-    $pane->locks = array();
-    $pane->uuid = '5944ec5a-12fa-4f74-8691-1001a461f6b5';
-    $display->content['new-5944ec5a-12fa-4f74-8691-1001a461f6b5'] = $pane;
-    $display->panels['main_content'][8] = 'new-5944ec5a-12fa-4f74-8691-1001a461f6b5';
-    $pane = new stdClass();
-    $pane->pid = 'new-423a07c7-2aee-4f49-bd19-656a0dfdf093';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_group_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 9;
-    $pane->locks = array();
-    $pane->uuid = '423a07c7-2aee-4f49-bd19-656a0dfdf093';
-    $display->content['new-423a07c7-2aee-4f49-bd19-656a0dfdf093'] = $pane;
-    $display->panels['main_content'][9] = 'new-423a07c7-2aee-4f49-bd19-656a0dfdf093';
-    $pane = new stdClass();
-    $pane->pid = 'new-d0648589-5b2a-469e-a882-ebe876b687ef';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_4';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 10;
-    $pane->locks = array();
-    $pane->uuid = 'd0648589-5b2a-469e-a882-ebe876b687ef';
-    $display->content['new-d0648589-5b2a-469e-a882-ebe876b687ef'] = $pane;
-    $display->panels['main_content'][10] = 'new-d0648589-5b2a-469e-a882-ebe876b687ef';
-    $pane = new stdClass();
-    $pane->pid = 'new-d7d4afc2-d36b-4c6d-8a67-95c4d8b137b3';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '182',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 11;
-    $pane->locks = array();
-    $pane->uuid = 'd7d4afc2-d36b-4c6d-8a67-95c4d8b137b3';
-    $display->content['new-d7d4afc2-d36b-4c6d-8a67-95c4d8b137b3'] = $pane;
-    $display->panels['main_content'][11] = 'new-d7d4afc2-d36b-4c6d-8a67-95c4d8b137b3';
-    $pane = new stdClass();
-    $pane->pid = 'new-337297ef-3570-49ce-8c8d-1f9c618544cd';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_5';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 12;
-    $pane->locks = array();
-    $pane->uuid = '337297ef-3570-49ce-8c8d-1f9c618544cd';
-    $display->content['new-337297ef-3570-49ce-8c8d-1f9c618544cd'] = $pane;
-    $display->panels['main_content'][12] = 'new-337297ef-3570-49ce-8c8d-1f9c618544cd';
-    $pane = new stdClass();
-    $pane->pid = 'new-9da8c982-2b61-4be1-b5bb-401562641afc';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '183',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 13;
-    $pane->locks = array();
-    $pane->uuid = '9da8c982-2b61-4be1-b5bb-401562641afc';
-    $display->content['new-9da8c982-2b61-4be1-b5bb-401562641afc'] = $pane;
-    $display->panels['main_content'][13] = 'new-9da8c982-2b61-4be1-b5bb-401562641afc';
-    $pane = new stdClass();
-    $pane->pid = 'new-47297131-89d9-4b08-9035-4ce235f8ae3a';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_wall_title_6';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'bibsdb_wall_title_formatter',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall-title',
-    );
-    $pane->extras = array();
-    $pane->position = 14;
-    $pane->locks = array();
-    $pane->uuid = '47297131-89d9-4b08-9035-4ce235f8ae3a';
-    $display->content['new-47297131-89d9-4b08-9035-4ce235f8ae3a'] = $pane;
-    $display->panels['main_content'][14] = 'new-47297131-89d9-4b08-9035-4ce235f8ae3a';
-    $pane = new stdClass();
-    $pane->pid = 'new-cb201141-acf0-469a-94c6-1c428d578833';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '184',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 15;
-    $pane->locks = array();
-    $pane->uuid = 'cb201141-acf0-469a-94c6-1c428d578833';
-    $display->content['new-cb201141-acf0-469a-94c6-1c428d578833'] = $pane;
-    $display->panels['main_content'][15] = 'new-cb201141-acf0-469a-94c6-1c428d578833';
-    $pane = new stdClass();
-    $pane->pid = 'new-668dfc7d-4d91-4dff-ad05-ae9da59a4d43';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_news-ding_news_groups_list';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'ding-group-news',
-    );
-    $pane->extras = array();
-    $pane->position = 16;
-    $pane->locks = array();
-    $pane->uuid = '668dfc7d-4d91-4dff-ad05-ae9da59a4d43';
-    $display->content['new-668dfc7d-4d91-4dff-ad05-ae9da59a4d43'] = $pane;
-    $display->panels['main_content'][16] = 'new-668dfc7d-4d91-4dff-ad05-ae9da59a4d43';
-    $pane = new stdClass();
-    $pane->pid = 'new-3bc42ce7-ca5f-4e5c-9176-2bcbaecc961a';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_event-ding_event_groups_list';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'ding-group-events',
-    );
-    $pane->extras = array();
-    $pane->position = 17;
-    $pane->locks = array();
-    $pane->uuid = '3bc42ce7-ca5f-4e5c-9176-2bcbaecc961a';
-    $display->content['new-3bc42ce7-ca5f-4e5c-9176-2bcbaecc961a'] = $pane;
-    $display->panels['main_content'][17] = 'new-3bc42ce7-ca5f-4e5c-9176-2bcbaecc961a';
-    $pane = new stdClass();
-    $pane->pid = 'new-103e6edb-58ce-4fdc-8161-707267b6d254';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_group_body_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 18;
-    $pane->locks = array();
-    $pane->uuid = '103e6edb-58ce-4fdc-8161-707267b6d254';
-    $display->content['new-103e6edb-58ce-4fdc-8161-707267b6d254'] = $pane;
-    $display->panels['main_content'][18] = 'new-103e6edb-58ce-4fdc-8161-707267b6d254';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $export['node_view__bibsdb-groups'] = $handler;
-
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'node_view__bibsdb-new-materials';
-  $handler->task = 'node_view';
-  $handler->subtask = '';
-  $handler->handler = 'panel_context';
-  $handler->weight = -30;
-  $handler->conf = array(
-    'title' => 'Bibsdb New Materials',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'new_materials' => 'new_materials',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
-    'name' => 'bibsdb-new-materials',
-  );
-  $display = new panels_display();
-  $display->layout = '25_50_25';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'left_sidebar' => NULL,
-      'main_content' => NULL,
-      'right_sidebar' => NULL,
-      'attachment_4_1' => NULL,
-      'attachment_4_2' => NULL,
-      'attachment_4_3' => NULL,
-      'attachment_4_4' => NULL,
-      'attachment_3_1' => NULL,
-      'attachment_3_2' => NULL,
-      'attachment_3_3' => NULL,
-      'attachment_2_1' => NULL,
-      'attachment_2_2' => NULL,
-      'attachment_1_1' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = '36835cd4-cd1b-4616-a833-0ecb235494cb';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-0e287121-f776-49bb-8663-c4a21de2a5b6';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'menu_block-3';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '0e287121-f776-49bb-8663-c4a21de2a5b6';
-    $display->content['new-0e287121-f776-49bb-8663-c4a21de2a5b6'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-0e287121-f776-49bb-8663-c4a21de2a5b6';
-    $pane = new stdClass();
-    $pane->pid = 'new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
-    $pane->panel = 'main_content';
-    $pane->type = 'new_materials_list';
-    $pane->subtype = 'new_materials_list';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
-    $display->content['new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156'] = $pane;
-    $display->panels['main_content'][0] = 'new-97e6f0b5-13df-4bd1-a6de-6b96c3ad4156';
-    $pane = new stdClass();
-    $pane->pid = 'new-cd1bb14b-bf56-4dca-bed7-edb8ee8e2eee';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '213',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'cd1bb14b-bf56-4dca-bed7-edb8ee8e2eee';
-    $display->content['new-cd1bb14b-bf56-4dca-bed7-edb8ee8e2eee'] = $pane;
-    $display->panels['main_content'][1] = 'new-cd1bb14b-bf56-4dca-bed7-edb8ee8e2eee';
-    $pane = new stdClass();
-    $pane->pid = 'new-fe1f7879-4b8e-4ecb-a556-a04492c20b8d';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_bibsdb_new_materials_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'fe1f7879-4b8e-4ecb-a556-a04492c20b8d';
-    $display->content['new-fe1f7879-4b8e-4ecb-a556-a04492c20b8d'] = $pane;
-    $display->panels['main_content'][2] = 'new-fe1f7879-4b8e-4ecb-a556-a04492c20b8d';
-    $pane = new stdClass();
-    $pane->pid = 'new-887d8b15-ea95-424b-a9ce-bccc69001a14';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '191',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '887d8b15-ea95-424b-a9ce-bccc69001a14';
-    $display->content['new-887d8b15-ea95-424b-a9ce-bccc69001a14'] = $pane;
-    $display->panels['main_content'][3] = 'new-887d8b15-ea95-424b-a9ce-bccc69001a14';
-    $pane = new stdClass();
-    $pane->pid = 'new-79bb34f0-b853-47e6-ac12-24c12720f384';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '192',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '79bb34f0-b853-47e6-ac12-24c12720f384';
-    $display->content['new-79bb34f0-b853-47e6-ac12-24c12720f384'] = $pane;
-    $display->panels['main_content'][4] = 'new-79bb34f0-b853-47e6-ac12-24c12720f384';
-    $pane = new stdClass();
-    $pane->pid = 'new-1f8c920a-7f23-4c76-bf6f-a7511ccf6ab6';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '214',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '1f8c920a-7f23-4c76-bf6f-a7511ccf6ab6';
-    $display->content['new-1f8c920a-7f23-4c76-bf6f-a7511ccf6ab6'] = $pane;
-    $display->panels['main_content'][5] = 'new-1f8c920a-7f23-4c76-bf6f-a7511ccf6ab6';
-    $pane = new stdClass();
-    $pane->pid = 'new-73ed3f13-ecc3-4473-8c7a-3ee73708ac26';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '215',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = '73ed3f13-ecc3-4473-8c7a-3ee73708ac26';
-    $display->content['new-73ed3f13-ecc3-4473-8c7a-3ee73708ac26'] = $pane;
-    $display->panels['main_content'][6] = 'new-73ed3f13-ecc3-4473-8c7a-3ee73708ac26';
-    $pane = new stdClass();
-    $pane->pid = 'new-b6e688be-2382-4891-89ef-6d20a3f9e99a';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '216',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 7;
-    $pane->locks = array();
-    $pane->uuid = 'b6e688be-2382-4891-89ef-6d20a3f9e99a';
-    $display->content['new-b6e688be-2382-4891-89ef-6d20a3f9e99a'] = $pane;
-    $display->panels['main_content'][7] = 'new-b6e688be-2382-4891-89ef-6d20a3f9e99a';
-    $pane = new stdClass();
-    $pane->pid = 'new-ba95363e-a4f9-4501-bde7-8a4bfc594d71';
-    $pane->panel = 'main_content';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '217',
-        'field_bibsdb_hosting_node_target_id' => '%node:nid',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall',
-    );
-    $pane->extras = array();
-    $pane->position = 8;
-    $pane->locks = array();
-    $pane->uuid = 'ba95363e-a4f9-4501-bde7-8a4bfc594d71';
-    $display->content['new-ba95363e-a4f9-4501-bde7-8a4bfc594d71'] = $pane;
-    $display->panels['main_content'][8] = 'new-ba95363e-a4f9-4501-bde7-8a4bfc594d71';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $export['node_view__bibsdb-new-materials'] = $handler;
-
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'node_view__bibsdb-page';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'Bibsdb Page',
     'no_blocks' => 0,
@@ -1130,6 +104,73 @@ function bibsdb_expose_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-cc5c609c-5ad8-4a91-abf2-3b9befd8f376';
+    $pane->panel = 'attachment_1_1';
+    $pane->type = 'campaign';
+    $pane->subtype = 'campaign';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'ding_campaign_count' => 3,
+      'ding_campaign_offset' => 0,
+      'ding_campaign_style' => 'ding_campaign_full_width',
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+        1 => 'argument_entity_id:node_1',
+        2 => 'empty',
+        3 => 'relationship_terms_from_node_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'cc5c609c-5ad8-4a91-abf2-3b9befd8f376';
+    $display->content['new-cc5c609c-5ad8-4a91-abf2-3b9befd8f376'] = $pane;
+    $display->panels['attachment_1_1'][0] = 'new-cc5c609c-5ad8-4a91-abf2-3b9befd8f376';
+    $pane = new stdClass();
+    $pane->pid = 'new-7d600a9c-d723-45a7-bd21-59af1a691ca4';
+    $pane->panel = 'attachment_1_1';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_ding_page_materials';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'ding_carousel',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'view_mode' => 'teaser',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'grid-small no-gradient',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '7d600a9c-d723-45a7-bd21-59af1a691ca4';
+    $display->content['new-7d600a9c-d723-45a7-bd21-59af1a691ca4'] = $pane;
+    $display->panels['attachment_1_1'][1] = 'new-7d600a9c-d723-45a7-bd21-59af1a691ca4';
+    $pane = new stdClass();
     $pane->pid = 'new-c857a1ef-6bb2-4f95-94ae-d176d79a7265';
     $pane->panel = 'left_sidebar';
     $pane->type = 'block';
@@ -1156,7 +197,7 @@ function bibsdb_expose_default_page_manager_handlers() {
     $pane->panel = 'left_sidebar';
     $pane->type = 'block';
     $pane->subtype = 'menu_block-4';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 0,
@@ -1254,108 +295,40 @@ function bibsdb_expose_default_page_manager_handlers() {
     $display->content['new-0d732c8e-6a2e-4993-ba6f-7cb2025bada6'] = $pane;
     $display->panels['left_sidebar'][4] = 'new-0d732c8e-6a2e-4993-ba6f-7cb2025bada6';
     $pane = new stdClass();
-    $pane->pid = 'new-f157bf13-9682-4c24-827a-c5b54bbef026';
+    $pane->pid = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
     $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_page_title_image';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'cs_adaptive_image',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'image_link' => '',
-        'styles' => array(
-          'breakpoint_1' => '768',
-          'style_1' => 'ding_panorama_primary_medium',
-          'breakpoint_2' => '500',
-          'style_2' => 'ding_panorama_primary_small',
-          'max_style' => 'ding_panorama_primary_medium',
-          'fallback_style' => 'ding_panorama_primary_medium',
-        ),
-      ),
-      'context' => 'argument_entity_id:node_1',
+      'links' => 1,
+      'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
-      'override_title_heading' => 'h2',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => '0',
+      'settings' => array(),
+    );
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'f157bf13-9682-4c24-827a-c5b54bbef026';
-    $display->content['new-f157bf13-9682-4c24-827a-c5b54bbef026'] = $pane;
-    $display->panels['main_content'][0] = 'new-f157bf13-9682-4c24-827a-c5b54bbef026';
+    $pane->locks = '';
+    $pane->uuid = '33f78b6a-3147-455f-b437-70261fe3426c';
+    $display->content['new-33f78b6a-3147-455f-b437-70261fe3426c'] = $pane;
+    $display->panels['main_content'][0] = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
     $pane = new stdClass();
-    $pane->pid = 'new-67d349d8-2f4a-4bf6-b6b2-13b0602a594d';
-    $pane->panel = 'main_content';
-    $pane->type = 'node_title';
-    $pane->subtype = 'node_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'link' => 0,
-      'markup' => 'h1',
-      'id' => '',
-      'class' => 'page-title',
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h3',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '67d349d8-2f4a-4bf6-b6b2-13b0602a594d';
-    $display->content['new-67d349d8-2f4a-4bf6-b6b2-13b0602a594d'] = $pane;
-    $display->panels['main_content'][1] = 'new-67d349d8-2f4a-4bf6-b6b2-13b0602a594d';
-    $pane = new stdClass();
-    $pane->pid = 'new-c1b6116b-dc3c-44bd-a4fc-f76065db8d96';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_page_lead';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'c1b6116b-dc3c-44bd-a4fc-f76065db8d96';
-    $display->content['new-c1b6116b-dc3c-44bd-a4fc-f76065db8d96'] = $pane;
-    $display->panels['main_content'][2] = 'new-c1b6116b-dc3c-44bd-a4fc-f76065db8d96';
-    $pane = new stdClass();
-    $pane->pid = 'new-632d3fa2-eec4-4615-975c-2de665636e64';
+    $pane->pid = 'new-d8c14951-b490-45f8-954e-9002e156e2bc';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_1';
@@ -1382,13 +355,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '632d3fa2-eec4-4615-975c-2de665636e64';
-    $display->content['new-632d3fa2-eec4-4615-975c-2de665636e64'] = $pane;
-    $display->panels['main_content'][3] = 'new-632d3fa2-eec4-4615-975c-2de665636e64';
+    $pane->uuid = 'd8c14951-b490-45f8-954e-9002e156e2bc';
+    $display->content['new-d8c14951-b490-45f8-954e-9002e156e2bc'] = $pane;
+    $display->panels['main_content'][1] = 'new-d8c14951-b490-45f8-954e-9002e156e2bc';
     $pane = new stdClass();
-    $pane->pid = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
+    $pane->pid = 'new-2a0c0da9-ab8b-4691-8b94-573ca039f34d';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1409,13 +382,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
-    $display->content['new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4'] = $pane;
-    $display->panels['main_content'][4] = 'new-a306f5ac-ebc1-4c6a-82b2-77552c6666b4';
+    $pane->uuid = '2a0c0da9-ab8b-4691-8b94-573ca039f34d';
+    $display->content['new-2a0c0da9-ab8b-4691-8b94-573ca039f34d'] = $pane;
+    $display->panels['main_content'][2] = 'new-2a0c0da9-ab8b-4691-8b94-573ca039f34d';
     $pane = new stdClass();
-    $pane->pid = 'new-8a2f2fd9-3f7a-466a-bc79-93b68a9f96a2';
+    $pane->pid = 'new-8f23b651-8dd8-4f0a-8016-acce68b9aeeb';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_2';
@@ -1442,13 +415,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = '8a2f2fd9-3f7a-466a-bc79-93b68a9f96a2';
-    $display->content['new-8a2f2fd9-3f7a-466a-bc79-93b68a9f96a2'] = $pane;
-    $display->panels['main_content'][5] = 'new-8a2f2fd9-3f7a-466a-bc79-93b68a9f96a2';
+    $pane->uuid = '8f23b651-8dd8-4f0a-8016-acce68b9aeeb';
+    $display->content['new-8f23b651-8dd8-4f0a-8016-acce68b9aeeb'] = $pane;
+    $display->panels['main_content'][3] = 'new-8f23b651-8dd8-4f0a-8016-acce68b9aeeb';
     $pane = new stdClass();
-    $pane->pid = 'new-3ab3d3c1-e8a8-4c80-980c-7172ae380d7b';
+    $pane->pid = 'new-8b668c6e-15cb-4df9-8b7b-123c263afba0';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1469,13 +442,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 4;
     $pane->locks = array();
-    $pane->uuid = '3ab3d3c1-e8a8-4c80-980c-7172ae380d7b';
-    $display->content['new-3ab3d3c1-e8a8-4c80-980c-7172ae380d7b'] = $pane;
-    $display->panels['main_content'][6] = 'new-3ab3d3c1-e8a8-4c80-980c-7172ae380d7b';
+    $pane->uuid = '8b668c6e-15cb-4df9-8b7b-123c263afba0';
+    $display->content['new-8b668c6e-15cb-4df9-8b7b-123c263afba0'] = $pane;
+    $display->panels['main_content'][4] = 'new-8b668c6e-15cb-4df9-8b7b-123c263afba0';
     $pane = new stdClass();
-    $pane->pid = 'new-ff271351-8d26-4033-898c-0e3c7f3abd3c';
+    $pane->pid = 'new-59d161df-c9af-438e-890e-5ce80bf5016a';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_3';
@@ -1502,13 +475,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = 'ff271351-8d26-4033-898c-0e3c7f3abd3c';
-    $display->content['new-ff271351-8d26-4033-898c-0e3c7f3abd3c'] = $pane;
-    $display->panels['main_content'][7] = 'new-ff271351-8d26-4033-898c-0e3c7f3abd3c';
+    $pane->uuid = '59d161df-c9af-438e-890e-5ce80bf5016a';
+    $display->content['new-59d161df-c9af-438e-890e-5ce80bf5016a'] = $pane;
+    $display->panels['main_content'][5] = 'new-59d161df-c9af-438e-890e-5ce80bf5016a';
     $pane = new stdClass();
-    $pane->pid = 'new-fef4076b-159f-44f0-8c35-d2c31ecdf47b';
+    $pane->pid = 'new-032e474f-2b34-4dfd-a2a3-555de509d074';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1529,43 +502,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 6;
     $pane->locks = array();
-    $pane->uuid = 'fef4076b-159f-44f0-8c35-d2c31ecdf47b';
-    $display->content['new-fef4076b-159f-44f0-8c35-d2c31ecdf47b'] = $pane;
-    $display->panels['main_content'][8] = 'new-fef4076b-159f-44f0-8c35-d2c31ecdf47b';
+    $pane->uuid = '032e474f-2b34-4dfd-a2a3-555de509d074';
+    $display->content['new-032e474f-2b34-4dfd-a2a3-555de509d074'] = $pane;
+    $display->panels['main_content'][6] = 'new-032e474f-2b34-4dfd-a2a3-555de509d074';
     $pane = new stdClass();
-    $pane->pid = 'new-9c247d07-a07d-422d-a0a8-d9a3c320abf2';
-    $pane->panel = 'main_content';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ding_page_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 9;
-    $pane->locks = array();
-    $pane->uuid = '9c247d07-a07d-422d-a0a8-d9a3c320abf2';
-    $display->content['new-9c247d07-a07d-422d-a0a8-d9a3c320abf2'] = $pane;
-    $display->panels['main_content'][9] = 'new-9c247d07-a07d-422d-a0a8-d9a3c320abf2';
-    $pane = new stdClass();
-    $pane->pid = 'new-a2fd3b6e-754a-476f-8770-b272d29bf189';
+    $pane->pid = 'new-46955cd9-2475-4f19-b9aa-439834050a62';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_4';
@@ -1592,13 +535,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 7;
     $pane->locks = array();
-    $pane->uuid = 'a2fd3b6e-754a-476f-8770-b272d29bf189';
-    $display->content['new-a2fd3b6e-754a-476f-8770-b272d29bf189'] = $pane;
-    $display->panels['main_content'][10] = 'new-a2fd3b6e-754a-476f-8770-b272d29bf189';
+    $pane->uuid = '46955cd9-2475-4f19-b9aa-439834050a62';
+    $display->content['new-46955cd9-2475-4f19-b9aa-439834050a62'] = $pane;
+    $display->panels['main_content'][7] = 'new-46955cd9-2475-4f19-b9aa-439834050a62';
     $pane = new stdClass();
-    $pane->pid = 'new-2169468b-2ec5-45ff-9963-645da7ccbdc1';
+    $pane->pid = 'new-5c2ce0d4-6cd6-4cf4-81f2-b0924af8c865';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1619,13 +562,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 8;
     $pane->locks = array();
-    $pane->uuid = '2169468b-2ec5-45ff-9963-645da7ccbdc1';
-    $display->content['new-2169468b-2ec5-45ff-9963-645da7ccbdc1'] = $pane;
-    $display->panels['main_content'][11] = 'new-2169468b-2ec5-45ff-9963-645da7ccbdc1';
+    $pane->uuid = '5c2ce0d4-6cd6-4cf4-81f2-b0924af8c865';
+    $display->content['new-5c2ce0d4-6cd6-4cf4-81f2-b0924af8c865'] = $pane;
+    $display->panels['main_content'][8] = 'new-5c2ce0d4-6cd6-4cf4-81f2-b0924af8c865';
     $pane = new stdClass();
-    $pane->pid = 'new-b08f5f9b-22a2-4527-8aa7-5191be56d4e3';
+    $pane->pid = 'new-9a3bc14f-030c-43a5-9f5e-8e1405462b1d';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_5';
@@ -1652,13 +595,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 9;
     $pane->locks = array();
-    $pane->uuid = 'b08f5f9b-22a2-4527-8aa7-5191be56d4e3';
-    $display->content['new-b08f5f9b-22a2-4527-8aa7-5191be56d4e3'] = $pane;
-    $display->panels['main_content'][12] = 'new-b08f5f9b-22a2-4527-8aa7-5191be56d4e3';
+    $pane->uuid = '9a3bc14f-030c-43a5-9f5e-8e1405462b1d';
+    $display->content['new-9a3bc14f-030c-43a5-9f5e-8e1405462b1d'] = $pane;
+    $display->panels['main_content'][9] = 'new-9a3bc14f-030c-43a5-9f5e-8e1405462b1d';
     $pane = new stdClass();
-    $pane->pid = 'new-393f6a41-9296-498f-9542-7a7e94361e89';
+    $pane->pid = 'new-23be3875-8982-4136-bd82-bfa0a42d6959';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1679,13 +622,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 13;
+    $pane->position = 10;
     $pane->locks = array();
-    $pane->uuid = '393f6a41-9296-498f-9542-7a7e94361e89';
-    $display->content['new-393f6a41-9296-498f-9542-7a7e94361e89'] = $pane;
-    $display->panels['main_content'][13] = 'new-393f6a41-9296-498f-9542-7a7e94361e89';
+    $pane->uuid = '23be3875-8982-4136-bd82-bfa0a42d6959';
+    $display->content['new-23be3875-8982-4136-bd82-bfa0a42d6959'] = $pane;
+    $display->panels['main_content'][10] = 'new-23be3875-8982-4136-bd82-bfa0a42d6959';
     $pane = new stdClass();
-    $pane->pid = 'new-be3678af-1f77-4e75-add8-1a0c669c502a';
+    $pane->pid = 'new-03856e77-8c0e-4ad4-83d1-07cf7a56d912';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_wall_title_6';
@@ -1712,13 +655,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall-title',
     );
     $pane->extras = array();
-    $pane->position = 14;
+    $pane->position = 11;
     $pane->locks = array();
-    $pane->uuid = 'be3678af-1f77-4e75-add8-1a0c669c502a';
-    $display->content['new-be3678af-1f77-4e75-add8-1a0c669c502a'] = $pane;
-    $display->panels['main_content'][14] = 'new-be3678af-1f77-4e75-add8-1a0c669c502a';
+    $pane->uuid = '03856e77-8c0e-4ad4-83d1-07cf7a56d912';
+    $display->content['new-03856e77-8c0e-4ad4-83d1-07cf7a56d912'] = $pane;
+    $display->panels['main_content'][11] = 'new-03856e77-8c0e-4ad4-83d1-07cf7a56d912';
     $pane = new stdClass();
-    $pane->pid = 'new-0c23accc-fd15-45a6-8496-a72981328862';
+    $pane->pid = 'new-abc59ae9-0f23-489d-9678-87fcbeb6adbc';
     $pane->panel = 'main_content';
     $pane->type = 'views_panes';
     $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
@@ -1739,13 +682,13 @@ function bibsdb_expose_default_page_manager_handlers() {
       'css_class' => 'wall',
     );
     $pane->extras = array();
-    $pane->position = 15;
+    $pane->position = 12;
     $pane->locks = array();
-    $pane->uuid = '0c23accc-fd15-45a6-8496-a72981328862';
-    $display->content['new-0c23accc-fd15-45a6-8496-a72981328862'] = $pane;
-    $display->panels['main_content'][15] = 'new-0c23accc-fd15-45a6-8496-a72981328862';
+    $pane->uuid = 'abc59ae9-0f23-489d-9678-87fcbeb6adbc';
+    $display->content['new-abc59ae9-0f23-489d-9678-87fcbeb6adbc'] = $pane;
+    $display->panels['main_content'][12] = 'new-abc59ae9-0f23-489d-9678-87fcbeb6adbc';
     $pane = new stdClass();
-    $pane->pid = 'new-6c8ad5b8-02e2-4261-92fe-30c745f56c0e';
+    $pane->pid = 'new-eda863cd-30ef-48de-b920-166dd93341b5';
     $pane->panel = 'main_content';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_bibsdb_page_body_2';
@@ -1769,341 +712,15 @@ function bibsdb_expose_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
+    $pane->position = 13;
     $pane->locks = array();
-    $pane->uuid = '6c8ad5b8-02e2-4261-92fe-30c745f56c0e';
-    $display->content['new-6c8ad5b8-02e2-4261-92fe-30c745f56c0e'] = $pane;
-    $display->panels['main_content'][16] = 'new-6c8ad5b8-02e2-4261-92fe-30c745f56c0e';
+    $pane->uuid = 'eda863cd-30ef-48de-b920-166dd93341b5';
+    $display->content['new-eda863cd-30ef-48de-b920-166dd93341b5'] = $pane;
+    $display->panels['main_content'][13] = 'new-eda863cd-30ef-48de-b920-166dd93341b5';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-33f78b6a-3147-455f-b437-70261fe3426c';
   $handler->conf['display'] = $display;
   $export['node_view__bibsdb-page'] = $handler;
-
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'page_ding_frontpage__bibsdb-frontpage';
-  $handler->task = 'page';
-  $handler->subtask = 'ding_frontpage';
-  $handler->handler = 'panel_context';
-  $handler->weight = -1;
-  $handler->conf = array(
-    'title' => 'Bibsdb frontpage',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'name' => 'bibsdb-frontpage',
-  );
-  $display = new panels_display();
-  $display->layout = 'ding_layout_1';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => NULL,
-      'right' => NULL,
-      'bottom' => NULL,
-      'top_secondary' => NULL,
-      'main_content' => NULL,
-      'main_left_right' => NULL,
-      'main_right_right' => NULL,
-      'attachment_4_1' => NULL,
-      'attachment_4_2' => NULL,
-      'attachment_4_3' => NULL,
-      'attachment_4_4' => NULL,
-      'attachment_3_1' => NULL,
-      'attachment_3_2' => NULL,
-      'attachment_3_3' => NULL,
-      'attachment_2_1' => NULL,
-      'attachment_2_2' => NULL,
-      'attachment_1_1' => NULL,
-      'primary' => NULL,
-      'secondary' => NULL,
-      'tertiary' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = '6795d6ae-3c57-4fb4-b339-3d6373acce88';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-a3e659f7-e285-4383-aefa-dd87b563ade6';
-    $pane->panel = 'attachment_1_1';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_groups-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'a3e659f7-e285-4383-aefa-dd87b563ade6';
-    $display->content['new-a3e659f7-e285-4383-aefa-dd87b563ade6'] = $pane;
-    $display->panels['attachment_1_1'][0] = 'new-a3e659f7-e285-4383-aefa-dd87b563ade6';
-    $pane = new stdClass();
-    $pane->pid = 'new-cb757298-d688-4328-8462-97b388fd2ce8';
-    $pane->panel = 'attachment_1_1';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '206',
-        'field_bibsdb_hosting_node_target_id' => '',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall front',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'cb757298-d688-4328-8462-97b388fd2ce8';
-    $display->content['new-cb757298-d688-4328-8462-97b388fd2ce8'] = $pane;
-    $display->panels['attachment_1_1'][1] = 'new-cb757298-d688-4328-8462-97b388fd2ce8';
-    $pane = new stdClass();
-    $pane->pid = 'new-74a49488-f11d-40b6-8211-52e84c8b296a';
-    $pane->panel = 'primary';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_tabroll-ding_frontpage_tabroll';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'frontpage_promoter',
-          'settings' => array(
-            'promoter' => 'ding_tabroll',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '74a49488-f11d-40b6-8211-52e84c8b296a';
-    $display->content['new-74a49488-f11d-40b6-8211-52e84c8b296a'] = $pane;
-    $display->panels['primary'][0] = 'new-74a49488-f11d-40b6-8211-52e84c8b296a';
-    $pane = new stdClass();
-    $pane->pid = 'new-13c9073b-4ef4-477c-9e54-740707330ed8';
-    $pane->panel = 'primary';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bibsdb_wall-panel_bibsdb_wall';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'field_bibsdb_wall_tid' => '298',
-        'field_bibsdb_hosting_node_target_id' => '',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'wall front',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '13c9073b-4ef4-477c-9e54-740707330ed8';
-    $display->content['new-13c9073b-4ef4-477c-9e54-740707330ed8'] = $pane;
-    $display->panels['primary'][1] = 'new-13c9073b-4ef4-477c-9e54-740707330ed8';
-    $pane = new stdClass();
-    $pane->pid = 'new-89ac7869-8f53-4b2d-a1b6-0c30726134b6';
-    $pane->panel = 'primary';
-    $pane->type = 'interaction_pane';
-    $pane->subtype = 'interaction_pane';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'count' => '5',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array(
-      'method' => 'lazy',
-      'settings' => array(
-        'load_strategy' => 'page-loaded',
-        'show_spinner' => 0,
-        'load_text' => '',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '89ac7869-8f53-4b2d-a1b6-0c30726134b6';
-    $display->content['new-89ac7869-8f53-4b2d-a1b6-0c30726134b6'] = $pane;
-    $display->panels['primary'][2] = 'new-89ac7869-8f53-4b2d-a1b6-0c30726134b6';
-    $pane = new stdClass();
-    $pane->pid = 'new-1ced497e-329b-4f00-a19e-60b0d55029e4';
-    $pane->panel = 'primary';
-    $pane->type = 'serendipity_ting_object';
-    $pane->subtype = 'serendipity_ting_object';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'compact',
-      'sort_weight' => FALSE,
-      'max' => '20',
-      'min' => '10',
-      'random' => 1,
-      'selected_keys' => array(
-        'ting_object' => 'ting_object',
-        'frontpage' => 'frontpage',
-      ),
-      'context' => array(
-        0 => 'empty',
-        1 => 'empty',
-        2 => 'empty',
-        3 => 'empty',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array(
-      'method' => 'lazy',
-      'settings' => array(
-        'load_strategy' => 'page-loaded',
-        'show_spinner' => 0,
-        'load_text' => '',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '1ced497e-329b-4f00-a19e-60b0d55029e4';
-    $display->content['new-1ced497e-329b-4f00-a19e-60b0d55029e4'] = $pane;
-    $display->panels['primary'][3] = 'new-1ced497e-329b-4f00-a19e-60b0d55029e4';
-    $pane = new stdClass();
-    $pane->pid = 'new-de39b33a-c18b-4584-b58d-ac5503bd2e8f';
-    $pane->panel = 'primary';
-    $pane->type = 'popular';
-    $pane->subtype = 'popular';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'month' => '',
-      'libcode' => 0,
-      'override_title' => 1,
-      'override_title_text' => 'Månedens populæreste titler',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = 'de39b33a-c18b-4584-b58d-ac5503bd2e8f';
-    $display->content['new-de39b33a-c18b-4584-b58d-ac5503bd2e8f'] = $pane;
-    $display->panels['primary'][4] = 'new-de39b33a-c18b-4584-b58d-ac5503bd2e8f';
-    $pane = new stdClass();
-    $pane->pid = 'new-20a8af4e-90a0-42a4-be60-89cb72e44127';
-    $pane->panel = 'secondary';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_news-ding_news_frontpage_list';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Library news',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '20a8af4e-90a0-42a4-be60-89cb72e44127';
-    $display->content['new-20a8af4e-90a0-42a4-be60-89cb72e44127'] = $pane;
-    $display->panels['secondary'][0] = 'new-20a8af4e-90a0-42a4-be60-89cb72e44127';
-    $pane = new stdClass();
-    $pane->pid = 'new-1235d134-3c15-4d11-86e4-a48f9c8737b3';
-    $pane->panel = 'tertiary';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ding_event-ding_event_list_frontpage';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '1235d134-3c15-4d11-86e4-a48f9c8737b3';
-    $display->content['new-1235d134-3c15-4d11-86e4-a48f9c8737b3'] = $pane;
-    $display->panels['tertiary'][0] = 'new-1235d134-3c15-4d11-86e4-a48f9c8737b3';
-    $pane = new stdClass();
-    $pane->pid = 'new-b14f0ccc-f81c-4267-b843-2fd333f260f8';
-    $pane->panel = 'tertiary';
-    $pane->type = 'block';
-    $pane->subtype = 'finurlig_widget-fffWidget';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Finurlige fakta',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'b14f0ccc-f81c-4267-b843-2fd333f260f8';
-    $display->content['new-b14f0ccc-f81c-4267-b843-2fd333f260f8'] = $pane;
-    $display->panels['tertiary'][1] = 'new-b14f0ccc-f81c-4267-b843-2fd333f260f8';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $export['page_ding_frontpage__bibsdb-frontpage'] = $handler;
 
   return $export;
 }
