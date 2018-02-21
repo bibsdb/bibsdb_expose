@@ -8,51 +8,28 @@
 .newmaterials {
 
  	.title {
- 		font-size: $font-size-large;
- 		font-family: $font-bold;
- 		font-weight: normal;
+ 		@include font('display-large');
  		padding: 20px 0 20px 0;
  	}
 
- 	.slick-arrow {
- 		min-height: 40px;
- 		width: 40px;
- 		background-color: $mkh-blue1;
- 		opacity: .80;
- 	}
- 	.slick-prev:before,
- 	.slick-next:before {
- 		font-size: 30px;
- 		opacity: .90;
- 		color: white;
-    font-family: FontAwesome;
-
+ 	.slick-prev,
+ 	.slick-next{
+ 		@include arrow-button('arrow-right-small');
   }
 
- 	.slick-prev {
- 		left: 15px;
- 		top: 45%;
- 		z-index: 1;
- 		&:before {
- 			content: "\f053";
- 		}
- 	}
-
- 	.slick-next {
- 		right: 15px;
- 		top: 45%;
-    &:before {
- 			content: "\f054";
- 		}
- 	}	
-
  	.open-platform-item-list {
- 		height: 250px;
+ 		height: 290px;
+ 		@include media($tablet) {
+ 			height: 320px;
+ 		}
+ 		@include media($tablet) {
+ 			height: 350px;
+ 		}
  	}
 
  	.open-platform-item {
  		margin: 0 8px;
- 		background-color: $gray-light;
+ 		background-color: $grey-light;
 
  		a {
  			display: block;
@@ -62,7 +39,7 @@
  			background-repeat: no-repeat;
  			background-position: center -10px;
  			text-decoration: none;
- 			@media only screen and (max-width: $breakpoint-medium) {
+ 			@include media($mobile){
  				padding-bottom: 190%;
  			}
  		}
@@ -74,9 +51,6 @@
  				margin: auto;
  				padding: 60% 0;
  			}
-
- 			
-
  		}
  	}
 
@@ -84,24 +58,17 @@
  		position: absolute;
  		bottom: 0px;
  		left: 0;
-
  		width: 100%;
-
  		padding-top: 12%;
- 		background-image: linear-gradient(transparent, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+ 		background-image: linear-gradient(transparent, rgba(241, 242, 242, 0.7), rgba(241, 242, 242, 1), rgba(241, 242, 242, 1), rgba(241, 242, 242, 1));
  	}
 
  	.item-author, .item-title {
- 		@include font-normal();
- 		line-height: 120%;
- 		font-size: 75%;
- 		color: $black;
- 		@media only screen and (max-width: $breakpoint-large) {
- 			font-size: 90%;
- 		}
+ 		@include font('base');
+ 		line-height: 16px;
  	}
  	.item-title {
- 		@include font-bold();
+ 		@include font('base-bold');
  	}
  }
  

@@ -326,8 +326,6 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
       break;
 
       case 'query':
-      // Add slick
-      _bibsdb_expose_add_slick_javascript_css();
 
       $items = _bibsdb_expose_open_platform_new_materials_search($node->nid, 0, 7);
 
@@ -558,28 +556,31 @@ function bibsdb_expose_action_info() {
 function _bibsdb_expose_build_url($node) {
 
   if ($node->type == 'ding_search_context_link') {
+    if (module_exists('bibsdb_search_context_link')) {
 
-    // Update the search context link from internal or external link field
-    _fill_search_context_link($node, TRUE);
-    $wrapper = entity_metadata_wrapper('node', $node);
+      // Update the search context link from internal or external link field
+      _fill_search_context_link($node, TRUE);
+      
+      $wrapper = entity_metadata_wrapper('node', $node);
 
-    $url = $wrapper->field_search_context_link->value()['url'];
+      $url = $wrapper->field_search_context_link->value()['url'];
 
-    // One of the main usecases for ding_search_context_links is to link to
-    // search queries. Search queries are tricky because they are a mix of
-    // escaped and not escaped characters. This code handles it in a primitive
-    // fashion by only escaping the quotes.
-    //
-    // Quotes inside search queries need to be escaped.
-    $url = str_replace('"', '%22', $url);
+      // One of the main usecases for ding_search_context_links is to link to
+      // search queries. Search queries are tricky because they are a mix of
+      // escaped and not escaped characters. This code handles it in a primitive
+      // fashion by only escaping the quotes.
+      //
+      // Quotes inside search queries need to be escaped.
+      $url = str_replace('"', '%22', $url);
 
-    // Only add Webtrends tracking params to internal links.
-    if (_bibsdb_expose_url_is_internal($url)) {
-      if (strpos($url, '?') === FALSE) {
-        $url .= '';
-      }
-      else {
-        $url .= '';
+      // Only add Webtrends tracking params to internal links.
+      if (_bibsdb_expose_url_is_internal($url)) {
+        if (strpos($url, '?') === FALSE) {
+          $url .= '';
+        }
+        else {
+          $url .= '';
+        }
       }
     }
 
@@ -619,6 +620,7 @@ function _bibsdb_expose_add_javascript() {
   $module_path = drupal_get_path('module', 'bibsdb_expose');
   drupal_add_js($module_path . '/scripts/wall.masonry.options.js');
   drupal_add_js($module_path . '/scripts/bibsdb_expose.js');
+  drupal_add_js($module_path . '/scripts/bibsdb_slick.js');
 
 }
 
@@ -629,28 +631,16 @@ function _bibsdb_expose_add_javascript() {
  */
 function _bibsdb_expose_add_css() {
   $path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_css($path . '/css/bibsdb_expose.css');
-}
+  drupal_add_css($path . '/sass_css/bibsdb_expose.css');
 
-/**
- * Wrapper function that adds query specific js and css.
- */
-function _bibsdb_expose_add_slick_javascript_css () {
-
-  // Add the slick library files
+   // Add the slick library files
   if ($library_path = libraries_get_path('slick')) {
 
     $library_path .= '';
     $options = array('group' => JS_LIBRARY);
-    drupal_add_js($library_path . '/slick.min.js', $options);
-
-    drupal_add_css($library_path . '/slick.css');
+   
     drupal_add_css($library_path . '/slick-theme.css');
   }
-
-  // Add bibsdb slick implementation
-  $module_path = drupal_get_path('module', 'bibsdb_expose');
-  drupal_add_js($module_path . '/scripts/bibsdb_slick.js');
 }
 
 /**

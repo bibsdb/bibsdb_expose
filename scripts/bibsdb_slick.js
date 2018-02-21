@@ -152,19 +152,27 @@
         bibsdbRunningRequest: false,
         responsive: [
         {
-          breakpoint: 940,
+          breakpoint: 1100,
           settings: {
             arrows: true,
-            slidesToShow: 4,
-            slidesToScroll: 4
+            slidesToShow: 5,
+            slidesToScroll: 5
           }
         },
         {
-          breakpoint: 768,
+          breakpoint: 950,
           settings: {
             arrows: true,
-            slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToShow: 5,
+            slidesToScroll: 5
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            arrows: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
           }
         }
         ]
@@ -180,7 +188,7 @@
         bibsdbRunningRequest: false,
         responsive: [
         {
-          breakpoint: 940,
+          breakpoint: 950,
           settings: {
             arrows: true,
             slidesToShow: 4,
@@ -188,7 +196,7 @@
           }
         },
         {
-          breakpoint: 768,
+          breakpoint: 600,
           settings: {
             arrows: true,
             slidesToShow: 2,

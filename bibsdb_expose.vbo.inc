@@ -93,11 +93,11 @@ function bibsdb_expose_vbo_change_brick_type_form($settings, &$form_state) {
   foreach ($tree as $term) {
     $term_name_elements = explode('-', $term->name);
     // Only display the bricks that are allowed on this wall
-    if (!(empty(array_intersect($wall_name_elements, $term_name_elements )))) {
+    //if (!(empty(array_intersect($wall_name_elements, $term_name_elements )))) {
       // Remove first p-tag so that title stands on same line as radio button
       $term_description = preg_replace('~<p>(.*?)</p>~is', '$1', $term->description, /* limit */ 1);
       $brick_type_options[$term->tid] = $term_description;
-    }
+    //}
   }
 
   // Build form

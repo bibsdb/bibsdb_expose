@@ -1,0 +1,1 @@
+!function($){"use strict";function a(){$(".pane-bibsdb-wall-panel-bibsdb-wall").has(".view-bibsdb-wall.empty").addClass("nocontent"),$(".pane-bibsdb-wall-panel-bibsdb-wall").has(".contextual-links-region .view-bibsdb-wall").addClass("editormode")}$(document).ready(function(){a()})}(jQuery);

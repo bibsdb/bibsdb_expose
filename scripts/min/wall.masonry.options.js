@@ -1,0 +1,1 @@
+!function($){"use strict";$(document).ready(function(){var t=$(".brick");t.hide();var e=$(".masonry");e.imagesLoaded(function(){t.fadeIn(),e.masonry({itemSelector:".brick",columnWidth:".colwidth",gutter:".gutterwidth"})})})}(jQuery);

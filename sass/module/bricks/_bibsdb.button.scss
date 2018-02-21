@@ -1,0 +1,44 @@
+ /**
+ * Style definition of brick-layout: Button
+ *
+ * @author agms
+ */
+
+
+ .masonry {
+
+ 	.button {
+
+ 		.wrapper {
+ 			width: 100%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			background-color: $green;
+ 			opacity: .60;
+ 			padding: 3%;
+ 		}
+
+ 		.title {
+ 			width: 94%;
+ 			@include font('display');
+
+ 			a {
+ 				display: block;
+ 				position: relative;
+ 				padding-top: 10%;
+ 				text-decoration: none;
+ 				&:hover {
+ 					color: $white;
+ 					text-decoration: underline;
+ 				}
+ 				&:link {
+ 					color: $white;
+ 				}
+ 				&:visited {
+ 					color: $white;
+ 				}	
+ 			}
+ 		}
+ 	}
+}

@@ -1,0 +1,70 @@
+/**
+ * Style definition of brick-layout: Brick1x1
+ *
+ * @author agms
+ */
+
+
+ .masonry {
+
+ 	.brick1x1 {
+
+ 		a {
+ 			display: block;
+ 			position: relative;
+ 			padding-top: 100%;
+ 			background-color: $grey;
+ 			background-size: cover;
+ 			background-position: center center;
+ 			text-decoration: none;
+ 			background-repeat: no-repeat;
+
+ 			&::before {
+        @include transition(background-color $speed $ease);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $charcoal-opacity-light;
+      }
+      // Hover
+      &:hover {
+        &::before {
+          background-color: $charcoal-opacity-dark;
+        }
+      }
+ 		}
+
+ 		.wrapper {
+ 			@include linear-gradient(
+        transparent 0%,
+        $charcoal-opacity-extra-dark 100%
+      );
+ 			width: 100%;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			padding: 25px $box-padding $box-padding;
+ 			color: $white;
+ 		}
+
+ 		.title {
+ 			@include font('display');
+ 		}
+
+ 		.tag {
+ 			@include font('display-small');
+ 		}
+
+ 		&.w2 {
+ 			a {
+ 				padding-top: 1/2 * 100% - $gutter;
+ 			}
+ 			.wrapper {
+ 				padding: 25px $box-padding $box-padding;
+ 			}
+ 		}
+ 	}
+ }

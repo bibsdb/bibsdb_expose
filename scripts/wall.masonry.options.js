@@ -10,10 +10,9 @@
     var $container = $('.masonry');
     $container.imagesLoaded( function() {
       $boxes.fadeIn();
-
       $container.masonry({
         itemSelector: '.brick',
-        columnwidth : '.colwidth',
+        columnWidth : '.colwidth',
         gutter: '.gutterwidth',
       });    
     });

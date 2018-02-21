@@ -11,20 +11,22 @@
 
 
 // Include configuration
-@import "configuration/_bibsdb.variables";
+@import "configuration/_variables";
+@import "configuration/_mixin";
+@import "configuration/_typography";
+@import "configuration/_extend";
 
 
 // Include framework
-@import "framework/_bibsdb.mixins";
+
 
 // Include modules
 @import "module/_bibsdb.masonry";
 
 // Include bricks
-@import "module/bricks/_bibsdb.imagewtitle";
-@import "module/bricks/_bibsdb.publication";
-@import "module/bricks/_bibsdb.buttonbrick";
+@import "module/bricks/_bibsdb.brick1x1";
+@import "module/bricks/_bibsdb.brick16x9";
 @import "module/bricks/_bibsdb.carousel";
-@import "module/bricks/_bibsdb.newmaterialbutton";
+@import "module/bricks/_bibsdb.button";
 
 

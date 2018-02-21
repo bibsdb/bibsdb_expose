@@ -10,25 +10,21 @@
 ========================================================================== */
 
 $gutter: 3%;
-$col1gutter: 8%;
 $frontgutter: 1%;
 
 //col1
 $col1width1: 100%; // 1/colnum*100% - gutternum/colnum * gutterwidth
 $col1height1: 100%;
-$col1height01: 10%;
 $col1height15: (1/1 * 100%) * 3/2 + $gutter;
 $col1height3: (1/1 * 100%) * 3 + 2 * $gutter;
 
 //col2
-$col2width1: (1/2 * 100%) - (1/2 * $gutter); // 1/colnum*100% - gutternum/colnum * gutterwidth
+$col2width1: (1/2 * 100%) - (1/2 * $gutter); 
 $col2width1f: (1/2 * 100%) - (1/2 * $frontgutter); 
 $col2width2: ((1/2 * 100%) - (1/2 * $gutter)) * 2 + $gutter;
 $col2height12: ((1/2 * 100%) - (1/2 * $gutter)) * 12/10 + $gutter;
-$col2height15: ((1/2 * 100%) - (1/2 * $gutter)) * 3/2 + $gutter;
 $col2height169: ((1/2 * 100%) - (1/2 * $gutter)) * 9/16;
 $col2height01f: ((1/2 * 100%) - (1/3 * $frontgutter)) * 1/10;
-$col2height1692: ((1/2 * 100%) - (1/2 * $gutter)) * 9/16/2 - $gutter/2;
 $col2height1: ((1/2 * 100%) - (1/2 * $gutter));
 
 //col3
@@ -40,9 +36,14 @@ $col3width05: ((1/3 * 100%) - (2/3 * $gutter)) * 1/2;
 $col3height1: ((1/3 * 100%) - (2/3 * $gutter));
 $col3height169: ((1/3 * 100%) - (2/3 * $gutter)) * 9/16;
 $col3height01f: ((1/3 * 100%) - (2/3 * $frontgutter)) * 1/10;
-$col3height12: ((1/3 * 100%) - (2/3 * $gutter)) * 12/10 + 3%; // + 4% replaced with + 3% to make it inline with 2col-height1
 $col3width25: ((1/3 * 100%) - (2/3 * $gutter)) * 5/2 + $gutter;
 $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
+
+//col4
+$col4width1: (1/4 * 100%) - (3/4 * $gutter); // 1/colnum*100% - gutternum/colnum * gutterwidth
+$col4width2: ((1/4 * 100%) - (3/4 * $gutter)) * 2 + $gutter;
+$col4height1: ((1/4 * 100%) - (3/4 * $gutter));
+
 
 
 
@@ -53,23 +54,13 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 .masonry {
 
 	.colwidth {
-		width: (1/12 * 100%);
+		width: (1/12 * 100%) - (11/12 * $gutter);
 	}
 
 	.gutterwidth {
 		width: $gutter;
 	}
 
-	&.col1{
-		.gutterwidth {
-			width: $col1gutter;
-		}
-		@media only screen and (max-width: $breakpoint-large) {
-			.gutterwidth {
-				width: $gutter;
-			}
-		}
-	}
 }
 
 .front .masonry {
@@ -93,31 +84,6 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 			overflow: hidden;
 		}
 
-
-		&.col1 {
-			&.w1 {
-				width: $col1width1;
-				@media only screen and (max-width: $breakpoint-large) {
-					width: $col2width1;
-				}
-			}
-			&.h1 {
-				padding-bottom: $col1height1;
-				@media only screen and (max-width: $breakpoint-large) {
-					padding-bottom: $col2height1;
-				}
-			}
-			&.h15 {
-				padding-bottom: $col1height15;
-				@media only screen and (max-width: $breakpoint-large) {
-					padding-bottom: $col2height15;
-				}
-			}
-			&.h3 {
-				padding-bottom: $col1height3;
-			}
-		}
-
 		&.col2 {
 			&.w1 {
 				width: $col2width1;
@@ -128,99 +94,125 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 			&.h1 {
 				padding-bottom: $col2height1;
 			}
-			&.h15 {
-				padding-bottom: $col2height15;
-			}
 			&.h169 {
 				padding-bottom: $col2height169;
-			}
-			&.h1692 {
-				padding-bottom: $col2height1692;
 			}
 		}
 
 		&.col3 {
 			&.w1 {
 				width: $col3width1;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet){
 					width: $col2width1;
 				}
 			}
 			&.w1f {
 				width: $col3width1f;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					width: $col2width1f;
 				}
-				@media only screen and (max-width: $breakpoint-medium) {
+				@include media($tablet){
 					width: $col1width1;
 				}
 			}
 			&.w2 {
 				width: $col3width2;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					width: $col2width2;
 				}
 			}
 			&.w3 {
 				width: $col3width3;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					width: $col2width2;
 				}
 			}
 			&.h169 {
 				padding-bottom: $col3height169;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					padding-bottom: $col2height169;
 				}
 			}
 			&.h01f {
 				padding-bottom: $col3height01f;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					padding-bottom: $col2height01f;
-				}
-				@media only screen and (max-width: $breakpoint-medium) {
-					padding-bottom: $col1height01;
 				}
 			}
 			&.h1 {
 				padding-bottom: $col3height1;
-				@media only screen and (max-width: $breakpoint-large) {
+				@include media($tablet) {
 					padding-bottom: $col2height1;
 				}
-				@media only screen and (max-width: $breakpoint-medium) {
+				@include media($mobile){
 					padding-bottom: 100%;
 				}
 
 			}
-			&.h12 {
-				padding-bottom: $col3height12;
-				@media only screen and (max-width: $breakpoint-large) {
-					padding-bottom: $col2height1;
+			&.h380 {
+				padding-bottom: 380px;
+				@include media($tablet) {
+					padding-bottom: 420px;
 				}
-				@media only screen and (max-width: $breakpoint-medium) {
-					padding-bottom: $col2height15;
+				@include media($mobile) {
+					padding-bottom: 430px;
 				}
 			}
 		}
 
+		&.col4 {
+			&.w1 {
+				width: $col4width1;
+			}
+			&.w2 {
+				width: $col4width2;
+			}
+			&.h1 {
+				padding-bottom: $col4height1;
+			}
+		}
+
 	}
+
 	
 }
 
-
-/* Basic configuration
+/* Wall margins and paddings
 ========================================================================== */
+
+.content-wrapper .pane-content .default-panel-layout .attachments-wrapper .panel-pane.wall .panel-pane-inner {
+	padding: 0;
+}
+
+
+/* Wall title
+========================================================================== */
+
+.content-wrapper .pane-content .default-panel-layout .attachments-wrapper .panel-pane.wall-title {
+	background-color: $grey-light;
+	background-image: none;
+	.panel-pane-inner {
+		padding: 40px 0 0;
+	}
+}
+
+.wall-title {
+	h2 {
+		@include font('display-large');
+		color: $color-text;
+		margin-bottom: 20px;
+		// Mobile
+		@include media($mobile) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+/* Editor mode 
+========================================================================== */
+
 .wall {
-	background-color: $white;
-	padding-top: 1.5%;
-	@media only screen and (max-width: $breakpoint-large) {
-		padding-top: $gutter;
-	}
-
-	&.front {
-		padding: 10px 0;
-	}
-
+	
 	&.nocontent {
 		display: none;
 	}
@@ -240,91 +232,33 @@ $col3height2: ((1/3 * 100%) - (2/3 * $gutter)) * 2 + $gutter;
 	}	
 }
 
-
-
-
 .masonry {
-	background-color: $white;
-
 	.brick {
-		font-family: $font-bold;
-		word-wrap: break-word;
-
-		.container {
-			background-color: $white;
-		}
-
-		@include low() {
-			font-size: $font-size-tiny;
-			line-height: $font-size-medium;
-		}
-
-		@include small() {
-			font-size: $font-size-reset;
-			line-height: $font-size-medium;
-		}
-
-		@include medium() {
-			font-size: $font-size-medium;
-			line-height: $font-size-medium;
-		}
-
-
-		@include large() {
-			font-size: $font-size-medium;
-			line-height: $font-size-medium;
-		}
-
-		@include x-large() {
-			font-size: $font-size-large;
-			line-height: $font-size-medium;
-		}
-
+		margin-bottom: $gutter;
 
 		a:link {
-			color: $font-color-primary;
+			color: $color-standard-text;
 		}
 		a:hover {
-			color: $font-color-primary;
+			color: $color-standard-text;
 		}
 		a:visited {
-			color: $font-color-primary;
+			color: $color-standard-text;
 		}
 	}
 }
 
 
-
-/* Walls on ding_page and page_group and new-materialss
+/* INFO + INSPIRATION - span the entire page
 ============================================================================ */
 
-.node-type-ding-page .default-layout, .node-type-ding-group .default-layout, .node-type-new-materials .default-layout, .front .frontpage-layout {
-
-	.primary-content {
-		/*@include zen-clear();
-		@include zen-grid-container;*/
+.page-node-2187, .page-node-123 {
+	.content-wrapper .pane-content .default-panel-layout .left-and-main-content .layout-wrapper .primary-content {
+		width: 100%;
 	}
-
-
-	/* Page content */
-
-	article.page, .pane-node-content, .pane-new-materials-list, .wall, .pane-node-field-bibsdb-new-materials-body, .pane-node-field-bibsdb-page-body-2, .pane-node-field-ding-page-body{
-		/*@include zen-grid-item(12, 1);
-		@include zen-clear();*/
-	}
-
-
-	.wall-title {
-		/*@include zen-grid-item(12, 1);
-		@include zen-clear();*/
-		padding-top: 30px;
-		h2 {
-			@include font-bold();
-			font-size: $font-size-largest;
-		}
-	}
-	
 }
+
+
 
 
 
