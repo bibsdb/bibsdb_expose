@@ -17,7 +17,7 @@ function bibsdb_expose_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Bibsdb Groups',
     'no_blocks' => 0,
@@ -182,7 +182,10 @@ function bibsdb_expose_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'wall-title',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
@@ -579,7 +582,7 @@ function bibsdb_expose_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Bibsdb Page',
     'no_blocks' => 0,

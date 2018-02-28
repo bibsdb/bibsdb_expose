@@ -823,7 +823,7 @@ function bibsdb_expose_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -881,7 +881,7 @@ function bibsdb_expose_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 1,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -1038,64 +1038,6 @@ function bibsdb_expose_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 45,
-    ),
-  );
-
-  // Exported field_instance: 'node-ding_news-field_bibsdb_tag'
-  $field_instances['node-ding_news-field_bibsdb_tag'] = array(
-    'bundle' => 'ding_news',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'alternative_layout_full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 22,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser_highlight' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_bibsdb_tag',
-    'label' => 'Tag',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -10,
     ),
   );
 
@@ -1611,7 +1553,6 @@ function bibsdb_expose_field_default_field_instances() {
   t('List Image vil blive skaleret ned til den valgte højde og placeret oven på baggrundsbilledet. Udfyld enten højde eller bredde. Er du i tvivl så udfyld ikke.');
   t('Lodret position på baggrundsbilledet (px)');
   t('OPTIONAL. This image is merged into the background of title image and list image. ');
-  t('Tag');
   t('Titel View 1');
   t('Titel View 2');
   t('Titel View 3');
