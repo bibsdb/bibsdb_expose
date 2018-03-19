@@ -554,10 +554,8 @@ function bibsdb_expose_action_info() {
 
 
 function _bibsdb_expose_build_url($node) {
-
   if ($node->type == 'ding_search_context_link') {
-    if (module_exists('bibsdb_search_context_link')) {
-
+    if (module_exists('bibsdb_search_context')) {
       // Update the search context link from internal or external link field
       _fill_search_context_link($node, TRUE);
       
