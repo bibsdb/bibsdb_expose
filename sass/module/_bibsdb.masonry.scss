@@ -70,6 +70,7 @@ $col4height1: ((1/4 * 100%) - (3/4 * $gutter));
 }
 
 .masonry {
+	clear: both;
 
 	.brick { 
 		float: left;
@@ -197,6 +198,7 @@ $col4height1: ((1/4 * 100%) - (3/4 * $gutter));
 }
 
 .wall-title {
+	clear: both;
 	h2 {
 		@include font('display-large');
 		color: $color-text;
