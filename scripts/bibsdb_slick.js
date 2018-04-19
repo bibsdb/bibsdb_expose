@@ -101,8 +101,6 @@
      */
      function _control_arrows() {
 
-      console.log($('.slick-prev'));
-
 			// Hide prev-arrow on load
 			$('.slick-prev').hide();
 
