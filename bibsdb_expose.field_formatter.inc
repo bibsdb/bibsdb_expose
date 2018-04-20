@@ -77,7 +77,7 @@ function theme_bibsdb_expose_bibsdb_query_to_carousel_formatter($items) {
   
   $query = $items[0]['safe_value'];
   $results = bibsdb_open_platform_search($query);
-  $content = theme('carousel', array('content' => $results));
+  $content = theme('open_platform_carousel', array('content' => $results));
 
   return $content;
 }

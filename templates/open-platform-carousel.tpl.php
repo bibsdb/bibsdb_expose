@@ -13,7 +13,7 @@
 
 
 
-<div class="open-platform-item-list" id="<?php print $nid; ?>">
+<div class="open-platform-carousel" id="<?php print $nid; ?>">
 <?php foreach ($items as $delta => $item) : ?>
 	<?php print render($item); ?>
 <?php endforeach; ?>

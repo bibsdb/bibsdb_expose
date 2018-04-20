@@ -11,7 +11,7 @@
      function _fetch_on_next() {
 
      	// Detect edge hit
-     	$('.open-platform-item-list').on('afterChange', function(event, slick, currentSlide){
+     	$('.open-platform-carousel').on('afterChange', function(event, slick, currentSlide){
 
           // Fetch again if nessesary
           if (_ready_to_fetch($(this))) {
@@ -105,7 +105,7 @@
 			$('.slick-prev').hide();
 
 			// Attach afterChange event-handler to detect if carousel is back at beginning
-			$('.open-platform-item-list').on('afterChange', function(event, slick, currentSlide){
+			$('.open-platform-carousel').on('afterChange', function(event, slick, currentSlide){
 				if (currentSlide) {
 					$('.slick-prev').show();
 				}
@@ -141,7 +141,7 @@
      function init() {
 
 
-      $('.not-front .open-platform-item-list').slick({
+      $('.not-front .open-platform-carousel').slick({
         infinite: false,
         slidesToShow: 5,
         slidesToScroll: 5,
@@ -177,7 +177,7 @@
       });
 
       // Frontpage settings
-      $('.front .open-platform-item-list').slick({
+      $('.front .open-platform-carousel').slick({
         infinite: false,
         slidesToShow: 6,
         slidesToScroll: 6,

@@ -173,14 +173,19 @@ function bibsdb_expose_theme($existing, $type, $theme, $path) {
       'template' => 'templates/exposure',
       //'file' => 'bibsdb_expose.theme.inc',
       ),
-    'carousel' => array(
+    'open_platform_carousel' => array(
       'variables' => array('nid' => null, 'items' => null),
-      'template' => 'carousel',
+      'template' => 'open-platform-carousel',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
       ),
-    'carousel_item' => array(
+    'open_platform_list' => array(
+      'variables' => array('nid' => null, 'items' => null),
+      'template' => 'open-platform-list',
+      'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
+      ),
+    'open_platform_item' => array(
       'variables' => array('content' => null),
-      'template' => 'carousel-item',
+      'template' => 'open-platform-item',
       'path' => drupal_get_path('module', 'bibsdb_expose') . '/templates',
       ),
     'views_view_unformatted__bibsdb_wall' => array(
@@ -331,7 +336,7 @@ function bibsdb_expose_entity_view($entity, $type, $view_mode, $langcode) {
 
       $carouselmarkup = array(
         '#type' => 'markup',
-        '#markup' => theme('carousel', array('nid' => $node->nid, 'items' => $items)),
+        '#markup' => theme('open_platform_carousel', array('nid' => $node->nid, 'items' => $items)),
         );
 
       // Build div container
@@ -685,7 +690,7 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
       'owner_id' => $id_arr[1],
       'title' => $data->title[0],
       'author' => $data->creator[0],
-      'ting_object_url' => "/ting/object/" . $id_arr[1] . ":" . $id_arr[0],
+      'ting_object_url' => "/ting/object/870970-basis:" . $id_arr[0],
       'image_style' => 'ding_list_small'
 
       );
@@ -693,7 +698,7 @@ function _bibsdb_expose_open_platform_new_materials_search($nid, $offset, $lengt
     // Add the local cover url to $item_info
     $item_info['local_cover_url'] = _bibsdb_expose_get_cover_url($item_info);
 
-    array_push($new_materials_arr, theme('carousel_item', array('content' => $item_info)));
+    array_push($new_materials_arr, theme('open_platform_item', array('content' => $item_info)));
     
   }
   // Append fetched items to the existing cached items for this node
