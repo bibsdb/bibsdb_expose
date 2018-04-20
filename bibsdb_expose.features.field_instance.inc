@@ -10,7 +10,7 @@
 function bibsdb_expose_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_content'
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_content'.
   $field_instances['exposure-exposure-field_bibsdb_brick_content'] = array(
     'bundle' => 'exposure',
     'default_value' => NULL,
@@ -56,7 +56,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_type'
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_brick_type'.
   $field_instances['exposure-exposure-field_bibsdb_brick_type'] = array(
     'bundle' => 'exposure',
     'default_value' => NULL,
@@ -98,7 +98,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'exposure-exposure-field_bibsdb_hosting_node'
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_hosting_node'.
   $field_instances['exposure-exposure-field_bibsdb_hosting_node'] = array(
     'bundle' => 'exposure',
     'default_value' => NULL,
@@ -146,7 +146,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'exposure-exposure-field_bibsdb_wall'
+  // Exported field_instance: 'exposure-exposure-field_bibsdb_wall'.
   $field_instances['exposure-exposure-field_bibsdb_wall'] = array(
     'bundle' => 'exposure',
     'default_value' => NULL,
@@ -188,7 +188,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_group_body_2'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_group_body_2'.
   $field_instances['node-ding_group-field_bibsdb_group_body_2'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -245,7 +245,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_1'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_1'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_1'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -302,7 +302,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_2'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_2'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_2'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -359,7 +359,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_3'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_3'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_3'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -416,7 +416,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_4'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_4'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_4'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -473,7 +473,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_5'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_5'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_5'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -530,7 +530,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_6'
+  // Exported field_instance: 'node-ding_group-field_bibsdb_wall_title_6'.
   $field_instances['node-ding_group-field_bibsdb_wall_title_6'] = array(
     'bundle' => 'ding_group',
     'default_value' => NULL,
@@ -587,7 +587,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_background_image'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_background_image'.
   $field_instances['node-ding_news-field_bibsdb_background_image'] = array(
     'bundle' => 'ding_news',
     'deleted' => 0,
@@ -681,7 +681,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_xpos'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_xpos'.
   $field_instances['node-ding_news-field_bibsdb_bgimg_xpos'] = array(
     'bundle' => 'ding_news',
     'default_value' => array(
@@ -743,7 +743,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_ypos'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_bgimg_ypos'.
   $field_instances['node-ding_news-field_bibsdb_bgimg_ypos'] = array(
     'bundle' => 'ding_news',
     'default_value' => array(
@@ -805,7 +805,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_fact_box_body'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_fact_box_body'.
   $field_instances['node-ding_news-field_bibsdb_fact_box_body'] = array(
     'bundle' => 'ding_news',
     'default_value' => NULL,
@@ -863,7 +863,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_fact_box_title'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_fact_box_title'.
   $field_instances['node-ding_news-field_bibsdb_fact_box_title'] = array(
     'bundle' => 'ding_news',
     'default_value' => NULL,
@@ -921,7 +921,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_height'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_height'.
   $field_instances['node-ding_news-field_bibsdb_listimg_height'] = array(
     'bundle' => 'ding_news',
     'default_value' => array(
@@ -983,7 +983,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_width'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_listimg_width'.
   $field_instances['node-ding_news-field_bibsdb_listimg_width'] = array(
     'bundle' => 'ding_news',
     'default_value' => NULL,
@@ -1041,7 +1041,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_news-field_bibsdb_vanilla_list_image'
+  // Exported field_instance: 'node-ding_news-field_bibsdb_vanilla_list_image'.
   $field_instances['node-ding_news-field_bibsdb_vanilla_list_image'] = array(
     'bundle' => 'ding_news',
     'deleted' => 0,
@@ -1135,7 +1135,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_page_body_2'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_page_body_2'.
   $field_instances['node-ding_page-field_bibsdb_page_body_2'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1192,7 +1192,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_1'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_1'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_1'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1249,7 +1249,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_2'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_2'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_2'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1306,7 +1306,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_3'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_3'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_3'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1363,7 +1363,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_4'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_4'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_4'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1420,7 +1420,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_5'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_5'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_5'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
@@ -1477,7 +1477,7 @@ function bibsdb_expose_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_6'
+  // Exported field_instance: 'node-ding_page-field_bibsdb_wall_title_6'.
   $field_instances['node-ding_page-field_bibsdb_wall_title_6'] = array(
     'bundle' => 'ding_page',
     'default_value' => NULL,
