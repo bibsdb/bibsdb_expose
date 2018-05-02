@@ -9,9 +9,6 @@ include_once 'bibsdb_expose.features.inc';
 include_once 'bibsdb_expose.tag.inc';
 include_once 'bibsdb_expose.vbo.inc';
 
-// Load code that generates list images with background effect.
-include_once 'bibsdb_expose.bgimg.inc';
-
 // Alterations to node add/edit form
 include_once 'bibsdb_expose.admin.inc';
 
