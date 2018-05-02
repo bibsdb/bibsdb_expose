@@ -1,22 +1,5 @@
 <?php
 
-
-
-/**
- * Implements hook_node_presave. 
- * Triggers creation of background image om news node types
- * 
- * @param $node
- */
-function bibsdb_expose_node_presave($node) {
-
-
-  // BACKGROUND IMAGE
-  if ('ding_news' == $node->type) {
-    _create_background_image($node);
-  }
-}
-
 /**
  * Node add/edit form changes
  */
@@ -101,50 +84,10 @@ function bibsdb_expose_image_styles_alter(&$styles) {
     $form['#group_children']['group_bibsdb_fact_box'] = 'group_ding_news_content';
   }
 
-  //BG IMAGE
-
-  // Move field field_bibsdb_background_image into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_background_image'])) {
-    $form['#group_children']['field_bibsdb_background_image'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_bgimg_xpos into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_bgimg_xpos'])) {
-    $form['#group_children']['field_bibsdb_bgimg_xpos'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_bgimg_ypos into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_bgimg_ypos'])) {
-    $form['#group_children']['field_bibsdb_bgimg_ypos'] = 'group_bibsdb_background_image';
-  }
-
-  // Move field field_bibsdb_listimg_height into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_listimg_height'])) {
-    $form['#group_children']['field_bibsdb_listimg_height'] = 'group_bibsdb_background_image';
-  }
-
-   // Move field field_bibsdb_listimg_width into group_bibsdb_background_image
-  if(isset($form['field_bibsdb_listimg_width'])) {
-    $form['#group_children']['field_bibsdb_listimg_width'] = 'group_bibsdb_background_image';
-  }
-
-  
-  if(isset($form['#groups']['group_bibsdb_background_image'])) {
-    // Set fact box group weight
-    $form['#groups']['group_bibsdb_background_image']->weight = 4;
-
-    // Set fact box group label
-    $form['#groups']['group_bibsdb_background_image']->label = 'Baggrundsbillede';
-
-    // Move group group_bibsdb_background_image into group_ding_news_images
-    $form['#group_children']['group_bibsdb_background_image'] = 'group_ding_news_images';
-  }
-
 	// On ding_news hide some fields
   if ($type == 'ding_news') {
     $form['og_group_ref']['#access'] = FALSE;
     $form['field_ding_news_tags']['#access'] = FALSE;
     $form['field_bpi_workflow']['#access'] = FALSE;
-    $form['field_bibsdb_vanilla_list_image']['#access'] = FALSE;
   }  
 }
