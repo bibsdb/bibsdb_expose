@@ -30,7 +30,7 @@
       // Hover
       &:hover {
         &::before {
-          background-color: $charcoal-opacity-dark;
+          background-color: $black-overlay;
         }
       }
  		}
@@ -51,6 +51,47 @@
  		.title {
  			@include font('display');
  		}
+
+    .lead {
+      @include transition(opacity $speed $ease);
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: $white;
+      opacity: 0;
+      overflow: hidden;
+
+      @include font('display-small');
+      @include transition(
+        height $speed $ease,
+        opacity $speed $ease
+      );
+      position: static;
+      height: 0;
+      padding: 0;
+    }
+
+    // Hover for non touch devices
+    &:hover {
+      .lead {
+        opacity: 1;
+      }
+    } 
+
  	}
+
+  // Use smaller font on walls in primary content when left menu is visible
+  &.left-menu-visible .brick16x9 {
+    .wrapper {
+      padding: 10px $box-padding 5px;
+    }
+    .title {
+      @include font('display-small');
+    }
+    .lead {
+      @include font('base');
+      @include font('base-bold');
+    }
+  }
 }
 
