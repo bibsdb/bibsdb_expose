@@ -81,17 +81,33 @@
  	}
 
   // Use smaller font on walls in primary content when left menu is visible
-  &.left-menu-visible .brick16x9 {
-    .wrapper {
-      padding: 10px $box-padding 5px;
+  // Left menu is not visible on mobile or tablet
+
+    &.left-menu-visible .brick16x9 {
+      .wrapper {
+        padding: 10px $box-padding 5px;
+      }
+      .title {
+        @include font('display-small');
+      }
+      .lead {
+        @include font('base');
+        @include font('base-bold');
+      }
+
+      @include media($tablet) {
+        .wrapper {
+          padding: 25px $box-padding $box-padding;
+        }
+        .title {
+          @include font('display');
+        }
+        .lead {
+          @include font('display-small');
+        }
+
+      }
     }
-    .title {
-      @include font('display-small');
-    }
-    .lead {
-      @include font('base');
-      @include font('base-bold');
-    }
-  }
+  
 }
 

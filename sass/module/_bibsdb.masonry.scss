@@ -10,13 +10,17 @@
 ========================================================================== */
 
 $gutter: 3%;
+
 $frontgutter: 1%;
 
+// 1/colnum*100% - gutternum/colnum * gutterwidth
+
 //col1
-$col1width1: 100%; // 1/colnum*100% - gutternum/colnum * gutterwidth
+$col1width1: 100%; 
 $col1height1: 100%;
 $col1height15: (1/1 * 100%) * 3/2 + $gutter;
 $col1height3: (1/1 * 100%) * 3 + 2 * $gutter;
+$col1height169: ((1/1 * 100%) - $gutter) * 9/16;
 
 //col2
 $col2width1: (1/2 * 100%) - (1/2 * $gutter); 
@@ -88,65 +92,103 @@ $col4height1: ((1/4 * 100%) - (3/4 * $gutter));
 		&.col2 {
 			&.w1 {
 				width: $col2width1;
+
+				// On mobile change 2 col layout to 1 col layout
+				@include media($mobile){
+					width: $col1width1;
+				}
 			}
 			&.w2 {
 				width: $col2width2;
 			}
 			&.h1 {
 				padding-bottom: $col2height1;
+
+				// On mobile change 2 col layout to 1 col layout
+				@include media($mobile){
+					padding-bottom: $col1height1;
+				}
 			}
 			&.h169 {
 				padding-bottom: $col2height169;
+
+				// On mobile change 2 col layout to 1 col layout
+				@include media($mobile){
+					padding-bottom: $col1height169;
+				}
 			}
 		}
 
 		&.col3 {
 			&.w1 {
 				width: $col3width1;
+
+				// On tablet change 3 col layout to 2 col layout
 				@include media($tablet){
 					width: $col2width1;
 				}
-			}
-			&.w1f {
-				width: $col3width1f;
-				@include media($tablet) {
-					width: $col2width1f;
-				}
-				@include media($tablet){
+
+				// On mobile change 3 col layout to 1 col layout
+				@include media($mobile){
 					width: $col1width1;
 				}
 			}
 			&.w2 {
 				width: $col3width2;
+
+				// On tablet change 3 col layout to 2 col layout
 				@include media($tablet) {
 					width: $col2width2;
+				}
+
+				// On mobile change 3 col layout to 1 col layout
+				@include media($mobile){
+					width: $col1width1;
 				}
 			}
 			&.w3 {
 				width: $col3width3;
+				// On tablet change 3 col layout to 2 col layout
 				@include media($tablet) {
 					width: $col2width2;
+				}
+
+				// On mobile change 3 col layout to 1 col layout
+				@include media($mobile){
+					width: $col1width1;
 				}
 			}
 			&.h169 {
 				padding-bottom: $col3height169;
+
+				// On tablet change 3 col layout to 2 col layout
 				@include media($tablet) {
 					padding-bottom: $col2height169;
 				}
-			}
-			&.h01f {
-				padding-bottom: $col3height01f;
-				@include media($tablet) {
-					padding-bottom: $col2height01f;
+
+				// On mobile change 3 col layout to 1 col layout
+				@include media($mobile){
+					padding-bottom: $col1height169;
 				}
 			}
 			&.h1 {
 				padding-bottom: $col3height1;
+
+				// On tablet change 3 col layout to 2 col layout
 				@include media($tablet) {
 					padding-bottom: $col2height1;
 				}
+
+				// On mobile change 3 col layout to 1 col layout
 				@include media($mobile){
-					padding-bottom: 100%;
+					padding-bottom: $col1height1;
+				}
+			}
+			&.h1.w2 {
+				// On mobile change 3 col layout to 1 col layout
+				// Take care of the rectagular brick
+				@include media($mobile){
+					padding-bottom: $col2height1;
 				}
 
 			}
